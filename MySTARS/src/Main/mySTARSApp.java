@@ -1,3 +1,4 @@
+package Main;
 import Login.LoginInterface;
 
 public class mySTARSApp {
