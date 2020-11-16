@@ -39,9 +39,8 @@ public class LoginInterface {
       
 		String password = consoleReadPass();
       
-		//String confirmPass = console.readPassword("Confirm password:");
-		//System.out.printf("Please Enter Password: ");
-		//password = sc.next();		
+			System.out.printf("Please Enter Password: ");
+			String password = sc.next();	
 
 		loginController.validateLogin(username, password, choice);
 	}
