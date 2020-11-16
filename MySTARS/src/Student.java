@@ -1,76 +1,79 @@
 
 public class Student {
-	private String firstName;
-	private String lastName;
-	private String matricNumber;
-	private String gender;
-	private String nationality;
-	private int age;
-	
-	private String[] courseCode;
-	private String[] school;
-	private int[] indexNum;
-	private boolean[] vacancy;
-	
-	private String username;
-	private String password;
-	private String key;
-	
-	
-	public Student(String n, String e, String k)  {
-		username = n ;
-		password = e ;
-		key = k;
-		//retrieve database student info
-	}
-	public String getUsername() { return username ; }
-	public String getPassword() { return password ; }
-	public String getKey() { return key ; }
 
+	private String  key ;
+	private String  firstName;
+	private String  lastName;
+	private String  matricNum;
+	private String  gender;
+	private String  nationality;
+	private String  age ;
+	
 
-
-	public Student(String firstName, String lastName, int age, String gender, String nationality, String school, String matricNumber) {
+	public Student(String key, String firstName, String lastName, String matricNum, String gender, String nationality, String age)
+	{
+		this.key = key;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.age = age;
-		this.matricNumber = matricNumber;
+		this.matricNum = matricNum;
 		this.gender = gender;
 		this.nationality = nationality;
+		this.age = age;
 	}
+	
+	public String getKey() {
+		return key;
+	}
+
+	public void setKey(String key) {
+		this.key = key;
+	}
+
 	public String getFirstName() {
 		return firstName;
 	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
 	public String getLastName() {
 		return lastName;
 	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getMatricNum() {
+		return matricNum;
+	}
+
+	public void setMatricNum(String matricNum) {
+		this.matricNum = matricNum;
+	}
+
 	public String getGender() {
 		return gender;
 	}
-	public String getMatric() {
-		return matricNumber;
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
+
 	public String getNationality() {
 		return nationality;
 	}
-	public void setName(String firstName, String lastName) {
-		this.firstName = firstName;
-		this.lastName = lastName;
+
+	public void setNationality(String nationality) {
+		this.nationality = nationality;
 	}
-	public String getCourseCode(String courseCode, int numberOfCourse)
-	{
-		for(int j =0; j <= numberOfCourse; j++)
-		{
-			if((this.courseCode[j]) == (courseCode))
-			{
-				return this.courseCode[j];
-			}
-		}
-		return null;
-		
-		
+
+	public String getAge() {
+		return age;
 	}
-	public void setCourseCode(String courseCode, int numberOfCourse)
-	{
-		this.courseCode[numberOfCourse+1] = courseCode;
+
+	public void setAge(String age) {
+		this.age = age;
 	}
 }

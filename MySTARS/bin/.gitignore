@@ -10,3 +10,15 @@
 /TextDatabase.class
 /LoginInterface.class
 /Hash.class
+/DataRespository.class
+/AdminInterfac.class
+/AdminInterApp.class
+/AdminInterface.class
+/LoginTextRepository.class
+/CourseRecTextRepository.class
+/AdminApp.class
+/StudentRecord.class
+/CourseRecord.class
+/CourseRecords.class
+/StudentInfo.class
+/StudentRecords.class

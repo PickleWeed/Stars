@@ -27,14 +27,13 @@ public class LoginController {
 				System.out.println("Try another choice");
 				return;	
 		}
-		System.out.println(userType);
 		try {	
 			filename = "LoginsInfo.txt"; 
 			
 			password = Hash.hashing(password);
 			//System.out.println(password);
 			
-			key = TextDatabase.readLoginDetail(filename, username, password, userType); //Query to TextDatabase
+			key = LoginTextRepository.readLoginDetail(filename, username, password, userType); //Query to TextDatabase
 			if(key != null)
 			{
 				System.out.println("\nSuccessful Login\n");	

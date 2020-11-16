@@ -1,17 +1,6 @@
-public abstract class AdminInterface {
-	private Student[] myStudent;
-	public AdminInterface()
-	{
-		
-	}
-	
-	public abstract void printstudentList();
-	private Student[] sortedCourseNum()
-	{
-		Student[] sortedbyCourseNum = myStudent.clone();
-		//insertion sort
-		return null;
-	}
+
+public interface AdminInterface {
+
 	public abstract void editAccessPeriod();
 	public abstract void addStudentRecord();
 	public abstract void updateAddCourse(int courseCode, String school, int indexNum, int vacancy);
