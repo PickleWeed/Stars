@@ -1,6 +1,3 @@
-package Admin;
-import Student.Student;
-
 public abstract class AdminInterface {
 	private Student[] myStudent;
 	public AdminInterface()

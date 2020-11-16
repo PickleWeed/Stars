@@ -1,4 +1,3 @@
-package Login;
 import java.util.Scanner;
 import java.io.Console;
 import java.util.Arrays;
@@ -38,17 +37,16 @@ public class LoginInterface {
 		System.out.printf("Please enter Username: ");
 		username = sc.next();
       
-      Console console = System.console();
-      if(console == null){
-         System.err.println("No console found");
-         System.exit(1);
-      }
-      char[] pass = console.readPassword("Please enter password:");
-      String password = String.valueOf(pass);
-      //String confirmPass = console.readPassword("Confirm password:");
-		//System.out.printf("Please Enter Password: ");
-		//password = sc.next();		
-
+      //Console console = System.console();
+      //if(console == null){
+      //   System.err.println("No console found");
+      //   System.exit(1);
+     // }
+     // char[] pass = console.readPassword("Please enter password:");
+    //  String password = String.valueOf(pass);
+    //  String confirmPass = console.readPassword("Confirm password:");
+		System.out.printf("Please Enter Password: ");
+		String password = sc.next();		
 		loginController.validateLogin(username, password, choice); //Enter loginController.validateLogin
 	}
 }

@@ -1,4 +1,3 @@
-package Database;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -10,7 +9,6 @@ import java.util.StringTokenizer;
 
 public class TextDatabase {
 	public static final String SEPARATOR = "|";
-	
 	public static String readLoginDetail(String filename, String userUsername, String userPassword) throws IOException { //enter from LoginController
 		ArrayList stringArray = (ArrayList)read(filename); // read String from text file
         for (int i = 0 ; i < stringArray.size() ; i++) {

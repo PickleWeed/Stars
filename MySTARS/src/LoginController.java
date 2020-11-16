@@ -1,12 +1,7 @@
-package Login;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import Admin.Admin;
-import Database.TextDatabase;
-import Student.Student;
-import Student.StudentInterface;
 
 public class LoginController {
 	String filename = null;
@@ -40,13 +35,15 @@ public class LoginController {
 				filename = "AdminLogins.txt";
 				this.password = hashPassword(password);
 				key = TextDatabase.readLoginDetail(filename, username, this.password); //Query to TextDatabase
-				if(key != null)
-    			{
+				if(key != null){
     				System.out.println("Successful Login");
     				Admin admin = new Admin();
     			}
+            else{
+               System.out.println("Incorrect username or password!");
+            }
     		}
-	    	System.out.println("Incorrect username or password.");
+
     	  		 		
     	}catch (IOException e) {
 			System.out.println("IOException > " + e.getMessage());
