@@ -14,24 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>src/AdminLogins.txt</name>
-			<type>1</type>
-		<link>
-			<name>src/CourseRecords.txt</name>
-			<type>1</type>
-			<locationURI>PROJECT_LOC/CourseRecords.txt</locationURI>
-		</link>
-		<link>
-			<name>src/LoginsInfo.txt</name>
-			<type>1</type>
-			<locationURI>PROJECT_LOC/LoginsInfo.txt</locationURI>
-		</link>
-		<link>
-			<name>src/StudentRecords.txt</name>
-			<type>1</type>
-			<locationURI>PROJECT_LOC/StudentRecords.txt</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>
