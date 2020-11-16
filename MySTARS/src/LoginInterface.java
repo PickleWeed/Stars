@@ -30,17 +30,17 @@ public class LoginInterface {
 	private static void adminOrStudent(int choice)
 	{
 		LoginController loginController = new LoginController(); //Enter loginController
-		String username;
+		String username, password;
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("\nLogin.....");
 		System.out.printf("Please enter Username: ");
 		username = sc.next();
       
-		String password = consoleReadPass();
+		password = consoleReadPass();
       
-			System.out.printf("Please Enter Password: ");
-			String password = sc.next();	
+		System.out.printf("Please Enter Password: ");
+		password = sc.next();	
 
 		loginController.validateLogin(username, password, choice);
 	}
@@ -49,7 +49,8 @@ public class LoginInterface {
 		 Console console = System.console();
 	      if(console == null){
 	         System.err.println("No console found");
-	         System.exit(1);
+	         return "null";
+	         //System.exit(1);
 	      }
 	      
 	      char[] pass = console.readPassword("Please enter password:");

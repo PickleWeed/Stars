@@ -11,30 +11,23 @@ import java.util.StringTokenizer;
 public class TextDatabase {
 	public static final String SEPARATOR = "|";
 	
-	public static String readLoginDetail(String filename, String userUsername, String userPassword) throws IOException { //enter from LoginController
+	public static String readLoginDetail(String filename, String userUsername, String userPassword, String userType) throws IOException { //enter from LoginController
 		ArrayList stringArray = (ArrayList)read(filename); // read String from text file
+		ArrayList alr = new ArrayList() ;// to store Professors data
         for (int i = 0 ; i < stringArray.size() ; i++) {
 				String st = (String)stringArray.get(i);
 				StringTokenizer star = new StringTokenizer(st , SEPARATOR);	//read String from text filepass in the string to the string tokenizer using delimiter ","
 				String username = star.nextToken().trim();	
 				String password = star.nextToken().trim();	
+				String type = star.nextToken().trim();
 				//System.out.println(username + password); 
-				if(userUsername.equals(username) && userPassword.equals(password))
+				if(userUsername.equals(username) && userPassword.equals(password) && type.equals(userType))
 				{
 					return star.nextToken().trim();
 				}
 			}
 			return null;
-	
-	}
-	
-	
-/*	public static String readStudentInfo()
-	{
-		ArrayList stringArray = (ArrayList)read(filename); //Read AdminLogins.txt
-		//ArrayList alr = new ArrayList() ;// to store Professors data
-	}*/
-	
+	}	
 	  public static List read(String fileName) throws IOException { //enter from readStudentLogin
 			List data = new ArrayList(); 
 		   Scanner scanner = new Scanner(new FileInputStream(fileName));
