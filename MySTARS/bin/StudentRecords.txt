@@ -1,0 +1,3 @@
+User|pass|key|firstName|lastName|MatricNum|gender|nationality|age|
+Carvin|12345|QC|Carvin|Lim|Q1234567P|Male|Singaporean|23|
+Amy|12345|VC|Amy|Chew|P1234567V|Female|Singaporean|21

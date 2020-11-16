@@ -1,3 +1,4 @@
+
 public class Admin{	
 	private Student[] student;
 	private static int numberOfStudent = 15;

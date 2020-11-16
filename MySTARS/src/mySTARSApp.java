@@ -1,7 +1,10 @@
 public class mySTARSApp {
 	public static void main(String[] args) {
-		LoginInterface loginInterface = new LoginInterface(); 
+		LoginInterface loginInterface = new LoginInterface();
 		loginInterface.loginAs();
+		
+		
 	}		
 }
+
 //test commit//

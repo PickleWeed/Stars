@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 import java.io.Console;
 import java.util.Arrays;
@@ -19,34 +20,40 @@ public class LoginInterface {
 			choice = sc.nextInt();
 			if(choice == 1 || choice == 2) //Choosing Admin or Student
 			{
-				AdminOrStudent(choice); //Enter AdminOrStudent 
+				adminOrStudent(choice); //Enter AdminOrStudent 
 			}
          if(choice == 3){
             System.exit(0);
             }
 		}
 	}
-	private static void AdminOrStudent(int choice)
+	private static void adminOrStudent(int choice)
 	{
 		LoginController loginController = new LoginController(); //Enter loginController
 		String username;
-		//boolean adminValidated = false, studentValidated = false;
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("\nLogin.....");
 		System.out.printf("Please enter Username: ");
 		username = sc.next();
       
-      //Console console = System.console();
-      //if(console == null){
-      //   System.err.println("No console found");
-      //   System.exit(1);
-     // }
-     // char[] pass = console.readPassword("Please enter password:");
-    //  String password = String.valueOf(pass);
-    //  String confirmPass = console.readPassword("Confirm password:");
-		System.out.printf("Please Enter Password: ");
-		String password = sc.next();		
-		loginController.validateLogin(username, password, choice); //Enter loginController.validateLogin
+		String password = consoleReadPass();
+      
+		//String confirmPass = console.readPassword("Confirm password:");
+		//System.out.printf("Please Enter Password: ");
+		//password = sc.next();		
+
+		loginController.validateLogin(username, password, choice);
+	}
+	private static String consoleReadPass()
+	{
+		 Console console = System.console();
+	      if(console == null){
+	         System.err.println("No console found");
+	         System.exit(1);
+	      }
+	      
+	      char[] pass = console.readPassword("Please enter password:");
+	      return String.valueOf(pass);
 	}
 }

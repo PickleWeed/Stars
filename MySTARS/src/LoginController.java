@@ -35,15 +35,13 @@ public class LoginController {
 				filename = "AdminLogins.txt";
 				this.password = hashPassword(password);
 				key = TextDatabase.readLoginDetail(filename, username, this.password); //Query to TextDatabase
-				if(key != null){
+				if(key != null)
+    			{
     				System.out.println("Successful Login");
     				Admin admin = new Admin();
     			}
-            else{
-               System.out.println("Incorrect username or password!");
-            }
     		}
-
+	    	System.out.println("Incorrect username or password.");
     	  		 		
     	}catch (IOException e) {
 			System.out.println("IOException > " + e.getMessage());

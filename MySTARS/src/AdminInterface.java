@@ -1,3 +1,5 @@
+
+
 public abstract class AdminInterface {
 	private Student[] myStudent;
 	public AdminInterface()
