@@ -46,8 +46,8 @@ public class DatabaseRepository
 		}
 	}
 
-	/*public static void main(String[] args) {
-		List list;
+	public static void main(String[] args) {
+		/*List list;
 		try	{
 				// read from serialized file the list of professors
 				list = (ArrayList)SerializeDB.readSerializedObject("professor.dat");
@@ -68,6 +68,21 @@ public class DatabaseRepository
 
 		}  catch ( Exception e ) {
 					System.out.println( "Exception >> " + e.getMessage() );
+		}*/
+		
+		
+		
+		//write here
+		try {
+			ArrayList al = CourseRecordsTextRepository.readCourseRecords("CourseRecord.txt");
+			//here
+			
+			
+			
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-	}*/
+	}
 }

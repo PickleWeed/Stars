@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class CourseRecTextRepository {
+public class CourseRecordsTextRepository {
 	public static final String SEPARATOR = "|";
 
     // an example of reading
-	public static ArrayList readProfessors(String filename) throws IOException {
+	public static ArrayList readCourseRecords(String filename) throws IOException {
 		// read String from text file
 		ArrayList stringArray = (ArrayList)read(filename);
 		ArrayList alr = new ArrayList() ;// to store Professors data
@@ -29,36 +29,50 @@ public class CourseRecTextRepository {
 				String  day = star.nextToken().trim();
 				String  time = star.nextToken().trim();
 				String  venue = star.nextToken().trim();
-				String  remark = star.nextToken().trim();
-				String  vacancy = star.nextToken().trim();
+				String  remarks = star.nextToken().trim();
+				String vacancy = star.nextToken().trim();
 				//int  vacancy = Integer.parseInt(star.nextToken().trim());
 				// create Professor object from file data
-				CourseRecords studentRecord = new CourseRecords(indexNum, courseIndex, programme, type, group, day, time, venue, remark, vacancy);
+				CourseRecords courseRecords = new CourseRecords(indexNum, courseIndex, programme, type, group, day, time, venue, remarks, vacancy);
 				// add to Professors list
-				alr.add(studentRecord) ;
+				alr.add(courseRecords) ;
 			}
 			return alr ;
 	}
 
   // an example of saving
-/*public static void saveProfessors(String filename, List al) throws IOException {
+public static void saveCourseRecords(String filename, List al) throws IOException {
 		List alw = new ArrayList() ;// to store Professors data
 
         for (int i = 0 ; i < al.size() ; i++) {
-				Professor prof = (Professor)al.get(i);
+        	CourseRecords courseRecords = (CourseRecords)al.get(i);
 				StringBuilder st =  new StringBuilder() ;
-				st.append(prof.getName().trim());
+				st.append(courseRecords.getIndexNum().trim());
 				st.append(SEPARATOR);
-				st.append(prof.getEmail().trim());
+				st.append(courseRecords.getCourseIndex().trim());
 				st.append(SEPARATOR);
-				st.append(prof.getContact());
+				st.append(courseRecords.getProgramme().trim());
+				st.append(SEPARATOR);
+				st.append(courseRecords.getType().trim());
+				st.append(SEPARATOR);
+				st.append(courseRecords.getGroup().trim());
+				st.append(SEPARATOR);
+				st.append(courseRecords.getDay().trim());
+				st.append(SEPARATOR);
+				st.append(courseRecords.getTime().trim());
+				st.append(SEPARATOR);
+				st.append(courseRecords.getVenue().trim());
+				st.append(SEPARATOR);
+				st.append(courseRecords.getRemark().trim());
+				st.append(SEPARATOR);
+				st.append(courseRecords.getVacancy().trim());
 				alw.add(st.toString()) ;
 			}
 			write(filename,alw);
-	}*/
+	}
 
   /** Write fixed content to the given file. */
-  public static void write(String fileName, List data) throws IOException  {
+  private static void write(String fileName, List data) throws IOException  {
     PrintWriter out = new PrintWriter(new FileWriter(fileName));
 
     try {
@@ -72,7 +86,7 @@ public class CourseRecTextRepository {
   }
 
   /** Read the contents of the given file. */
-  public static List read(String fileName) throws IOException {
+  private static List read(String fileName) throws IOException {
 	List data = new ArrayList() ;
     Scanner scanner = new Scanner(new FileInputStream(fileName));
     try {
@@ -107,23 +121,25 @@ public static void main(String[] aArgs)  {
 		}*/
 	
 	String filename = "CourseRecords.txt" ;
-	CourseRecTextRepository courseRecTextRepository = new CourseRecTextRepository();
+	CourseRecordsTextRepository courseRecordsTextRepository = new CourseRecordsTextRepository();
 	try {
 		// read file containing Professor records.
-		ArrayList al = courseRecTextRepository.readProfessors(filename) ;
+		ArrayList al = courseRecordsTextRepository.readCourseRecords(filename) ;
 		for (int i = 0 ; i < al.size() ; i++) {
-			CourseRecords studentRecord = (CourseRecords)al.get(i);
-				System.out.println("IndexNum " + studentRecord.getIndexNum() );
-				System.out.println("CourseIndex " + studentRecord.getCourseIndex() );
-				System.out.println("Programme " + studentRecord.getProgramme() );
-				System.out.println("Type " + studentRecord.getType() );
-				System.out.println("Group " + studentRecord.getGroup() );
-				System.out.println("Day " + studentRecord.getDay() );
-				System.out.println("Time " + studentRecord.getTime() );
-				System.out.println("Venue " + studentRecord.getVenue() );
-				System.out.println("Remark " + studentRecord.getRemark() );
-				System.out.println("Vacancy " + studentRecord.getVacancy() );
+			CourseRecords courseRecords = (CourseRecords)al.get(i);
+				System.out.println("IndexNum: " + courseRecords.getIndexNum() );
+				System.out.println("CourseIndex: " + courseRecords.getCourseIndex() );
+				System.out.println("Programme: " + courseRecords.getProgramme() );
+				System.out.println("Type: " + courseRecords.getType() );
+				System.out.println("Group: " + courseRecords.getGroup() );
+				System.out.println("Day: " + courseRecords.getDay() );
+				System.out.println("Time: " + courseRecords.getTime() );
+				System.out.println("Venue: " + courseRecords.getVenue() );
+				System.out.println("Remark: " + courseRecords.getRemark() );
+				System.out.println("Vacancy: " + courseRecords.getVacancy() );
+				System.out.println("\n");
 			}
+		//saveStudentRecords(filename, al);
 		}catch (IOException e) {
 			System.out.println("IOException > " + e.getMessage());
 		}

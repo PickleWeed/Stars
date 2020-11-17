@@ -22,3 +22,8 @@
 /CourseRecords.class
 /StudentInfo.class
 /StudentRecords.class
+/StudentRecTextRepository.class
+/StudentInfoTextRepository.class
+/LoginInfo.class
+/CourseRecordsTextRepository.class
+/StudentsInfo.txt
