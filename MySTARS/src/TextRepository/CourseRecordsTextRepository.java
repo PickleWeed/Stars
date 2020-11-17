@@ -1,3 +1,4 @@
+package TextRepository;
 import java.io.IOException;
 import java.io.FileWriter;
 import java.io.PrintWriter;
@@ -6,6 +7,8 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
+
+import Course.CourseRecords;
 
 public class CourseRecordsTextRepository {
 	public static final String SEPARATOR = "|";

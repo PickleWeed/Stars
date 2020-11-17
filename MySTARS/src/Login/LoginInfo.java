@@ -1,3 +1,4 @@
+package Login;
 
 public class LoginInfo {
 	

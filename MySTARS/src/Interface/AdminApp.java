@@ -1,3 +1,6 @@
+package Interface;
+import Student.Student;
+
 public abstract class AdminApp implements AdminInterface{
 	private Student[] myStudent;
 	

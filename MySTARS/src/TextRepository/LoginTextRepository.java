@@ -1,3 +1,4 @@
+package TextRepository;
 
 import java.io.FileInputStream;
 import java.io.FileWriter;
@@ -7,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.StringTokenizer;
+
+import Login.LoginInfo;
 
 public class LoginTextRepository {
 	public static final String SEPARATOR = "|";	

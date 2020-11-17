@@ -1,3 +1,4 @@
+package Course;
 
 public class CourseRecords {
 	
