@@ -6,17 +6,19 @@ public class CourseRecords {
 	private String  indexNum;
 	private String  type;
 	private String  day;
+	private String  group;
 	private String  time;
 	private String  venue ;
 	private String  remarks;
 	private String  vacancy; 
 	private String  name;
 	
-	public CourseRecords(String courseIndex, String indexNum, String type, String day, String time, String venue, String remarks, String vacancy, String name)
+	public CourseRecords(String courseIndex, String indexNum, String type, String group, String day, String time, String venue, String remarks, String vacancy, String name)
 	{
 		this.courseIndex = courseIndex;
 		this.indexNum = indexNum;
 		this.type = type;
+		this.type = group;
 		this.day = day;
 		this.time = time;
 		this.venue = venue;
@@ -44,11 +46,19 @@ public class CourseRecords {
 	public String getType() {
 		return type;
 	}
-
+	
 	public void setType(String type) {
 		this.type = type;
 	}
-
+	
+	public void setGroup(String group) {
+		this.group = group;
+	}
+	
+	public String getGroup() {
+		return group;
+	}
+	
 	public String getDay() {
 		return day;
 	}

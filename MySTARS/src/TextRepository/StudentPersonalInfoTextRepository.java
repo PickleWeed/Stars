@@ -32,9 +32,10 @@ public class StudentPersonalInfoTextRepository {
 				String  gender = star.nextToken().trim();
 				String  nationality = star.nextToken().trim();
 				String  age = star.nextToken().trim();
+				String accessPeriod = star.nextToken().trim();
 				//int  vacancy = Integer.parseInt(star.nextToken().trim());
 				// create Professor object from file data
-				Student student = new Student(key, firstName, lastName, matricNum, gender, nationality, age);
+				Student student = new Student(key, firstName, lastName, matricNum, gender, nationality, age, accessPeriod);
 				// add to Professors list
 				alr.add(student) ;
 			}
@@ -61,6 +62,8 @@ public class StudentPersonalInfoTextRepository {
 					st.append(student.getNationality().trim());
 					st.append(SEPARATOR);
 					st.append(student.getAge().trim());
+					st.append(SEPARATOR);
+					st.append(student.getAccessPeriod().trim());
 					alw.add(st.toString()) ;
 				}
 				write(filename,alw);
@@ -129,6 +132,7 @@ public static void main(String[] aArgs)  {
 				System.out.println("Gender: " + student.getGender() );
 				System.out.println("Nationality: " + student.getNationality() );
 				System.out.println("Age: " + student.getAge() );
+				System.out.println("Access Period: " + student.getAccessPeriod());
 				System.out.println("\n");
 			}
 		//saveStudentRecords(filename, al);

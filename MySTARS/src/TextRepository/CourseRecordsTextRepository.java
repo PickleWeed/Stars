@@ -28,6 +28,7 @@ public class CourseRecordsTextRepository {
 				String  courseIndex = star.nextToken().trim();	// first token
 				String  indexNum = star.nextToken().trim();	// second token
 				String  type = star.nextToken().trim();	// third token
+				String  group =star.nextToken().trim();
 				String  day = star.nextToken().trim();
 				String  time = star.nextToken().trim();
 				String  venue = star.nextToken().trim();
@@ -36,7 +37,7 @@ public class CourseRecordsTextRepository {
 				String  name = star.nextToken().trim();
 				//int  vacancy = Integer.parseInt(star.nextToken().trim());
 				// create Professor object from file data
-				CourseRecords courseRecords = new CourseRecords(courseIndex, indexNum, type, day, time, venue, remarks, vacancy, name);
+				CourseRecords courseRecords = new CourseRecords(courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, name);
 				// add to Professors list
 				alr.add(courseRecords);
 			}
@@ -56,9 +57,9 @@ public static void saveCourseRecords(List al) throws IOException {
 				st.append(SEPARATOR);
 				st.append(courseRecords.getType().trim());
 				st.append(SEPARATOR);
-				st.append(courseRecords.getDay().trim());
+				st.append(courseRecords.getGroup().trim());
 				st.append(SEPARATOR);
-				st.append(courseRecords.getTime().trim());
+				st.append(courseRecords.getDay().trim());
 				st.append(SEPARATOR);
 				st.append(courseRecords.getTime().trim());
 				st.append(SEPARATOR);
@@ -129,14 +130,15 @@ public static void main(String[] aArgs)  {
 		for (int i = 0 ; i < al.size() ; i++) {
 			CourseRecords courseRecords = (CourseRecords)al.get(i);
 				System.out.println("CourseIndex: " + courseRecords.getCourseIndex() );
-				System.out.println("indexNum: " + courseRecords.getIndexNum() );
-				System.out.println("type: " + courseRecords.getType() );
-				System.out.println("day: " + courseRecords.getDay() );
-				System.out.println("time: " + courseRecords.getTime() );
-				System.out.println("venue: " + courseRecords.getVenue() );
-				System.out.println("remarks: " + courseRecords.getRemarks() );
-				System.out.println("vacancy: " + courseRecords.getVacancy() );
-				System.out.println("name: " + courseRecords.getName() );
+				System.out.println("IndexNum: " + courseRecords.getIndexNum() );
+				System.out.println("Rype: " + courseRecords.getType() );
+				System.out.println("Froup: " + courseRecords.getGroup() );
+				System.out.println("Day: " + courseRecords.getDay() );
+				System.out.println("Time: " + courseRecords.getTime() );
+				System.out.println("Venue: " + courseRecords.getVenue() );
+				System.out.println("Remarks: " + courseRecords.getRemarks() );
+				System.out.println("Vacancy: " + courseRecords.getVacancy() );
+				System.out.println("Name: " + courseRecords.getName() );
 				
 				System.out.println("\n");
 			}
