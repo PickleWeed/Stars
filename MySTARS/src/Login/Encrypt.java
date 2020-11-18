@@ -1,8 +1,13 @@
 package Login;
+import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.Random;
 
-public class Hash {
+import TextRepository.LoginTextRepository;
+
+public class Encrypt {
 	public static String hashing(String password)
 	    {
 		 	String passwordToHash = password;
@@ -31,5 +36,40 @@ public class Hash {
 	       // System.out.println(generatedPassword);
 	        return generatedPassword;
 	    }
-	
+	public static String generateKey()
+	{
+		int leftLimit = 97; // letter 'a'
+	    int rightLimit = 122; // letter 'z'
+	    int targetStringLength = 2;
+	    Random random = new Random();
+	 
+	    String generatedString = random.ints(leftLimit, rightLimit + 1)
+	      .limit(targetStringLength)
+	      .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+	      .toString();
+	    return generatedString;
+	}
+	public static String getKey() throws IOException
+	{
+		ArrayList loginDetailList = LoginTextRepository.readLogin();
+		String key = null;
+		
+		//there must not be two identifical key
+		boolean findKey = true;
+		while(findKey) {
+			key = Login.Encrypt.generateKey();
+			findKey = false;
+			for (int i=0; i<loginDetailList.size(); i++)
+			{
+				LoginInfo loginInfo = (LoginInfo)loginDetailList.get(i);
+				if(loginInfo.getKey().equals(key))
+				{
+					findKey = true;
+					System.out.println("duplicate key!");
+					break;
+				}
+			}		
+		}
+		return key;
+	}
 }

@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import Interface.AdminApp;
 import Interface.StudentInterface;
 import TextRepository.LoginTextRepository;
 import java.io.BufferedWriter;
@@ -33,9 +34,8 @@ public class LoginController {
 				return;	
 		}
 		try {	
-			//filename = "LoginsInfo.txt"; 
 			
-			password = Hash.hashing(password);
+			password = Encrypt.hashing(password);
 			//System.out.println(password);
 			
 			key = LoginTextRepository.readLoginDetail(username, password, userType); //Query to TextDatabase
@@ -51,7 +51,12 @@ public class LoginController {
 			    } catch (IOException e) {
 			        e.printStackTrace();
 			    }
-				StudentInterface.inStudentInterface();
+			    if(choice == 1)
+			    	StudentInterface.inStudentInterface();
+			    else if(choice == 2)
+			    {
+			    	AdminApp adminApp = new AdminApp();
+			    }
 			}
 	    	else
 	    	{

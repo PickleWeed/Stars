@@ -1,3 +1,5 @@
 key|firstName|lastName|MatricNum|gender|nationality|age|AccessPeriod
-QC|Carvin|Lim|Q1234567P|Male|Singaporean|23|20/06/2020 - 20/08/2020 
-VC|Amy|Chew|P1234567V|Female|Singaporean|21|20/06/2020 - 20/08/2020 
+QC|Carvin|Lim|Q1234567P|Male|Singaporean|23|20/06/2020 - 20/08/2020
+VC|Amy|Chew|P1234567V|Female|Singaporean|21|20/06/2020 - 20/08/2020
+uq|hi|key|12312|Male|Singaporean|25|20/06/2020 - 20/08/2020
+yc|hi|key|12312|Male|Singaporean|25|20/06/2020 - 20/08/2020

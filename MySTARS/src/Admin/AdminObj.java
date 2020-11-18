@@ -1,7 +1,7 @@
 package Admin;
 import Student.Student;
 
-public class Admin{	
+public class AdminObj{	
 	private Student[] student;
 	private static int numberOfStudent = 15;
 	private int i = 0;
@@ -12,7 +12,7 @@ public class Admin{
 	private String password;
 	private String key;
 	
-	public Admin(String n, String e, String k){ //enter from TextDatabase - n = Admin, e = Admin, k = CE
+	public AdminObj(String n, String e, String k){ //enter from TextDatabase - n = Admin, e = Admin, k = CE
 		username = n; //Username = Admin
 		password = e; //Password = Admin
 		key = k; //key = CE

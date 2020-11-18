@@ -10,7 +10,7 @@ public class CheckCourse {
 	
 
 	
-	public static void main(String[] args) throws IOException
+	public static void showCourseIndex() throws IOException
 	{
 		ArrayList courseRecordList = CourseRecordsTextRepository.readCourseRecords();
 		

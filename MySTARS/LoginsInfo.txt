@@ -1,3 +1,4 @@
-Amy|827ccb0eea8a706c4c34a16891f84e7b|Student|CV
-Amy|12345|Student|CV
-Ben|12345|Admin|CX
+Amy|827ccb0eea8a706c4c34a16891f84e7b|Student|CV|Student
+Amy|12345|Student|CV|Student
+Ben|12345|Admin|CX|Admin
+hello|008c5926ca861023c1d2a36653fd88e2|Student|yc|Student
