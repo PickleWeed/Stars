@@ -13,6 +13,10 @@ public class CourseRecords {
 	private String  remark;
 	private String  vacancy ;
 	
+	public CourseRecords()
+	{
+		
+	}
 	
 	public CourseRecords(String indexNum, String courseIndex, String programme, String type, String group, String day, String time,String venue, String remark, String vacancy)
 	{

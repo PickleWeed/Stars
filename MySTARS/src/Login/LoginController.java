@@ -33,12 +33,12 @@ public class LoginController {
 				return;	
 		}
 		try {	
-			filename = "LoginsInfo.txt"; 
+			//filename = "LoginsInfo.txt"; 
 			
 			password = Hash.hashing(password);
 			//System.out.println(password);
 			
-			key = LoginTextRepository.readLoginDetail(filename, username, password, userType); //Query to TextDatabase
+			key = LoginTextRepository.readLoginDetail(username, password, userType); //Query to TextDatabase
 			if(key != null)
 			{
 				System.out.println("\nSuccessful Login\n");	

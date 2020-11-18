@@ -14,7 +14,8 @@ public class CourseRecordsTextRepository {
 	public static final String SEPARATOR = "|";
 
     // an example of reading
-	public static ArrayList readCourseRecords(String filename) throws IOException {
+	public static ArrayList readCourseRecords() throws IOException {
+		String filename = "CourseRecords.txt" ;
 		// read String from text file
 		ArrayList stringArray = (ArrayList)read(filename);
 		ArrayList alr = new ArrayList() ;// to store Professors data
@@ -44,7 +45,8 @@ public class CourseRecordsTextRepository {
 	}
 
   // an example of saving
-public static void saveCourseRecords(String filename, List al) throws IOException {
+public static void saveCourseRecords(List al) throws IOException {
+		String filename = "CourseRecords.txt" ;
 		List alw = new ArrayList() ;// to store Professors data
 
         for (int i = 0 ; i < al.size() ; i++) {
@@ -123,11 +125,11 @@ public static void main(String[] aArgs)  {
 			System.out.println("IOException > " + e.getMessage());
 		}*/
 	
-	String filename = "CourseRecords.txt" ;
+	//String filename = "CourseRecords.txt" ;
 	CourseRecordsTextRepository courseRecordsTextRepository = new CourseRecordsTextRepository();
 	try {
 		// read file containing Professor records.
-		ArrayList al = courseRecordsTextRepository.readCourseRecords(filename) ;
+		ArrayList al = courseRecordsTextRepository.readCourseRecords() ;
 		for (int i = 0 ; i < al.size() ; i++) {
 			CourseRecords courseRecords = (CourseRecords)al.get(i);
 				System.out.println("IndexNum: " + courseRecords.getIndexNum() );

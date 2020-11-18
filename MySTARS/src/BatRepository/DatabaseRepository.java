@@ -78,7 +78,7 @@ public class DatabaseRepository
 		
 		//write here
 		try {
-			ArrayList al = CourseRecordsTextRepository.readCourseRecords("CourseRecord.txt");
+			ArrayList al = CourseRecordsTextRepository.readCourseRecords();
 			//here
 			
 			

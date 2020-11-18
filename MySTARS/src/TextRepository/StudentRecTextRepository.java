@@ -14,8 +14,9 @@ public class StudentRecTextRepository {
 	public static final String SEPARATOR = "|";
 
     // an example of reading
-	public static ArrayList readStudentInfo(String filename) throws IOException {
+	public static ArrayList readStudentInfo() throws IOException {
 		// read String from text file
+		String filename = "StudentRecords.txt" ;
 		ArrayList stringArray = (ArrayList)read(filename);
 		ArrayList alr = new ArrayList() ;// to store Professors data
 
@@ -41,7 +42,8 @@ public class StudentRecTextRepository {
 	}
 
 	  // an example of saving
-	public static void saveStudentInfo(String filename, List al) throws IOException {
+	public static void saveStudentInfo(List al) throws IOException {
+			String filename = "StudentRecords.txt" ;
 			List alw = new ArrayList() ;// to store Professors data
 	
 	        for (int i = 0 ; i < al.size() ; i++) {
@@ -118,7 +120,7 @@ public static void main(String[] aArgs)  {
 	StudentRecTextRepository studentRecTextRepository = new StudentRecTextRepository();
 	try {
 		// read file containing Professor records.
-		ArrayList al = studentRecTextRepository.readStudentInfo(filename) ;
+		ArrayList al = studentRecTextRepository.readStudentInfo() ;
 		for (int i = 0 ; i < al.size() ; i++) {
 			Student student = (Student)al.get(i);
 				System.out.println("Key: " + student.getKey() );

@@ -1,11 +1,15 @@
 package Interface;
 import Student.*;
+import TextRepository.CourseRecordsTextRepository;
+
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public abstract class StudentInterface {
 	String key = null;
 
-	public static void inStudentInterface()
+	public static void inStudentInterface() throws IOException
 	{
 		while (true) {
 			int choice;
@@ -23,6 +27,12 @@ public abstract class StudentInterface {
 			{
 				case 1:
 					String courseIndex, temp;
+					ArrayList courseRecordList = CourseRecordsTextRepository.readCourseRecords();
+					//the courseIndex you want to add
+					courseIndex = "0000";
+					AddCourse.addCourse1(courseIndex, courseRecordList);
+					
+					
 					AddCourse addCourse = new AddCourse();
 					courseIndex = addCourse.queryCourseIndex();
 					temp = addCourse.findRelevantRecord(courseIndex);
