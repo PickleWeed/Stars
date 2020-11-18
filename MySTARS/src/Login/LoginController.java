@@ -5,7 +5,8 @@ import java.util.Scanner;
 
 import Interface.StudentInterface;
 import TextRepository.LoginTextRepository;
-
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 public class LoginController {
 
 	
@@ -41,6 +42,15 @@ public class LoginController {
 			if(key != null)
 			{
 				System.out.println("\nSuccessful Login\n");	
+			    try {
+			        FileWriter writer = new FileWriter("StudentRecords.txt", true);
+			        BufferedWriter bufferedWriter = new BufferedWriter(writer);
+			        bufferedWriter.write(key);
+			        bufferedWriter.write("|");
+			        bufferedWriter.close();
+			    } catch (IOException e) {
+			        e.printStackTrace();
+			    }
 				StudentInterface.inStudentInterface();
 			}
 	    	else

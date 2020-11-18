@@ -41,7 +41,7 @@ public class LoginInterface {
 		System.out.printf("Please enter Username: ");
 		username = sc.next();
       
-		password = consoleReadPass();
+		//password = consoleReadPass();
       
 		System.out.printf("Please Enter Password: ");
 		password = sc.next();	

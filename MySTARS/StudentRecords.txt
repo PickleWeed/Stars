@@ -1,1 +1,1 @@
-key|indexNum|CourseIndex|Programme|Type|Group|Day|Time|Venue|Remarks
+key|indexNum|CourseIndex|Programme|Type|Group|Day|Time|Venue|RemarksCV|10130|CZ1103|CE/CSC|LEC/STUDIO|CS1|MON|1130-1230|ONLINE|nill
