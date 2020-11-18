@@ -1,2 +1,2 @@
-key|indexNum|CourseIndex|Programme|Type|Group|Day|Time|Venue|Remarks
-CV10130|CZ1103|CE/CSC|LEC/STUDIO|CS1|MON|1130-1230|ONLINE|nill
+key|CourseIndex|IndexNum|Type|Group|Day|Time|Venue|Remarks|Name
+CV|CZ1003|10088|LEC/STUDIO|CS1|MON|1130-1230|LT11|nill|INTRODUCTION TO COMPUTATIONAL THINKING

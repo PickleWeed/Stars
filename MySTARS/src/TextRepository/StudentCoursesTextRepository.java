@@ -10,13 +10,12 @@ import java.util.StringTokenizer;
 
 import Student.StudentRecords;
 
-public class StudentInfoTextRepository {
+public class StudentCoursesTextRepository {
 	public static final String SEPARATOR = "|";
-
+	public static final String filename = "StudentRecords.txt" ;
     // an example of reading
 	public static ArrayList readStudentRecords() throws IOException {
 		// read String from text file
-		String filename = "StudentRecords.txt" ;
 		ArrayList stringArray = (ArrayList)read(filename);
 		ArrayList alr = new ArrayList() ;// to store Professors data
 
@@ -28,7 +27,6 @@ public class StudentInfoTextRepository {
 				String  key = star.nextToken().trim();
 				String  indexNum = star.nextToken().trim();	// first token
 				String  courseIndex = star.nextToken().trim();	// second token
-				String  programme = star.nextToken().trim();	// third token
 				String  type = star.nextToken().trim();
 				String  group = star.nextToken().trim();
 				String  day = star.nextToken().trim();
@@ -37,7 +35,7 @@ public class StudentInfoTextRepository {
 				String  remark = star.nextToken().trim();
 				//int  vacancy = Integer.parseInt(star.nextToken().trim());
 				// create Professor object from file data
-				StudentRecords studentRecords = new StudentRecords(key, indexNum, courseIndex, programme, type, group, day, time, venue, remark);
+				StudentRecords studentRecords = new StudentRecords(key, indexNum, courseIndex, type, group, day, time, venue, remark);
 				// add to Professors list
 				alr.add(studentRecords) ;
 			}
@@ -46,7 +44,6 @@ public class StudentInfoTextRepository {
 
   // an example of saving
 public static void saveStudentRecords(List al) throws IOException {
-		String filename = "StudentRecords.txt" ;
 		List alw = new ArrayList() ;// to store Professors data
 		
         for (int i = 0 ; i < al.size() ; i++) {
@@ -57,8 +54,6 @@ public static void saveStudentRecords(List al) throws IOException {
 				st.append(studentRecords.getIndexNum().trim());
 				st.append(SEPARATOR);
 				st.append(studentRecords.getCourseIndex().trim());
-				st.append(SEPARATOR);
-				st.append(studentRecords.getProgramme().trim());
 				st.append(SEPARATOR);
 				st.append(studentRecords.getType().trim());
 				st.append(SEPARATOR);
@@ -125,8 +120,7 @@ public static void main(String[] aArgs)  {
 			System.out.println("IOException > " + e.getMessage());
 		}*/
 	
-	//String filename = "StudentRecords.txt" ;
-	StudentInfoTextRepository studentRecTextRepository = new StudentInfoTextRepository();
+	StudentCoursesTextRepository studentRecTextRepository = new StudentCoursesTextRepository();
 	try {
 		// read file containing Professor records.
 		ArrayList al = studentRecTextRepository.readStudentRecords() ;
@@ -135,7 +129,6 @@ public static void main(String[] aArgs)  {
 				System.out.println("Key: " + studentRecord.getKey() );
 				System.out.println("IndexNum: " + studentRecord.getIndexNum() );
 				System.out.println("CourseIndex: " + studentRecord.getCourseIndex() );
-				System.out.println("Programme: " + studentRecord.getProgramme() );
 				System.out.println("Type: " + studentRecord.getType() );
 				System.out.println("Group: " + studentRecord.getGroup() );
 				System.out.println("Day: " + studentRecord.getDay() );

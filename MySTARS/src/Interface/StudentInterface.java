@@ -27,6 +27,7 @@ public abstract class StudentInterface {
 			{
 				case 1:
 					String courseIndex, temp;
+					//query Course record and insert into arraylist
 					ArrayList courseRecordList = CourseRecordsTextRepository.readCourseRecords();
 					//the courseIndex you want to add
 					courseIndex = "0000";

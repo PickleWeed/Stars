@@ -12,7 +12,7 @@ public class StudentRecords {
 	private String  venue; 
 	private String  remark;
 	
-	public StudentRecords(String key, String indexNum, String courseIndex, String programme, String type, String group, String day, String time,String venue, String remark)
+	public StudentRecords(String key, String indexNum, String courseIndex, String type, String group, String day, String time,String venue, String remark)
 	{
 		this.key = key;
 		this.indexNum = indexNum;
@@ -43,12 +43,6 @@ public class StudentRecords {
 	}
 	public void setCourseIndex(String courseIndex) {
 		this.courseIndex = courseIndex;
-	}
-	public String getProgramme() {
-		return programme;
-	}
-	public void setProgramme(String programme) {
-		this.programme = programme;
 	}
 	public String getType() {
 		return type;

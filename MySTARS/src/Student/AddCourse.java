@@ -14,11 +14,11 @@ public class AddCourse {
 			//get array object 
 			CourseRecords courseRecords = (CourseRecords)courseRecordList.get(i);
 			
-			//System.out.println(courseRecords.getCourseIndex());
-			if(courseIndex == courseRecords.getCourseIndex())
+			System.out.println(courseRecords.getCourseIndex());
+			/*if(courseIndex == courseRecords.getCourseIndex())
 			{
 				System.out.println("do something");
-			}
+			}*/
 			
 		}
 	}
