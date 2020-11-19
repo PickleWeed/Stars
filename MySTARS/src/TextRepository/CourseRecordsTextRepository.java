@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-import Course.CourseRecords;
+import Course.CourseRecordsObj;
 
 public class CourseRecordsTextRepository {
 	public static final String SEPARATOR = "|";
@@ -37,7 +37,7 @@ public class CourseRecordsTextRepository {
 				String  name = star.nextToken().trim();
 				//int  vacancy = Integer.parseInt(star.nextToken().trim());
 				// create Professor object from file data
-				CourseRecords courseRecords = new CourseRecords(courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, name);
+				CourseRecordsObj courseRecords = new CourseRecordsObj(courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, name);
 				// add to Professors list
 				alr.add(courseRecords);
 			}
@@ -49,7 +49,7 @@ public static void saveCourseRecords(List al) throws IOException {
 		List alw = new ArrayList() ;// to store Professors data
 
         for (int i = 0 ; i < al.size() ; i++) {
-        	CourseRecords courseRecords = (CourseRecords)al.get(i);
+        	CourseRecordsObj courseRecords = (CourseRecordsObj)al.get(i);
 				StringBuilder st =  new StringBuilder() ;
 				st.append(courseRecords.getCourseIndex().trim());
 				st.append(SEPARATOR);
@@ -128,7 +128,7 @@ public static void main(String[] aArgs)  {
 		// read file containing Professor records.
 		ArrayList al = CourseRecordsTextRepository.readCourseRecords();
 		for (int i = 0 ; i < al.size() ; i++) {
-			CourseRecords courseRecords = (CourseRecords)al.get(i);
+			CourseRecordsObj courseRecords = (CourseRecordsObj)al.get(i);
 				System.out.println("CourseIndex: " + courseRecords.getCourseIndex() );
 				System.out.println("IndexNum: " + courseRecords.getIndexNum() );
 				System.out.println("Rype: " + courseRecords.getType() );

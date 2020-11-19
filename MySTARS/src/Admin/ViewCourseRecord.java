@@ -3,7 +3,7 @@ package Admin;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import Course.CourseRecords;
+import Course.CourseRecordsObj;
 import TextRepository.CourseRecordsTextRepository;
 
 public class ViewCourseRecord {
@@ -14,18 +14,17 @@ public class ViewCourseRecord {
 		for (int i=0; i<courseRecordList.size(); i++)
 		{
 			//get array object 
-			CourseRecords courseRecords = (CourseRecords)courseRecordList.get(i);
+			CourseRecordsObj courseRecords = (CourseRecordsObj)courseRecordList.get(i);
 			if(!courseRecords.getVacancy().equals("nill"))
 				System.out.println("Index Number: " + courseRecords.getIndexNum());
 		}
 	}
 	public static void getVacancy(String indexNum, ArrayList courseRecordList)
 	{
-		
 		for (int i=0; i<courseRecordList.size(); i++)
 		{
 			//get array object 
-			CourseRecords courseRecords = (CourseRecords)courseRecordList.get(i);
+			CourseRecordsObj courseRecords = (CourseRecordsObj)courseRecordList.get(i);
 			if(courseRecords.getIndexNum().equals(indexNum) && !courseRecords.getVacancy().equals("nill"))
 				System.out.println("Avaliable slot for Index Number" + indexNum + ": " + courseRecords.getVacancy());
 		}

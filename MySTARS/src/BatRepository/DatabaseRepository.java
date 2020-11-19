@@ -7,9 +7,13 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.List;
 
+import Course.CourseRecordsObj;
+import Login.LoginInfo;
+import Student.StudentRecords;
 import TextRepository.CourseRecordsTextRepository;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 // Note : When structure of the Object type (the class file) in the list changed
@@ -48,39 +52,46 @@ public class DatabaseRepository
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		}
+		System.out.println("Written");
 	}
 
 	public static void main(String[] args) {
-		/*List list;
-		try	{
-				// read from serialized file the list of professors
-				list = (ArrayList)SerializeDB.readSerializedObject("professor.dat");
-				for (int i = 0 ; i < list.size() ; i++) {
-					Professor p = (Professor)list.get(i);
-					System.out.println("name is " + p.getName() );
-					System.out.println("contact is " + p.getContact() );
-				}
-
-				// write to serialized file - update/insert/delete
-				// example - add one more professor
-				Professor p = new Professor("Joseph","jos@ntu.edu.sg",67909999);
-				// add to list
-				list.add(p);
-				// list.remove(p);  // remove if p equals object in the list
-
-				SerializeDB.writeSerializedObject("professor.dat", list);
-
-		}  catch ( Exception e ) {
-					System.out.println( "Exception >> " + e.getMessage() );
-		}*/
-		
-		
-		
-		//write here
 		try {
 			ArrayList al = CourseRecordsTextRepository.readCourseRecords();
-			//here
+			for (int i = 0 ; i < al.size() ; i++) {
+				CourseRecordsObj courseRecords = (CourseRecordsObj)al.get(i);
+					System.out.println("CourseIndex: " + courseRecords.getCourseIndex() );
+					System.out.println("IndexNum: " + courseRecords.getIndexNum() );
+					System.out.println("Rype: " + courseRecords.getType() );
+					System.out.println("Froup: " + courseRecords.getGroup() );
+					System.out.println("Day: " + courseRecords.getDay() );
+					System.out.println("Time: " + courseRecords.getTime() );
+					System.out.println("Venue: " + courseRecords.getVenue() );
+					System.out.println("Remarks: " + courseRecords.getRemarks() );
+					System.out.println("Vacancy: " + courseRecords.getVacancy() );
+					System.out.println("Name: " + courseRecords.getName() );
+					
+					System.out.println("\n");
+				}
 			
+			//DatabaseRepository.writeSerializedObject("CourseRecords.dat", al);
+			
+			//list = (ArrayList)DatabaseRepository.readSerializedObject("professor.dat");
+			ArrayList datFile = (ArrayList)DatabaseRepository.readSerializedObject("CourseRecords.dat");
+					for(int i = 0; i < datFile.size(); i++)
+					{
+						CourseRecordsObj courseRecords = (CourseRecordsObj)datFile.get(i);
+						System.out.println("Course Index: " + courseRecords.getCourseIndex());
+						System.out.println("Day: " + courseRecords.getDay());
+					}
+				ArrayList datFile2 = (ArrayList)DatabaseRepository.readSerializedObject("LoginsInfo.dat");
+				for(int i = 0; i < datFile2.size(); i++)
+				{
+					LoginInfo loginInfo = (LoginInfo)datFile2.get(i);
+					System.out.println("password: " + loginInfo.getPassword());
+					System.out.println("Type: " + loginInfo.getType());
+					
+				}
 			
 			
 			

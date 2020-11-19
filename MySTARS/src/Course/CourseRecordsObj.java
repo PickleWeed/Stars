@@ -1,6 +1,8 @@
 package Course;
 
-public class CourseRecords {
+import java.io.Serializable;
+
+public class CourseRecordsObj implements Serializable{
 	
 	private String  courseIndex;
 	private String  indexNum;
@@ -13,7 +15,7 @@ public class CourseRecords {
 	private String  vacancy; 
 	private String  name;
 	
-	public CourseRecords(String courseIndex, String indexNum, String type, String group, String day, String time, String venue, String remarks, String vacancy, String name)
+	public CourseRecordsObj(String courseIndex, String indexNum, String type, String group, String day, String time, String venue, String remarks, String vacancy, String name)
 	{
 		this.courseIndex = courseIndex;
 		this.indexNum = indexNum;

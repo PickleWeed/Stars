@@ -3,7 +3,7 @@ package Student;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import Course.CourseRecords;
+import Course.CourseRecordsObj;
 import TextRepository.CourseRecordsTextRepository;
 
 public class CheckCourse {
@@ -17,7 +17,7 @@ public class CheckCourse {
 		for (int i=0; i<courseRecordList.size(); i++)
 		{
 			//get array object 
-			CourseRecords courseRecords = (CourseRecords)courseRecordList.get(i);
+			CourseRecordsObj courseRecords = (CourseRecordsObj)courseRecordList.get(i);
 			
 			if(!courseRecords.getVacancy().equals("nill"))
 				System.out.println("Course Index: " + courseRecords.getCourseIndex() + ", Vacancy: " + courseRecords.getVacancy());

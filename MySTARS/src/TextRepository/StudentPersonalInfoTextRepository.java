@@ -121,7 +121,6 @@ public static void main(String[] aArgs)  {
 	StudentPersonalInfoTextRepository studentRecTextRepository = new StudentPersonalInfoTextRepository();
 	try {
 		// read file containing Professor records.
-		
 		ArrayList al = studentRecTextRepository.readStudentInfo() ;
 		for (int i = 0 ; i < al.size() ; i++) {
 			Student student = (Student)al.get(i);

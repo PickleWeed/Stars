@@ -71,8 +71,6 @@ public class LoginTextRepository {
 					st.append(loginInfo.getType().trim());
 					st.append(SEPARATOR);
 					st.append(loginInfo.getKey().trim());
-					st.append(SEPARATOR);
-					st.append(loginInfo.getType().trim());
 					alw.add(st.toString()) ;
 				}
 				write(filename,alw);

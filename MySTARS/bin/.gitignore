@@ -1,7 +1,9 @@
 /Interface/
-/Student/
-/Login/
-/BatRepository/
 /Admin/
 /Course/
+/Student/
 /TextRepository/
+/Calendar.class
+/CalendarExample.class
+/BatRepository/
+/Login/

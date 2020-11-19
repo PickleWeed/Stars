@@ -1,6 +1,8 @@
 package Student;
 
-public class StudentRecords {
+import java.io.Serializable;
+
+public class StudentRecords implements Serializable{
 	private String  key ;
 	private String  indexNum;
 	private String  courseIndex;
