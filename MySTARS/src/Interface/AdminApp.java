@@ -145,7 +145,7 @@ public class AdminApp {
 	private void printStudentListByIndexNumber() throws IOException {
 		// TODO Auto-generated method stub
 		GetStudentListByIndexNumber.showIndexNum(studentsRecords,studentInfo);
-		System.out.println("Enter Index Number to check avaliable Key:");
+		System.out.println("Enter Index Number to check list of Student:");
 		String indexNum = sc.next();
 		GetStudentListByIndexNumber.getKey(indexNum, studentsRecords,studentInfo);
 		
@@ -153,7 +153,7 @@ public class AdminApp {
 	private void printStudentListByCourseIndex() throws IOException{
 		// TODO Auto-generated method stub
 		GetStudentListByCourseIndex.showcourseIndex(studentsRecords,studentInfo);
-		System.out.println("Enter Index Number to check avaliable Vacancy:");
+		System.out.println("Enter Course Index to check list of Student:");
 		String courseIndex = sc.next();
 		GetStudentListByCourseIndex.getKey(courseIndex, studentsRecords,studentInfo);
 	}

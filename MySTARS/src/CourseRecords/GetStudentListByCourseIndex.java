@@ -18,8 +18,7 @@ public class GetStudentListByCourseIndex {
 		{
 			//get array object 
 			StudentRecords studentRecords = (StudentRecords)StudentRecordsList.get(i);
-			Student StudentInfo = (Student)StudentInfo.get(j);
-
+			Student StudentInfo = (Student)studentInfo.get(j);
 			if(!studentRecords.getKey().equals("nill")&& studentRecords.getKey().equals(StudentInfo.getKey()))
 				System.out.println("Index Number: " + studentRecords.getCourseIndex());
 		}
@@ -31,9 +30,9 @@ public class GetStudentListByCourseIndex {
 		{
 			//get array object 
 				StudentRecords studentRecords = (StudentRecords)StudentRecordsList.get(i);
-				Student StudentInfo = (Student)StudentInfo.get(j);
+				Student StudentInfo = (Student)studentInfo.get(j);
 			if(studentRecords.getCourseIndex().equals(courseIndex) && !studentRecords.getKey().equals("nill")&& studentRecords.getKey().equals(StudentInfo.getKey()))
-				System.out.println("Avaliable slot for Index Number" + courseIndex + ": " + studentRecords.getKey());
+				System.out.println ("Name : "+ StudentInfo.getFirstName()+ " "+StudentInfo.getLastName()+ ", Gender : " + StudentInfo.getGender()+ ", Nationality : " + StudentInfo.getNationality());
 		}
 	}
 }
