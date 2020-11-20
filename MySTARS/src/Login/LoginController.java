@@ -15,7 +15,7 @@ public class LoginController {
 	{
 		//retrieve login information from txt file
 	}
-	public void validateLogin(String username, String password, int choice) // Called from LoginInterface
+	public void validateLogin(String username, String password, int choice)// Called from LoginInterface
 	{
 		String filename = null;
 		String key = null;
@@ -52,10 +52,15 @@ public class LoginController {
 			        e.printStackTrace();
 			    }
 			    if(choice == 1)
-			    	StudentInterface.inStudentInterface();
+			    {
+			    	StudentInterface studentInterface = new StudentInterface();
+			    	studentInterface.inStudentInterface();
+			    }
+			    	
 			    else if(choice == 2)
 			    {
 			    	AdminApp adminApp = new AdminApp();
+			    	adminApp.adminInterface();
 			    }
 			}
 	    	else
@@ -63,8 +68,8 @@ public class LoginController {
 	    		System.out.println("Incorrect Password or Username!");
 	    	}	
     	 	  		 		
-    	}catch (IOException e) {
-			System.out.println("IOException > " + e.getMessage());
+    	}catch (Exception e) {
+			System.out.println("eException > " + e.getMessage());
     	}
 	}
 }

@@ -93,25 +93,4 @@ public class StudentHandler {
 			StudentPersonalInfoTextRepository.saveStudentInfo(studentInfo);
 		}
 	}
-	public static void main(String[] args) throws IOException {
-		String firstName = "hi", lastName = "key", matricNum = "12312", gender = "Male", age = "25", nationality = "Singaporean", password = "whatever", username = "hello";
-		
-		String key = Encrypt.getKey();
-		String accessPeriod = "20/06/2020 - 20/08/2020";
-		String hashPassword = Encrypt.hashing(password);
-		
-		ArrayList StudentInfoArray = StudentPersonalInfoTextRepository.readStudentInfo();
-		ArrayList loginArray = LoginTextRepository.readLogin();
-		
-		Student student = new Student(key, firstName, lastName, matricNum, gender, nationality, age, accessPeriod);
-		StudentInfoArray.add(student) ;
-		
-		LoginInfo loginInfo = new LoginInfo(username, hashPassword, "Student", key);
-		loginArray.add(loginInfo);
-		
-		StudentPersonalInfoTextRepository.saveStudentInfo(StudentInfoArray);
-		LoginTextRepository.saveLogin(loginArray);
-	}
-	
-
 }

@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public abstract class StudentInterface {
+public class StudentInterface {
 	String key = null;
 
 	public static void inStudentInterface() throws IOException
@@ -63,11 +63,5 @@ public abstract class StudentInterface {
 			}	
 		}
 	}
-	public abstract void addCourse();
-	public abstract void dropCourse();
-	public abstract String[] getStudentCourse();
-	public abstract void changeIndexOfCourse();
-	public abstract String getWaitList();
-	//public abstract void writeData();
 
 }

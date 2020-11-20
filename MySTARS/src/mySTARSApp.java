@@ -6,14 +6,9 @@ import Interface.StudentInterface;
 import Interface.AdminApp;
 
 public class mySTARSApp {
-	public static void main(String[] args) throws IOException {
-		//LoginInterface loginInterface = new LoginInterface();
-		//loginInterface.loginAs();
-		
-		//StudentInterface.inStudentInterface();
-		
-		AdminApp adminApp = new AdminApp();
-		adminApp.adminInterface();
+	public static void main(String[] args) throws Exception {
+		LoginInterface loginInterface = new LoginInterface();
+		loginInterface.loginAs();
 	}		
 }
 //test commit//

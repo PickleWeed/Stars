@@ -1,4 +1,4 @@
-package BatRepository;
+package DatRepository;
 
 import java.io.IOException;
 import java.io.FileInputStream;
@@ -52,9 +52,8 @@ public class DatabaseRepository
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		}
-		System.out.println("Written");
 	}
-
+	//testing purpose
 	public static void main(String[] args) {
 		try {
 			ArrayList al = CourseRecordsTextRepository.readCourseRecords();

@@ -12,32 +12,34 @@ import java.lang.*;
 
 public class LoginInterface {
 	
+	private String username, password;
+	private String choice;
+	
+	Scanner sc = new Scanner(System.in);
+	
 	public void loginAs() //Enter from mySTARSApp
 	{
-		int choice;
-		Scanner sc = new Scanner(System.in);
-		
+
 		while(true) {
-			System.out.println("Login As..... ");
-			System.out.println("1 For Student \n2 For Admin ");
+			System.out.println("\n......Login As......");
+			System.out.println("1. Login As Student \n2. Login As Admin ");
 			System.out.printf("Enter choice: ");
-			choice = sc.nextInt();
-			if(choice == 1 || choice == 2) //Choosing Admin or Student
+			choice = sc.next();
+			if(choice.equals("1") || choice.equals("2")) //Choosing Admin or Student
 			{
+				int choice = Integer.parseInt(this.choice);
 				adminOrStudent(choice); //Enter AdminOrStudent 
 			}
-         if(choice == 3){
-            System.exit(0);
+			if(choice.equals("3")){
+				System.exit(0);
             }
+			else
+				System.out.println("Please Enter a Valid Number!\n");
 		}
 	}
-	private static void adminOrStudent(int choice)
-	{
-		LoginController loginController = new LoginController(); //Enter loginController
-		String username, password;
-		
-		Scanner sc = new Scanner(System.in);
-		System.out.println("\nLogin.....");
+	private void adminOrStudent(int choice)
+	{	
+		System.out.println("\n......Login......");
 		System.out.printf("Please enter Username: ");
 		username = sc.next();
       
@@ -45,10 +47,11 @@ public class LoginInterface {
       
 		System.out.printf("Please Enter Password: ");
 		password = sc.next();	
-
+		
+		LoginController loginController = new LoginController(); //Enter loginController
 		loginController.validateLogin(username, password, choice);
 	}
-	private static String consoleReadPass()
+	private String consoleReadPass()
 	{
 		 Console console = System.console();
 	      if(console == null){
@@ -59,5 +62,10 @@ public class LoginInterface {
 	      
 	      char[] pass = console.readPassword("Please enter password:");
 	      return String.valueOf(pass);
+	}
+	//Testing purpose
+	public static void main(String[] args) {
+		LoginInterface loginInterface = new LoginInterface();
+		loginInterface.loginAs();
 	}
 }
