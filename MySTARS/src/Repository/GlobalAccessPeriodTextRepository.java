@@ -16,7 +16,7 @@ import CourseRecords.CourseRecord;
  * GlobalAccessPeriodTextRepository is a boundary class which performs read and write operations 
  * on GlobalAccessPeriod.txt, a database that stores all time periods that students are allowed
  * to access the STAR System.<p>
- * Each AccessPeriodObj has a startAccessPeriod(dd/mm/yyyy) and a endAccessPeriod(dd/mm/yyyy): <p>
+ * Each AccessPeriod has a startAccessPeriod(dd/mm/yyyy) and a endAccessPeriod(dd/mm/yyyy): <p>
  * 
  * @author ?
  *
@@ -27,10 +27,10 @@ public class GlobalAccessPeriodTextRepository implements Repository {
 	
     	/**
 	 * Gets all time periods that students are allowed to access the STAR System.<p>
-     	 * Each time period is stored as a {@link Admin.AccessPeriodObj} object.<p> 
-     	 * An ArrayList of {@link Admin.AccessPeriodObj} objects are returned.<p>
+     	 * Each time period is stored as a {@link Admin.AccessPeriod} object.<p> 
+     	 * An ArrayList of {@link Admin.AccessPeriod} objects are returned.<p>
 	 * 
-	 * @return An ArrayList of {@link Admin.AccessPeriodObj} objects storing 
+	 * @return An ArrayList of {@link Admin.AccessPeriod} objects storing 
 	 * all allowable access periods for students from the database is returned.
 	 * @throws IOException If an input or output exception occurred
 	 */
@@ -57,9 +57,9 @@ public class GlobalAccessPeriodTextRepository implements Repository {
 	}
 
 	/**
-	 * Saves an ArrayList of {@link Admin.AccessPeriodObj} objects into the database.
+	 * Saves an ArrayList of {@link Admin.AccessPeriod} objects into the database.
 	 * 
-	 * @param al an ArrayList of {@link Admin.AccessPeriodObj} object to be stored into the database
+	 * @param al an ArrayList of {@link Admin.AccessPeriod} object to be stored into the database
 	 * @throws IOException If an input or output exception occurred
 	 */
 	public void saveList(List al) throws IOException {
