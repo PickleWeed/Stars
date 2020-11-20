@@ -5,7 +5,21 @@ import java.util.Scanner;
 
 import CourseRecords.CourseRecord;
 import Repository.CourseRecordsTextRepository;
+
+/**
+ * AddCourse is a control class which implements the logic of adding a course for 
+ * the student if the student enters a valid courseIndex.
+ * 
+ * @author ?
+ *
+ */
 public class AddCourse {
+	/**
+	 * Displays the CourseIndex of all courses in the database.
+	 * 
+	 * @param courseIndex
+	 * @param courseRecordList
+	 */
 	public static void addCourse1(String courseIndex, ArrayList courseRecordList)
 	{
 		
@@ -29,6 +43,10 @@ public class AddCourse {
 	
 	
 	public static final String delimiter = "|";
+		/**
+		 * prompts the user to enter a CourseIndex
+		 * @return
+		 */
 		public String queryCourseIndex() {
 			String courseIndex;
 			Scanner sc = new Scanner(System.in);
@@ -36,6 +54,14 @@ public class AddCourse {
 		    courseIndex = sc.nextLine();
 		    return courseIndex;
 		}
+		/**
+		 * Checks if the courseIndex entered by the user is a valid courseIndex in the database,
+		 *  and returns either a valid courseIndex, or "".
+		 * 
+		 * @param courseIndex courseIndex (eg. CZ1003)
+		 * @return if a matching courseIndex is found in the database, return the courseIndex.
+		 * Otherwise, return "".
+		 */
 		public String findRelevantRecord(String courseIndex){
 			String data, Str, subData, temp;
 	        try {
@@ -58,6 +84,11 @@ public class AddCourse {
 	          }	
 	        return "";
 		}
+		/**
+		 * Adds the course for the student if the courseIndex is valid.
+		 * @param temp temp is either a valid courseIndex(one that is present in the database), 
+		 * or "". 
+		 */
 	    public void addCourse(String temp){
 		    try {
 		        FileWriter writer = new FileWriter("StudentRecords.txt", true);
