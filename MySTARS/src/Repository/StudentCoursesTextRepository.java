@@ -10,11 +10,11 @@ import java.util.StringTokenizer;
 
 import StudentRecords.StudentRecords;
 
-public class StudentCoursesTextRepository {
+public class StudentCoursesTextRepository implements Repository{
 	private static final String SEPARATOR = "|";
 	private static final String filename = "StudentRecords.txt" ;
     // an example of reading
-	public static ArrayList readStudentRecords() throws IOException {
+	public ArrayList readToList() throws IOException {
 		// read String from text file
 		ArrayList stringArray = (ArrayList)read(filename);
 		ArrayList alr = new ArrayList() ;// to store Professors data
@@ -43,7 +43,7 @@ public class StudentCoursesTextRepository {
 	}
 
   // an example of saving
-public static void saveStudentRecords(List al) throws IOException {
+public void saveList(List al) throws IOException {
 		List alw = new ArrayList() ;// to store Professors data
 		
         for (int i = 0 ; i < al.size() ; i++) {
@@ -72,7 +72,7 @@ public static void saveStudentRecords(List al) throws IOException {
 	}
 
   /** Write fixed content to the given file. */
-  private static void write(String fileName, List data) throws IOException  {
+  public void write(String fileName, List data) throws IOException  {
     PrintWriter out = new PrintWriter(new FileWriter(fileName));
 
     try {
@@ -86,7 +86,7 @@ public static void saveStudentRecords(List al) throws IOException {
   }
 
   /** Read the contents of the given file. */
-  private static List read(String fileName) throws IOException {
+  public List read(String fileName) throws IOException {
 	List data = new ArrayList() ;
     Scanner scanner = new Scanner(new FileInputStream(fileName));
     try {
@@ -120,10 +120,11 @@ public static void main(String[] aArgs)  {
 			System.out.println("IOException > " + e.getMessage());
 		}*/
 	
-	StudentCoursesTextRepository studentRecTextRepository = new StudentCoursesTextRepository();
+
 	try {
 		// read file containing Professor records.
-		ArrayList al = studentRecTextRepository.readStudentRecords() ;
+		StudentCoursesTextRepository studentRecTextRepository = new StudentCoursesTextRepository();
+		ArrayList al = studentRecTextRepository.readToList() ;
 		for (int i = 0 ; i < al.size() ; i++) {
 			StudentRecords studentRecord = (StudentRecords)al.get(i);
 				System.out.println("Key: " + studentRecord.getKey() );

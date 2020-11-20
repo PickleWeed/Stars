@@ -12,7 +12,7 @@ public class CheckCourse {
 	
 	public static void showCourseIndex() throws IOException
 	{
-		ArrayList courseRecordList = CourseRecordsTextRepository.readCourseRecords();
+		/*ArrayList courseRecordList = CourseRecordsTextRepository.readCourseRecords();
 		
 		for (int i=0; i<courseRecordList.size(); i++)
 		{
@@ -22,7 +22,7 @@ public class CheckCourse {
 			if(!courseRecords.getVacancy().equals("nill"))
 				System.out.println("Course Index: " + courseRecords.getCourseIndex() + ", Vacancy: " + courseRecords.getVacancy());
 			
-		}
+		}*/
 	}
 
 }

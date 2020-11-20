@@ -15,7 +15,7 @@ public class UpdateStudentInfo {
 			String matricNum, String gender, String nationality, String age, 
 			String username, String password, String accessPeriod, String email) throws IOException
 	{
-		String key = Encrypt.getKey();
+		String key = Encrypt.checkKey();
 		String hashPassword = Encrypt.hashing(password);
 		
 		//ArrayList StudentInfoArray = StudentPersonalInfoTextRepository.readStudentInfo();
@@ -27,8 +27,10 @@ public class UpdateStudentInfo {
 		LoginInfo loginInfo = new LoginInfo(username, hashPassword, "Student", key);
 		loginArray.add(loginInfo);
 		
-		StudentPersonalInfoTextRepository.saveStudentInfo(StudentInfoArray);
-		LoginTextRepository.saveLogin(loginArray);
+		StudentPersonalInfoTextRepository studentPersonalInfoTextRepository = new StudentPersonalInfoTextRepository();
+		LoginTextRepository loginTextRepository = new LoginTextRepository();
+		studentPersonalInfoTextRepository.saveList(StudentInfoArray);
+		loginTextRepository.saveList(loginArray);
 		
 		System.out.println("Student Successfully added!\n");
 		
@@ -50,7 +52,8 @@ public class UpdateStudentInfo {
 				student.setAccessPeriod(accessPeriod);
 				System.out.println("Access Period Updated!");
 			}
-			StudentPersonalInfoTextRepository.saveStudentInfo(studentInfo);
+			StudentPersonalInfoTextRepository studentPersonalInfoTextRepository = new StudentPersonalInfoTextRepository();
+			studentPersonalInfoTextRepository.saveList(studentInfo);
 		}
 	}
 }

@@ -63,15 +63,20 @@ public class AdminApp {
 	 */
 	public void adminInterface() throws Exception
 	{	
+		CourseRecordsTextRepository courseRecordsTextRepository = new CourseRecordsTextRepository();
+		StudentPersonalInfoTextRepository studentPersonalInfoTextRepository = new StudentPersonalInfoTextRepository();
+		LoginTextRepository loginTextRepository = new LoginTextRepository();
+		StudentCoursesTextRepository studentCoursesTextRepository = new StudentCoursesTextRepository();
+		GlobalAccessPeriodTextRepository globalAccessPeriodTextRepository = new GlobalAccessPeriodTextRepository();
 
 		while(!choice.equals("8"))
 		{
 			//get Data from txtfile
-			courseRecordList = CourseRecordsTextRepository.readCourseRecords();
-			studentInfo = StudentPersonalInfoTextRepository.readStudentInfo();
-			loginInfo = LoginTextRepository.readLogin();
-			studentsRecords = StudentCoursesTextRepository.readStudentRecords();
-			accessPeriodList = GlobalAccessPeriodTextRepository.readAccessPeriod();
+			courseRecordList = courseRecordsTextRepository.readToList();
+			studentInfo = studentPersonalInfoTextRepository.readToList();
+			loginInfo = loginTextRepository.readToList();
+			studentsRecords = studentCoursesTextRepository.readToList();
+			accessPeriodList = globalAccessPeriodTextRepository.readToList();
 			
 			//write onto Serial File
 			DatRepository.writeSerializedObject("CourseRecords.dat", courseRecordList);

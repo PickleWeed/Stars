@@ -10,12 +10,12 @@ import java.util.StringTokenizer;
 
 import StudentInfo.Student;
 
-public class StudentPersonalInfoTextRepository {
+public class StudentPersonalInfoTextRepository implements Repository{
 	private static final String SEPARATOR = "|";
 	private static final  String filename = "StudentsInfo.txt" ;
 
     // an example of reading
-	public static ArrayList readStudentInfo() throws IOException {
+	public ArrayList readToList() throws IOException {
 		// read String from text file
 		ArrayList stringArray = (ArrayList)read(filename);
 		ArrayList alr = new ArrayList() ;// to store Professors data
@@ -44,7 +44,7 @@ public class StudentPersonalInfoTextRepository {
 	}
 
 	  // an example of saving
-	public static void saveStudentInfo(List al) throws IOException {
+	public void saveList(List al) throws IOException {
 			List alw = new ArrayList() ;// to store Professors data
 	
 	        for (int i = 0 ; i < al.size() ; i++) {
@@ -73,7 +73,7 @@ public class StudentPersonalInfoTextRepository {
 		}
 
   /** Write fixed content to the given file. */
-  private static void write(String fileName, List data) throws IOException  {
+  public void write(String fileName, List data) throws IOException  {
     PrintWriter out = new PrintWriter(new FileWriter(fileName));
 
     try {
@@ -87,7 +87,7 @@ public class StudentPersonalInfoTextRepository {
   }
 
   /** Read the contents of the given file. */
-  private static List read(String fileName) throws IOException {
+  public List read(String fileName) throws IOException {
 	List data = new ArrayList() ;
     Scanner scanner = new Scanner(new FileInputStream(fileName));
     try {
@@ -124,7 +124,7 @@ public class StudentPersonalInfoTextRepository {
 		StudentPersonalInfoTextRepository studentRecTextRepository = new StudentPersonalInfoTextRepository();
 		try {
 			// read file containing Professor records.
-			ArrayList al = studentRecTextRepository.readStudentInfo() ;
+			ArrayList al = studentRecTextRepository.readToList() ;
 			for (int i = 0 ; i < al.size() ; i++) {
 				Student student = (Student)al.get(i);
 					System.out.println("Key: " + student.getKey() );

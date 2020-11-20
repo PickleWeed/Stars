@@ -24,11 +24,11 @@ import Login.LoginInfo;
  * @author ?
  *
  */
-public class LoginTextRepository {
+public class LoginTextRepository implements Repository{
 	private static final String SEPARATOR = "|";	
 	private static final String filename = "LoginsInfo.txt" ;
 	
-	public static String readLoginDetail(String userUsername, String userPassword, String userType) throws IOException { //enter from LoginController
+	public String readLoginDetail(String userUsername, String userPassword, String userType) throws IOException { //enter from LoginController
 		ArrayList stringArray = (ArrayList)read(filename); // read String from text file
 		ArrayList alr = new ArrayList() ;// to store Professors data
         for (int i = 0 ; i < stringArray.size() ; i++) {
@@ -54,7 +54,7 @@ public class LoginTextRepository {
 	 * the login information of all users is returned.
 	 * @throws IOException If an input or output exception occurred
 	 */
-	public static ArrayList readLogin() throws IOException {
+	public ArrayList readToList() throws IOException {
 		// read String from text file
 		ArrayList stringArray = (ArrayList)read(filename);
 		ArrayList alr = new ArrayList() ;// to store Professors data
@@ -83,7 +83,7 @@ public class LoginTextRepository {
 	 * @param al an ArrayList of {@link Login.LoginInfo} object to be stored into the database
 	 * @throws IOException If an input or output exception occurred
 	 */
-	public static void saveLogin(List al) throws IOException {
+	public void saveList(List al) throws IOException {
 			List alw = new ArrayList() ;// to store Professors data
 	
 	        for (int i = 0 ; i < al.size() ; i++) {
@@ -101,7 +101,7 @@ public class LoginTextRepository {
 				write(filename,alw);
 		}
 	
-  private static List read(String fileName) throws IOException { //enter from readStudentLogin
+  public List read(String fileName) throws IOException { //enter from readStudentLogin
 		List data = new ArrayList(); 
 	   Scanner scanner = new Scanner(new FileInputStream(fileName));
 	   try {
@@ -114,7 +114,7 @@ public class LoginTextRepository {
 	    }
 	    return data;
 	  }	  
-  private static void write(String fileName, List data) throws IOException  {
+  public void write(String fileName, List data) throws IOException  {
 	    PrintWriter out = new PrintWriter(new FileWriter(fileName));
 
 	    try {

@@ -13,7 +13,8 @@ public class UpdateCourseRecord {
 		CourseRecord courseRecordObj = new CourseRecord(courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, name);
 		courseRecordList.add(courseRecordObj);
 		
-		CourseRecordsTextRepository.saveCourseRecords(courseRecordList);
+		CourseRecordsTextRepository courseRecordsTextRepository = new CourseRecordsTextRepository();
+		courseRecordsTextRepository.saveList(courseRecordList);
 		
 		System.out.println("Course Successfully added!\n");
 

@@ -28,7 +28,7 @@ import CourseRecords.CourseRecord;
  * @author ? 
  *
  */
-public class CourseRecordsTextRepository {
+public class CourseRecordsTextRepository implements Repository{
 	private static final String SEPARATOR = "|";
 	private static final String filename = "CourseRecords.txt" ;
     /**
@@ -40,7 +40,7 @@ public class CourseRecordsTextRepository {
      * of all courses in the database
      * @throws IOException If an input or output exception occurred
      */
-	public static ArrayList readCourseRecords() throws IOException {
+	public ArrayList readToList() throws IOException {
 		
 		// read String from text file
 		ArrayList stringArray = (ArrayList)read(filename);
@@ -77,7 +77,7 @@ public class CourseRecordsTextRepository {
 	   * @param al an ArrayList of {@link Course.CourseRecords} object to be stored into the database
 	   * @throws IOException If an input or output exception occurred
 	   */
-	public static void saveCourseRecords(List al) throws IOException {
+	public void saveList(List al) throws IOException {
 			List alw = new ArrayList() ;// to store Professors data
 	
 	        for (int i = 0 ; i < al.size() ; i++) {
@@ -108,7 +108,7 @@ public class CourseRecordsTextRepository {
 		}
 
 	  /** Write fixed content to the given file. */
-	  private static void write(String fileName, List data) throws IOException  {
+	  public void write(String fileName, List data) throws IOException  {
 	    PrintWriter out = new PrintWriter(new FileWriter(fileName));
 	
 	    try {
@@ -122,7 +122,7 @@ public class CourseRecordsTextRepository {
 	  }
 	
 	  /** Read the contents of the given file. */
-	  private static List read(String fileName) throws IOException {
+	  public List read(String fileName) throws IOException {
 		List data = new ArrayList() ;
 	    Scanner scanner = new Scanner(new FileInputStream(fileName));
 	    try {
@@ -158,7 +158,8 @@ public class CourseRecordsTextRepository {
 		
 		try {
 			// read file containing Professor records.
-			ArrayList al = CourseRecordsTextRepository.readCourseRecords();
+			CourseRecordsTextRepository courseRecordsTextRepository = new CourseRecordsTextRepository();
+			ArrayList al = courseRecordsTextRepository.readToList();
 			for (int i = 0 ; i < al.size() ; i++) {
 				CourseRecord courseRecords = (CourseRecord)al.get(i);
 					System.out.println("CourseIndex: " + courseRecords.getCourseIndex() );

@@ -53,7 +53,7 @@ public class DatRepository
 		}
 	}
 	//testing purpose
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		try {
 			ArrayList al = CourseRecordsTextRepository.readCourseRecords();
 			for (int i = 0 ; i < al.size() ; i++) {
@@ -97,5 +97,5 @@ public class DatRepository
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
+	}*/
 }

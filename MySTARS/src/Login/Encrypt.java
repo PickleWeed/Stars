@@ -49,9 +49,10 @@ public class Encrypt {
 	      .toString();
 	    return generatedString;
 	}
-	public static String getKey() throws IOException
+	public static String checkKey() throws IOException
 	{
-		ArrayList loginDetailList = LoginTextRepository.readLogin();
+		LoginTextRepository loginTextRepository = new LoginTextRepository();
+		ArrayList loginDetailList = loginTextRepository.readToList();
 		String key = null;
 		
 		//there must not be two identifical key

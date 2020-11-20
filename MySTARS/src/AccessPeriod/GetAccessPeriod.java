@@ -30,8 +30,7 @@ public class GetAccessPeriod {
 	}
 
 	public static void main(String[] args) throws IOException {
-		ArrayList 	accessPeriodList = GlobalAccessPeriodTextRepository.readAccessPeriod();
-		getAccessPeriod(accessPeriodList, "5");
+		
 	}
 		
 }

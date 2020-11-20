@@ -59,7 +59,8 @@ public class LoginController {
 			password = Encrypt.hashing(password);
 			//System.out.println(password);
 			
-			key = LoginTextRepository.readLoginDetail(username, password, userType); //Query to TextDatabase
+			LoginTextRepository loginTextRepository = new LoginTextRepository();
+			key = loginTextRepository.readLoginDetail(username, password, userType); //Query to TextDatabase
 			if(key != null)
 			{
 				System.out.println("\nLogin Successful!\n");	

@@ -12,11 +12,11 @@ import java.util.StringTokenizer;
 import AccessPeriod.AccessPeriod;
 import CourseRecords.CourseRecord;
 
-public class GlobalAccessPeriodTextRepository {
+public class GlobalAccessPeriodTextRepository implements Repository {
 	private static final String SEPARATOR = "|";
 	private static final String filename = "GlobalAccessPeriod.txt" ;
     // an example of reading
-	public static ArrayList readAccessPeriod() throws IOException {
+	public ArrayList readToList() throws IOException {
 		
 		// read String from text file
 		ArrayList stringArray = (ArrayList)read(filename);
@@ -39,7 +39,7 @@ public class GlobalAccessPeriodTextRepository {
 	}
 
 	// an example of saving
-	public static void saveAccessPeriod(List al) throws IOException {
+	public void saveList(List al) throws IOException {
 			List alw = new ArrayList() ;// to store Professors data
 	
 	        for (int i = 0 ; i < al.size() ; i++) {
@@ -54,7 +54,7 @@ public class GlobalAccessPeriodTextRepository {
 		}
 
 	  /** Write fixed content to the given file. */
-	  private static void write(String fileName, List data) throws IOException  {
+	  public void write(String fileName, List data) throws IOException  {
 	    PrintWriter out = new PrintWriter(new FileWriter(fileName));
 	
 	    try {
@@ -68,7 +68,7 @@ public class GlobalAccessPeriodTextRepository {
 	  }
 	
 	  /** Read the contents of the given file. */
-	  private static List read(String fileName) throws IOException {
+	  public List read(String fileName) throws IOException {
 		List data = new ArrayList() ;
 	    Scanner scanner = new Scanner(new FileInputStream(fileName));
 	    try {
@@ -104,7 +104,8 @@ public class GlobalAccessPeriodTextRepository {
 		
 		try {
 			// read file containing Professor records.
-			ArrayList al = GlobalAccessPeriodTextRepository.readAccessPeriod();
+			GlobalAccessPeriodTextRepository globalAccessPeriodTextRepository = new GlobalAccessPeriodTextRepository();
+			ArrayList al = globalAccessPeriodTextRepository.readToList();
 			for (int i = 0 ; i < al.size() ; i++) {
 				AccessPeriod accessPeriodObj = (AccessPeriod)al.get(i);
 					System.out.println("Start Access Period: "+ accessPeriodObj.getStartAccessPeriod());
