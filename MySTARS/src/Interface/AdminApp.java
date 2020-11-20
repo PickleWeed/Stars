@@ -12,6 +12,7 @@ import CourseRecords.GetStudentListByIndexNumber;
 import StudentInfo.CheckStudentInfo;
 import StudentInfo.UpdateStudentInfo;
 import StudentInfo.ViewStudentInfo;
+import StudentRecords.StudentRecords;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,9 +38,6 @@ import AccessPeriod.GetAccessPeriod;
  *
  */
 public class AdminApp {
-	private static final ArrayList StudentRecordsList = null;
-
-
 	private String choice = "0";
 	
 
@@ -146,18 +144,18 @@ public class AdminApp {
 	}
 	private void printStudentListByIndexNumber() throws IOException {
 		// TODO Auto-generated method stub
-		GetStudentListByIndexNumber.showIndexNum(StudentRecordsList);
+		GetStudentListByIndexNumber.showIndexNum(studentsRecords);
 		System.out.println("Enter Index Number to check avaliable Key:");
 		String indexNum = sc.next();
-		GetStudentListByIndexNumber.getKey(indexNum, StudentRecordsList);
+		//GetStudentListByIndexNumber.getKey(indexNum, StudentRecordsList);
 		
 	}
 	private void printStudentListByCourseIndex() throws IOException{
 		// TODO Auto-generated method stub
-		GetStudentListByCourseIndex.showcourseIndex(StudentRecordsList);
+		GetStudentListByCourseIndex.showcourseIndex(studentsRecords);
 		System.out.println("Enter Index Number to check avaliable Vacancy:");
 		String courseIndex = sc.next();
-		GetStudentListByCourseIndex.getKey(courseIndex, StudentRecordsList);
+		GetStudentListByCourseIndex.getKey(courseIndex, studentsRecords);
 	}
 	private void editStudentAccess() throws IOException
 	{	
@@ -279,6 +277,7 @@ public class AdminApp {
 	public static void main(String[] args) throws Exception {
 		AdminApp adminApp = new AdminApp();
 		adminApp.adminInterface();
+		
 	}
 
 }

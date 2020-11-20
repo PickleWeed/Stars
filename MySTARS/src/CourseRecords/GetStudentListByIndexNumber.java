@@ -16,8 +16,7 @@ public class GetStudentListByIndexNumber {
 		{
 			//get array object 
 			StudentRecords studentRecords = (StudentRecords)StudentRecordsList.get(i);
-			if(!studentRecords.getKey().equals("nill"))
-				System.out.println("Index Number: " + studentRecords.getIndexNum());
+			System.out.println("Index Number: " + studentRecords.getIndexNum());
 		}
 	}
 	public static void getKey(String indexNum, ArrayList StudentRecordsList)
