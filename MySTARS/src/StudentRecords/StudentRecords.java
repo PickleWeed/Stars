@@ -3,15 +3,17 @@ package StudentRecords;
 import java.io.Serializable;
 
 /**
- * StudentRecords is an entity class which stores all information of a course. <p>
+ * StudentRecords is an entity class which stores the information of a course taken by a student. <p>
  * Each course has pieces of 10 informations in total, as described below: <p>
- * courseIndex(eg. CZ1003) and indexNum(eg. 10088), which unqiuely defines a course. <p>
+ * key(identifies the student who takes the course) <p>
+ * courseIndex(eg. CZ1003) and indexNum(eg. 10088) <p>
  * type(eg. LEC/TUT/LAB).<p>
  * group(eg. CS1, SS2).<p>
  * day, time, venue. <p>
- * name of the course. <p>
- * vacancy. <p>
  * remarks. <p>
+ * program ????????? <p>
+ * Each entry in the database is uniquely identified by the combination: <p>
+ * key, CourseIndex, IndexNum, Type <p>
  * Each information has its respective get and set method.
  * 
  * @author ?
@@ -29,6 +31,18 @@ public class StudentRecords implements Serializable{
 	private String  venue; 
 	private String  remark;
 	
+	/**
+	 * Class constructor specifying all 9 pieces of informations of a course taken by a student
+	 * @param key Uniquely identifies the student
+	 * @param indexNum indexNum(eg. 10088)
+	 * @param courseIndex courseIndex(eg. CZ1003)
+	 * @param type type(eg. LEC/TUT/LAB)
+	 * @param group group(eg. CS1, SS2)
+	 * @param day day
+	 * @param time time
+	 * @param venue venue
+	 * @param remark remark 
+	 */
 	public StudentRecords(String key, String indexNum, String courseIndex, String type, String group, String day, String time,String venue, String remark)
 	{
 		this.key = key;
