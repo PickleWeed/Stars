@@ -34,6 +34,7 @@ public class Student implements Serializable{
 	 * @param nationality nationality
 	 * @param age age
 	 * @param accessPeriod accessPeriod for MYSTARS
+	 * @param email the student's school email address
 	 */
 	public Student(String key, String firstName, String lastName, String matricNum, String gender, 
 			String nationality, String age, String accessPeriod, String email)

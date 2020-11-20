@@ -17,8 +17,8 @@ public class AddCourse {
 	/**
 	 * Displays the CourseIndex of all courses in the database.
 	 * 
-	 * @param courseIndex
-	 * @param courseRecordList
+	 * @param courseIndex courseIndex
+	 * @param courseRecordList Arraylist of CourseRecord objects
 	 */
 	public static void addCourse1(String courseIndex, ArrayList courseRecordList)
 	{
@@ -45,7 +45,7 @@ public class AddCourse {
 	public static final String delimiter = "|";
 		/**
 		 * prompts the user to enter a CourseIndex
-		 * @return
+		 * @return the courseIndex entered by the user
 		 */
 		public String queryCourseIndex() {
 			String courseIndex;
