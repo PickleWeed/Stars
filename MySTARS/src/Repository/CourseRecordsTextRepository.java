@@ -33,10 +33,10 @@ public class CourseRecordsTextRepository implements Repository{
 	private static final String filename = "CourseRecords.txt" ;
     /**
      * gets data of all courses from the database. <p>
-     * Information of each course is stored as a {@link Course.CourseRecords} object. <p>
-     * An ArrayList of {@link Course.CourseRecords} objects are returned.
+     * Information of each course is stored as a CourseRecord object. <p>
+     * An ArrayList of CourseRecord objects are returned.
      * 
-     * @return an ArrayList of {@link Course.CourseRecords} object storing information 
+     * @return an ArrayList of CourseRecord object storing information 
      * of all courses in the database
      * @throws IOException If an input or output exception occurred
      */
@@ -72,9 +72,9 @@ public class CourseRecordsTextRepository implements Repository{
 
 
 	  /**
-	   * Saves an ArrayList of {@link Course.CourseRecords} objects into the database.
+	   * Saves an ArrayList of CourseRecord objects into the database.
 	   * 
-	   * @param al an ArrayList of {@link Course.CourseRecords} object to be stored into the database
+	   * @param al an ArrayList of CourseRecord object to be stored into the database
 	   * @throws IOException If an input or output exception occurred
 	   */
 	public void saveList(List al) throws IOException {
