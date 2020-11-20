@@ -25,7 +25,7 @@ import Repository.CourseRecordsTextRepository;
 public class StudentInterface {
 	String key = null;
 	private static ArrayList courseRecordList;
-	Scanner sc = new Scanner(System.in);
+	static Scanner sc = new Scanner(System.in);
 
 	
 	public static void inStudentInterface() throws IOException
@@ -92,7 +92,7 @@ public class StudentInterface {
 	}
 
 
-	private void getCourseVacancy() throws IOException
+	private static void getCourseVacancy() throws IOException
 	{
 		GetCourseRecord.showIndexNum(courseRecordList);
 		System.out.println("Enter Index Number to check avaliable Vacancy:");
