@@ -1,11 +1,10 @@
-package Admin;
+package CourseRecords;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-import Course.CourseRecordsObj;
 import Student.Student;
-import Student.StudentRecords;
+import StudentRecords.StudentRecords;
 import TextRepository.CourseRecordsTextRepository;
 
 public class CourseHandler {

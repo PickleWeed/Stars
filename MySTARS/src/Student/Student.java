@@ -12,8 +12,10 @@ public class Student implements Serializable{
 	private String  nationality;
 	private String  age ;
 	private String accessPeriod;
+	private String email;
 
-	public Student(String key, String firstName, String lastName, String matricNum, String gender, String nationality, String age, String accessPeriod)
+	public Student(String key, String firstName, String lastName, String matricNum, String gender, 
+			String nationality, String age, String accessPeriod, String email)
 	{
 		this.key = key;
 		this.firstName = firstName;
@@ -23,8 +25,17 @@ public class Student implements Serializable{
 		this.nationality = nationality;
 		this.age = age;
 		this.accessPeriod = accessPeriod;
+		this.email = email;
 	}
 	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public String getKey() {
 		return key;
 	}

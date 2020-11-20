@@ -3,7 +3,7 @@ package Student;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import Course.CourseRecordsObj;
+import CourseRecords.CourseRecordsObj;
 import TextRepository.CourseRecordsTextRepository;
 
 public class CheckCourse {

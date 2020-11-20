@@ -1,4 +1,4 @@
-package Admin;
+package Student;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -6,14 +6,14 @@ import java.util.List;
 
 import Login.Encrypt;
 import Login.LoginInfo;
-import Student.Student;
-import Student.StudentRecords;
 import TextRepository.LoginTextRepository;
 import TextRepository.StudentPersonalInfoTextRepository;
 
 public class StudentHandler {
 	
-	public static void addStudent(ArrayList StudentInfoArray, ArrayList loginArray, String firstName, String lastName, String matricNum, String gender, String nationality, String age, String username, String password, String accessPeriod) throws IOException
+	public static void addStudent(ArrayList StudentInfoArray, ArrayList loginArray, String firstName, String lastName, 
+			String matricNum, String gender, String nationality, String age, 
+			String username, String password, String accessPeriod, String email) throws IOException
 	{
 		String key = Encrypt.getKey();
 		String hashPassword = Encrypt.hashing(password);
@@ -21,7 +21,7 @@ public class StudentHandler {
 		//ArrayList StudentInfoArray = StudentPersonalInfoTextRepository.readStudentInfo();
 		//ArrayList loginArray = LoginTextRepository.readLogin();
 		
-		Student student = new Student(key, firstName, lastName, matricNum, gender, nationality, age, accessPeriod);
+		Student student = new Student(key, firstName, lastName, matricNum, gender, nationality, age, accessPeriod, email);
 		StudentInfoArray.add(student) ;
 		
 		LoginInfo loginInfo = new LoginInfo(username, hashPassword, "Student", key);
@@ -52,7 +52,6 @@ public class StudentHandler {
 				return true;
 			}	
 		}
-		
 		return false;
 	}
 	public static boolean checkUsername(String username, ArrayList LoginArray)
@@ -68,6 +67,19 @@ public class StudentHandler {
 		}
 		return false;
 		
+	}
+	public static boolean checkEmail(String email, ArrayList studentInfoList)
+	{
+		for(int i=0; i<studentInfoList.size(); i++)
+		{
+			Student student = (Student)studentInfoList.get(i);
+			if(student.getEmail().equals(email))
+			{
+				System.out.println("Email already Exist.\n");
+				return true;
+			}	
+		}		
+		return false;
 	}
 	public static String getStudentKey(ArrayList studentInfo, String matricNum)
 	{

@@ -1,4 +1,4 @@
-package Course;
+package CourseRecords;
 
 import java.io.Serializable;
 /**

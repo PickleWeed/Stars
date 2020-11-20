@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-import Student.StudentRecords;
+import StudentRecords.StudentRecords;
 
 public class StudentCoursesTextRepository {
 	private static final String SEPARATOR = "|";

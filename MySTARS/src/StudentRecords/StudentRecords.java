@@ -1,4 +1,4 @@
-package Student;
+package StudentRecords;
 
 import java.io.Serializable;
 

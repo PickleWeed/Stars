@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-import Course.CourseRecordsObj;
+import CourseRecords.CourseRecordsObj;
 
 /**
  * CourseRecordsTextRepository is a boundary class which performs read and write operations 

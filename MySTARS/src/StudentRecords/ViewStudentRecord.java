@@ -1,8 +1,6 @@
-package Admin;
+package StudentRecords;
 
 import java.util.ArrayList;
-
-import Student.StudentRecords;
 
 public class ViewStudentRecord {
 	

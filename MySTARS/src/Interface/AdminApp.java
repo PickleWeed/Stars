@@ -1,15 +1,20 @@
 package Interface;
-import Admin.*;
-import DatRepository.DatabaseRepository;
+import CourseRecords.CourseHandler;
+import CourseRecords.ViewCourseRecord;
+import Student.StudentHandler;
+import Student.ViewStudentInfo;
 import TextRepository.CourseRecordsTextRepository;
 import TextRepository.GlobalAccessPeriodTextRepository;
 import TextRepository.LoginTextRepository;
 import TextRepository.StudentCoursesTextRepository;
 import TextRepository.StudentPersonalInfoTextRepository;
+import DatRepository.DatabaseRepository;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import AccessPeriod.ViewAccessPeriod;
 
 /**
  * AdminApp is a boundary class which interacts with the admin to perform any operation on MySTARS
@@ -33,22 +38,24 @@ public class AdminApp{
 	private String username;
 	private String password;
 	private String firstName, lastName;
-	private String gender, nationality, age;
+	private String gender, nationality, age, email;
 	private String courseIndex, indexNum;
 	private String type, group, day, time, venue, remarks, vacancy, courseName;
 	private String key;
 	private String accessPeriod;
 	
-	String choice = "0";
+<<<<<<< HEAD
+	private String choice = "0";
 	
+=======
+>>>>>>> c97d5a680182be1903053d89a2380ba5d9ed1e3d
 	private static ArrayList courseRecordList;
 	private static ArrayList studentInfo;
 	private static ArrayList loginInfo;
 	private static ArrayList studentsRecords;
 	private static ArrayList accessPeriodList;
-	
+
 	Scanner sc = new Scanner(System.in);
-	
 	/**
 	 * Displays a menu for the admin, and performs the appropriate operation based on the admin's choice.<p>
 	 * There are 9 possible choices in the menu: <p>
@@ -67,7 +74,9 @@ public class AdminApp{
 	 */
 	public void adminInterface() throws Exception
 	{	
-		while(!choice.equals("8"))
+		int choice = 0;	
+
+		while(choice != 8)
 		{
 			//get Data from txtfile
 			courseRecordList = CourseRecordsTextRepository.readCourseRecords();
@@ -90,45 +99,44 @@ public class AdminApp{
 			studentsRecords = (ArrayList)DatabaseRepository.readSerializedObject("StudentRecords.dat");
 			accessPeriodList = (ArrayList)DatabaseRepository.readSerializedObject("GlobalAccessPeriod.dat");
 						
-			
-			System.out.println("1. Edit a Student Access Period");
-			System.out.println("2. Add a Student");
-			System.out.println("3. Add a Course");
-			System.out.println("4. Update a course");
+			System.out.println("****ADMIN INTERFACE****");
+			System.out.println("1. Edit Student Access Period");
+			System.out.println("2. Add Student");
+			System.out.println("3. Add Course");
+			System.out.println("4. Update Course");
 			System.out.println("5. Print Student List by Course Number");
 			System.out.println("6. Print Student List by Course Number");
-			System.out.println("7. Check Avaliable Vacancy for an index number");
-			System.out.println("8. To Exit");
+			System.out.println("7. Check Avaliable Vacancy By Index Number");
+			System.out.println("8. Logout");
 			System.out.printf("Please choose a number: ");
-			choice = sc.next();
-			//choice = sc.nextInt();
+
+			choice = sc.nextInt();
 			
 			switch(choice)
 			{
-				case "1":
+				case 1:
 					editStudentAccess();
 					break;
-				case "2":
+				case 2:
 					addStudent();
 					break;
-				case "3":
+				case 3:
 					addCourse();
 					break;
-				case "4":
+				case 4:
 					updateCourse();
 					break;
-				case "5":
+				case 5:
 					//Print Student List by Course Number
 					break;
-				case "6":
+				case 6:
 					//Print Student List by Course Number
 					break;
-				case "7":
+				case 7:
 					getCourseVacancy();
 					break;
-				case "8":
-					System.out.println("Good Bye!");
-					System.out.println("You have logout.\n");
+				case 8:
+					System.out.println("Goodbye!\n");
 					break;
 				default:
 					System.out.println("Please Enter a Valid Number!\n");
@@ -175,6 +183,13 @@ public class AdminApp{
 		System.out.printf("Student Login Info: ");
 		//check duplicate
 		while(true) {
+			System.out.printf("Enter Student email:");
+			email = sc.next();
+			if(StudentHandler.checkEmail(email, studentInfo) == false)
+				break;
+		}
+		//check duplicate
+		while(true) {
 			System.out.printf("Enter Student login Username: ");
 			username = sc.next();
 			if(StudentHandler.checkUsername(username, loginInfo) == false) 
@@ -182,16 +197,16 @@ public class AdminApp{
 		}	
 		System.out.printf("Enter student password: ");
 		password = sc.next();
-		ViewCourseRecord.viewAccessPeriod(accessPeriodList);
+		ViewAccessPeriod.viewAccessPeriod(accessPeriodList);
 		while(true) {
 			System.out.println("Choose a value which Access Period you want to add: ");
 			accessPeriod = sc.next();
-			accessPeriod = ViewCourseRecord.getAccessPeriod(accessPeriodList, accessPeriod);
+			accessPeriod = ViewAccessPeriod.getAccessPeriod(accessPeriodList, accessPeriod);
 			if(!accessPeriod.equals("nill"))
 				break;	
 		}
 		//create student login info and Student Info
-		StudentHandler.addStudent(studentInfo, loginInfo, firstName, lastName, matricNum, gender, nationality, age, username, password, accessPeriod);
+		StudentHandler.addStudent(studentInfo, loginInfo, firstName, lastName, matricNum, gender, nationality, age, username, password, accessPeriod, email);
 	}
 	private void addCourse() throws IOException
 	{

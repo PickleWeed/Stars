@@ -7,9 +7,9 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.List;
 
-import Course.CourseRecordsObj;
+import CourseRecords.CourseRecordsObj;
 import Login.LoginInfo;
-import Student.StudentRecords;
+import StudentRecords.StudentRecords;
 import TextRepository.CourseRecordsTextRepository;
 
 import java.util.ArrayList;

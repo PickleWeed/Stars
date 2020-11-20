@@ -1,8 +1,6 @@
-package Admin;
+package Student;
 
 import java.util.ArrayList;
-
-import Student.Student;
 
 
 public class ViewStudentInfo {

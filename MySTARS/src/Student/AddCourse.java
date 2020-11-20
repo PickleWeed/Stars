@@ -3,7 +3,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import Course.CourseRecordsObj;
+import CourseRecords.CourseRecordsObj;
 import TextRepository.CourseRecordsTextRepository;
 public class AddCourse {
 	public static void addCourse1(String courseIndex, ArrayList courseRecordList)
