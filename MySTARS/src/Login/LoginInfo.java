@@ -20,7 +20,7 @@ public class LoginInfo implements Serializable{
 	
 	private String  username;
 	private String  password;
-	private String type;
+	private String  type;
 	private String  key ;
 	
 	/**

@@ -6,7 +6,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import CourseRecords.GetCourseRecord;
+import CourseRecords.GetStudentListByIndexNumber;
 import Repository.CourseRecordsTextRepository;
+import Repository.GlobalAccessPeriodTextRepository;
+import Repository.LoginTextRepository;
+import Repository.StudentCoursesTextRepository;
+import Repository.StudentPersonalInfoTextRepository;
 
 /**
  * StudentInterface is a boundary class which interacts with the student to perform any operation on MySTARS
@@ -25,17 +30,29 @@ import Repository.CourseRecordsTextRepository;
 public class StudentInterface {
 	String key = null;
 	private static ArrayList courseRecordList;
+	private static ArrayList studentInfo;
+	private static ArrayList loginInfo;
+	private static ArrayList studentsRecords;
+	private static ArrayList accessPeriodList;
 	static Scanner sc = new Scanner(System.in);
 
 	
 	public static void inStudentInterface() throws IOException
 	{
 		CourseRecordsTextRepository courseRecordsTextRepository = new CourseRecordsTextRepository();
+		StudentPersonalInfoTextRepository studentPersonalInfoTextRepository = new StudentPersonalInfoTextRepository();
+		LoginTextRepository loginTextRepository = new LoginTextRepository();
+		StudentCoursesTextRepository studentCoursesTextRepository = new StudentCoursesTextRepository();
+		GlobalAccessPeriodTextRepository globalAccessPeriodTextRepository = new GlobalAccessPeriodTextRepository();
 
 		int choice = 0;
 		while (choice != 7) {
 			courseRecordList = courseRecordsTextRepository.readToList();
-
+			studentInfo = studentPersonalInfoTextRepository.readToList();
+			loginInfo = loginTextRepository.readToList();
+			studentsRecords = studentCoursesTextRepository.readToList();
+			accessPeriodList = globalAccessPeriodTextRepository.readToList();
+		
 			Scanner sc = new Scanner(System.in);
 			System.out.println("****STUDENT INTERFACE****");
 			System.out.println("1. Add Course");
@@ -70,7 +87,7 @@ public class StudentInterface {
 					dropCourse.dropCourse(Str);
 					break;
 				case 3:
-					CheckCourse checkCourse = new CheckCourse();
+					printCourseDetails();
 					break;
 				case 4:
 					getCourseVacancy();
@@ -89,6 +106,15 @@ public class StudentInterface {
 					return;	
 			}	
 		}
+	}
+
+
+	private static void printCourseDetails() throws IOException {
+		// TODO Auto-generated method stub
+		System.out.println("Please reenter your username to check the course u register:");
+		String username = sc.next();
+		CheckCourse.getKey(username, studentsRecords,loginInfo);
+		
 	}
 
 
