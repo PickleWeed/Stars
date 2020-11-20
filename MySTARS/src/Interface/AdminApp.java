@@ -45,8 +45,11 @@ public class AdminApp{
 	private String accessPeriod;
 	
 <<<<<<< HEAD
+<<<<<<< HEAD
 	private String choice = "0";
 	
+=======
+>>>>>>> c97d5a680182be1903053d89a2380ba5d9ed1e3d
 =======
 >>>>>>> c97d5a680182be1903053d89a2380ba5d9ed1e3d
 	private static ArrayList courseRecordList;
