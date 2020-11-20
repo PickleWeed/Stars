@@ -52,15 +52,8 @@ public class LoginInterface {
 	private void adminOrStudent(int choice)
 	{	
 		System.out.println("*****LOGIN*****");
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 		System.out.printf("Please enter Username: ");
-=======
-		System.out.printf("Please Enter Username: ");
->>>>>>> c97d5a680182be1903053d89a2380ba5d9ed1e3d
-=======
-		System.out.printf("Please Enter Username: ");
->>>>>>> c97d5a680182be1903053d89a2380ba5d9ed1e3d
 		username = sc.next();
       
 		//password = consoleReadPass();
