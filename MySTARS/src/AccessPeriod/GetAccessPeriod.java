@@ -3,13 +3,13 @@ package AccessPeriod;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import TextRepository.GlobalAccessPeriodTextRepository;
+import Repository.GlobalAccessPeriodTextRepository;
 
 public class GetAccessPeriod {
 	public static void viewAccessPeriod(ArrayList accessPeriod)
 	{
 		for (int i = 0 ; i < accessPeriod.size() ; i++) {
-			AccessPeriodObj accessPeriodObj = (AccessPeriodObj)accessPeriod.get(i);
+			AccessPeriod accessPeriodObj = (AccessPeriod)accessPeriod.get(i);
 
 					System.out.println((i+1) + ". Starting Access Period: " + accessPeriodObj.getStartAccessPeriod() + ", Ending Access Period: " + accessPeriodObj.getEndAccessPeriod());
 		}
@@ -18,7 +18,7 @@ public class GetAccessPeriod {
 	public static String getAccessPeriod(ArrayList accessPeriod, String acessPeriodValue)
 	{
 		for (int i = 0 ; i < accessPeriod.size() ; i++) {
-			AccessPeriodObj accessPeriodObj = (AccessPeriodObj)accessPeriod.get(i);
+			AccessPeriod accessPeriodObj = (AccessPeriod)accessPeriod.get(i);
 			if(acessPeriodValue.equals(Integer.toString(i+1)))
 			{
 				return (accessPeriodObj.getStartAccessPeriod() + " - " + accessPeriodObj.getEndAccessPeriod());

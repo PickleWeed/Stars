@@ -3,8 +3,8 @@ package CourseRecords;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import TextRepository.CourseRecordsTextRepository;
-import TextRepository.GlobalAccessPeriodTextRepository;
+import Repository.CourseRecordsTextRepository;
+import Repository.GlobalAccessPeriodTextRepository;
 
 public class GetCourseRecord {
 
@@ -14,7 +14,7 @@ public class GetCourseRecord {
 		for (int i=0; i<courseRecordList.size(); i++)
 		{
 			//get array object 
-			CourseRecordObj courseRecords = (CourseRecordObj)courseRecordList.get(i);
+			CourseRecord courseRecords = (CourseRecord)courseRecordList.get(i);
 			if(!courseRecords.getVacancy().equals("nill"))
 				System.out.println("Index Number: " + courseRecords.getIndexNum());
 		}
@@ -24,7 +24,7 @@ public class GetCourseRecord {
 		for (int i=0; i<courseRecordList.size(); i++)
 		{
 			//get array object 
-			CourseRecordObj courseRecords = (CourseRecordObj)courseRecordList.get(i);
+			CourseRecord courseRecords = (CourseRecord)courseRecordList.get(i);
 			if(courseRecords.getIndexNum().equals(indexNum) && !courseRecords.getVacancy().equals("nill"))
 				System.out.println("Avaliable slot for Index Number" + indexNum + ": " + courseRecords.getVacancy());
 		}

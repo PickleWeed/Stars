@@ -1,10 +1,11 @@
 package Interface;
 import Student.*;
-import TextRepository.CourseRecordsTextRepository;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import Repository.CourseRecordsTextRepository;
 
 public class StudentInterface {
 	String key = null;

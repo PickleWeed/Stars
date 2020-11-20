@@ -1,4 +1,4 @@
-package TextRepository;
+package Repository;
 
 import java.io.FileInputStream;
 import java.io.FileWriter;
@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-import AccessPeriod.AccessPeriodObj;
-import CourseRecords.CourseRecordObj;
+import AccessPeriod.AccessPeriod;
+import CourseRecords.CourseRecord;
 
 public class GlobalAccessPeriodTextRepository {
 	private static final String SEPARATOR = "|";
@@ -31,7 +31,7 @@ public class GlobalAccessPeriodTextRepository {
 				String  endAccessPeriod = star.nextToken().trim();	// first token
 				//int  vacancy = Integer.parseInt(star.nextToken().trim());
 				// create Professor object from file data
-				AccessPeriodObj accessPeriodObj = new AccessPeriodObj(startAccessPeriod, endAccessPeriod);
+				AccessPeriod accessPeriodObj = new AccessPeriod(startAccessPeriod, endAccessPeriod);
 				// add to Professors list
 				alr.add(accessPeriodObj);
 			}
@@ -43,7 +43,7 @@ public class GlobalAccessPeriodTextRepository {
 			List alw = new ArrayList() ;// to store Professors data
 	
 	        for (int i = 0 ; i < al.size() ; i++) {
-	        	AccessPeriodObj accessPeriodObj = (AccessPeriodObj)al.get(i);
+	        	AccessPeriod accessPeriodObj = (AccessPeriod)al.get(i);
 					StringBuilder st =  new StringBuilder() ;
 					st.append(accessPeriodObj.getStartAccessPeriod().trim());
 					st.append(SEPARATOR);
@@ -106,7 +106,7 @@ public class GlobalAccessPeriodTextRepository {
 			// read file containing Professor records.
 			ArrayList al = GlobalAccessPeriodTextRepository.readAccessPeriod();
 			for (int i = 0 ; i < al.size() ; i++) {
-				AccessPeriodObj accessPeriodObj = (AccessPeriodObj)al.get(i);
+				AccessPeriod accessPeriodObj = (AccessPeriod)al.get(i);
 					System.out.println("Start Access Period: "+ accessPeriodObj.getStartAccessPeriod());
 					System.out.println("End Access Period: "+ accessPeriodObj.getEndAccessPeriod());
 					System.out.println("\n");

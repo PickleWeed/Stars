@@ -1,15 +1,15 @@
 package Interface;
 import CourseRecords.UpdateCourseRecord;
+import Repository.CourseRecordsTextRepository;
+import Repository.DatabaseRepository;
+import Repository.GlobalAccessPeriodTextRepository;
+import Repository.LoginTextRepository;
+import Repository.StudentCoursesTextRepository;
+import Repository.StudentPersonalInfoTextRepository;
 import CourseRecords.GetCourseRecord;
 import StudentInfo.CheckStudentInfo;
 import StudentInfo.UpdateStudentInfo;
 import StudentInfo.ViewStudentInfo;
-import TextRepository.CourseRecordsTextRepository;
-import TextRepository.GlobalAccessPeriodTextRepository;
-import TextRepository.LoginTextRepository;
-import TextRepository.StudentCoursesTextRepository;
-import TextRepository.StudentPersonalInfoTextRepository;
-import DatRepository.DatabaseRepository;
 
 import java.io.IOException;
 import java.util.ArrayList;

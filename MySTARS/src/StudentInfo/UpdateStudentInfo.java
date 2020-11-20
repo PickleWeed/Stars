@@ -6,8 +6,8 @@ import java.util.List;
 
 import Login.Encrypt;
 import Login.LoginInfo;
-import TextRepository.LoginTextRepository;
-import TextRepository.StudentPersonalInfoTextRepository;
+import Repository.LoginTextRepository;
+import Repository.StudentPersonalInfoTextRepository;
 
 public class UpdateStudentInfo {
 	

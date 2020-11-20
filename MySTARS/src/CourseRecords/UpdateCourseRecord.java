@@ -3,14 +3,14 @@ package CourseRecords;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import Repository.CourseRecordsTextRepository;
 import StudentInfo.Student;
 import StudentRecords.StudentRecords;
-import TextRepository.CourseRecordsTextRepository;
 
 public class UpdateCourseRecord {
 	public static void addCourse(ArrayList courseRecordList, String courseIndex, String indexNum, String type, String group, String day, String time, String venue, String remarks, String vacancy, String name) throws IOException
 	{
-		CourseRecordObj courseRecordObj = new CourseRecordObj(courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, name);
+		CourseRecord courseRecordObj = new CourseRecord(courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, name);
 		courseRecordList.add(courseRecordObj);
 		
 		CourseRecordsTextRepository.saveCourseRecords(courseRecordList);
@@ -32,7 +32,7 @@ public class UpdateCourseRecord {
 	{
 		for(int i=0; i<courseRecordList.size(); i++)
 		{
-			CourseRecordObj courseRecords = (CourseRecordObj)courseRecordList.get(i);
+			CourseRecord courseRecords = (CourseRecord)courseRecordList.get(i);
 			if(courseRecords.getCourseIndex().equals(courseIndex))
 			{
 				return true;

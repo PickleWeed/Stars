@@ -16,7 +16,7 @@ import java.io.Serializable;
  * @author ?
  *
  */
-public class CourseRecordObj implements Serializable{
+public class CourseRecord implements Serializable{
 	
 	private String  courseIndex;
 	private String  indexNum;
@@ -43,7 +43,7 @@ public class CourseRecordObj implements Serializable{
 	 * @param vacancy number of available slots left for this course
 	 * @param name name of this course
 	 */
-	public CourseRecordObj(String courseIndex, String indexNum, String type, String group, String day, String time, String venue, String remarks, String vacancy, String name)
+	public CourseRecord(String courseIndex, String indexNum, String type, String group, String day, String time, String venue, String remarks, String vacancy, String name)
 	{
 		this.courseIndex = courseIndex;
 		this.indexNum = indexNum;

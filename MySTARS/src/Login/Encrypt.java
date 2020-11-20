@@ -5,7 +5,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Random;
 
-import TextRepository.LoginTextRepository;
+import Repository.LoginTextRepository;
 
 public class Encrypt {
 	public static String hashing(String password)

@@ -6,7 +6,8 @@ import java.util.Scanner;
 
 import Interface.AdminApp;
 import Interface.StudentInterface;
-import TextRepository.LoginTextRepository;
+import Repository.LoginTextRepository;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 

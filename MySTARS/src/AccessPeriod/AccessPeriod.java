@@ -2,11 +2,11 @@ package AccessPeriod;
 
 import java.io.Serializable;
 
-public class AccessPeriodObj implements Serializable{
+public class AccessPeriod implements Serializable{
 	private String startAccessPeriod;
 	private String endAccessPeriod;
 	
-	public AccessPeriodObj(String startAccessPeriod, String endAccessPeriod)
+	public AccessPeriod(String startAccessPeriod, String endAccessPeriod)
 	{
 		this.startAccessPeriod = startAccessPeriod;
 		this.endAccessPeriod = endAccessPeriod;

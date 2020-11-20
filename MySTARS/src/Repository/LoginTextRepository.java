@@ -1,4 +1,4 @@
-package TextRepository;
+package Repository;
 
 import java.io.FileInputStream;
 import java.io.FileWriter;
