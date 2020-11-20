@@ -2,6 +2,14 @@ package AccessPeriod;
 
 import java.io.Serializable;
 
+/**
+ * AccessPeriod is an entity class which stores the period of time
+ * that students are allowed to access the STAR System. <p>
+ * Each AccessPeriod has a startAccessPeriod(dd/mm/yyyy) and a endAccessPeriod(dd/mm/yyyy): <p>
+ * 
+ * @author ?
+ *
+ */
 public class AccessPeriod implements Serializable{
 	private String startAccessPeriod;
 	private String endAccessPeriod;
