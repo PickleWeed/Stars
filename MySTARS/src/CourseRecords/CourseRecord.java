@@ -2,7 +2,7 @@ package CourseRecords;
 
 import java.io.Serializable;
 /**
- * CourseRecords is an entity class which stores all information of a course. <p>
+ * CourseRecord is an entity class which stores all information of a course. <p>
  * Each course has pieces of 10 informations in total, as described below: <p>
  * courseIndex(eg. CZ1003) and indexNum(eg. 10088), which unqiuely defines a course. <p>
  * type(eg. LEC/TUT/LAB).<p>
