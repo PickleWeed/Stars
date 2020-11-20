@@ -10,11 +10,31 @@ import java.util.StringTokenizer;
 
 import StudentInfo.Student;
 
+/**
+ * StudentPersonalInfoTextRepository is a boundary class which performs read and write operations 
+ * on StudentsInfo.txt, a database that stores the information of all students.<p>
+ * The information stored for each student is listed below: <p>
+ * key: Uniquely identifies a student <p>
+ * firstName, lastName, matricNum, gender, nationality, age <p>
+ * accessPeriod: The period of time that the student is allowed to access MySTARS <p>
+ * Each information has its respective get and set method.
+ * 
+ * @author ?
+ *
+ */
 public class StudentPersonalInfoTextRepository implements Repository{
 	private static final String SEPARATOR = "|";
 	private static final  String filename = "StudentsInfo.txt" ;
 
-    // an example of reading
+    	/**
+	 * Gets the information of all students from the database.<p>
+     * Each student's information is stored as a {@link Student.Student} object.<p> 
+     * An ArrayList of {@link Student.Student} objects are returned.<p>
+	 * 
+	 * @return An ArrayList of {@link Student.Student} objects storing 
+	 * the information of all students from the database is returned.
+	 * @throws IOException If an input or output exception occurred
+	 */
 	public ArrayList readToList() throws IOException {
 		// read String from text file
 		ArrayList stringArray = (ArrayList)read(filename);
@@ -43,7 +63,12 @@ public class StudentPersonalInfoTextRepository implements Repository{
 			return alr ;
 	}
 
-	  // an example of saving
+		/**
+	 * Saves an ArrayList of {@link Student.Student} objects into the database.
+	 * 
+	 * @param al an ArrayList of {@link Student.Student} object to be stored into the database
+	 * @throws IOException If an input or output exception occurred
+	 */
 	public void saveList(List al) throws IOException {
 			List alw = new ArrayList() ;// to store Professors data
 	
