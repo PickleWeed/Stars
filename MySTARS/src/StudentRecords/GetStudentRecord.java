@@ -2,7 +2,7 @@ package StudentRecords;
 
 import java.util.ArrayList;
 
-public class ViewStudentRecord {
+public class GetStudentRecord {
 	
 	public static void getStudentRecord(ArrayList StudentInfoList, String key)
 	{

@@ -10,7 +10,7 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 import AccessPeriod.AccessPeriodObj;
-import CourseRecords.CourseRecordsObj;
+import CourseRecords.CourseRecordObj;
 
 public class GlobalAccessPeriodTextRepository {
 	private static final String SEPARATOR = "|";

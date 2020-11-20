@@ -3,7 +3,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import CourseRecords.CourseRecordsObj;
+import CourseRecords.CourseRecordObj;
 import TextRepository.CourseRecordsTextRepository;
 public class AddCourse {
 	public static void addCourse1(String courseIndex, ArrayList courseRecordList)
@@ -12,7 +12,7 @@ public class AddCourse {
 		for (int i=0; i<courseRecordList.size(); i++)
 		{
 			//get array object 
-			CourseRecordsObj courseRecords = (CourseRecordsObj)courseRecordList.get(i);
+			CourseRecordObj courseRecords = (CourseRecordObj)courseRecordList.get(i);
 			
 			System.out.println(courseRecords.getCourseIndex());
 			/*if(courseIndex == courseRecords.getCourseIndex())

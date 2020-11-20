@@ -7,10 +7,10 @@ import Student.Student;
 import StudentRecords.StudentRecords;
 import TextRepository.CourseRecordsTextRepository;
 
-public class CourseHandler {
+public class UpdateCourseRecord {
 	public static void addCourse(ArrayList courseRecordList, String courseIndex, String indexNum, String type, String group, String day, String time, String venue, String remarks, String vacancy, String name) throws IOException
 	{
-		CourseRecordsObj courseRecordObj = new CourseRecordsObj(courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, name);
+		CourseRecordObj courseRecordObj = new CourseRecordObj(courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, name);
 		courseRecordList.add(courseRecordObj);
 		
 		CourseRecordsTextRepository.saveCourseRecords(courseRecordList);
@@ -32,7 +32,7 @@ public class CourseHandler {
 	{
 		for(int i=0; i<courseRecordList.size(); i++)
 		{
-			CourseRecordsObj courseRecords = (CourseRecordsObj)courseRecordList.get(i);
+			CourseRecordObj courseRecords = (CourseRecordObj)courseRecordList.get(i);
 			if(courseRecords.getCourseIndex().equals(courseIndex))
 			{
 				return true;

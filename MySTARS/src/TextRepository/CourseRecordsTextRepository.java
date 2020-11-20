@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-import CourseRecords.CourseRecordsObj;
+import CourseRecords.CourseRecordObj;
 
 /**
  * CourseRecordsTextRepository is a boundary class which performs read and write operations 
@@ -63,7 +63,7 @@ public class CourseRecordsTextRepository {
 				String  name = star.nextToken().trim();
 				//int  vacancy = Integer.parseInt(star.nextToken().trim());
 				// create Professor object from file data
-				CourseRecordsObj courseRecords = new CourseRecordsObj(courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, name);
+				CourseRecordObj courseRecords = new CourseRecordObj(courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, name);
 				// add to Professors list
 				alr.add(courseRecords);
 			}
@@ -81,7 +81,7 @@ public class CourseRecordsTextRepository {
 			List alw = new ArrayList() ;// to store Professors data
 	
 	        for (int i = 0 ; i < al.size() ; i++) {
-	        	CourseRecordsObj courseRecords = (CourseRecordsObj)al.get(i);
+	        	CourseRecordObj courseRecords = (CourseRecordObj)al.get(i);
 					StringBuilder st =  new StringBuilder() ;
 					st.append(courseRecords.getCourseIndex().trim());
 					st.append(SEPARATOR);
@@ -160,7 +160,7 @@ public class CourseRecordsTextRepository {
 			// read file containing Professor records.
 			ArrayList al = CourseRecordsTextRepository.readCourseRecords();
 			for (int i = 0 ; i < al.size() ; i++) {
-				CourseRecordsObj courseRecords = (CourseRecordsObj)al.get(i);
+				CourseRecordObj courseRecords = (CourseRecordObj)al.get(i);
 					System.out.println("CourseIndex: " + courseRecords.getCourseIndex() );
 					System.out.println("IndexNum: " + courseRecords.getIndexNum() );
 					System.out.println("Rype: " + courseRecords.getType() );

@@ -1,6 +1,6 @@
 package Interface;
-import CourseRecords.CourseHandler;
-import CourseRecords.ViewCourseRecord;
+import CourseRecords.UpdateCourseRecord;
+import CourseRecords.GetCourseRecord;
 import Student.StudentHandler;
 import Student.ViewStudentInfo;
 import TextRepository.CourseRecordsTextRepository;
@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import AccessPeriod.ViewAccessPeriod;
+import AccessPeriod.GetAccessPeriod;
 
 /**
  * AdminApp is a boundary class which interacts with the admin to perform any operation on MySTARS
@@ -196,11 +196,11 @@ public class AdminApp{
 		}	
 		System.out.printf("Enter student password: ");
 		password = sc.next();
-		ViewAccessPeriod.viewAccessPeriod(accessPeriodList);
+		GetAccessPeriod.viewAccessPeriod(accessPeriodList);
 		while(true) {
 			System.out.println("Choose a value which Access Period you want to add: ");
 			accessPeriod = sc.next();
-			accessPeriod = ViewAccessPeriod.getAccessPeriod(accessPeriodList, accessPeriod);
+			accessPeriod = GetAccessPeriod.getAccessPeriod(accessPeriodList, accessPeriod);
 			if(!accessPeriod.equals("nill"))
 				break;	
 		}
@@ -230,7 +230,7 @@ public class AdminApp{
 		System.out.printf("Name of the Course: ");
 		courseName = sc.next();
 		//add course
-		CourseHandler.addCourse(courseRecordList, courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, courseName);
+		UpdateCourseRecord.addCourse(courseRecordList, courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, courseName);
 	}
 	private void updateCourse() throws Exception
 	{
@@ -244,10 +244,10 @@ public class AdminApp{
 	}
 	private void getCourseVacancy() throws IOException
 	{
-		ViewCourseRecord.showIndexNum(courseRecordList);
+		GetCourseRecord.showIndexNum(courseRecordList);
 		System.out.println("Enter Index Number to check avaliable Vacancy:");
 		indexNum = sc.next();
-		ViewCourseRecord.getVacancy(indexNum, courseRecordList);
+		GetCourseRecord.getVacancy(indexNum, courseRecordList);
 	}
 	//Testing purpose
 	public static void main(String[] args) throws Exception {

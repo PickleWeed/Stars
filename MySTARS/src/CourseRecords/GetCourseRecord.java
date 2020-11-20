@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import TextRepository.CourseRecordsTextRepository;
 import TextRepository.GlobalAccessPeriodTextRepository;
 
-public class ViewCourseRecord {
+public class GetCourseRecord {
 
 	public static void showIndexNum(ArrayList courseRecordList) throws IOException
 	{
@@ -14,7 +14,7 @@ public class ViewCourseRecord {
 		for (int i=0; i<courseRecordList.size(); i++)
 		{
 			//get array object 
-			CourseRecordsObj courseRecords = (CourseRecordsObj)courseRecordList.get(i);
+			CourseRecordObj courseRecords = (CourseRecordObj)courseRecordList.get(i);
 			if(!courseRecords.getVacancy().equals("nill"))
 				System.out.println("Index Number: " + courseRecords.getIndexNum());
 		}
@@ -24,7 +24,7 @@ public class ViewCourseRecord {
 		for (int i=0; i<courseRecordList.size(); i++)
 		{
 			//get array object 
-			CourseRecordsObj courseRecords = (CourseRecordsObj)courseRecordList.get(i);
+			CourseRecordObj courseRecords = (CourseRecordObj)courseRecordList.get(i);
 			if(courseRecords.getIndexNum().equals(indexNum) && !courseRecords.getVacancy().equals("nill"))
 				System.out.println("Avaliable slot for Index Number" + indexNum + ": " + courseRecords.getVacancy());
 		}

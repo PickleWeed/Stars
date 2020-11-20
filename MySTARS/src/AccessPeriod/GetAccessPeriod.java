@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import TextRepository.GlobalAccessPeriodTextRepository;
 
-public class ViewAccessPeriod {
+public class GetAccessPeriod {
 	public static void viewAccessPeriod(ArrayList accessPeriod)
 	{
 		for (int i = 0 ; i < accessPeriod.size() ; i++) {

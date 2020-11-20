@@ -7,7 +7,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.List;
 
-import CourseRecords.CourseRecordsObj;
+import CourseRecords.CourseRecordObj;
 import Login.LoginInfo;
 import StudentRecords.StudentRecords;
 import TextRepository.CourseRecordsTextRepository;
@@ -58,7 +58,7 @@ public class DatabaseRepository
 		try {
 			ArrayList al = CourseRecordsTextRepository.readCourseRecords();
 			for (int i = 0 ; i < al.size() ; i++) {
-				CourseRecordsObj courseRecords = (CourseRecordsObj)al.get(i);
+				CourseRecordObj courseRecords = (CourseRecordObj)al.get(i);
 					System.out.println("CourseIndex: " + courseRecords.getCourseIndex() );
 					System.out.println("IndexNum: " + courseRecords.getIndexNum() );
 					System.out.println("Rype: " + courseRecords.getType() );
@@ -79,7 +79,7 @@ public class DatabaseRepository
 			ArrayList datFile = (ArrayList)DatabaseRepository.readSerializedObject("CourseRecords.dat");
 					for(int i = 0; i < datFile.size(); i++)
 					{
-						CourseRecordsObj courseRecords = (CourseRecordsObj)datFile.get(i);
+						CourseRecordObj courseRecords = (CourseRecordObj)datFile.get(i);
 						System.out.println("Course Index: " + courseRecords.getCourseIndex());
 						System.out.println("Day: " + courseRecords.getDay());
 					}
