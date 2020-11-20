@@ -28,10 +28,10 @@ public class StudentPersonalInfoTextRepository implements Repository{
 
     	/**
 	 * Gets the information of all students from the database.<p>
-     * Each student's information is stored as a {@link Student.Student} object.<p> 
-     * An ArrayList of {@link Student.Student} objects are returned.<p>
+     * Each student's information is stored as a Student object.<p> 
+     * An ArrayList of Student objects are returned.<p>
 	 * 
-	 * @return An ArrayList of {@link Student.Student} objects storing 
+	 * @return An ArrayList of Student objects storing 
 	 * the information of all students from the database is returned.
 	 * @throws IOException If an input or output exception occurred
 	 */
@@ -64,9 +64,9 @@ public class StudentPersonalInfoTextRepository implements Repository{
 	}
 
 		/**
-	 * Saves an ArrayList of {@link Student.Student} objects into the database.
+	 * Saves an ArrayList of Student objects into the database.
 	 * 
-	 * @param al an ArrayList of {@link Student.Student} object to be stored into the database
+	 * @param al an ArrayList of Student object to be stored into the database
 	 * @throws IOException If an input or output exception occurred
 	 */
 	public void saveList(List al) throws IOException {
