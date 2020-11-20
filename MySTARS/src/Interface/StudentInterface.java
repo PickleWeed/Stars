@@ -7,6 +7,20 @@ import java.util.Scanner;
 
 import Repository.CourseRecordsTextRepository;
 
+/**
+ * StudentInterface is a boundary class which interacts with the student to perform any operation on MySTARS
+ * in the student mode.<p>
+ * There are 6 options in student mode: <p>
+ * 1. Add a Course <p>
+ * 2. Drop a Course <p>
+ * 3. Check a Course <p>
+ * 4. Check Vancancies <p>
+ * 5. Change Index Number of Course <p>
+ * 6. Swap Index Number with Another Student <p>
+ * 
+ * @author ?
+ *
+ */
 public class StudentInterface {
 	String key = null;
 
