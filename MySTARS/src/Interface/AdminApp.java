@@ -7,6 +7,8 @@ import Repository.LoginTextRepository;
 import Repository.StudentCoursesTextRepository;
 import Repository.StudentPersonalInfoTextRepository;
 import CourseRecords.GetCourseRecord;
+import CourseRecords.GetStudentListByCourseIndex;
+import CourseRecords.GetStudentListByIndexNumber;
 import StudentInfo.CheckStudentInfo;
 import StudentInfo.UpdateStudentInfo;
 import StudentInfo.ViewStudentInfo;
@@ -26,7 +28,7 @@ import AccessPeriod.GetAccessPeriod;
  * 3. Add a Course <p>
  * 4. Update a course <p>
  * 5. Print Student List by Course Number <p>
- * 6. Print Student List by Course Number ? <p>
+ * 6. Print Student List by Index Number <p>
  * 7. Edit Student's Courses <p>
  * 8. Check Avaliable Vacancy for an index number <p>
  * 9. Exit <p>
@@ -35,6 +37,9 @@ import AccessPeriod.GetAccessPeriod;
  *
  */
 public class AdminApp {
+	private static final ArrayList StudentRecordsList = null;
+
+
 	private String choice = "0";
 	
 
@@ -97,8 +102,8 @@ public class AdminApp {
 			System.out.println("2. Add Student");
 			System.out.println("3. Add Course");
 			System.out.println("4. Update Course");
-			System.out.println("5. Print Student List by Course Number");
-			System.out.println("6. Print Student List by Course Number");
+			System.out.println("5. Print Student List by Index Number");
+			System.out.println("6. Print Student List by Course Index");
 			System.out.println("7. Check Avaliable Vacancy By Index Number");
 			System.out.println("8. Logout");
 			System.out.printf("Please choose a number: ");
@@ -121,9 +126,11 @@ public class AdminApp {
 					break;
 				case "5":
 					//Print Student List by Course Number
+					printStudentListByCourseIndex();
 					break;
 				case "6":
-					//Print Student List by Course Number
+					//Print Student List by Index Number
+					printStudentListByIndexNumber();
 					break;
 				case "7":
 					getCourseVacancy();
@@ -136,6 +143,21 @@ public class AdminApp {
 					break;
 			}
 		}
+	}
+	private void printStudentListByIndexNumber() throws IOException {
+		// TODO Auto-generated method stub
+		GetStudentListByIndexNumber.showIndexNum(StudentRecordsList);
+		System.out.println("Enter Index Number to check avaliable Key:");
+		String indexNum = sc.next();
+		GetStudentListByIndexNumber.getKey(indexNum, StudentRecordsList);
+		
+	}
+	private void printStudentListByCourseIndex() throws IOException{
+		// TODO Auto-generated method stub
+		GetStudentListByCourseIndex.showcourseIndex(StudentRecordsList);
+		System.out.println("Enter Index Number to check avaliable Vacancy:");
+		String courseIndex = sc.next();
+		GetStudentListByCourseIndex.getKey(courseIndex, StudentRecordsList);
 	}
 	private void editStudentAccess() throws IOException
 	{	
