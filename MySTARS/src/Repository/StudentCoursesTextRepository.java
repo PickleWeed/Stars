@@ -34,10 +34,10 @@ public class StudentCoursesTextRepository implements Repository{
 	
     	/**
 	 * Gets the information of all courses taken by every student from the database.<p>
-     * Each entry is stored as a {@link Student.StudentRecords} object.<p> 
-     * An ArrayList of {@link Student.StudentRecords} objects are returned.<p>
+     * Each entry is stored as a StudentRecords object.<p> 
+     * An ArrayList of StudentRecords objects are returned.<p>
 	 * 
-	 * @return An ArrayList of {@link Student.StudentRecords} objects storing 
+	 * @return An ArrayList of StudentRecords objects storing 
 	 * the information of all courses taken by every student from the database is returned.
 	 * @throws IOException If an input or output exception occurred
 	 */
@@ -70,9 +70,9 @@ public class StudentCoursesTextRepository implements Repository{
 	}
 
 	/**
-	 * Saves an ArrayList of {@link Student.StudentRecords} objects into the database.
+	 * Saves an ArrayList of StudentRecords objects into the database.
 	 * 
-	 * @param al an ArrayList of {@link Student.StudentRecords} object to be stored into the database
+	 * @param al an ArrayList of StudentRecords object to be stored into the database
 	 * @throws IOException If an input or output exception occurred
 	 */
 public void saveList(List al) throws IOException {
