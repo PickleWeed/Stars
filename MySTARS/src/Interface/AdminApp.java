@@ -143,15 +143,18 @@ public class AdminApp {
 		System.out.printf("Enter Student's Matric Number: ");
 		String matricNum = sc.next();
 		String key = ViewStudentInfo.getStudentKey(studentInfo, matricNum);
-		String accessPeriod;
+		String startAccessPeriod, endAccessPeriod, accessPeriod;
 		
 		if(key != "nill")
 		{
 			ViewStudentInfo.viewStudentInfo(studentInfo, key);
-			System.out.printf("Enter Access Period to change to (DD/MM/YYYY):");
+			System.out.printf("Enter Starting Access Period to change to (DD/MM/YYYY):");
 			//enter date, day, year
-			accessPeriod = sc.next();
-			UpdateStudentInfo.editStudentAC(studentInfo, accessPeriod, key);
+			startAccessPeriod = sc.next();
+			System.out.printf("Enter Ending Access Period to change to (DD/MM/YYYY):");
+			endAccessPeriod = sc.next();
+			accessPeriod = startAccessPeriod + " - " + endAccessPeriod;
+			UpdateStudentInfo.updateStudentAC(studentInfo, accessPeriod, key);
 		}
 		else
 			System.out.println("No matching Matric Number!");

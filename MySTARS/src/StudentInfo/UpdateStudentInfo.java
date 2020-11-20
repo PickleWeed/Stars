@@ -43,14 +43,14 @@ public class UpdateStudentInfo {
 		System.out.println("Access Period: " + student.getAccessPeriod());
 		System.out.println("\n");
 	}
-	public static void editStudentAC(ArrayList studentInfo, String accessPeriod, String key) throws IOException
+	public static void updateStudentAC(ArrayList studentInfo, String accessPeriod, String key) throws IOException
 	{
 		for (int i = 0 ; i < studentInfo.size() ; i++) {
 			Student student = (Student)studentInfo.get(i);
 			if(student.getKey().equals(key))
 			{
 				student.setAccessPeriod(accessPeriod);
-				System.out.println("Access Period Updated!");
+				System.out.println("Access Period Updated!\n");
 			}
 			StudentPersonalInfoTextRepository studentPersonalInfoTextRepository = new StudentPersonalInfoTextRepository();
 			studentPersonalInfoTextRepository.saveList(studentInfo);
