@@ -11,8 +11,8 @@ import java.util.StringTokenizer;
 import Student.StudentRecords;
 
 public class StudentCoursesTextRepository {
-	public static final String SEPARATOR = "|";
-	public static final String filename = "StudentRecords.txt" ;
+	private static final String SEPARATOR = "|";
+	private static final String filename = "StudentRecords.txt" ;
     // an example of reading
 	public static ArrayList readStudentRecords() throws IOException {
 		// read String from text file

@@ -13,8 +13,8 @@ import Admin.AccessPeriodObj;
 import Course.CourseRecordsObj;
 
 public class GlobalAccessPeriodTextRepository {
-	public static final String SEPARATOR = "|";
-	public static final String filename = "GlobalAccessPeriod.txt" ;
+	private static final String SEPARATOR = "|";
+	private static final String filename = "GlobalAccessPeriod.txt" ;
     // an example of reading
 	public static ArrayList readAccessPeriod() throws IOException {
 		

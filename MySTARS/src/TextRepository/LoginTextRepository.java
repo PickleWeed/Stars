@@ -25,10 +25,10 @@ import Login.LoginInfo;
  *
  */
 public class LoginTextRepository {
-	public static final String SEPARATOR = "|";	
+	private static final String SEPARATOR = "|";	
+	private static final String filename = "LoginsInfo.txt" ;
 	
 	public static String readLoginDetail(String userUsername, String userPassword, String userType) throws IOException { //enter from LoginController
-		String filename = "LoginsInfo.txt"; 
 		ArrayList stringArray = (ArrayList)read(filename); // read String from text file
 		ArrayList alr = new ArrayList() ;// to store Professors data
         for (int i = 0 ; i < stringArray.size() ; i++) {
@@ -56,7 +56,6 @@ public class LoginTextRepository {
 	 */
 	public static ArrayList readLogin() throws IOException {
 		// read String from text file
-		String filename = "LoginsInfo.txt"; 
 		ArrayList stringArray = (ArrayList)read(filename);
 		ArrayList alr = new ArrayList() ;// to store Professors data
 
@@ -85,7 +84,6 @@ public class LoginTextRepository {
 	 * @throws IOException If an input or output exception occurred
 	 */
 	public static void saveLogin(List al) throws IOException {
-			String filename = "LoginsInfo.txt"; 
 			List alw = new ArrayList() ;// to store Professors data
 	
 	        for (int i = 0 ; i < al.size() ; i++) {

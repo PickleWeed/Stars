@@ -29,8 +29,8 @@ import Course.CourseRecordsObj;
  *
  */
 public class CourseRecordsTextRepository {
-	public static final String SEPARATOR = "|";
-	public static final String filename = "CourseRecords.txt" ;
+	private static final String SEPARATOR = "|";
+	private static final String filename = "CourseRecords.txt" ;
     /**
      * gets data of all courses from the database. <p>
      * Information of each course is stored as a {@link Course.CourseRecords} object. <p>

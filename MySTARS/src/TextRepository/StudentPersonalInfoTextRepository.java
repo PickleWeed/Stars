@@ -11,7 +11,7 @@ import java.util.StringTokenizer;
 import Student.Student;
 
 public class StudentPersonalInfoTextRepository {
-	public static final String SEPARATOR = "|";
+	private static final String SEPARATOR = "|";
 	private static final  String filename = "StudentsInfo.txt" ;
 
     // an example of reading
