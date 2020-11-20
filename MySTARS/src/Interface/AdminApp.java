@@ -39,15 +39,12 @@ public class AdminApp{
 	private String key;
 	private String accessPeriod;
 	
-	String choice = "0";
-	
 	private static ArrayList courseRecordList;
 	private static ArrayList studentInfo;
 	private static ArrayList loginInfo;
 	private static ArrayList studentsRecords;
 	private static ArrayList accessPeriodList;
-	
-	Scanner sc = new Scanner(System.in);
+
 	
 	/**
 	 * Displays a menu for the admin, and performs the appropriate operation based on the admin's choice.<p>
@@ -67,7 +64,9 @@ public class AdminApp{
 	 */
 	public void adminInterface() throws Exception
 	{	
-		while(!choice.equals("8"))
+		int choice = 0;	
+		Scanner sc = new Scanner(System.in);
+		while(choice != 8)
 		{
 			//get Data from txtfile
 			courseRecordList = CourseRecordsTextRepository.readCourseRecords();
@@ -90,45 +89,44 @@ public class AdminApp{
 			studentsRecords = (ArrayList)DatabaseRepository.readSerializedObject("StudentRecords.dat");
 			accessPeriodList = (ArrayList)DatabaseRepository.readSerializedObject("GlobalAccessPeriod.dat");
 						
-			
-			System.out.println("1. Edit a Student Access Period");
-			System.out.println("2. Add a Student");
-			System.out.println("3. Add a Course");
-			System.out.println("4. Update a course");
+			System.out.println("****ADMIN INTERFACE****");
+			System.out.println("1. Edit Student Access Period");
+			System.out.println("2. Add Student");
+			System.out.println("3. Add Course");
+			System.out.println("4. Update Course");
 			System.out.println("5. Print Student List by Course Number");
 			System.out.println("6. Print Student List by Course Number");
-			System.out.println("7. Check Avaliable Vacancy for an index number");
-			System.out.println("8. To Exit");
+			System.out.println("7. Check Avaliable Vacancy By Index Number");
+			System.out.println("8. Logout");
 			System.out.printf("Please choose a number: ");
-			choice = sc.next();
-			//choice = sc.nextInt();
+
+			choice = sc.nextInt();
 			
 			switch(choice)
 			{
-				case "1":
+				case 1:
 					editStudentAccess();
 					break;
-				case "2":
+				case 2:
 					addStudent();
 					break;
-				case "3":
+				case 3:
 					addCourse();
 					break;
-				case "4":
+				case 4:
 					updateCourse();
 					break;
-				case "5":
+				case 5:
 					//Print Student List by Course Number
 					break;
-				case "6":
+				case 6:
 					//Print Student List by Course Number
 					break;
-				case "7":
+				case 7:
 					getCourseVacancy();
 					break;
-				case "8":
-					System.out.println("Good Bye!");
-					System.out.println("You have logout.\n");
+				case 8:
+					System.out.println("Goodbye!\n");
 					break;
 				default:
 					System.out.println("Please Enter a Valid Number!\n");

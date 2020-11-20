@@ -1,6 +1,7 @@
 Amy|827ccb0eea8a706c4c34a16891f84e7b|Student|CV
 Amy|12345|Student|CV
 Ben|12345|Admin|CX
+Ben|827ccb0eea8a706c4c34a16891f84e7b|Admin|CX
 hello|008c5926ca861023c1d2a36653fd88e2|Student|yc
 Aaon|6c14da109e294d1e8155be8aa4b1ce8e|Student|mx
 qwe|76d80224611fc919a5d54f0ff9fba446|Student|vw

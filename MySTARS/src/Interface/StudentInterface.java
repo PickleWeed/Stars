@@ -11,15 +11,17 @@ public class StudentInterface {
 
 	public static void inStudentInterface() throws IOException
 	{
-		while (true) {
-			int choice;
+		int choice = 0;
+		while (choice != 7) {
 			Scanner sc = new Scanner(System.in);
-			System.out.println("1 For Add Course");
-			System.out.println("2 For Drop Course");
-			System.out.println("3 For Check Course");
-			System.out.println("4 For Check Vancancies");
-			System.out.println("5 For Change Index Number of Course");
-			System.out.println("6 for Swap Index Number with Another Student");
+			System.out.println("****STUDENT INTERFACE****");
+			System.out.println("1. Add Course");
+			System.out.println("2. Drop Course");
+			System.out.println("3. Check Course");
+			System.out.println("4. Check Vancancies");
+			System.out.println("5. Change Index Number of Course");
+			System.out.println("6. Swap Index Number with Another Student");
+			System.out.println("7. Logout");
 			System.out.println("Please choose a number: ");
 			choice = sc.nextInt();
 			
@@ -56,6 +58,9 @@ public class StudentInterface {
 					break;
 				case 6:
 					SwapIndex swapIndex = new SwapIndex();
+					break;
+				case 7:
+					System.out.println("Goodbye!\n");
 					break;
 				default:
 					System.out.println("Try another choice");

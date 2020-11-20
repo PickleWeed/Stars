@@ -61,7 +61,7 @@ public class LoginController {
 			key = LoginTextRepository.readLoginDetail(username, password, userType); //Query to TextDatabase
 			if(key != null)
 			{
-				System.out.println("\nSuccessful Login\n");	
+				System.out.println("\nLogin Successful!\n");	
 			    try {
 			        FileWriter writer = new FileWriter("StudentRecords.txt", true);
 			        BufferedWriter bufferedWriter = new BufferedWriter(writer);
@@ -85,7 +85,7 @@ public class LoginController {
 			}
 	    	else
 	    	{
-	    		System.out.println("Incorrect Password or Username!");
+	    		System.out.println("Incorrect Password or Username!\n");
 	    	}	
     	 	  		 		
     	}catch (Exception e) {

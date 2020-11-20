@@ -30,8 +30,9 @@ public class LoginInterface {
 	{
 
 		while(true) {
-			System.out.println("\n......Login As......");
-			System.out.println("1. Login As Student \n2. Login As Admin ");
+			System.out.println("WELCOME TO NTU STARS");
+			System.out.println("****CHOOSE DOMAIN****");
+			System.out.println("1. Student \n2. Admin \n3. Exit");
 			System.out.printf("Enter choice: ");
 			choice = sc.next();
 			if(choice.equals("1") || choice.equals("2")) //Choosing Admin or Student
@@ -39,17 +40,19 @@ public class LoginInterface {
 				int choice = Integer.parseInt(this.choice);
 				adminOrStudent(choice); //Enter AdminOrStudent 
 			}
-			if(choice.equals("3")){
+			else if(choice.equals("3")){
+				System.out.println("Exiting System...");
 				System.exit(0);
             }
-			else
+			else {
 				System.out.println("Please Enter a Valid Number!\n");
+			}
 		}
 	}
 	private void adminOrStudent(int choice)
 	{	
-		System.out.println("\n......Login......");
-		System.out.printf("Please enter Username: ");
+		System.out.println("*****LOGIN*****");
+		System.out.printf("Please Enter Username: ");
 		username = sc.next();
       
 		//password = consoleReadPass();
@@ -69,7 +72,7 @@ public class LoginInterface {
 	         //System.exit(1);
 	      }
 	      
-	      char[] pass = console.readPassword("Please enter password:");
+	      char[] pass = console.readPassword("Please Enter password:");
 	      return String.valueOf(pass);
 	}
 	//Testing purpose
