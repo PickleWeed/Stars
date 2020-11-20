@@ -10,10 +10,37 @@ import java.util.StringTokenizer;
 
 import StudentRecords.StudentRecords;
 
+/**
+ * StudentCoursesTextRepository is a boundary class which performs read and write operations 
+ * on StudentRecords.txt, a database that stores the information of all courses taken by every student.<p>
+ * The information stored for each entry is listed below: <p>
+ * key(identifies the student who takes the course) <p>
+ * courseIndex(eg. CZ1003) and indexNum(eg. 10088) <p>
+ * type(eg. LEC/TUT/LAB).<p>
+ * group(eg. CS1, SS2).<p>
+ * day, time, venue. <p>
+ * remarks. <p>
+ * program ????????? <p>
+ * Each entry in the database is uniquely identified by the combination: <p>
+ * key, CourseIndex, IndexNum, Type <p>
+ * Each information has its respective get and set method.
+ * 
+ * @author ?
+ *
+ */
 public class StudentCoursesTextRepository implements Repository{
 	private static final String SEPARATOR = "|";
 	private static final String filename = "StudentRecords.txt" ;
-    // an example of reading
+	
+    	/**
+	 * Gets the information of all courses taken by every student from the database.<p>
+     * Each entry is stored as a {@link Student.StudentRecords} object.<p> 
+     * An ArrayList of {@link Student.StudentRecords} objects are returned.<p>
+	 * 
+	 * @return An ArrayList of {@link Student.StudentRecords} objects storing 
+	 * the information of all courses taken by every student from the database is returned.
+	 * @throws IOException If an input or output exception occurred
+	 */
 	public ArrayList readToList() throws IOException {
 		// read String from text file
 		ArrayList stringArray = (ArrayList)read(filename);
@@ -42,7 +69,12 @@ public class StudentCoursesTextRepository implements Repository{
 			return alr ;
 	}
 
-  // an example of saving
+	/**
+	 * Saves an ArrayList of {@link Student.StudentRecords} objects into the database.
+	 * 
+	 * @param al an ArrayList of {@link Student.StudentRecords} object to be stored into the database
+	 * @throws IOException If an input or output exception occurred
+	 */
 public void saveList(List al) throws IOException {
 		List alw = new ArrayList() ;// to store Professors data
 		
