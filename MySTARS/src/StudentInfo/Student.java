@@ -1,8 +1,17 @@
 package StudentInfo;
 
 import java.io.Serializable;
-//Student Info
 
+/**
+ * Student is an entity class which stores all the information of a student. <p>
+ * Each student has 8 pieces of informations in total, as described below: <p>
+ * key: Uniquely identifies a student <p>
+ * firstName, lastName, matricNum, gender, nationality, age <p>
+ * accessPeriod: The period of time that the student is allowed to access MySTARS <p>
+ * 
+ * @author ?
+ *
+ */
 public class Student implements Serializable{
 
 	private String  key ;
@@ -14,7 +23,18 @@ public class Student implements Serializable{
 	private String  age ;
 	private String accessPeriod;
 	private String email;
-
+	
+	/**
+	 * Class constructor specifying all 8 pieces of informations of this student
+	 * @param key Uniquely identifies a user in the database
+	 * @param firstName firstName
+	 * @param lastName lastName
+	 * @param matricNum matriculation number
+	 * @param gender gender
+	 * @param nationality nationality
+	 * @param age age
+	 * @param accessPeriod accessPeriod for MYSTARS
+	 */
 	public Student(String key, String firstName, String lastName, String matricNum, String gender, 
 			String nationality, String age, String accessPeriod, String email)
 	{
