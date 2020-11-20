@@ -13,7 +13,7 @@ import java.io.FileWriter;
 
 /**
  * LoginController is a control class which checks the correctness of the user's login information 
- * and directs the user to the appropriate interface.
+ * and directs the user to the appropriate interface (student or admin).
  * 
  * @author ?
  * 
