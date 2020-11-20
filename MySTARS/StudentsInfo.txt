@@ -3,6 +3,3 @@ CV|Carvin|Lim|Q1234567P|Male|Singaporean|23|20/06/2020 - 20/08/2020
 VC|Amy|Chew|P1234567V|Female|Singaporean|21|20/06/2020 - 20/08/2020
 uq|hi|key|12312|Male|Singaporean|25|20/06/2020 - 20/08/2020
 yc|hi|key|12312|Male|Singaporean|25|20/06/2020 - 20/08/2020
-mx|aa|bb|123|F|Singa|321|20/06/2020 - 20/08/2020
-vw|qe|qwe|qwe|qwe|qwe|qwe|20/06/2020 - 20/08/2020
-lk|gw|gw|wg|wg|wg|gw|20/06/2020 - 20/08/2020

@@ -2,6 +2,7 @@ package Interface;
 import Admin.*;
 import DatRepository.DatabaseRepository;
 import TextRepository.CourseRecordsTextRepository;
+import TextRepository.GlobalAccessPeriodTextRepository;
 import TextRepository.LoginTextRepository;
 import TextRepository.StudentCoursesTextRepository;
 import TextRepository.StudentPersonalInfoTextRepository;
@@ -25,8 +26,9 @@ public class AdminApp{
 	
 	private static ArrayList courseRecordList;
 	private static ArrayList studentInfo;
-	private static ArrayList LoginInfo;
-	private static ArrayList StudentsRecords;
+	private static ArrayList loginInfo;
+	private static ArrayList studentsRecords;
+	private static ArrayList accessPeriodList;
 	
 	Scanner sc = new Scanner(System.in);
 	
@@ -38,20 +40,23 @@ public class AdminApp{
 			//get Data from txtfile
 			courseRecordList = CourseRecordsTextRepository.readCourseRecords();
 			studentInfo = StudentPersonalInfoTextRepository.readStudentInfo();
-			LoginInfo = LoginTextRepository.readLogin();
-			StudentsRecords = StudentCoursesTextRepository.readStudentRecords();
+			loginInfo = LoginTextRepository.readLogin();
+			studentsRecords = StudentCoursesTextRepository.readStudentRecords();
+			accessPeriodList = GlobalAccessPeriodTextRepository.readAccessPeriod();
 			
 			//write onto Serial File
 			DatabaseRepository.writeSerializedObject("CourseRecords.dat", courseRecordList);
 			DatabaseRepository.writeSerializedObject("studentInfo.dat", studentInfo);
-			DatabaseRepository.writeSerializedObject("LoginsInfo.dat", LoginInfo);
-			DatabaseRepository.writeSerializedObject("StudentRecords.dat", StudentsRecords);
+			DatabaseRepository.writeSerializedObject("LoginsInfo.dat", loginInfo);
+			DatabaseRepository.writeSerializedObject("StudentRecords.dat", studentsRecords);
+			DatabaseRepository.writeSerializedObject("GlobalAccessPeriod.dat", accessPeriodList);
 			
 			//read again from Serial File
  			courseRecordList = (ArrayList)DatabaseRepository.readSerializedObject("CourseRecords.dat");
 			studentInfo = (ArrayList)DatabaseRepository.readSerializedObject("studentInfo.dat");
-			LoginInfo = (ArrayList)DatabaseRepository.readSerializedObject("LoginsInfo.dat");
-			StudentsRecords = (ArrayList)DatabaseRepository.readSerializedObject("StudentRecords.dat");
+			loginInfo = (ArrayList)DatabaseRepository.readSerializedObject("LoginsInfo.dat");
+			studentsRecords = (ArrayList)DatabaseRepository.readSerializedObject("StudentRecords.dat");
+			accessPeriodList = (ArrayList)DatabaseRepository.readSerializedObject("GlobalAccessPeriod.dat");
 						
 			
 			System.out.println("1. Edit a Student Access Period");
@@ -107,8 +112,9 @@ public class AdminApp{
 		key = StudentHandler.getStudentKey(studentInfo, matricNum);
 		if(key != "nill")
 		{
-			ViewStudentInfo.getStudentInfo(studentInfo, key);
-			System.out.printf("Enter Access Period to change to:");
+			ViewStudentInfo.viewStudentInfo(studentInfo, key);
+			System.out.printf("Enter Access Period to change to (DD/MM/YYYY):");
+			//enter date, day, year
 			accessPeriod = sc.next();
 			StudentHandler.editStudentAC(studentInfo, accessPeriod, key);
 		}
@@ -129,7 +135,7 @@ public class AdminApp{
 					break;
 		}	
 		System.out.printf("Enter student Gender: ");
-		gender = sc.next();
+		gender =  sc.next();
 		System.out.printf("Enter student Nationality: ");
 		nationality = sc.next();
 		System.out.printf("Enter student Age: ");
@@ -139,13 +145,21 @@ public class AdminApp{
 		while(true) {
 			System.out.printf("Enter Student login Username: ");
 			username = sc.next();
-			if(StudentHandler.checkUsername(username, LoginInfo) == false) 
+			if(StudentHandler.checkUsername(username, loginInfo) == false) 
 					break;
 		}	
-		System.out.println("Enter student password: ");
+		System.out.printf("Enter student password: ");
 		password = sc.next();
+		ViewCourseRecord.viewAccessPeriod(accessPeriodList);
+		while(true) {
+			System.out.println("Choose a value which Access Period you want to add: ");
+			accessPeriod = sc.next();
+			accessPeriod = ViewCourseRecord.getAccessPeriod(accessPeriodList, accessPeriod);
+			if(!accessPeriod.equals("nill"))
+				break;	
+		}
 		//create student login info and Student Info
-		StudentHandler.addStudent(studentInfo, LoginInfo, firstName, lastName, matricNum, gender, nationality, age, username, password);
+		StudentHandler.addStudent(studentInfo, loginInfo, firstName, lastName, matricNum, gender, nationality, age, username, password, accessPeriod);
 	}
 	private void addCourse() throws IOException
 	{

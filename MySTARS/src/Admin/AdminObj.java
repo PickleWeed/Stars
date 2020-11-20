@@ -1,9 +1,9 @@
 package Admin;
 import Student.Student;
 
+//to be deleted, no use
 public class AdminObj{	
-	
-	//to be deleted, no use
+
 	private Student[] student;
 	private static int numberOfStudent = 15;
 	private int i = 0;

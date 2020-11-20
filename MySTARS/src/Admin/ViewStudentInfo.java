@@ -6,7 +6,7 @@ import Student.Student;
 
 
 public class ViewStudentInfo {
-	public static void getStudentInfo(ArrayList studentInfo, String key)
+	public static void viewStudentInfo(ArrayList studentInfo, String key)
 	{
 		for (int i = 0 ; i < studentInfo.size() ; i++) {
 			Student student = (Student)studentInfo.get(i);
@@ -23,4 +23,5 @@ public class ViewStudentInfo {
 				}
 		}
 	}
+	
 }

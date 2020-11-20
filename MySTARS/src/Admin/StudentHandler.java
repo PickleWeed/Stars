@@ -13,10 +13,9 @@ import TextRepository.StudentPersonalInfoTextRepository;
 
 public class StudentHandler {
 	
-	public static void addStudent(ArrayList StudentInfoArray, ArrayList loginArray, String firstName, String lastName, String matricNum, String gender, String nationality, String age, String username, String password) throws IOException
+	public static void addStudent(ArrayList StudentInfoArray, ArrayList loginArray, String firstName, String lastName, String matricNum, String gender, String nationality, String age, String username, String password, String accessPeriod) throws IOException
 	{
 		String key = Encrypt.getKey();
-		String accessPeriod = "20/06/2020 - 20/08/2020";
 		String hashPassword = Encrypt.hashing(password);
 		
 		//ArrayList StudentInfoArray = StudentPersonalInfoTextRepository.readStudentInfo();

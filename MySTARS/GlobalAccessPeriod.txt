@@ -1,0 +1,3 @@
+startAccessPeriod|endAccessPeriod
+20/01/2020|20/02/2020
+20/06/2020|20/08/2020
