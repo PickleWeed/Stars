@@ -12,7 +12,7 @@ import java.lang.*;
 
 /**
  * LoginInterface is a boundary class which prompts the user to enter his login 
- * informations and passes control to the control class ({@link Login.LoginController}. <p>
+ * informations and passes control to the control class LoginController. <p>
  * 
  * @author ?
  *
