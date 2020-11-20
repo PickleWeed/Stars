@@ -34,7 +34,7 @@ import AccessPeriod.GetAccessPeriod;
  * @author ?
  *
  */
-public class AdminApp{
+public class AdminApp {
 	private String choice = "0";
 	
 
