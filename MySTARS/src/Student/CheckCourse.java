@@ -6,6 +6,13 @@ import java.util.ArrayList;
 import CourseRecords.CourseRecord;
 import Repository.CourseRecordsTextRepository;
 
+/**
+ * CheckCourse is a control class that displays the course informations for all
+ * courses registered by the student.
+ * 
+ * @author ?
+ *
+ */
 public class CheckCourse {
 	
 
