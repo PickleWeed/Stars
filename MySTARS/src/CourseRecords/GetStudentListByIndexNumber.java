@@ -9,19 +9,21 @@ import StudentRecords.StudentRecords;
 
 public class GetStudentListByIndexNumber {
 
-	public static void showIndexNum(ArrayList StudentRecordsList) throws IOException
+	public static void showIndexNum(ArrayList StudentRecordsList,ArrayList studentInfo) throws IOException
 	{
 		System.out.println("List of Index Number:");
 		for (int i=0; i<StudentRecordsList.size(); i++)
 		{
 			//get array object 
 			StudentRecords studentRecords = (StudentRecords)StudentRecordsList.get(i);
-			System.out.println("Index Number: " + studentRecords.getIndexNum());
+			if(!studentRecords.getKey().equals("nill"))
+				System.out.println("Index Number: " + studentRecords.getIndexNum());
 		}
 	}
-	public static void getKey(String indexNum, ArrayList StudentRecordsList)
+	public static void getKey(String indexNum, ArrayList StudentRecordsList,ArrayList studentInfo)
 	{
 		for (int i=0; i<StudentRecordsList.size(); i++)
+			for (int j=0; j<studentInfo.size(); j++)
 		{
 			//get array object 
 			StudentRecords studentRecords = (StudentRecords)StudentRecordsList.get(i);

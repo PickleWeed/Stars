@@ -144,18 +144,18 @@ public class AdminApp {
 	}
 	private void printStudentListByIndexNumber() throws IOException {
 		// TODO Auto-generated method stub
-		GetStudentListByIndexNumber.showIndexNum(studentsRecords);
+		GetStudentListByIndexNumber.showIndexNum(studentsRecords,studentInfo);
 		System.out.println("Enter Index Number to check avaliable Key:");
 		String indexNum = sc.next();
-		//GetStudentListByIndexNumber.getKey(indexNum, StudentRecordsList);
+		GetStudentListByIndexNumber.getKey(indexNum, studentsRecords,studentInfo);
 		
 	}
 	private void printStudentListByCourseIndex() throws IOException{
 		// TODO Auto-generated method stub
-		GetStudentListByCourseIndex.showcourseIndex(studentsRecords);
+		GetStudentListByCourseIndex.showcourseIndex(studentsRecords,studentInfo);
 		System.out.println("Enter Index Number to check avaliable Vacancy:");
 		String courseIndex = sc.next();
-		GetStudentListByCourseIndex.getKey(courseIndex, studentsRecords);
+		GetStudentListByCourseIndex.getKey(courseIndex, studentsRecords,studentInfo);
 	}
 	private void editStudentAccess() throws IOException
 	{	
