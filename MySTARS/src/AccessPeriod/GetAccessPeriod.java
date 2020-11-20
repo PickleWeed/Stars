@@ -15,11 +15,11 @@ public class GetAccessPeriod {
 		}
 		System.out.println("\n");
 	}
-	public static String getAccessPeriod(ArrayList accessPeriod, String acessPeriodValue)
+	public static String getAccessPeriod(ArrayList accessPeriod, String accessPeriodValue)
 	{
 		for (int i = 0 ; i < accessPeriod.size() ; i++) {
 			AccessPeriod accessPeriodObj = (AccessPeriod)accessPeriod.get(i);
-			if(acessPeriodValue.equals(Integer.toString(i+1)))
+			if(accessPeriodValue.equals(Integer.toString(i+1)))
 			{
 				return (accessPeriodObj.getStartAccessPeriod() + " - " + accessPeriodObj.getEndAccessPeriod());
 				//System.out.println((i+1) + ". Starting Access Period: " + accessPeriodObj.getStartAccessPeriod() + ", Ending Access Period: " + accessPeriodObj.getEndAccessPeriod());
