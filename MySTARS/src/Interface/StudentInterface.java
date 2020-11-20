@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import CourseRecords.GetCourseRecord;
 import Repository.CourseRecordsTextRepository;
 
 /**
@@ -23,11 +24,18 @@ import Repository.CourseRecordsTextRepository;
  */
 public class StudentInterface {
 	String key = null;
+	private static ArrayList courseRecordList;
+	Scanner sc = new Scanner(System.in);
 
+	
 	public static void inStudentInterface() throws IOException
 	{
+		CourseRecordsTextRepository courseRecordsTextRepository = new CourseRecordsTextRepository();
+
 		int choice = 0;
 		while (choice != 7) {
+			courseRecordList = courseRecordsTextRepository.readToList();
+
 			Scanner sc = new Scanner(System.in);
 			System.out.println("****STUDENT INTERFACE****");
 			System.out.println("1. Add Course");
@@ -45,8 +53,6 @@ public class StudentInterface {
 				case 1:
 					String courseIndex, temp;
 					//query Course record and insert into arraylist
-					CourseRecordsTextRepository courseRecordsTextRepository = new CourseRecordsTextRepository();
-					ArrayList courseRecordList = courseRecordsTextRepository.readToList();
 					//the courseIndex you want to add
 					courseIndex = "0000";
 					AddCourse.addCourse1(courseIndex, courseRecordList);
@@ -67,7 +73,7 @@ public class StudentInterface {
 					CheckCourse checkCourse = new CheckCourse();
 					break;
 				case 4:
-					CheckVacancies CheckVacancies = new CheckVacancies();
+					getCourseVacancy();
 					break;
 				case 5:
 					ChangeIndex changeIndex = new ChangeIndex();
@@ -83,6 +89,15 @@ public class StudentInterface {
 					return;	
 			}	
 		}
+	}
+
+
+	private void getCourseVacancy() throws IOException
+	{
+		GetCourseRecord.showIndexNum(courseRecordList);
+		System.out.println("Enter Index Number to check avaliable Vacancy:");
+		String indexNum = sc.next();
+		GetCourseRecord.getVacancy(indexNum, courseRecordList);
 	}
 
 }
