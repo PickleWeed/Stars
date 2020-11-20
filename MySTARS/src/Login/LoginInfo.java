@@ -2,13 +2,35 @@ package Login;
 
 import java.io.Serializable;
 
+/**
+ * LoginInfo is an entity class which stores the login information of a user. <p>
+ * The 4 pieces of informations stored for a user are described below: <p>
+ * username <p>
+ * password<p>
+ * type (Student or Admin)<p>
+ * key: Uniquely identifies a user in the database (In case 2 users have the same 
+ * username, password and type) <p>
+ * Each information has its respective get and set method.
+ * 
+ * @author ?
+ *
+ */
+
 public class LoginInfo implements Serializable{
 	
 	private String  username;
 	private String  password;
 	private String type;
 	private String  key ;
-
+	
+	/**
+	 * Class constructor specifying all 4 login informations of a user
+	 * 
+	 * @param username username
+	 * @param password password
+	 * @param type (Student or Admin)
+	 * @param key Uniquely identifies a user in the database
+	 */
 	public LoginInfo(String username, String password, String type, String key)
 	{
 		this.username = username;

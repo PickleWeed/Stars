@@ -1,5 +1,6 @@
 package Login;
 import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -8,13 +9,32 @@ import Interface.StudentInterface;
 import TextRepository.LoginTextRepository;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-public class LoginController {
 
-	
+/**
+ * LoginController is a control class which checks the correctness of the user's login information 
+ * and directs the user to the appropriate interface.
+ * 
+ * @author ?
+ * 
+ */
+public class LoginController {
+	/**
+	 * Class constructor. 
+	 */
 	public LoginController()
 	{
 		//retrieve login information from txt file
 	}
+	
+	/**
+	 * Verifies the correctness of the user's login information and directs the user to the appropriate 
+	 * interface (user/admin) if the login is successful. Otherwise, displays an error message.
+	 * 
+	 * @param username The user's name
+	 * @param password The user's password
+	 * @param choice The user's identity, taking an integer value of <code>1</code> or <code>2</code>
+	 * (<code>1</code> for admin and <code>2</code> for student).
+	 */
 	public void validateLogin(String username, String password, int choice)// Called from LoginInterface
 	{
 		String filename = null;

@@ -10,10 +10,36 @@ import java.util.StringTokenizer;
 
 import Course.CourseRecordsObj;
 
+/**
+ * CourseRecordsTextRepository is a boundary class which performs read and write operations 
+ * on CourseRecords.txt, a database that stores information about all courses in NTU's MySTARS.<p>
+ * The information stored in each course is listed below: <p>
+ * courseIndex (eg. CZ1003)<p>
+ * indexNum (eg. 10088)<p>
+ * type: type of this course (eg. LEC/TUT/LAB)<p>
+ * group: group number of this course (eg. SS2)<p>
+ * day: the weekday that this course is conducted<p>
+ * time: the time that this course is conducted<p>
+ * venue: the venue that this course is conducted<p>
+ * remarks: any remark for this course<p>
+ * vacancy: number of available slots left for this course<p>
+ * name: name of this course<p>
+ * 
+ * @author ? 
+ *
+ */
 public class CourseRecordsTextRepository {
 	public static final String SEPARATOR = "|";
 	public static final String filename = "CourseRecords.txt" ;
-    // an example of reading
+    /**
+     * gets data of all courses from the database. <p>
+     * Information of each course is stored as a {@link Course.CourseRecords} object. <p>
+     * An ArrayList of {@link Course.CourseRecords} objects are returned.
+     * 
+     * @return an ArrayList of {@link Course.CourseRecords} object storing information 
+     * of all courses in the database
+     * @throws IOException If an input or output exception occurred
+     */
 	public static ArrayList readCourseRecords() throws IOException {
 		
 		// read String from text file
@@ -44,7 +70,13 @@ public class CourseRecordsTextRepository {
 			return alr ;
 	}
 
-	// an example of saving
+
+	  /**
+	   * Saves an ArrayList of {@link Course.CourseRecords} objects into the database.
+	   * 
+	   * @param al an ArrayList of {@link Course.CourseRecords} object to be stored into the database
+	   * @throws IOException If an input or output exception occurred
+	   */
 	public static void saveCourseRecords(List al) throws IOException {
 			List alw = new ArrayList() ;// to store Professors data
 	

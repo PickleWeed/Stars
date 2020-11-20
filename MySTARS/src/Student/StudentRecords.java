@@ -2,6 +2,21 @@ package Student;
 
 import java.io.Serializable;
 
+/**
+ * StudentRecords is an entity class which stores all information of a course. <p>
+ * Each course has pieces of 10 informations in total, as described below: <p>
+ * courseIndex(eg. CZ1003) and indexNum(eg. 10088), which unqiuely defines a course. <p>
+ * type(eg. LEC/TUT/LAB).<p>
+ * group(eg. CS1, SS2).<p>
+ * day, time, venue. <p>
+ * name of the course. <p>
+ * vacancy. <p>
+ * remarks. <p>
+ * Each information has its respective get and set method.
+ * 
+ * @author ?
+ *
+ */
 public class StudentRecords implements Serializable{
 	private String  key ;
 	private String  indexNum;

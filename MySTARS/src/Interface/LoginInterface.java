@@ -10,6 +10,15 @@ import java.io.IOException;
 import java.util.*; 
 import java.lang.*; 
 
+/**
+ * LoginInterface is a boundary class which prompts the user to enter his login 
+ * informations. <p>
+ * If the login is successful, the user will be directed to ? <p>
+ * If the login fails, ?
+ * 
+ * @author ?
+ *
+ */
 public class LoginInterface {
 	
 	private String username, password;

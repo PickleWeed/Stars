@@ -11,6 +11,19 @@ import java.util.StringTokenizer;
 
 import Login.LoginInfo;
 
+/**
+ * LoginTextRepository is a boundary class which performs read and write operations 
+ * on LoginsInfo.txt, a database that stores login information of all users in NTU's MySTARS.<p>
+ * The information stored for each user is listed below: <p>
+ * username <p>
+ * password<p>
+ * type (Student or Admin)<p>
+ * key: Uniquely identifies a user in the database (In case 2 users have the same 
+ * username, password and type) <p>
+ * 
+ * @author ?
+ *
+ */
 public class LoginTextRepository {
 	public static final String SEPARATOR = "|";	
 	
@@ -32,6 +45,15 @@ public class LoginTextRepository {
 			return null;
 	}	
 	
+	/**
+	 * Gets login information of all users from the database.<p>
+     * Each user's login information is stored as a {@link Login.LoginInfo} object.<p> 
+     * An ArrayList of {@link Login.LoginInfo} objects are returned.<p>
+	 * 
+	 * @return An ArrayList of {@link Login.LoginInfo} objects storing 
+	 * the login information of all users is returned.
+	 * @throws IOException If an input or output exception occurred
+	 */
 	public static ArrayList readLogin() throws IOException {
 		// read String from text file
 		String filename = "LoginsInfo.txt"; 
@@ -56,7 +78,12 @@ public class LoginTextRepository {
 			return alr ;
 	}
 
-  // an example of saving
+	/**
+	 * Saves an ArrayList of {@link Login.LoginInfo} objects into the database.
+	 * 
+	 * @param al an ArrayList of {@link Login.LoginInfo} object to be stored into the database
+	 * @throws IOException If an input or output exception occurred
+	 */
 	public static void saveLogin(List al) throws IOException {
 			String filename = "LoginsInfo.txt"; 
 			List alw = new ArrayList() ;// to store Professors data

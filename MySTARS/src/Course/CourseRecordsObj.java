@@ -1,7 +1,21 @@
 package Course;
 
 import java.io.Serializable;
-
+/**
+ * CourseRecords is an entity class which stores all information of a course. <p>
+ * Each course has pieces of 10 informations in total, as described below: <p>
+ * courseIndex(eg. CZ1003) and indexNum(eg. 10088), which unqiuely defines a course. <p>
+ * type(eg. LEC/TUT/LAB).<p>
+ * group(eg. CS1, SS2).<p>
+ * day, time, venue. <p>
+ * name of the course. <p>
+ * vacancy. <p>
+ * remarks. <p>
+ * Each information has its respective get and set method.
+ * 
+ * @author ?
+ *
+ */
 public class CourseRecordsObj implements Serializable{
 	
 	private String  courseIndex;
@@ -15,6 +29,20 @@ public class CourseRecordsObj implements Serializable{
 	private String  vacancy; 
 	private String  name;
 	
+	/**
+	 * Class constructor specifying all 10 course informations.
+	 * 
+	 * @param courseIndex (eg. CZ1003)
+	 * @param indexNum (eg. 10088)
+	 * @param type type of this course (eg. LEC/TUT/LAB)
+	 * @param group group number of this course (eg. SS2)
+	 * @param day the weekday that this course is conducted
+	 * @param time the time that this course is conducted
+	 * @param venue the venue that this course is conducted
+	 * @param remarks any remark for this course
+	 * @param vacancy number of available slots left for this course
+	 * @param name name of this course
+	 */
 	public CourseRecordsObj(String courseIndex, String indexNum, String type, String group, String day, String time, String venue, String remarks, String vacancy, String name)
 	{
 		this.courseIndex = courseIndex;
