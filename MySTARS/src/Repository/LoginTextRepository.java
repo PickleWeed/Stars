@@ -47,10 +47,10 @@ public class LoginTextRepository implements Repository{
 	
 	/**
 	 * Gets login information of all users from the database.<p>
-     * Each user's login information is stored as a {@link Login.LoginInfo} object.<p> 
-     * An ArrayList of {@link Login.LoginInfo} objects are returned.<p>
+     * Each user's login information is stored as a LoginInfo object.<p> 
+     * An ArrayList of LoginInfo objects are returned.<p>
 	 * 
-	 * @return An ArrayList of {@link Login.LoginInfo} objects storing 
+	 * @return An ArrayList of LoginInfo objects storing 
 	 * the login information of all users is returned.
 	 * @throws IOException If an input or output exception occurred
 	 */
@@ -78,9 +78,9 @@ public class LoginTextRepository implements Repository{
 	}
 
 	/**
-	 * Saves an ArrayList of {@link Login.LoginInfo} objects into the database.
+	 * Saves an ArrayList of LoginInfo objects into the database.
 	 * 
-	 * @param al an ArrayList of {@link Login.LoginInfo} object to be stored into the database
+	 * @param al an ArrayList of LoginInfo object to be stored into the database
 	 * @throws IOException If an input or output exception occurred
 	 */
 	public void saveList(List al) throws IOException {
