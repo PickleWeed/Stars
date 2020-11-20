@@ -1,8 +1,9 @@
 package Interface;
 import CourseRecords.UpdateCourseRecord;
 import CourseRecords.GetCourseRecord;
-import Student.StudentHandler;
-import Student.ViewStudentInfo;
+import StudentInfo.CheckStudentInfo;
+import StudentInfo.UpdateStudentInfo;
+import StudentInfo.ViewStudentInfo;
 import TextRepository.CourseRecordsTextRepository;
 import TextRepository.GlobalAccessPeriodTextRepository;
 import TextRepository.LoginTextRepository;
@@ -34,17 +35,6 @@ import AccessPeriod.GetAccessPeriod;
  *
  */
 public class AdminApp{
-	private String matricNum;
-	private String username;
-	private String password;
-	private String firstName, lastName;
-	private String gender, nationality, age, email;
-	private String courseIndex, indexNum;
-	private String type, group, day, time, venue, remarks, vacancy, courseName;
-	private String key;
-	private String accessPeriod;
-	
-
 	private String choice = "0";
 	
 
@@ -73,9 +63,8 @@ public class AdminApp{
 	 */
 	public void adminInterface() throws Exception
 	{	
-		int choice = 0;	
 
-		while(choice != 8)
+		while(!choice.equals("8"))
 		{
 			//get Data from txtfile
 			courseRecordList = CourseRecordsTextRepository.readCourseRecords();
@@ -109,32 +98,32 @@ public class AdminApp{
 			System.out.println("8. Logout");
 			System.out.printf("Please choose a number: ");
 
-			choice = sc.nextInt();
+			choice = sc.next();
 			
 			switch(choice)
 			{
-				case 1:
+				case "1":
 					editStudentAccess();
 					break;
-				case 2:
+				case "2":
 					addStudent();
 					break;
-				case 3:
+				case "3":
 					addCourse();
 					break;
-				case 4:
+				case "4":
 					updateCourse();
 					break;
-				case 5:
+				case "5":
 					//Print Student List by Course Number
 					break;
-				case 6:
+				case "6":
 					//Print Student List by Course Number
 					break;
-				case 7:
+				case "7":
 					getCourseVacancy();
 					break;
-				case 8:
+				case "8":
 					System.out.println("Goodbye!\n");
 					break;
 				default:
@@ -147,15 +136,17 @@ public class AdminApp{
 	{	
 		System.out.println("Edit a Student Access Period");
 		System.out.printf("Enter Student's Matric Number: ");
-		matricNum = sc.next();
-		key = StudentHandler.getStudentKey(studentInfo, matricNum);
+		String matricNum = sc.next();
+		String key = ViewStudentInfo.getStudentKey(studentInfo, matricNum);
+		String accessPeriod;
+		
 		if(key != "nill")
 		{
 			ViewStudentInfo.viewStudentInfo(studentInfo, key);
 			System.out.printf("Enter Access Period to change to (DD/MM/YYYY):");
 			//enter date, day, year
 			accessPeriod = sc.next();
-			StudentHandler.editStudentAC(studentInfo, accessPeriod, key);
+			UpdateStudentInfo.editStudentAC(studentInfo, accessPeriod, key);
 		}
 		else
 			System.out.println("No matching Matric Number!");
@@ -163,40 +154,45 @@ public class AdminApp{
 	private void addStudent() throws IOException
 	{
 		System.out.printf("Enter student First Name: ");
-		firstName = sc.next();
+		String firstName = sc.next();
 		System.out.printf("Enter student Last Name: ");
-		lastName = sc.next();
+		String lastName = sc.next();
 		//check duplicate 
+		String matricNum;
 		while(true) {
 			System.out.printf("Enter student Matric Number: ");
 			matricNum = sc.next();
-			if(StudentHandler.checkMatricNum(matricNum, studentInfo) == false) 
+			if(CheckStudentInfo.checkMatricNum(matricNum, studentInfo) == false) 
 					break;
 		}	
 		System.out.printf("Enter student Gender: ");
-		gender =  sc.next();
+		String gender =  sc.next();
 		System.out.printf("Enter student Nationality: ");
-		nationality = sc.next();
+		String nationality = sc.next();
 		System.out.printf("Enter student Age: ");
-		age = sc.next();
+		String age = sc.next();
 		System.out.printf("Student Login Info: ");
 		//check duplicate
+		String email;
 		while(true) {
 			System.out.printf("Enter Student email:");
 			email = sc.next();
-			if(StudentHandler.checkEmail(email, studentInfo) == false)
+			if(CheckStudentInfo.checkEmail(email, studentInfo) == false)
 				break;
 		}
+		String username;
 		//check duplicate
 		while(true) {
 			System.out.printf("Enter Student login Username: ");
 			username = sc.next();
-			if(StudentHandler.checkUsername(username, loginInfo) == false) 
+			if(CheckStudentInfo.checkUsername(username, loginInfo) == false) 
 					break;
 		}	
 		System.out.printf("Enter student password: ");
-		password = sc.next();
+		String password = sc.next();
 		GetAccessPeriod.viewAccessPeriod(accessPeriodList);
+		String accessPeriod;
+		//check dupicate
 		while(true) {
 			System.out.println("Choose a value which Access Period you want to add: ");
 			accessPeriod = sc.next();
@@ -205,30 +201,30 @@ public class AdminApp{
 				break;	
 		}
 		//create student login info and Student Info
-		StudentHandler.addStudent(studentInfo, loginInfo, firstName, lastName, matricNum, gender, nationality, age, username, password, accessPeriod, email);
+		UpdateStudentInfo.addStudent(studentInfo, loginInfo, firstName, lastName, matricNum, gender, nationality, age, username, password, accessPeriod, email);
 	}
 	private void addCourse() throws IOException
 	{
 		System.out.printf("Enter the course Index you want to add: ");
-		courseIndex = sc.next();
+		String courseIndex = sc.next();
 		System.out.printf("Enter Index Number: ");
-		indexNum = sc.next();
+		String indexNum = sc.next();
 		System.out.printf("Enter Type: ");
-		type = sc.next();
+		String type = sc.next();
 		System.out.printf("Enter Group Index");
-		group = sc.next();
+		String group = sc.next();
 		System.out.printf("Enter Day: ");
-		day = sc.next();
+		String day = sc.next();
 		System.out.printf("Enter time: ");
-		time = sc.next();
+		String time = sc.next();
 		System.out.printf("Enter Venue: ");
-		venue = sc.next();
+		String venue = sc.next();
 		System.out.printf("Enter Any remarks you want to add(enter nill if nothing): ");
-		remarks = sc.next();
+		String remarks = sc.next();
 		System.out.println("Enter Vacancy number: ");
-		vacancy = sc.next();
+		String vacancy = sc.next();
 		System.out.printf("Name of the Course: ");
-		courseName = sc.next();
+		String courseName = sc.next();
 		//add course
 		UpdateCourseRecord.addCourse(courseRecordList, courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, courseName);
 	}
@@ -246,7 +242,7 @@ public class AdminApp{
 	{
 		GetCourseRecord.showIndexNum(courseRecordList);
 		System.out.println("Enter Index Number to check avaliable Vacancy:");
-		indexNum = sc.next();
+		String indexNum = sc.next();
 		GetCourseRecord.getVacancy(indexNum, courseRecordList);
 	}
 	//Testing purpose

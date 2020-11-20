@@ -1,4 +1,4 @@
-package Student;
+package StudentInfo;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import Login.LoginInfo;
 import TextRepository.LoginTextRepository;
 import TextRepository.StudentPersonalInfoTextRepository;
 
-public class StudentHandler {
+public class UpdateStudentInfo {
 	
 	public static void addStudent(ArrayList StudentInfoArray, ArrayList loginArray, String firstName, String lastName, 
 			String matricNum, String gender, String nationality, String age, 
@@ -40,57 +40,6 @@ public class StudentHandler {
 		System.out.println("Age: " + student.getAge() );
 		System.out.println("Access Period: " + student.getAccessPeriod());
 		System.out.println("\n");
-	}
-	public static boolean checkMatricNum(String matricNum, ArrayList studentInfoList)
-	{
-		for(int i=0; i<studentInfoList.size(); i++)
-		{
-			Student student = (Student)studentInfoList.get(i);
-			if(student.getMatricNum().equals(matricNum))
-			{
-				System.out.println("Matric Number already Exist.\n");
-				return true;
-			}	
-		}
-		return false;
-	}
-	public static boolean checkUsername(String username, ArrayList LoginArray)
-	{
-		for(int i=0; i<LoginArray.size(); i++)
-		{
-			LoginInfo loginInfo = (LoginInfo)LoginArray.get(i);
-			if(loginInfo.getUsername().equals(username))
-			{
-				System.out.println("Username already Exist.\n");
-				return true;
-			}		
-		}
-		return false;
-		
-	}
-	public static boolean checkEmail(String email, ArrayList studentInfoList)
-	{
-		for(int i=0; i<studentInfoList.size(); i++)
-		{
-			Student student = (Student)studentInfoList.get(i);
-			if(student.getEmail().equals(email))
-			{
-				System.out.println("Email already Exist.\n");
-				return true;
-			}	
-		}		
-		return false;
-	}
-	public static String getStudentKey(ArrayList studentInfo, String matricNum)
-	{
-		//get key
-		for (int i = 0; i < studentInfo.size(); i++)
-		{
-			Student student = (Student)studentInfo.get(i);
-			if(student.getMatricNum().equals(matricNum))
-				return student.getKey();	
-		}
-		return "nill";	
 	}
 	public static void editStudentAC(ArrayList studentInfo, String accessPeriod, String key) throws IOException
 	{

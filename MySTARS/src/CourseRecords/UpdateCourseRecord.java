@@ -3,7 +3,7 @@ package CourseRecords;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import Student.Student;
+import StudentInfo.Student;
 import StudentRecords.StudentRecords;
 import TextRepository.CourseRecordsTextRepository;
 

@@ -1,5 +1,5 @@
 package Admin;
-import Student.Student;
+import StudentInfo.Student;
 
 //to be deleted, no use
 public class AdminObj{	

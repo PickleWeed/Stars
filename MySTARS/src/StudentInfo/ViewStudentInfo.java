@@ -1,4 +1,4 @@
-package Student;
+package StudentInfo;
 
 import java.util.ArrayList;
 
@@ -21,6 +21,16 @@ public class ViewStudentInfo {
 				}
 		}
 	}
-	
+	public static String getStudentKey(ArrayList studentInfo, String matricNum)
+	{
+		//get key
+		for (int i = 0; i < studentInfo.size(); i++)
+		{
+			Student student = (Student)studentInfo.get(i);
+			if(student.getMatricNum().equals(matricNum))
+				return student.getKey();	
+		}
+		return "nill";	
+	}
 	
 }

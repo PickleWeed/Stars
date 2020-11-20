@@ -1,6 +1,7 @@
-package Student;
+package StudentInfo;
 
 import java.io.Serializable;
+//Student Info
 
 public class Student implements Serializable{
 
