@@ -5,7 +5,8 @@ import Interface.LoginInterface;
 import Interface.StudentInterface;
 import Interface.AdminApp;
 /**
- * mySTARSApp is a ? class which
+ * mySTARSApp is a boundary class which starts the program by creating 
+ * and running a {@link Interface.LoginInterface}
  * @author ?
  *
  */
