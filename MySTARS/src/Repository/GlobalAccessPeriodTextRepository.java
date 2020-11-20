@@ -12,10 +12,28 @@ import java.util.StringTokenizer;
 import AccessPeriod.AccessPeriod;
 import CourseRecords.CourseRecord;
 
+/**
+ * GlobalAccessPeriodTextRepository is a boundary class which performs read and write operations 
+ * on GlobalAccessPeriod.txt, a database that stores all time periods that students are allowed
+ * to access the STAR System.<p>
+ * Each AccessPeriodObj has a startAccessPeriod(dd/mm/yyyy) and a endAccessPeriod(dd/mm/yyyy): <p>
+ * 
+ * @author ?
+ *
+ */
 public class GlobalAccessPeriodTextRepository implements Repository {
 	private static final String SEPARATOR = "|";
 	private static final String filename = "GlobalAccessPeriod.txt" ;
-    // an example of reading
+	
+    	/**
+	 * Gets all time periods that students are allowed to access the STAR System.<p>
+     	 * Each time period is stored as a {@link Admin.AccessPeriodObj} object.<p> 
+     	 * An ArrayList of {@link Admin.AccessPeriodObj} objects are returned.<p>
+	 * 
+	 * @return An ArrayList of {@link Admin.AccessPeriodObj} objects storing 
+	 * all allowable access periods for students from the database is returned.
+	 * @throws IOException If an input or output exception occurred
+	 */
 	public ArrayList readToList() throws IOException {
 		
 		// read String from text file
@@ -38,7 +56,12 @@ public class GlobalAccessPeriodTextRepository implements Repository {
 			return alr ;
 	}
 
-	// an example of saving
+	/**
+	 * Saves an ArrayList of {@link Admin.AccessPeriodObj} objects into the database.
+	 * 
+	 * @param al an ArrayList of {@link Admin.AccessPeriodObj} object to be stored into the database
+	 * @throws IOException If an input or output exception occurred
+	 */
 	public void saveList(List al) throws IOException {
 			List alw = new ArrayList() ;// to store Professors data
 	
