@@ -17,7 +17,7 @@ import java.util.Arrays;
 
 // Note : When structure of the Object type (the class file) in the list changed
 // the Serialized file may fail.
-public class DatabaseRepository
+public class DatRepository
 {
 	public static List readSerializedObject(String filename) {
 		List pDetails = null;
@@ -75,14 +75,14 @@ public class DatabaseRepository
 			//DatabaseRepository.writeSerializedObject("CourseRecords.dat", al);
 			
 			//list = (ArrayList)DatabaseRepository.readSerializedObject("professor.dat");
-			ArrayList datFile = (ArrayList)DatabaseRepository.readSerializedObject("CourseRecords.dat");
+			ArrayList datFile = (ArrayList)DatRepository.readSerializedObject("CourseRecords.dat");
 					for(int i = 0; i < datFile.size(); i++)
 					{
 						CourseRecord courseRecords = (CourseRecord)datFile.get(i);
 						System.out.println("Course Index: " + courseRecords.getCourseIndex());
 						System.out.println("Day: " + courseRecords.getDay());
 					}
-				ArrayList datFile2 = (ArrayList)DatabaseRepository.readSerializedObject("LoginsInfo.dat");
+				ArrayList datFile2 = (ArrayList)DatRepository.readSerializedObject("LoginsInfo.dat");
 				for(int i = 0; i < datFile2.size(); i++)
 				{
 					LoginInfo loginInfo = (LoginInfo)datFile2.get(i);

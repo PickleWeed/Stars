@@ -1,7 +1,7 @@
 package Interface;
 import CourseRecords.UpdateCourseRecord;
 import Repository.CourseRecordsTextRepository;
-import Repository.DatabaseRepository;
+import Repository.DatRepository;
 import Repository.GlobalAccessPeriodTextRepository;
 import Repository.LoginTextRepository;
 import Repository.StudentCoursesTextRepository;
@@ -74,18 +74,18 @@ public class AdminApp{
 			accessPeriodList = GlobalAccessPeriodTextRepository.readAccessPeriod();
 			
 			//write onto Serial File
-			DatabaseRepository.writeSerializedObject("CourseRecords.dat", courseRecordList);
-			DatabaseRepository.writeSerializedObject("studentInfo.dat", studentInfo);
-			DatabaseRepository.writeSerializedObject("LoginsInfo.dat", loginInfo);
-			DatabaseRepository.writeSerializedObject("StudentRecords.dat", studentsRecords);
-			DatabaseRepository.writeSerializedObject("GlobalAccessPeriod.dat", accessPeriodList);
+			DatRepository.writeSerializedObject("CourseRecords.dat", courseRecordList);
+			DatRepository.writeSerializedObject("studentInfo.dat", studentInfo);
+			DatRepository.writeSerializedObject("LoginsInfo.dat", loginInfo);
+			DatRepository.writeSerializedObject("StudentRecords.dat", studentsRecords);
+			DatRepository.writeSerializedObject("GlobalAccessPeriod.dat", accessPeriodList);
 			
 			//read again from Serial File
- 			courseRecordList = (ArrayList)DatabaseRepository.readSerializedObject("CourseRecords.dat");
-			studentInfo = (ArrayList)DatabaseRepository.readSerializedObject("studentInfo.dat");
-			loginInfo = (ArrayList)DatabaseRepository.readSerializedObject("LoginsInfo.dat");
-			studentsRecords = (ArrayList)DatabaseRepository.readSerializedObject("StudentRecords.dat");
-			accessPeriodList = (ArrayList)DatabaseRepository.readSerializedObject("GlobalAccessPeriod.dat");
+ 			courseRecordList = (ArrayList)DatRepository.readSerializedObject("CourseRecords.dat");
+			studentInfo = (ArrayList)DatRepository.readSerializedObject("studentInfo.dat");
+			loginInfo = (ArrayList)DatRepository.readSerializedObject("LoginsInfo.dat");
+			studentsRecords = (ArrayList)DatRepository.readSerializedObject("StudentRecords.dat");
+			accessPeriodList = (ArrayList)DatRepository.readSerializedObject("GlobalAccessPeriod.dat");
 						
 			System.out.println("****ADMIN INTERFACE****");
 			System.out.println("1. Edit Student Access Period");
