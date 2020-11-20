@@ -45,7 +45,7 @@ public class AdminApp{
 	private static ArrayList studentsRecords;
 	private static ArrayList accessPeriodList;
 
-	
+	Scanner sc = new Scanner(System.in);
 	/**
 	 * Displays a menu for the admin, and performs the appropriate operation based on the admin's choice.<p>
 	 * There are 9 possible choices in the menu: <p>
@@ -65,7 +65,7 @@ public class AdminApp{
 	public void adminInterface() throws Exception
 	{	
 		int choice = 0;	
-		Scanner sc = new Scanner(System.in);
+
 		while(choice != 8)
 		{
 			//get Data from txtfile
