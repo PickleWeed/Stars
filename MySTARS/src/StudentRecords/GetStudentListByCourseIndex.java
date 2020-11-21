@@ -1,5 +1,4 @@
-package CourseRecords;
-
+package StudentRecords;
 import java.io.IOException;
 import java.util.ArrayList;
 
