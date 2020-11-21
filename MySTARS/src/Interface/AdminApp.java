@@ -243,7 +243,7 @@ public class AdminApp {
 		String venue = sc.next();
 		System.out.printf("Enter Any remarks you want to add(enter nill if nothing): ");
 		String remarks = sc.next();
-		System.out.println("Enter Vacancy number: ");
+		System.out.printf("Enter Vacancy number: ");
 		String vacancy = sc.next();
 		System.out.printf("Name of the Course: ");
 		String courseName = sc.next();
