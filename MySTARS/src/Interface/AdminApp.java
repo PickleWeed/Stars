@@ -6,14 +6,13 @@ import Repository.GlobalAccessPeriodTextRepository;
 import Repository.LoginTextRepository;
 import Repository.StudentRecordTextRepository;
 import Repository.StudentPersonalInfoTextRepository;
+import CourseRecords.CheckCourseRecord;
 import CourseRecords.GetCourseRecord;
 import StudentInfo.CheckStudentInfo;
-import StudentInfo.Student;
 import StudentInfo.UpdateStudentInfo;
 import StudentInfo.ViewStudentInfo;
 import StudentRecords.GetStudentListByCourseIndex;
 import StudentRecords.GetStudentListByIndexNumber;
-import StudentRecords.StudentRecords;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -80,6 +79,12 @@ public class AdminApp {
 			studentRecord = studentCoursesTextRepository.readToList();
 			accessPeriodList = globalAccessPeriodTextRepository.readToList();
 			
+			DatDatabase.write("CourseRecords.dat", courseRecord);
+			DatDatabase.write("StudentInfo.dat", studentInfo);
+			DatDatabase.write("LoginsInfo.dat", loginInfo);
+			DatDatabase.write("StudentRecords.dat", studentRecord);
+			DatDatabase.write("GlobalAccessPeriod.dat", accessPeriodList);
+			
 			//read again from Serial File
  			courseRecord = (ArrayList)DatDatabase.read("CourseRecords.dat");
 			studentInfo = (ArrayList)DatDatabase.read("StudentInfo.dat");
@@ -91,8 +96,8 @@ public class AdminApp {
  			
 			System.out.println("****ADMIN INTERFACE****");
 			System.out.println("1. Edit Student Access Period");
-			System.out.println("2. Add Student");
-			System.out.println("3. Add Course");
+			System.out.println("2. Add a Student");
+			System.out.println("3. Add a Course");
 			System.out.println("4. Update Course");
 			System.out.println("5. Print Student List by Index Number");
 			System.out.println("6. Print Student List by Course Index");
@@ -136,21 +141,8 @@ public class AdminApp {
 			}
 		}
 	}
-	private void printStudentListByIndexNumber() throws IOException {
-		// TODO Auto-generated method stub
-		GetStudentListByIndexNumber.showIndexNum(studentRecord,studentInfo);
-		System.out.printf("Enter Index Number to check list of Student:");
-		String indexNum = sc.next();
-		GetStudentListByIndexNumber.getKey(indexNum, studentRecord,studentInfo);
-		
-	}
-	private void printStudentListByCourseIndex() throws IOException{
-		// TODO Auto-generated method stub
-		GetStudentListByCourseIndex.showCourseIndex(studentRecord,studentInfo);
-		System.out.printf("Enter Course Index to check list of Student:");
-		String courseIndex = sc.next();
-		GetStudentListByCourseIndex.getKey(courseIndex, studentRecord,studentInfo);
-	}
+	
+	//case 1
 	private void editStudentAccess() throws IOException
 	{	
 		System.out.println("Edit a Student Access Period");
@@ -173,6 +165,7 @@ public class AdminApp {
 		else
 			System.out.println("No matching Matric Number!");
 	}
+	//case 2
 	private void addStudent() throws IOException
 	{
 		System.out.printf("Enter student First Name: ");
@@ -225,41 +218,122 @@ public class AdminApp {
 		//create student login info and Student Info
 		UpdateStudentInfo.addStudent(studentInfo, loginInfo, firstName, lastName, matricNum, gender, nationality, age, username, password, accessPeriod, email);
 	}
+	//case 3
 	private void addCourse() throws IOException
 	{
-		System.out.printf("Enter the course Index you want to add: ");
-		String courseIndex = sc.next();
-		System.out.printf("Enter Index Number: ");
-		String indexNum = sc.next();
+		String courseIndex, indexNum;
+		//cannot add if already exist
+		while(true)
+		{
+			System.out.printf("Enter the course Index you want to add: ");
+			courseIndex = sc.next();
+			System.out.printf("Enter Index Number: ");
+			indexNum = sc.next();
+			if(CheckCourseRecord.checkDuplicate(courseRecord, courseIndex, indexNum) == false)
+				break;
+			System.out.println("Try again");
+		}
+
+		String num;
+		//check string is a number
+		while(true)
+		{
+			System.out.printf("How many rows you want to add:");
+			 num = sc.next();
+			if( num.matches("-?\\d+(\\.\\d+)?") == true)
+				break;
+		}		
+		
+		int number = Integer.parseInt(num);
+		for(int i=0; i < number; i++)
+		{
+			System.out.printf("Enter Type: ");
+			String type = sc.next();
+			System.out.printf("Enter Group Index: ");
+			String group = sc.next();
+			System.out.printf("Enter Day: ");
+			String day = sc.next();
+			System.out.printf("Enter time: ");
+			String time = sc.next();
+			System.out.printf("Enter Venue: ");
+			String venue = sc.next();
+			System.out.printf("Enter Any remarks you want to add(enter nill if nothing): ");
+			String remarks = sc.next();
+			System.out.printf("Enter Vacancy number: ");
+			String vacancy = sc.next();
+			System.out.printf("Name of the Course: ");
+			String courseName = sc.next();
+			//add course
+			num = Integer.toString(number);
+			UpdateCourseRecord.addCourse(courseRecord, num, courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, courseName);
+		}
+	}
+	//case 4
+	private void updateCourse() throws Exception
+	{
+		//remember update a course also must update student course
+		GetCourseRecord.getCourseCode(courseRecord);
+		String courseIndex, indexNum;
+		//check duplicate
+		while(true)
+		{
+			System.out.printf("Enter Course Number you want to Edit: ");
+			courseIndex = sc.next();
+			System.out.printf("Enter Index Number you want to Edit: ");
+			indexNum = sc.next();
+			if(CheckCourseRecord.checkCourse(courseRecord, courseIndex, indexNum) == true)
+				break;
+		}
+		GetCourseRecord.getCourseCode(courseRecord, courseIndex, indexNum);
+		
+		String num;
+		while(true)
+		{
+			System.out.printf("Which No. you want to Edit: ");
+			num = sc.next();
+			if(CheckCourseRecord.checkNum(courseRecord, num, courseIndex, indexNum) == true)
+				break;
+		}
+		String vacancy = "nill";
+		
 		System.out.printf("Enter Type: ");
 		String type = sc.next();
-		System.out.printf("Enter Group Index: ");
+		System.out.printf("Enter Group: ");
 		String group = sc.next();
 		System.out.printf("Enter Day: ");
 		String day = sc.next();
 		System.out.printf("Enter time: ");
 		String time = sc.next();
-		System.out.printf("Enter Venue: ");
+		System.out.printf("Enter venue: ");
 		String venue = sc.next();
-		System.out.printf("Enter Any remarks you want to add(enter nill if nothing): ");
+		System.out.printf("Enter remarks(enter nill if none): ");
 		String remarks = sc.next();
-		System.out.printf("Enter Vacancy number: ");
-		String vacancy = sc.next();
-		System.out.printf("Name of the Course: ");
-		String courseName = sc.next();
-		//add course
-		UpdateCourseRecord.addCourse(courseRecord, courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, courseName);
+		if(num.equals("1"))
+		{
+			System.out.printf("Enter Vacancy: ");
+			vacancy = sc.next();
+		}
+		UpdateCourseRecord.editCourse(courseRecord,  num, courseIndex, indexNum, type,  group, 
+				day, time, venue, remarks, vacancy);
 	}
-	private void updateCourse() throws Exception
-	{
-		//remember update a course also must update student course
-		System.out.println("Enter Course code you want to update");
-		//check course code
-		//if true
-		//enter all the details of the new updated course
-		//update course 
-		//update student's corresponding course as well
-	}
+	//case 5
+		private void printStudentListByIndexNumber() throws IOException {
+			// TODO Auto-generated method stub
+			GetStudentListByIndexNumber.showIndexNum(studentRecord,studentInfo);
+			System.out.printf("Enter Index Number to check list of Student:");
+			String indexNum = sc.next();
+			GetStudentListByIndexNumber.getKey(indexNum, studentRecord,studentInfo);
+			
+		}
+		//case 6
+		private void printStudentListByCourseIndex() throws IOException{
+			// TODO Auto-generated method stub
+			GetStudentListByCourseIndex.showCourseIndex(studentRecord,studentInfo);
+			System.out.printf("Enter Course Index to check list of Student:");
+			String courseIndex = sc.next();
+			GetStudentListByCourseIndex.getKey(courseIndex, studentRecord,studentInfo);
+		}
+	//case 7
 	private void getCourseVacancy() throws IOException
 	{
 		GetCourseRecord.showIndexNum(courseRecord);

@@ -18,6 +18,7 @@ import java.io.Serializable;
  */
 public class CourseRecord implements Serializable{
 	
+	private String  num;
 	private String  courseIndex;
 	private String  indexNum;
 	private String  type;
@@ -43,8 +44,9 @@ public class CourseRecord implements Serializable{
 	 * @param vacancy number of available slots left for this course
 	 * @param name name of this course
 	 */
-	public CourseRecord(String courseIndex, String indexNum, String type, String group, String day, String time, String venue, String remarks, String vacancy, String name)
+	public CourseRecord(String num, String courseIndex, String indexNum, String type, String group, String day, String time, String venue, String remarks, String vacancy, String name)
 	{
+		this.num = num;
 		this.courseIndex = courseIndex;
 		this.indexNum = indexNum;
 		this.type = type;
@@ -55,6 +57,14 @@ public class CourseRecord implements Serializable{
 		this.remarks = remarks; 
 		this.vacancy = vacancy;
 		this.name = name;
+	}
+
+	public String getNum() {
+		return num;
+	}
+
+	public void setNum(String num) {
+		this.num = num;
 	}
 
 	public String getCourseIndex() {

@@ -52,6 +52,7 @@ public class CourseRecordsTextRepository implements Repository{
 				// get individual 'fields' of the string separated by SEPARATOR
 				StringTokenizer star = new StringTokenizer(st , SEPARATOR);	// pass in the string to the string tokenizer using delimiter ","
 
+				String  num = star.nextToken().trim();
 				String  courseIndex = star.nextToken().trim();	// first token
 				String  indexNum = star.nextToken().trim();	// second token
 				String  type = star.nextToken().trim();	// third token
@@ -64,14 +65,12 @@ public class CourseRecordsTextRepository implements Repository{
 				String  name = star.nextToken().trim();
 				//int  vacancy = Integer.parseInt(star.nextToken().trim());
 				// create Professor object from file data
-				CourseRecord courseRecords = new CourseRecord(courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, name);
+				CourseRecord courseRecords = new CourseRecord(num, courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, name);
 				// add to Professors list
 				alr.add(courseRecords);
 			}
 			return alr ;
 	}
-
-
 	  /**
 	   * Saves an ArrayList of CourseRecord objects into the database.
 	   * 
@@ -84,6 +83,8 @@ public class CourseRecordsTextRepository implements Repository{
 	        for (int i = 0 ; i < al.size() ; i++) {
 	        	CourseRecord courseRecords = (CourseRecord)al.get(i);
 					StringBuilder st =  new StringBuilder() ;
+					st.append(courseRecords.getNum().trim());
+					st.append(SEPARATOR);
 					st.append(courseRecords.getCourseIndex().trim());
 					st.append(SEPARATOR);
 					st.append(courseRecords.getIndexNum().trim());

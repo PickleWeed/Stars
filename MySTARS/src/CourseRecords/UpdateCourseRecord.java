@@ -9,9 +9,9 @@ import StudentInfo.Student;
 import StudentRecords.StudentRecords;
 
 public class UpdateCourseRecord {
-	public static void addCourse(ArrayList courseRecord, String courseIndex, String indexNum, String type, String group, String day, String time, String venue, String remarks, String vacancy, String name) throws IOException
+	public static void addCourse(ArrayList courseRecord, String num, String courseIndex, String indexNum, String type, String group, String day, String time, String venue, String remarks, String vacancy, String name) throws IOException
 	{
-		CourseRecord newCourseRecord = new CourseRecord(courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, name);
+		CourseRecord newCourseRecord = new CourseRecord(num, courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, name);
 		courseRecord.add(newCourseRecord);
 		
 		CourseRecordsTextRepository courseRecordsTextRepository = new CourseRecordsTextRepository();
@@ -43,15 +43,37 @@ public class UpdateCourseRecord {
 		System.out.println("Course Index not found.\n");
 		return false;
 	}
-	/*public static void editCourseIndex(ArrayList courseRecordList, String courseIndex, String index, String type, String Group, String day, String time, String venue, String remarks, String vacancy, String name)
+	public static void editCourse(ArrayList courseRecord, String num, String courseIndex, String indexNum, String type,
+			String group, String day, String time, String venue, String remarks, String vacancy)
 	{
-		for(int i=0; i<courseRecordList.size(); i++)
+		for(int i=0; i<courseRecord.size(); i++)
 		{
-			CourseRecordsObj courseRecords = (CourseRecordsObj)courseRecordList.get(i);
-			if(courseRecords.getCourseIndex().equals(courseIndex))
+			CourseRecord courseRecords = (CourseRecord)courseRecord.get(i);
+			if(courseRecords.getCourseIndex().equals(num) && courseRecords.getIndexNum().equals(indexNum) && courseRecords.getNum().equals(num))
 			{
+				courseRecords.setTime(type);
+				courseRecords.setGroup(group);
+				courseRecords.setDay(day);
+				courseRecords.setTime(time);
+				courseRecords.setVenue(venue);
+				courseRecords.setRemarks(remarks);
+				courseRecords.setVacancy(vacancy);
 				
+				System.out.println("CourseIndex: " + courseRecords.getCourseIndex() );
+				System.out.println("IndexNum: " + courseRecords.getIndexNum() );
+				System.out.println("Rype: " + courseRecords.getType() );
+				System.out.println("Froup: " + courseRecords.getGroup() );
+				System.out.println("Day: " + courseRecords.getDay() );
+				System.out.println("Time: " + courseRecords.getTime() );
+				System.out.println("Venue: " + courseRecords.getVenue() );
+				System.out.println("Remarks: " + courseRecords.getRemarks() );
+				System.out.println("Vacancy: " + courseRecords.getVacancy() );
+				System.out.println("Name: " + courseRecords.getName() );
+				System.out.println("\n");
+				
+				System.out.println("Successful added!");
 			}
+			
 		}
-	}*/
+	}
 }

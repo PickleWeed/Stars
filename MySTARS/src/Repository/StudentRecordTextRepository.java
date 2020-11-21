@@ -127,7 +127,7 @@ public static void main(String[] aArgs)  {
 			System.out.println("First Name: " + studentRecord.getFirstName() );
 			System.out.println("Last Name: " + studentRecord.getLastName() );
 			System.out.println("Matric Number: " + studentRecord.getMatricNum() );
-				System.out.println("\n");
+			System.out.println("\n");
 			}
 		//saveStudentRecords(filename, al);
 		}catch (IOException e) {
