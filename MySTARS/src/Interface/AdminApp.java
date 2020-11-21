@@ -40,10 +40,10 @@ public class AdminApp {
 	private String choice = "0";
 	
 
-	private static ArrayList courseRecordList;
+	private static ArrayList courseRecord;
 	private static ArrayList studentInfo;
 	private static ArrayList loginInfo;
-	private static ArrayList studentsRecords;
+	private static ArrayList studentRecord;
 	private static ArrayList accessPeriodList;
 
 	Scanner sc = new Scanner(System.in);
@@ -73,24 +73,24 @@ public class AdminApp {
 		while(!choice.equals("8"))
 		{
 			//get Data from txtfile
-			courseRecordList = courseRecordsTextRepository.readToList();
+			courseRecord = courseRecordsTextRepository.readToList();
 			studentInfo = studentPersonalInfoTextRepository.readToList();
 			loginInfo = loginTextRepository.readToList();
-			studentsRecords = studentCoursesTextRepository.readToList();
+			studentRecord = studentCoursesTextRepository.readToList();
 			accessPeriodList = globalAccessPeriodTextRepository.readToList();
 			
 			//write onto Serial File
-			DatRepository.writeSerializedObject("CourseRecords.dat", courseRecordList);
+			DatRepository.writeSerializedObject("CourseRecords.dat", courseRecord);
 			DatRepository.writeSerializedObject("studentInfo.dat", studentInfo);
 			DatRepository.writeSerializedObject("LoginsInfo.dat", loginInfo);
-			DatRepository.writeSerializedObject("StudentRecords.dat", studentsRecords);
+			DatRepository.writeSerializedObject("StudentRecords.dat", studentRecord);
 			DatRepository.writeSerializedObject("GlobalAccessPeriod.dat", accessPeriodList);
 			
 			//read again from Serial File
- 			courseRecordList = (ArrayList)DatRepository.readSerializedObject("CourseRecords.dat");
+ 			courseRecord = (ArrayList)DatRepository.readSerializedObject("CourseRecords.dat");
 			studentInfo = (ArrayList)DatRepository.readSerializedObject("studentInfo.dat");
 			loginInfo = (ArrayList)DatRepository.readSerializedObject("LoginsInfo.dat");
-			studentsRecords = (ArrayList)DatRepository.readSerializedObject("StudentRecords.dat");
+			studentRecord = (ArrayList)DatRepository.readSerializedObject("StudentRecords.dat");
 			accessPeriodList = (ArrayList)DatRepository.readSerializedObject("GlobalAccessPeriod.dat");
 						
 			System.out.println("****ADMIN INTERFACE****");
@@ -142,18 +142,18 @@ public class AdminApp {
 	}
 	private void printStudentListByIndexNumber() throws IOException {
 		// TODO Auto-generated method stub
-		GetStudentListByIndexNumber.showIndexNum(studentsRecords,studentInfo);
+		GetStudentListByIndexNumber.showIndexNum(studentRecord,studentInfo);
 		System.out.printf("Enter Index Number to check list of Student:");
 		String indexNum = sc.next();
-		GetStudentListByIndexNumber.getKey(indexNum, studentsRecords,studentInfo);
+		GetStudentListByIndexNumber.getKey(indexNum, studentRecord,studentInfo);
 		
 	}
 	private void printStudentListByCourseIndex() throws IOException{
 		// TODO Auto-generated method stub
-		GetStudentListByCourseIndex.showCourseIndex(studentsRecords,studentInfo);
+		GetStudentListByCourseIndex.showCourseIndex(studentRecord,studentInfo);
 		System.out.printf("Enter Course Index to check list of Student:");
 		String courseIndex = sc.next();
-		GetStudentListByCourseIndex.getKey(courseIndex, studentsRecords,studentInfo);
+		GetStudentListByCourseIndex.getKey(courseIndex, studentRecord,studentInfo);
 	}
 	private void editStudentAccess() throws IOException
 	{	
@@ -252,7 +252,7 @@ public class AdminApp {
 		System.out.printf("Name of the Course: ");
 		String courseName = sc.next();
 		//add course
-		UpdateCourseRecord.addCourse(courseRecordList, courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, courseName);
+		UpdateCourseRecord.addCourse(courseRecord, courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, courseName);
 	}
 	private void updateCourse() throws Exception
 	{
@@ -266,10 +266,10 @@ public class AdminApp {
 	}
 	private void getCourseVacancy() throws IOException
 	{
-		GetCourseRecord.showIndexNum(courseRecordList);
+		GetCourseRecord.showIndexNum(courseRecord);
 		System.out.println("Enter Index Number to check avaliable Vacancy:");
 		String indexNum = sc.next();
-		GetCourseRecord.getVacancy(indexNum, courseRecordList);
+		GetCourseRecord.getVacancy(indexNum, courseRecord);
 	}
 	//Testing purpose
 	public static void main(String[] args) throws Exception {

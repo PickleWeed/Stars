@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import Login.LoginInfo;
 
 public class CheckStudentInfo {
-	public static boolean checkMatricNum(String matricNum, ArrayList studentInfoList)
+	public static boolean checkMatricNum(String matricNum, ArrayList studentInfo)
 	{
-		for(int i=0; i<studentInfoList.size(); i++)
+		for(int i=0; i<studentInfo.size(); i++)
 		{
-			Student student = (Student)studentInfoList.get(i);
+			Student student = (Student)studentInfo.get(i);
 			if(student.getMatricNum().equals(matricNum))
 			{
 				System.out.println("Matric Number already Exist.\n");
@@ -32,11 +32,11 @@ public class CheckStudentInfo {
 		return false;
 		
 	}
-	public static boolean checkEmail(String email, ArrayList studentInfoList)
+	public static boolean checkEmail(String email, ArrayList studentInfo)
 	{
-		for(int i=0; i<studentInfoList.size(); i++)
+		for(int i=0; i<studentInfo.size(); i++)
 		{
-			Student student = (Student)studentInfoList.get(i);
+			Student student = (Student)studentInfo.get(i);
 			if(student.getEmail().equals(email))
 			{
 				System.out.println("Email already Exist.\n");

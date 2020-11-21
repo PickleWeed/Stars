@@ -8,32 +8,32 @@ import StudentInfo.Student;
 import StudentRecords.StudentRecords;
 
 public class UpdateCourseRecord {
-	public static void addCourse(ArrayList courseRecordList, String courseIndex, String indexNum, String type, String group, String day, String time, String venue, String remarks, String vacancy, String name) throws IOException
+	public static void addCourse(ArrayList courseRecord, String courseIndex, String indexNum, String type, String group, String day, String time, String venue, String remarks, String vacancy, String name) throws IOException
 	{
-		CourseRecord courseRecordObj = new CourseRecord(courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, name);
-		courseRecordList.add(courseRecordObj);
+		CourseRecord newCourseRecord = new CourseRecord(courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, name);
+		courseRecord.add(newCourseRecord);
 		
 		CourseRecordsTextRepository courseRecordsTextRepository = new CourseRecordsTextRepository();
-		courseRecordsTextRepository.saveList(courseRecordList);
+		courseRecordsTextRepository.saveList(courseRecord);
 		
 		System.out.println("Course Successfully added!\n");
 
-		System.out.println("CourseIndex: " + courseRecordObj.getCourseIndex() );
-		System.out.println("IndexNum: " + courseRecordObj.getIndexNum() );
-		System.out.println("Rype: " + courseRecordObj.getType() );
-		System.out.println("Froup: " + courseRecordObj.getGroup() );
-		System.out.println("Day: " + courseRecordObj.getDay() );
-		System.out.println("Time: " + courseRecordObj.getTime() );
-		System.out.println("Venue: " + courseRecordObj.getVenue() );
-		System.out.println("Remarks: " + courseRecordObj.getRemarks() );
-		System.out.println("Vacancy: " + courseRecordObj.getVacancy() );
-		System.out.println("Name: " + courseRecordObj.getName() );
+		System.out.println("CourseIndex: " + newCourseRecord.getCourseIndex() );
+		System.out.println("IndexNum: " + newCourseRecord.getIndexNum() );
+		System.out.println("Rype: " + newCourseRecord.getType() );
+		System.out.println("Froup: " + newCourseRecord.getGroup() );
+		System.out.println("Day: " + newCourseRecord.getDay() );
+		System.out.println("Time: " + newCourseRecord.getTime() );
+		System.out.println("Venue: " + newCourseRecord.getVenue() );
+		System.out.println("Remarks: " + newCourseRecord.getRemarks() );
+		System.out.println("Vacancy: " + newCourseRecord.getVacancy() );
+		System.out.println("Name: " + newCourseRecord.getName() );
 	}
-	public static boolean checkCourseIndex(ArrayList courseRecordList, String courseIndex)
+	public static boolean checkCourseIndex(ArrayList courseRecord, String courseIndex)
 	{
-		for(int i=0; i<courseRecordList.size(); i++)
+		for(int i=0; i<courseRecord.size(); i++)
 		{
-			CourseRecord courseRecords = (CourseRecord)courseRecordList.get(i);
+			CourseRecord courseRecords = (CourseRecord)courseRecord.get(i);
 			if(courseRecords.getCourseIndex().equals(courseIndex))
 			{
 				return true;
