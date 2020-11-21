@@ -24,7 +24,8 @@ import StudentInfo.Student;
  */
 public class StudentPersonalInfoTextRepository implements Repository{
 	private static final String SEPARATOR = "|";
-	private static final  String filename = "StudentsInfo.txt" ;
+	private static final  String FILENAME = "StudentsInfo.txt" ;
+	private static final  String DATFILENAME = "StudentsInfo.dat" ;
 
     	/**
 	 * Gets the information of all students from the database.<p>
@@ -37,7 +38,7 @@ public class StudentPersonalInfoTextRepository implements Repository{
 	 */
 	public ArrayList readToList() throws IOException {
 		// read String from text file
-		ArrayList stringArray = (ArrayList)read(filename);
+		ArrayList stringArray = (ArrayList)TextDatabase.read(FILENAME);
 		ArrayList alr = new ArrayList() ;// to store Professors data
 
         for (int i = 0 ; i < stringArray.size() ; i++) {
@@ -94,39 +95,10 @@ public class StudentPersonalInfoTextRepository implements Repository{
 					st.append(student.getEmail().trim());
 					alw.add(st.toString()) ;
 				}
-				write(filename,alw);
+				TextDatabase.write(FILENAME,alw);
+				DatDatabase.write(DATFILENAME, al);
 		}
-
-  /** Write fixed content to the given file. */
-  public void write(String fileName, List data) throws IOException  {
-    PrintWriter out = new PrintWriter(new FileWriter(fileName));
-
-    try {
-		for (int i =0; i < data.size() ; i++) {
-      		out.println((String)data.get(i));
-		}
-    }
-    finally {
-      out.close();
-    }
-  }
-
-  /** Read the contents of the given file. */
-  public List read(String fileName) throws IOException {
-	List data = new ArrayList() ;
-    Scanner scanner = new Scanner(new FileInputStream(fileName));
-    try {
-      while (scanner.hasNextLine()){
-        data.add(scanner.nextLine());
-      }
-    }
-    finally{
-      scanner.close();
-    }
-    return data;
-  }
-
-	public static void main(String[] aArgs)  {
+	public static void main(String[] aArgs) throws IOException  {
 	    	/*TextDB txtDB = new TextDB();
 	    	String filename = "professor.txt" ;
 			try {
@@ -147,25 +119,24 @@ public class StudentPersonalInfoTextRepository implements Repository{
 			}*/
 		
 		StudentPersonalInfoTextRepository studentRecTextRepository = new StudentPersonalInfoTextRepository();
-		try {
-			// read file containing Professor records.
-			ArrayList al = studentRecTextRepository.readToList() ;
-			for (int i = 0 ; i < al.size() ; i++) {
-				Student student = (Student)al.get(i);
-					System.out.println("Key: " + student.getKey() );
-					System.out.println("FirstName: " + student.getFirstName() );
-					System.out.println("LastName: " + student.getLastName() );
-					System.out.println("Matric Number: " + student.getMatricNum() );
-					System.out.println("Gender: " + student.getGender() );
-					System.out.println("Nationality: " + student.getNationality() );
-					System.out.println("Age: " + student.getAge() );
-					System.out.println("Access Period: " + student.getAccessPeriod());
-					System.out.println("Email: " + student.getEmail());
-					System.out.println("\n");
-				}
-			//saveStudentRecords(filename, al);
-			}catch (IOException e) {
-				System.out.println("IOException > " + e.getMessage());
+		// read file containing Professor records.
+		//ArrayList al = studentRecTextRepository.readToList() ;
+		//DatDatabase.write("StudentsInfo.dat", al);
+		ArrayList al = (ArrayList)DatDatabase.read("StudentsInfo.dat");
+		for (int i = 0 ; i < al.size() ; i++) {
+			Student student = (Student)al.get(i);
+				System.out.println("Key: " + student.getKey() );
+				System.out.println("FirstName: " + student.getFirstName() );
+				System.out.println("LastName: " + student.getLastName() );
+				System.out.println("Matric Number: " + student.getMatricNum() );
+				System.out.println("Gender: " + student.getGender() );
+				System.out.println("Nationality: " + student.getNationality() );
+				System.out.println("Age: " + student.getAge() );
+				System.out.println("Access Period: " + student.getAccessPeriod());
+				System.out.println("Email: " + student.getEmail());
+				System.out.println("\n");
 			}
+		//saveStudentRecords(filename, al);
+			
 	  }
 }

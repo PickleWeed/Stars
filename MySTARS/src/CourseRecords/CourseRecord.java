@@ -48,7 +48,7 @@ public class CourseRecord implements Serializable{
 		this.courseIndex = courseIndex;
 		this.indexNum = indexNum;
 		this.type = type;
-		this.type = group;
+		this.group = group;
 		this.day = day;
 		this.time = time;
 		this.venue = venue;
@@ -76,25 +76,25 @@ public class CourseRecord implements Serializable{
 	public String getType() {
 		return type;
 	}
-	
+
 	public void setType(String type) {
 		this.type = type;
 	}
-	
-	public void setGroup(String group) {
-		this.group = group;
-	}
-	
-	public String getGroup() {
-		return group;
-	}
-	
+
 	public String getDay() {
 		return day;
 	}
 
 	public void setDay(String day) {
 		this.day = day;
+	}
+
+	public String getGroup() {
+		return group;
+	}
+
+	public void setGroup(String group) {
+		this.group = group;
 	}
 
 	public String getTime() {
@@ -136,5 +136,5 @@ public class CourseRecord implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-		
+
 }

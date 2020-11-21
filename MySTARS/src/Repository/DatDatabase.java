@@ -25,7 +25,7 @@ import java.util.Arrays;
 
 //Note : When structure of the Object type (the class file) in the list changed
 //the Serialized file may fail.
-public class DatRepository
+public class DatDatabase
 {
 	/**
 	 * reads all data from a serializable file
@@ -33,7 +33,7 @@ public class DatRepository
 	 * @param filename name of the file to read from
 	 * @return all data in the file as an ArrayList 
 	 */
-	public static List readSerializedObject(String filename) {
+	public static List read(String filename) {
 		List pDetails = null;
 		FileInputStream fis = null;
 		ObjectInputStream in = null;
@@ -59,7 +59,7 @@ public class DatRepository
 	 * @param filename name of the file to write to
 	 * @param list data to be written to the file
 	 */
-	public static void writeSerializedObject(String filename, List list) {
+	public static void write(String filename, List list) {
 		FileOutputStream fos = null;
 		ObjectOutputStream out = null;
 		try {

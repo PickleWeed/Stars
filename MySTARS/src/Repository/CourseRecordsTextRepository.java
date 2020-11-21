@@ -30,7 +30,8 @@ import CourseRecords.CourseRecord;
  */
 public class CourseRecordsTextRepository implements Repository{
 	private static final String SEPARATOR = "|";
-	private static final String filename = "CourseRecords.txt" ;
+	private static final String FILENAME = "CourseRecords.txt" ;
+	private static final String DATFILENAME = "CourseRecords.dat" ;
     /**
      * gets data of all courses from the database. <p>
      * Information of each course is stored as a CourseRecord object. <p>
@@ -43,7 +44,7 @@ public class CourseRecordsTextRepository implements Repository{
 	public ArrayList readToList() throws IOException {
 		
 		// read String from text file
-		ArrayList stringArray = (ArrayList)read(filename);
+		ArrayList stringArray = (ArrayList)TextDatabase.read(FILENAME);
 		ArrayList alr = new ArrayList() ;// to store Professors data
 
         for (int i = 0 ; i < stringArray.size() ; i++) {
@@ -104,37 +105,10 @@ public class CourseRecordsTextRepository implements Repository{
 					st.append(courseRecords.getName().trim());
 					alw.add(st.toString()) ;
 				}
-				write(filename,alw);
+	        TextDatabase.write(FILENAME, alw);
+	        DatDatabase.write(DATFILENAME, al);
+			
 		}
-
-	  /** Write fixed content to the given file. */
-	  public void write(String fileName, List data) throws IOException  {
-	    PrintWriter out = new PrintWriter(new FileWriter(fileName));
-	
-	    try {
-			for (int i =0; i < data.size() ; i++) {
-	      		out.println((String)data.get(i));
-			}
-	    }
-	    finally {
-	      out.close();
-	    }
-	  }
-	
-	  /** Read the contents of the given file. */
-	  public List read(String fileName) throws IOException {
-		List data = new ArrayList() ;
-	    Scanner scanner = new Scanner(new FileInputStream(fileName));
-	    try {
-	      while (scanner.hasNextLine()){
-	        data.add(scanner.nextLine());
-	      }
-	    }
-	    finally{
-	      scanner.close();
-	    }
-	    return data;
-	  }
 	//test purpose
 	public static void main(String[] aArgs)  {
 	    	/*TextDB txtDB = new TextDB();
@@ -164,8 +138,8 @@ public class CourseRecordsTextRepository implements Repository{
 				CourseRecord courseRecords = (CourseRecord)al.get(i);
 					System.out.println("CourseIndex: " + courseRecords.getCourseIndex() );
 					System.out.println("IndexNum: " + courseRecords.getIndexNum() );
-					System.out.println("Rype: " + courseRecords.getType() );
-					System.out.println("Froup: " + courseRecords.getGroup() );
+					System.out.println("Type: " + courseRecords.getType() );
+					System.out.println("Group: " + courseRecords.getGroup() );
 					System.out.println("Day: " + courseRecords.getDay() );
 					System.out.println("Time: " + courseRecords.getTime() );
 					System.out.println("Venue: " + courseRecords.getVenue() );

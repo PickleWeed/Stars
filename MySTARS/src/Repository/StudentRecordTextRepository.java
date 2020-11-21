@@ -30,7 +30,8 @@ import StudentRecords.StudentRecords;
  */
 public class StudentRecordTextRepository implements Repository{
 	private static final String SEPARATOR = "|";
-	private static final String filename = "StudentRecords.txt" ;
+	private static final String FILENAME = "StudentRecords.txt" ;
+	private static final String DATFILENAME = "StudentRecords.dat" ;
 	
     	/**
 	 * Gets the information of all courses taken by every student from the database.<p>
@@ -43,7 +44,7 @@ public class StudentRecordTextRepository implements Repository{
 	 */
 	public ArrayList readToList() throws IOException {
 		// read String from text file
-		ArrayList stringArray = (ArrayList)read(filename);
+		ArrayList stringArray = (ArrayList)TextDatabase.read(FILENAME);
 		ArrayList alr = new ArrayList() ;// to store Professors data
 
         for (int i = 0 ; i < stringArray.size() ; i++) {
@@ -91,38 +92,9 @@ public void saveList(List al) throws IOException {
 				st.append(studentRecords.getIndexNum().trim());
 				alw.add(st.toString()) ;
 			}
-			write(filename,alw);
+			TextDatabase.write(FILENAME,alw);
+			DatDatabase.write(DATFILENAME, al);
 	}
-
-  /** Write fixed content to the given file. */
-  public void write(String fileName, List data) throws IOException  {
-    PrintWriter out = new PrintWriter(new FileWriter(fileName));
-
-    try {
-		for (int i =0; i < data.size() ; i++) {
-      		out.println((String)data.get(i));
-		}
-    }
-    finally {
-      out.close();
-    }
-  }
-
-  /** Read the contents of the given file. */
-  public List read(String fileName) throws IOException {
-	List data = new ArrayList() ;
-    Scanner scanner = new Scanner(new FileInputStream(fileName));
-    try {
-      while (scanner.hasNextLine()){
-        data.add(scanner.nextLine());
-      }
-    }
-    finally{
-      scanner.close();
-    }
-    return data;
-  }
-
 public static void main(String[] aArgs)  {
     	/*TextDB txtDB = new TextDB();
     	String filename = "professor.txt" ;

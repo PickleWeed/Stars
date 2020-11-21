@@ -1,13 +1,14 @@
 package Interface;
 import CourseRecords.UpdateCourseRecord;
 import Repository.CourseRecordsTextRepository;
-import Repository.DatRepository;
+import Repository.DatDatabase;
 import Repository.GlobalAccessPeriodTextRepository;
 import Repository.LoginTextRepository;
 import Repository.StudentRecordTextRepository;
 import Repository.StudentPersonalInfoTextRepository;
 import CourseRecords.GetCourseRecord;
 import StudentInfo.CheckStudentInfo;
+import StudentInfo.Student;
 import StudentInfo.UpdateStudentInfo;
 import StudentInfo.ViewStudentInfo;
 import StudentRecords.GetStudentListByCourseIndex;
@@ -79,20 +80,15 @@ public class AdminApp {
 			studentRecord = studentCoursesTextRepository.readToList();
 			accessPeriodList = globalAccessPeriodTextRepository.readToList();
 			
-			//write onto Serial File
-			DatRepository.writeSerializedObject("CourseRecords.dat", courseRecord);
-			DatRepository.writeSerializedObject("studentInfo.dat", studentInfo);
-			DatRepository.writeSerializedObject("LoginsInfo.dat", loginInfo);
-			DatRepository.writeSerializedObject("StudentRecords.dat", studentRecord);
-			DatRepository.writeSerializedObject("GlobalAccessPeriod.dat", accessPeriodList);
-			
 			//read again from Serial File
- 			courseRecord = (ArrayList)DatRepository.readSerializedObject("CourseRecords.dat");
-			studentInfo = (ArrayList)DatRepository.readSerializedObject("studentInfo.dat");
-			loginInfo = (ArrayList)DatRepository.readSerializedObject("LoginsInfo.dat");
-			studentRecord = (ArrayList)DatRepository.readSerializedObject("StudentRecords.dat");
-			accessPeriodList = (ArrayList)DatRepository.readSerializedObject("GlobalAccessPeriod.dat");
+ 			courseRecord = (ArrayList)DatDatabase.read("CourseRecords.dat");
+			studentInfo = (ArrayList)DatDatabase.read("StudentInfo.dat");
+			loginInfo = (ArrayList)DatDatabase.read("LoginsInfo.dat");
+			studentRecord = (ArrayList)DatDatabase.read("StudentRecords.dat");
+			accessPeriodList = (ArrayList)DatDatabase.read("GlobalAccessPeriod.dat");
 						
+ 			//GetCourseRecord.getCourseData(courseRecord);
+ 			
 			System.out.println("****ADMIN INTERFACE****");
 			System.out.println("1. Edit Student Access Period");
 			System.out.println("2. Add Student");
@@ -237,7 +233,7 @@ public class AdminApp {
 		String indexNum = sc.next();
 		System.out.printf("Enter Type: ");
 		String type = sc.next();
-		System.out.printf("Enter Group Index");
+		System.out.printf("Enter Group Index: ");
 		String group = sc.next();
 		System.out.printf("Enter Day: ");
 		String day = sc.next();

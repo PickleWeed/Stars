@@ -29,4 +29,22 @@ public class GetCourseRecord {
 				System.out.println("Avaliable slot for Index Number" + indexNum + ": " + courseRecords.getVacancy());
 		}
 	}
+	public static void getCourseData(ArrayList courseRecord) throws IOException
+	{
+		for (int i = 0 ; i < courseRecord.size() ; i++) {
+			CourseRecord courseRecords = (CourseRecord)courseRecord.get(i);
+				System.out.println("CourseIndex: " + courseRecords.getCourseIndex() );
+				System.out.println("IndexNum: " + courseRecords.getIndexNum() );
+				System.out.println("Type: " + courseRecords.getType() );
+				System.out.println("Group: " + courseRecords.getGroup() );
+				System.out.println("Day: " + courseRecords.getDay() );
+				System.out.println("Time: " + courseRecords.getTime() );
+				System.out.println("Venue: " + courseRecords.getVenue() );
+				System.out.println("Remarks: " + courseRecords.getRemarks() );
+				System.out.println("Vacancy: " + courseRecords.getVacancy() );
+				System.out.println("Name: " + courseRecords.getName() );
+				
+				System.out.println("\n");
+			}
+	}
 }

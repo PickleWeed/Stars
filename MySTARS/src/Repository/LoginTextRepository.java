@@ -26,10 +26,11 @@ import Login.LoginInfo;
  */
 public class LoginTextRepository implements Repository{
 	private static final String SEPARATOR = "|";	
-	private static final String filename = "LoginsInfo.txt" ;
+	private static final String FILENAME = "LoginsInfo.txt" ;
+	private static final String DATFILENAME = "LoginsInfo.dat" ;
 	
 	public String readLoginDetail(String userUsername, String userPassword, String userType) throws IOException { //enter from LoginController
-		ArrayList stringArray = (ArrayList)read(filename); // read String from text file
+		ArrayList stringArray = (ArrayList)TextDatabase.read(FILENAME); // read String from text file
 		ArrayList alr = new ArrayList() ;// to store Professors data
         for (int i = 0 ; i < stringArray.size() ; i++) {
 				String st = (String)stringArray.get(i);
@@ -56,7 +57,7 @@ public class LoginTextRepository implements Repository{
 	 */
 	public ArrayList readToList() throws IOException {
 		// read String from text file
-		ArrayList stringArray = (ArrayList)read(filename);
+		ArrayList stringArray = (ArrayList)TextDatabase.read(FILENAME);
 		ArrayList alr = new ArrayList() ;// to store Professors data
 
         for (int i = 0 ; i < stringArray.size() ; i++) {
@@ -98,32 +99,7 @@ public class LoginTextRepository implements Repository{
 					st.append(loginInfo.getKey().trim());
 					alw.add(st.toString()) ;
 				}
-				write(filename,alw);
+				TextDatabase.write(FILENAME,alw);
+				DatDatabase.write(DATFILENAME, al);
 		}
-	
-  public List read(String fileName) throws IOException { //enter from readStudentLogin
-		List data = new ArrayList(); 
-	   Scanner scanner = new Scanner(new FileInputStream(fileName));
-	   try {
-	      while (scanner.hasNextLine()){
-	        data.add(scanner.nextLine());
-	      }
-	   }
-	    finally{
-	      scanner.close();
-	    }
-	    return data;
-	  }	  
-  public void write(String fileName, List data) throws IOException  {
-	    PrintWriter out = new PrintWriter(new FileWriter(fileName));
-
-	    try {
-			for (int i =0; i < data.size() ; i++) {
-	      		out.println((String)data.get(i));
-			}
-	    }
-	    finally {
-	      out.close();
-	    }
-	  }
 }

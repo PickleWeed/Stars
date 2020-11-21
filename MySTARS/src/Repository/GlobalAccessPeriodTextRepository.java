@@ -23,8 +23,8 @@ import CourseRecords.CourseRecord;
  */
 public class GlobalAccessPeriodTextRepository implements Repository {
 	private static final String SEPARATOR = "|";
-	private static final String filename = "GlobalAccessPeriod.txt" ;
-	
+	private static final String FILENAME = "GlobalAccessPeriod.txt" ;
+	private static final String DATFILENAME = "GlobalAccessPeriod.dat" ;
     	/**
 	 * Gets all time periods that students are allowed to access the STAR System.<p>
      	 * Each time period is stored as a AccessPeriod object.<p> 
@@ -37,7 +37,7 @@ public class GlobalAccessPeriodTextRepository implements Repository {
 	public ArrayList readToList() throws IOException {
 		
 		// read String from text file
-		ArrayList stringArray = (ArrayList)read(filename);
+		ArrayList stringArray = (ArrayList)TextDatabase.read(FILENAME);
 		ArrayList alr = new ArrayList() ;// to store Professors data
 
         for (int i = 0 ; i < stringArray.size() ; i++) {
@@ -73,37 +73,9 @@ public class GlobalAccessPeriodTextRepository implements Repository {
 					st.append(accessPeriodObj.getEndAccessPeriod().trim());
 					alw.add(st.toString()) ;
 				}
-				write(filename,alw);
+	        TextDatabase.write(FILENAME,alw);
+	        DatDatabase.write(DATFILENAME, al);
 		}
-
-	  /** Write fixed content to the given file. */
-	  public void write(String fileName, List data) throws IOException  {
-	    PrintWriter out = new PrintWriter(new FileWriter(fileName));
-	
-	    try {
-			for (int i =0; i < data.size() ; i++) {
-	      		out.println((String)data.get(i));
-			}
-	    }
-	    finally {
-	      out.close();
-	    }
-	  }
-	
-	  /** Read the contents of the given file. */
-	  public List read(String fileName) throws IOException {
-		List data = new ArrayList() ;
-	    Scanner scanner = new Scanner(new FileInputStream(fileName));
-	    try {
-	      while (scanner.hasNextLine()){
-	        data.add(scanner.nextLine());
-	      }
-	    }
-	    finally{
-	      scanner.close();
-	    }
-	    return data;
-	  }
 	//test purpose
 	public static void main(String[] aArgs)  {
 	    	/*TextDB txtDB = new TextDB();
