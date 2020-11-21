@@ -11,7 +11,7 @@ import java.util.StringTokenizer;
 import StudentRecords.StudentRecords;
 
 /**
- * StudentCoursesTextRepository is a boundary class which performs read and write operations 
+ * StudentRecordTextRepository is a boundary class which performs read and write operations 
  * on StudentRecords.txt, a database that stores the information of all courses taken by every student.<p>
  * The information stored for each entry is listed below: <p>
  * key(identifies the student who takes the course) <p>
@@ -22,13 +22,13 @@ import StudentRecords.StudentRecords;
  * remarks. <p>
  * program ????????? <p>
  * Each entry in the database is uniquely identified by the combination: <p>
- * key, CourseIndex, IndexNum, Type <p>
+ * key, CourseIndex, IndexNum <p>
  * Each information has its respective get and set method.
  * 
  * @author ?
  *
  */
-public class StudentCoursesTextRepository implements Repository{
+public class StudentRecordTextRepository implements Repository{
 	private static final String SEPARATOR = "|";
 	private static final String filename = "StudentRecords.txt" ;
 	
@@ -52,17 +52,14 @@ public class StudentCoursesTextRepository implements Repository{
 				StringTokenizer star = new StringTokenizer(st , SEPARATOR);	// pass in the string to the string tokenizer using delimiter ","
 
 				String  key = star.nextToken().trim();
-				String  indexNum = star.nextToken().trim();	// first token
-				String  courseIndex = star.nextToken().trim();	// second token
-				String  type = star.nextToken().trim();
-				String  group = star.nextToken().trim();
-				String  day = star.nextToken().trim();
-				String  time = star.nextToken().trim();
-				String  venue = star.nextToken().trim();
-				String  remark = star.nextToken().trim();
+				String  firstname = star.nextToken().trim();	// first token
+				String  lastname = star.nextToken().trim();	// second token
+				String  matricNum = star.nextToken().trim();
+				String  courseIndex = star.nextToken().trim();
+				String  indexNum = star.nextToken().trim();
 				//int  vacancy = Integer.parseInt(star.nextToken().trim());
 				// create Professor object from file data
-				StudentRecords studentRecords = new StudentRecords(key, indexNum, courseIndex, type, group, day, time, venue, remark);
+				StudentRecords studentRecords = new StudentRecords(key, firstname, lastname, matricNum, courseIndex, indexNum);
 				// add to Professors list
 				alr.add(studentRecords) ;
 			}
@@ -83,21 +80,15 @@ public void saveList(List al) throws IOException {
 				StringBuilder st =  new StringBuilder() ;
 				st.append(studentRecords.getKey().trim());
 				st.append(SEPARATOR);
-				st.append(studentRecords.getIndexNum().trim());
+				st.append(studentRecords.getFirstName().trim());
+				st.append(SEPARATOR);
+				st.append(studentRecords.getLastName().trim());
+				st.append(SEPARATOR);
+				st.append(studentRecords.getMatricNum().trim());
 				st.append(SEPARATOR);
 				st.append(studentRecords.getCourseIndex().trim());
 				st.append(SEPARATOR);
-				st.append(studentRecords.getType().trim());
-				st.append(SEPARATOR);
-				st.append(studentRecords.getGroup().trim());
-				st.append(SEPARATOR);
-				st.append(studentRecords.getDay().trim());
-				st.append(SEPARATOR);
-				st.append(studentRecords.getTime().trim());
-				st.append(SEPARATOR);
-				st.append(studentRecords.getVenue().trim());
-				st.append(SEPARATOR);
-				st.append(studentRecords.getRemark().trim());
+				st.append(studentRecords.getIndexNum().trim());
 				alw.add(st.toString()) ;
 			}
 			write(filename,alw);
@@ -155,19 +146,15 @@ public static void main(String[] aArgs)  {
 
 	try {
 		// read file containing Professor records.
-		StudentCoursesTextRepository studentRecTextRepository = new StudentCoursesTextRepository();
+		StudentRecordTextRepository studentRecTextRepository = new StudentRecordTextRepository();
 		ArrayList al = studentRecTextRepository.readToList() ;
 		for (int i = 0 ; i < al.size() ; i++) {
 			StudentRecords studentRecord = (StudentRecords)al.get(i);
-				System.out.println("Key: " + studentRecord.getKey() );
-				System.out.println("IndexNum: " + studentRecord.getIndexNum() );
-				System.out.println("CourseIndex: " + studentRecord.getCourseIndex() );
-				System.out.println("Type: " + studentRecord.getType() );
-				System.out.println("Group: " + studentRecord.getGroup() );
-				System.out.println("Day: " + studentRecord.getDay() );
-				System.out.println("Time: " + studentRecord.getTime() );
-				System.out.println("Venue: " + studentRecord.getVenue() );
-				System.out.println("Remark: " + studentRecord.getRemark() );
+			System.out.println("IndexNum: " + studentRecord.getIndexNum() );
+			System.out.println("CourseIndex: " + studentRecord.getCourseIndex() );
+			System.out.println("First Name: " + studentRecord.getFirstName() );
+			System.out.println("Last Name: " + studentRecord.getLastName() );
+			System.out.println("Matric Number: " + studentRecord.getMatricNum() );
 				System.out.println("\n");
 			}
 		//saveStudentRecords(filename, al);

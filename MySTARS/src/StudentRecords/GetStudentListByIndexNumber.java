@@ -1,10 +1,9 @@
-package CourseRecords;
+package StudentRecords;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 import StudentInfo.Student;
-import StudentRecords.StudentRecords;
 
 
 

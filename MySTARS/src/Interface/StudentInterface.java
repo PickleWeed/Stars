@@ -1,16 +1,16 @@
 package Interface;
 import Student.*;
+import StudentRecords.GetStudentListByIndexNumber;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import CourseRecords.GetCourseRecord;
-import CourseRecords.GetStudentListByIndexNumber;
 import Repository.CourseRecordsTextRepository;
 import Repository.GlobalAccessPeriodTextRepository;
 import Repository.LoginTextRepository;
-import Repository.StudentCoursesTextRepository;
+import Repository.StudentRecordTextRepository;
 import Repository.StudentPersonalInfoTextRepository;
 
 /**
@@ -42,7 +42,7 @@ public class StudentInterface {
 		CourseRecordsTextRepository courseRecordsTextRepository = new CourseRecordsTextRepository();
 		StudentPersonalInfoTextRepository studentPersonalInfoTextRepository = new StudentPersonalInfoTextRepository();
 		LoginTextRepository loginTextRepository = new LoginTextRepository();
-		StudentCoursesTextRepository studentCoursesTextRepository = new StudentCoursesTextRepository();
+		StudentRecordTextRepository studentCoursesTextRepository = new StudentRecordTextRepository();
 		GlobalAccessPeriodTextRepository globalAccessPeriodTextRepository = new GlobalAccessPeriodTextRepository();
 
 		int choice = 0;

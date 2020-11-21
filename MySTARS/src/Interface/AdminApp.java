@@ -4,14 +4,14 @@ import Repository.CourseRecordsTextRepository;
 import Repository.DatRepository;
 import Repository.GlobalAccessPeriodTextRepository;
 import Repository.LoginTextRepository;
-import Repository.StudentCoursesTextRepository;
+import Repository.StudentRecordTextRepository;
 import Repository.StudentPersonalInfoTextRepository;
 import CourseRecords.GetCourseRecord;
-import CourseRecords.GetStudentListByCourseIndex;
-import CourseRecords.GetStudentListByIndexNumber;
 import StudentInfo.CheckStudentInfo;
 import StudentInfo.UpdateStudentInfo;
 import StudentInfo.ViewStudentInfo;
+import StudentRecords.GetStudentListByCourseIndex;
+import StudentRecords.GetStudentListByIndexNumber;
 import StudentRecords.StudentRecords;
 
 import java.io.IOException;
@@ -69,7 +69,7 @@ public class AdminApp {
 		CourseRecordsTextRepository courseRecordsTextRepository = new CourseRecordsTextRepository();
 		StudentPersonalInfoTextRepository studentPersonalInfoTextRepository = new StudentPersonalInfoTextRepository();
 		LoginTextRepository loginTextRepository = new LoginTextRepository();
-		StudentCoursesTextRepository studentCoursesTextRepository = new StudentCoursesTextRepository();
+		StudentRecordTextRepository studentCoursesTextRepository = new StudentRecordTextRepository();
 		GlobalAccessPeriodTextRepository globalAccessPeriodTextRepository = new GlobalAccessPeriodTextRepository();
 
 		while(!choice.equals("8"))
@@ -145,15 +145,15 @@ public class AdminApp {
 	private void printStudentListByIndexNumber() throws IOException {
 		// TODO Auto-generated method stub
 		GetStudentListByIndexNumber.showIndexNum(studentsRecords,studentInfo);
-		System.out.println("Enter Index Number to check list of Student:");
+		System.out.printf("Enter Index Number to check list of Student:");
 		String indexNum = sc.next();
 		GetStudentListByIndexNumber.getKey(indexNum, studentsRecords,studentInfo);
 		
 	}
 	private void printStudentListByCourseIndex() throws IOException{
 		// TODO Auto-generated method stub
-		GetStudentListByCourseIndex.showcourseIndex(studentsRecords,studentInfo);
-		System.out.println("Enter Course Index to check list of Student:");
+		GetStudentListByCourseIndex.showCourseIndex(studentsRecords,studentInfo);
+		System.out.printf("Enter Course Index to check list of Student:");
 		String courseIndex = sc.next();
 		GetStudentListByCourseIndex.getKey(courseIndex, studentsRecords,studentInfo);
 	}

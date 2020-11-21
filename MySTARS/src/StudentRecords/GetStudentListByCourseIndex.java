@@ -1,16 +1,15 @@
-package CourseRecords;
+package StudentRecords;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 import StudentInfo.Student;
-import StudentRecords.StudentRecords;
 
 
 
 public class GetStudentListByCourseIndex {
 
-	public static void showcourseIndex(ArrayList StudentRecordsList,ArrayList studentInfo) throws IOException
+	public static void showCourseIndex(ArrayList StudentRecordsList,ArrayList studentInfo) throws IOException
 	{
 		System.out.println("List of Index Number:");
 		for (int i=0; i<StudentRecordsList.size(); i++)
