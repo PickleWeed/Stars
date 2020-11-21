@@ -23,16 +23,15 @@ import AccessPeriod.GetAccessPeriod;
 /**
  * AdminApp is a boundary class which interacts with the admin to perform any operation on MySTARS
  * in the admin mode.<p>
- * There are 9 options in admin mode: <p>
- * 1. Edit student Access Period <p>
- * 2. Add a student <p>
- * 3. Add a Course <p>
- * 4. Update a course <p>
- * 5. Print Student List by Course Number <p>
- * 6. Print Student List by Index Number <p>
- * 7. Edit Student's Courses <p>
- * 8. Check Avaliable Vacancy for an index number <p>
- * 9. Exit <p>
+ * There are 8 options in admin mode: <p>
+	 * 1. Edit student Access Period <p>
+	 * 2. Add a student <p>
+	 * 3. Add a Course <p>
+	 * 4. Update a course <p>
+	 * 5. Print Student List by Index Number <p>
+	 * 6. Print Student List by Course Index <p>
+	 * 7. Check Avaliable Vacancy for an index number <p>
+	 * 8. logout <p>
  * 
  * @author ?
  *
@@ -50,17 +49,16 @@ public class AdminApp {
 	Scanner sc = new Scanner(System.in);
 	/**
 	 * Displays a menu for the admin, and performs the appropriate operation based on the admin's choice.<p>
-	 * There are 9 possible choices in the menu: <p>
+	 * There are 8 possible choices in the menu: <p>
 	 * 1. Edit student Access Period <p>
 	 * 2. Add a student <p>
 	 * 3. Add a Course <p>
 	 * 4. Update a course <p>
-	 * 5. Print Student List by Course Number <p>
-	 * 6. Print Student List by Course Number ? <p>
-	 * 7. Edit Student's Courses <p>
-	 * 8. Check Avaliable Vacancy for an index number <p>
-	 * 9. Exit <p><p>
-	 * Relevent informations from the txtfile are also acquired in order to carry out certain operations.<p>
+	 * 5. Print Student List by Index Number <p>
+	 * 6. Print Student List by Course Index <p>
+	 * 7. Check Avaliable Vacancy for an index number <p>
+	 * 8. logout <p>
+	 * The database(Serial Files) are updated and read into the current program.<p>
 	 * 
 	 * @throws IOException If an input or output exception occurs
 	 */
