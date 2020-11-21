@@ -44,7 +44,7 @@ public class UpdateCourseRecord {
 		return false;
 	}
 	public static void editCourse(ArrayList courseRecord, String num, String courseIndex, String indexNum, String type,
-			String group, String day, String time, String venue, String remarks, String vacancy)
+			String group, String day, String time, String venue, String remarks, String vacancy) throws IOException
 	{
 		for(int i=0; i<courseRecord.size(); i++)
 		{
@@ -58,6 +58,9 @@ public class UpdateCourseRecord {
 				courseRecords.setVenue(venue);
 				courseRecords.setRemarks(remarks);
 				courseRecords.setVacancy(vacancy);
+				
+				CourseRecordsTextRepository courseRecordsTextRepository = new CourseRecordsTextRepository();
+				courseRecordsTextRepository.saveList(courseRecord);
 				
 				System.out.println("CourseIndex: " + courseRecords.getCourseIndex() );
 				System.out.println("IndexNum: " + courseRecords.getIndexNum() );
