@@ -108,7 +108,7 @@ public class StudentInterface {
 					getCourseVacancy();
 					break;
 				case "5":
-					ChangeIndex changeIndex = new ChangeIndex();
+					changeIndex(key);
 					break;
 				case "6":
 					SwapIndex swapIndex = new SwapIndex();
@@ -169,9 +169,20 @@ public class StudentInterface {
 	//case 4
 	private static void getCourseVacancy() throws IOException
 	{
+		// still need add check if valid index based on user registered course
 		System.out.println("Enter Index Number:");
 		String indexNum = sc.next();
 		GetCourseRecord.printVacancy(indexNum, courseRecordList);
 	}
 	
+	//case 5
+	private static void changeIndex(String key) throws IOException
+	{
+		// still need add check if valid index 
+		System.out.println("Enter Old Index Number:");
+		String oldIndex = sc.next();
+		System.out.println("Enter New Index Number:");
+		String newIndex = sc.next();
+		ChangeIndex.changeIndex(studentsRecords,courseRecordList, oldIndex, newIndex, key);
+	}
 }

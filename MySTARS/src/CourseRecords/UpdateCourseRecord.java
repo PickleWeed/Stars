@@ -21,7 +21,7 @@ public class UpdateCourseRecord {
 
 		System.out.println("CourseIndex: " + newCourseRecord.getCourseIndex() );
 		System.out.println("IndexNum: " + newCourseRecord.getIndexNum() );
-		System.out.println("Rype: " + newCourseRecord.getType() );
+		System.out.println("Type: " + newCourseRecord.getType() );
 		System.out.println("Froup: " + newCourseRecord.getGroup() );
 		System.out.println("Day: " + newCourseRecord.getDay() );
 		System.out.println("Time: " + newCourseRecord.getTime() );

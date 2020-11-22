@@ -93,7 +93,6 @@ public class DropCourse {
 
   //author: sam
   public static void dropCourse(ArrayList studentsRecords, String key, String indexNum) throws IOException {
-	  // still need add check if valid index based on user registered course
 	    int count = 0;
 	    //print details of dropped course
 		for (int i = 0 ; i < studentsRecords.size() ; i++) {
