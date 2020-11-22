@@ -26,10 +26,6 @@ public class StudentRecords implements Serializable{
 	private String matricNum;
 	private String indexNum;
 	private String courseIndex;
-	private String AU;
-	private String courseType;
-	private String SU;
-	private String GERType;
 	private String status;
 	
 	/**
@@ -44,7 +40,7 @@ public class StudentRecords implements Serializable{
 	 * @param venue venue
 	 * @param remark remark 
 	 */
-	public StudentRecords(String key, String firstName, String lastName, String matricNum, String courseIndex,String indexNum, String AU,String courseType,String SU,String GERType,String status)
+	public StudentRecords(String key, String firstName, String lastName, String matricNum, String courseIndex,String indexNum, String status)
 	{
 		this.key = key;
 		this.firstName = firstName;
@@ -52,10 +48,6 @@ public class StudentRecords implements Serializable{
 		this.matricNum = matricNum;
 		this.indexNum = indexNum;
 		this.courseIndex = courseIndex;
-		this.AU = AU;
-		this.courseType = courseType;
-		this.SU = SU;
-		this.GERType = GERType;
 		this.status = status;
 	}
 
@@ -105,18 +97,6 @@ public class StudentRecords implements Serializable{
 
 	public void setCourseIndex(String courseIndex) {
 		this.courseIndex = courseIndex;
-	}
-	public String getAU() {
-		return AU;
-	}
-	public String getCourseType() {
-		return courseType;
-	}
-	public String getSU() {
-		return SU;
-	}
-	public String getGERType() {
-		return GERType;
 	}
 	
 	public String getStatus() {

@@ -15,6 +15,7 @@ import StudentRecords.StudentRecords;
 public class AddCourse{
 	public static void addCourse(ArrayList studentsRecords, String key, String firstName, 
 			String lastName, String matricNum, String courseIndex, String indexNum) throws IOException{
+		
 		Scanner sc = new Scanner(System.in);
 		ArrayList courseRecordList = (ArrayList)DatDatabase.read("CourseRecords.dat");
 		System.out.println("Course Index" + "  " + "Index Number"); 
@@ -30,6 +31,7 @@ public class AddCourse{
 		ArrayList studentRecords;
 		StudentRecordTextRepository studentCoursesTextRepository = new StudentRecordTextRepository();
 		studentsRecords = studentCoursesTextRepository.readToList();
+		//get the information from Course Record & insert onto student Record
 		StudentRecords newStudentRecord = new StudentRecords(key,firstName,lastName,matricNum,courseIndex,indexNum,"-","-","-","-","-");
 		studentsRecords.add(newStudentRecord);
 		studentCoursesTextRepository.saveList(studentsRecords);

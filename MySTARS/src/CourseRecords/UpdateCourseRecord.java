@@ -9,9 +9,10 @@ import StudentInfo.Student;
 import StudentRecords.StudentRecords;
 
 public class UpdateCourseRecord {
-	public static void addCourse(ArrayList courseRecord, String num, String courseIndex, String indexNum, String type, String group, String day, String time, String venue, String remarks, String vacancy, String name) throws IOException
+	public static void addCourse(ArrayList courseRecord, String num, String courseIndex, String indexNum, String type, 
+			String group, String day, String time, String venue, String remarks, String vacancy, String name, String AU, String courseType, String SU) throws IOException
 	{
-		CourseRecord newCourseRecord = new CourseRecord(num, courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, name);
+		CourseRecord newCourseRecord = new CourseRecord(num, courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, name, AU, courseType, SU);
 		courseRecord.add(newCourseRecord);
 		
 		CourseRecordsTextRepository courseRecordsTextRepository = new CourseRecordsTextRepository();

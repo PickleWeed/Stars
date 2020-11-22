@@ -63,9 +63,12 @@ public class CourseRecordsTextRepository implements Repository{
 				String  remarks = star.nextToken().trim();
 				String  vacancy = star.nextToken().trim();
 				String  name = star.nextToken().trim();
+				String  AU = star.nextToken().trim();
+				String  courseType = star.nextToken().trim();
+				String  SU = star.nextToken().trim();
 				//int  vacancy = Integer.parseInt(star.nextToken().trim());
 				// create Professor object from file data
-				CourseRecord courseRecords = new CourseRecord(num, courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, name);
+				CourseRecord courseRecords = new CourseRecord(num, courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, name, AU, courseType, SU);
 				// add to Professors list
 				alr.add(courseRecords);
 			}
@@ -104,6 +107,13 @@ public class CourseRecordsTextRepository implements Repository{
 					st.append(courseRecords.getVacancy().trim());
 					st.append(SEPARATOR);
 					st.append(courseRecords.getName().trim());
+					st.append(SEPARATOR);
+					st.append(courseRecords.getAU().trim());
+					st.append(SEPARATOR);
+					st.append(courseRecords.getCourseType().trim());
+					st.append(SEPARATOR);
+					st.append(courseRecords.getSU().trim());
+	
 					alw.add(st.toString()) ;
 				}
 	        TextDatabase.write(FILENAME, alw);
