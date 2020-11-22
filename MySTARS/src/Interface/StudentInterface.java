@@ -99,13 +99,10 @@ public class StudentInterface {
 //					addCourse.addCourse(temp);
 					break;
 				case "2":
-					DropCourse dropCourse = new DropCourse();
-					//courseIndex = dropCourse.queryCourseIndex();
-					//String Str = dropCourse.findString(courseIndex);
-					//dropCourse.dropCourse(Str);
+					dropCourse(key);
 					break;
 				case "3":
-					printCourseDetails(studentsRecords,key);
+					printCourseDetails(key);
 					break;
 				case "4":
 					getCourseVacancy();
@@ -157,13 +154,19 @@ public class StudentInterface {
 		//StudentRecords studentRecords = new StudentRecords(key,firstName,lastName,matricNum,courseIndex,IndexNum);
 		//studentsRecords.add(studentRecords);
 	}
-
+	//case 2
+	private static void dropCourse(String key) throws IOException {
+		System.out.println("Enter Index Number:");
+		String indexNum = sc.next();
+		DropCourse.dropCourse(studentsRecords, key, indexNum);
+	}
 	
-	private static void printCourseDetails(ArrayList studentsRecords, String key) throws IOException {
+	//case 3
+	private static void printCourseDetails(String key) throws IOException {
 		CheckCourse.getCourseDetails(studentsRecords, key);	
 	}
 
-
+	//case 4
 	private static void getCourseVacancy() throws IOException
 	{
 		System.out.println("Enter Index Number:");

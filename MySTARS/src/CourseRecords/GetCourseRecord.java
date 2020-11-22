@@ -49,6 +49,7 @@ public class GetCourseRecord {
 			CourseRecord courseRecords = (CourseRecord)courseRecord.get(i);
 			if(courseRecords.getIndexNum().equals(indexNum)) {
 				System.out.println("Place Available: " + courseRecords.getVacancy() + "\n");
+				//System.out.println("Length of Waitlist: " + "\n");
 				break;
 			}
 		}

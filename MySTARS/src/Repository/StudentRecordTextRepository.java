@@ -95,6 +95,16 @@ public void saveList(List al) throws IOException {
 				st.append(studentRecords.getCourseIndex().trim());
 				st.append(SEPARATOR);
 				st.append(studentRecords.getIndexNum().trim());
+				st.append(SEPARATOR);
+				st.append(studentRecords.getAU().trim());
+				st.append(SEPARATOR);
+				st.append(studentRecords.getCourseType().trim());
+				st.append(SEPARATOR);
+				st.append(studentRecords.getSU().trim());
+				st.append(SEPARATOR);
+				st.append(studentRecords.getGERType().trim());
+				st.append(SEPARATOR);
+				st.append(studentRecords.getStatus().trim());
 				alw.add(st.toString()) ;
 			}
 			TextDatabase.write(FILENAME,alw);
