@@ -122,12 +122,12 @@ public class AdminApp {
 					updateCourse();
 					break;
 				case "5":
-					//Print Student List by Course Number
-					printStudentListByCourseIndex();
-					break;
-				case "6":
 					//Print Student List by Index Number
 					printStudentListByIndexNumber();
+					break;
+				case "6":
+					//Print Student List by Course Number
+					printStudentListByCourseIndex();
 					break;
 				case "7":
 					getCourseVacancy();
@@ -209,7 +209,7 @@ public class AdminApp {
 		String accessPeriod;
 		//check dupicate
 		while(true) {
-			System.out.println("Choose a value which Access Period you want to add: ");
+			System.out.printf("Choose a value which Access Period you want to add: ");
 			accessPeriod = sc.next();
 			accessPeriod = GetAccessPeriod.getAccessPeriod(accessPeriodList, accessPeriod);
 			if(!accessPeriod.equals("nill"))
@@ -317,27 +317,24 @@ public class AdminApp {
 				day, time, venue, remarks, vacancy);
 	}
 	//case 5
-		private void printStudentListByIndexNumber() throws IOException {
-			// TODO Auto-generated method stub
-			GetStudentListByIndexNumber.showIndexNum(studentRecord,studentInfo);
-			System.out.printf("Enter Index Number to check list of Student:");
-			String indexNum = sc.next();
-			GetStudentListByIndexNumber.getKey(indexNum, studentRecord,studentInfo);
-			
-		}
-		//case 6
-		private void printStudentListByCourseIndex() throws IOException{
-			// TODO Auto-generated method stub
-			GetStudentListByCourseIndex.showCourseIndex(studentRecord,studentInfo);
-			System.out.printf("Enter Course Index to check list of Student:");
-			String courseIndex = sc.next();
-			GetStudentListByCourseIndex.getKey(courseIndex, studentRecord,studentInfo);
-		}
+	private void printStudentListByIndexNumber() throws IOException {
+		// TODO Auto-generated method stub
+		System.out.printf("Enter Index Number to check list of Student:");
+		String indexNum = sc.next();
+		GetStudentListByIndexNumber.showStudentList(studentRecord, studentInfo, indexNum);
+	}
+	//case 6
+	private void printStudentListByCourseIndex() throws IOException{
+		// TODO Auto-generated method stub
+		System.out.printf("Enter Course Index to check list of Student:");
+		String courseIndex = sc.next();
+		GetStudentListByCourseIndex.showStudentList(studentRecord, studentInfo, courseIndex);
+	}
 	//case 7
 	private void getCourseVacancy() throws IOException
 	{
 		GetCourseRecord.showIndexNum(courseRecord);
-		System.out.println("Enter Index Number to check avaliable Vacancy:");
+		System.out.printf("Enter Index Number to check avaliable Vacancy: ");
 		String indexNum = sc.next();
 		GetCourseRecord.getVacancy(indexNum, courseRecord);
 	}
