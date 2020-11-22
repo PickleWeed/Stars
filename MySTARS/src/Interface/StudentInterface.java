@@ -1,13 +1,18 @@
 package Interface;
 import Student.*;
+import StudentInfo.Student;
+import StudentInfo.ViewStudentInfo;
 import StudentRecords.GetStudentListByIndexNumber;
+import StudentRecords.StudentRecords;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-import CourseRecords.GetCourseRecord;
+import CourseRecords.*;
 import Repository.CourseRecordsTextRepository;
+import Repository.DatDatabase;
 import Repository.GlobalAccessPeriodTextRepository;
 import Repository.LoginTextRepository;
 import Repository.StudentRecordTextRepository;
@@ -28,7 +33,6 @@ import Repository.StudentPersonalInfoTextRepository;
  *
  */
 public class StudentInterface {
-	String key = null;
 	private static ArrayList courseRecordList;
 	private static ArrayList studentInfo;
 	private static ArrayList loginInfo;
@@ -37,7 +41,7 @@ public class StudentInterface {
 	static Scanner sc = new Scanner(System.in);
 
 	
-	public static void inStudentInterface() throws IOException
+	public void inStudentInterface() throws IOException
 	{
 		CourseRecordsTextRepository courseRecordsTextRepository = new CourseRecordsTextRepository();
 		StudentPersonalInfoTextRepository studentPersonalInfoTextRepository = new StudentPersonalInfoTextRepository();
@@ -47,12 +51,25 @@ public class StudentInterface {
 
 		int choice = 0;
 		while (choice != 7) {
-			courseRecordList = courseRecordsTextRepository.readToList();
+			courseRecordList = courseRecordsTextRepository.readToList(); 
 			studentInfo = studentPersonalInfoTextRepository.readToList();
 			loginInfo = loginTextRepository.readToList();
 			studentsRecords = studentCoursesTextRepository.readToList();
 			accessPeriodList = globalAccessPeriodTextRepository.readToList();
-		
+			
+			DatDatabase.write("CourseRecords.dat", courseRecordList);
+			DatDatabase.write("StudentInfo.dat", studentInfo);
+			DatDatabase.write("LoginsInfo.dat", loginInfo);
+			DatDatabase.write("StudentRecords.dat", studentsRecords);
+			DatDatabase.write("GlobalAccessPeriod.dat", accessPeriodList);
+			
+			//read again from Serial File
+			courseRecordList = (ArrayList)DatDatabase.read("CourseRecords.dat");
+			studentInfo = (ArrayList)DatDatabase.read("StudentInfo.dat");
+			loginInfo = (ArrayList)DatDatabase.read("LoginsInfo.dat");
+			studentsRecords = (ArrayList)DatDatabase.read("StudentRecords.dat");
+			accessPeriodList = (ArrayList)DatDatabase.read("GlobalAccessPeriod.dat");
+			
 			Scanner sc = new Scanner(System.in);
 			System.out.println("****STUDENT INTERFACE****");
 			System.out.println("1. Add Course");
@@ -68,23 +85,22 @@ public class StudentInterface {
 			switch(choice)
 			{
 				case 1:
-					String courseIndex, temp;
-					//query Course record and insert into arraylist
-					//the courseIndex you want to add
-					courseIndex = "0000";
-					AddCourse.addCourse1(courseIndex, courseRecordList);
-					
-					
-					AddCourse addCourse = new AddCourse();
-					courseIndex = addCourse.queryCourseIndex();
-					temp = addCourse.findRelevantRecord(courseIndex);
-					addCourse.addCourse(temp);
+					addCourse();
+//					String courseIndex, temp;
+//					//query Course record and insert into arraylist
+//					//the courseIndex you want to add
+//					courseIndex = "0000";
+//					AddCourse.addCourse1(courseIndex, courseRecordList);
+//					AddCourse addCourse = new AddCourse();
+//					courseIndex = addCourse.queryCourseIndex();
+//					temp = addCourse.findRelevantRecord(courseIndex);
+//					addCourse.addCourse(temp);
 					break;
 				case 2:
 					DropCourse dropCourse = new DropCourse();
-					courseIndex = dropCourse.queryCourseIndex();
-					String Str = dropCourse.findString(courseIndex);
-					dropCourse.dropCourse(Str);
+					//courseIndex = dropCourse.queryCourseIndex();
+					//String Str = dropCourse.findString(courseIndex);
+					//dropCourse.dropCourse(Str);
 					break;
 				case 3:
 					printCourseDetails();
@@ -107,8 +123,40 @@ public class StudentInterface {
 			}	
 		}
 	}
+	//case 1
+	private static void addCourse() {
+		String courseIndex = "0000", indexNumber; 
+		Scanner sc = new Scanner(System.in); 
+		for (int i=0; i<courseRecordList.size(); i++) { 
+			CourseRecord courseRecords = (CourseRecord)courseRecordList.get(i);	  
+			System.out.println(courseRecords.getCourseIndex()); 		  
+		}
+		System.out.println("Please enter Course Index: ");
+		courseIndex = sc.nextLine();
+		System.out.println("Please enter Index number for " + courseIndex + ":");
+		indexNumber = sc.nextLine();
+		for (int i=0; i<courseRecordList.size(); i++) { 
+			CourseRecord courseRecords = (CourseRecord)courseRecordList.get(i);	
+			if(((courseRecords.getCourseIndex()).equals(courseIndex)) && ((courseRecords.getIndexNum()).equals(indexNumber))) {
+				Student student = (Student)studentInfo.get(i);
+				String firstName = student.getFirstName();
+				String lastName = student.getLastName();
 
+				for(int j=0;j<studentsRecords.size();j++) {
+					StudentRecords studentRecords = (StudentRecords)studentsRecords.get(j);
+					if(studentRecords.getFirstName().equals(firstName) && studentRecords.getLastName().equals(lastName)) {
+						String key = studentRecords.getKey();
+						String matricNum = studentRecords.getMatricNum();
+						break;
+					}
+				}
+			}
+		}
+		StudentRecords studentRecords = new StudentRecords(key,firstName,lastName,matricNum,courseIndex,IndexNum);
+		studentsRecords.add(studentRecords);
+	}
 
+	
 	private static void printCourseDetails() throws IOException {
 		// TODO Auto-generated method stub
 		System.out.println("Please reenter your username to check the course u register:");
@@ -126,4 +174,8 @@ public class StudentInterface {
 		GetCourseRecord.getVacancy(indexNum, courseRecordList);
 	}
 
+	public static void main(String[] args) throws IOException{
+		StudentInterface studentApp = new StudentInterface();
+		studentApp.inStudentInterface();
+	}
 }

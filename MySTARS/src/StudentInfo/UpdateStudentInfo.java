@@ -11,7 +11,8 @@ import Repository.StudentPersonalInfoTextRepository;
 
 public class UpdateStudentInfo {
 	
-	public static void addStudent(ArrayList StudentInfoArray, ArrayList loginArray, String firstName, String lastName, 
+	public static void addStudent(
+			ArrayList StudentInfoArray, ArrayList loginArray, String firstName, String lastName, 
 			String matricNum, String gender, String nationality, String age, 
 			String username, String password, String accessPeriod, String email) throws IOException
 	{

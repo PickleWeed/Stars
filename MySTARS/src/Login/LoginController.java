@@ -67,9 +67,9 @@ public class LoginController {
 			    try {
 			        FileWriter writer = new FileWriter("StudentRecords.txt", true);
 			        BufferedWriter bufferedWriter = new BufferedWriter(writer);
-			        bufferedWriter.write(key);
-			        bufferedWriter.write("|");
-			        bufferedWriter.close();
+			        //bufferedWriter.write(key);
+			        //bufferedWriter.write("|");
+			        //bufferedWriter.close();
 			    } catch (IOException e) {
 			        e.printStackTrace();
 			    }

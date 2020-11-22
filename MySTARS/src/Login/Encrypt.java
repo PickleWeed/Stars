@@ -47,7 +47,7 @@ public class Encrypt {
 	      .limit(targetStringLength)
 	      .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
 	      .toString();
-	    return generatedString;
+	    return generatedString.toUpperCase();
 	}
 	public static String checkKey() throws IOException
 	{
