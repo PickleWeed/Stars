@@ -191,11 +191,11 @@ public class StudentInterface {
 	private void SwapIndex(String key)  throws IOException
 	{
 		// still need add check if valid index 
-		System.out.println("Enter Old Index Number:");
+		System.out.println("Enter Your Index Number:");
 		String oldIndex = sc.next();
-		System.out.println("Enter New Index Number:");
+		System.out.println("Enter Your friend's Index Number:");
 		String newIndex = sc.next();
-		System.out.println("Enter Friend Username:");
+		System.out.println("Enter Friend Matric Number:");
 		String MatricNum = sc.next();
 		SwapIndex.swapIndex(studentsRecords,courseRecordList,MatricNum, oldIndex, newIndex, key);
 		
