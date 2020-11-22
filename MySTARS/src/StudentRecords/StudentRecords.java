@@ -44,26 +44,19 @@ public class StudentRecords implements Serializable{
 	 * @param venue venue
 	 * @param remark remark 
 	 */
-<<<<<<< Updated upstream
 	public StudentRecords(String key, String firstName, String lastName, String matricNum, String courseIndex,String indexNum, String AU,String courseType,String SU,String GERType,String status)
-=======
-	public StudentRecords(String key, String firstName, String lastName, String matricNum,  String courseIndex, String indexNum)
->>>>>>> Stashed changes
 	{
 		this.key = key;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.matricNum = matricNum;
+		this.indexNum = indexNum;
 		this.courseIndex = courseIndex;
-<<<<<<< Updated upstream
 		this.AU = AU;
 		this.courseType = courseType;
 		this.SU = SU;
 		this.GERType = GERType;
 		this.status = status;
-=======
-		this.indexNum = indexNum;
->>>>>>> Stashed changes
 	}
 
 	public String getKey() {

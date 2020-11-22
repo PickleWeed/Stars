@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 /AccessPeriod/
 /Admin/
 /CalendarExample.class
@@ -12,6 +13,13 @@
 /StudentInfo/
 /StudentRecords/
 /mySTARSApp.class
+=======
+/Interface/
+/Login/
+/Student/
+/StudentInfo/
+/StudentRecords/
+>>>>>>> Stashed changes
 =======
 /Interface/
 /Login/
