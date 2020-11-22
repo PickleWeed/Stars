@@ -102,7 +102,7 @@ public class StudentInterface {
 					changeIndex(key);
 					break;
 				case "6":
-					SwapIndex swapIndex = new SwapIndex();
+					SwapIndex(key);
 					break;
 				case "7":
 					System.out.println("Goodbye!\n");
@@ -113,6 +113,7 @@ public class StudentInterface {
 			}	
 		}
 	}
+	
 	//case 1
 	private static void addCourse(String key) throws IOException{
 		String courseIndex;
@@ -184,5 +185,19 @@ public class StudentInterface {
 		System.out.println("Enter New Index Number:");
 		String newIndex = sc.next();
 		ChangeIndex.changeIndex(studentsRecords,courseRecordList, oldIndex, newIndex, key);
+	}
+	
+	//case 6
+	private void SwapIndex(String key)  throws IOException
+	{
+		// still need add check if valid index 
+		System.out.println("Enter Old Index Number:");
+		String oldIndex = sc.next();
+		System.out.println("Enter New Index Number:");
+		String newIndex = sc.next();
+		System.out.println("Enter Friend Username:");
+		String MatricNum = sc.next();
+		SwapIndex.swapIndex(studentsRecords,courseRecordList,MatricNum, oldIndex, newIndex, key);
+		
 	}
 }
