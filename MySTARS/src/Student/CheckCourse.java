@@ -32,7 +32,7 @@ public class CheckCourse {
 			StudentRecords studentRecord = (StudentRecords)StudentRecord.get(i);
 			if(studentRecord.getKey().equals(key))
 			{
-
+					//get from Course Record not Student Record
 					System.out.println("Course: " + studentRecord.getCourseIndex());
 					System.out.println("AU: " + studentRecord.getAU());
 					System.out.println("Course Type: " + studentRecord.getCourseType());

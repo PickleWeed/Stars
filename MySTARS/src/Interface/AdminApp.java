@@ -263,9 +263,15 @@ public class AdminApp {
 			String vacancy = sc.next();
 			System.out.printf("Name of the Course: ");
 			String courseName = sc.next();
+			System.out.printf("Enter AU (1,2,3): ");
+			String AU = sc.next();
+			System.out.printf("Enter Course Type: ");
+			String courseType = sc.next();
+			System.out.printf("Enter SU (Yes or No): ");
+			String SU = sc.next();
 			//add course
 			num = Integer.toString(number);
-			UpdateCourseRecord.addCourse(courseRecord, num, courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, courseName);
+			UpdateCourseRecord.addCourse(courseRecord, num, courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, courseName, AU, courseType, SU);
 		}
 	}
 	//case 4
