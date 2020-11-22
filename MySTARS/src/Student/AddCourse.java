@@ -7,20 +7,42 @@ import CourseRecords.CourseRecord;
 import Repository.CourseRecordsTextRepository;
 import Repository.DatDatabase;
 import Repository.StudentPersonalInfoTextRepository;
+import Repository.StudentRecordTextRepository;
 import StudentInfo.*;
+import StudentRecords.StudentRecords;
 
 
 public class AddCourse{
-	public void addCourse() throws IOException{
-		StudentPersonalInfoTextRepository studentPersonalInfoTextRepository = new StudentPersonalInfoTextRepository();
-		ArrayList studentInfo;
-		studentInfo = studentPersonalInfoTextRepository.readToList();
-		System.out.println(studentInfo);
-		DatDatabase.write("StudentInfo.dat", studentInfo);
-		studentInfo = (ArrayList)DatDatabase.read("StudentInfo.dat");
-		UpdateStudentInfo updateStudentInfo = new UpdateStudentInfo();
-		//updateStudentInfo.addStudent();
-}
+	public static void addCourse(ArrayList studentsRecords, String key, String firstName, 
+			String lastName, String matricNum, String courseIndex, String indexNum) throws IOException{
+		Scanner sc = new Scanner(System.in);
+		ArrayList courseRecordList = (ArrayList)DatDatabase.read("CourseRecords.dat");
+		System.out.println("Course Index" + "  " + "Index Number"); 
+		System.out.println("***************************"); 		
+		for (int i=1; i<courseRecordList.size(); i++) { 
+			CourseRecord courseRecords = (CourseRecord)courseRecordList.get(i);	
+			if(courseRecords.getCourseIndex().equals(courseIndex)) {
+				System.out.println("   "+courseRecords.getCourseIndex() + "        " + courseRecords.getIndexNum()); 		  
+			}
+		}
+		System.out.println("Enter Index Number: "); 
+		indexNum = sc.next();
+		ArrayList studentRecords;
+		StudentRecordTextRepository studentCoursesTextRepository = new StudentRecordTextRepository();
+		studentsRecords = studentCoursesTextRepository.readToList();
+		StudentRecords newStudentRecord = new StudentRecords(key,firstName,lastName,matricNum,courseIndex,indexNum,"-","-","-","-","-");
+		studentsRecords.add(newStudentRecord);
+		studentCoursesTextRepository.saveList(studentsRecords);
+		/*
+		 * StudentPersonalInfoTextRepository studentPersonalInfoTextRepository = new
+		 * StudentPersonalInfoTextRepository(); ArrayList studentInfo; studentInfo =
+		 * studentPersonalInfoTextRepository.readToList();
+		 * System.out.println(studentInfo); DatDatabase.write("StudentInfo.dat",
+		 * studentInfo); studentInfo = (ArrayList)DatDatabase.read("StudentInfo.dat");
+		 * UpdateStudentInfo updateStudentInfo = new UpdateStudentInfo();
+		 * //updateStudentInfo.addStudent();
+		 */
+		}
 
 /**
  * AddCourse is a control class which implements the logic of adding a course

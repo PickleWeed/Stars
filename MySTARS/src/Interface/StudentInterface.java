@@ -87,16 +87,7 @@ public class StudentInterface {
 			switch(choice)
 			{
 				case "1":
-					addCourse();
-//					String courseIndex, temp;
-//					//query Course record and insert into arraylist
-//					//the courseIndex you want to add
-//					courseIndex = "0000";
-//					AddCourse.addCourse1(courseIndex, courseRecordList);
-//					AddCourse addCourse = new AddCourse();
-//					courseIndex = addCourse.queryCourseIndex();
-//					temp = addCourse.findRelevantRecord(courseIndex);
-//					addCourse.addCourse(temp);
+					addCourse(key);
 					break;
 				case "2":
 					dropCourse(key);
@@ -123,34 +114,43 @@ public class StudentInterface {
 		}
 	}
 	//case 1
-	private static void addCourse() {
-		String courseIndex = "0000", indexNumber; 
-		Scanner sc = new Scanner(System.in); 
-		for (int i=0; i<courseRecordList.size(); i++) { 
-			CourseRecord courseRecords = (CourseRecord)courseRecordList.get(i);	  
-			System.out.println(courseRecords.getCourseIndex()); 		  
-		}
-		System.out.println("Please enter Course Index: ");
-		courseIndex = sc.nextLine();
-		System.out.println("Please enter Index number for " + courseIndex + ":");
-		indexNumber = sc.nextLine();
-		for (int i=0; i<courseRecordList.size(); i++) { 
-			CourseRecord courseRecords = (CourseRecord)courseRecordList.get(i);	
-			if(((courseRecords.getCourseIndex()).equals(courseIndex)) && ((courseRecords.getIndexNum()).equals(indexNumber))) {
-				Student student = (Student)studentInfo.get(i);
-				String firstName = student.getFirstName();
-				String lastName = student.getLastName();
-
-				for(int j=0;j<studentsRecords.size();j++) {
-					StudentRecords studentRecords = (StudentRecords)studentsRecords.get(j);
-					if(studentRecords.getFirstName().equals(firstName) && studentRecords.getLastName().equals(lastName)) {
-						String key = studentRecords.getKey();
-						String matricNum = studentRecords.getMatricNum();
-						break;
-					}
-				}
+	private static void addCourse(String key) throws IOException{
+		String courseIndex;
+		System.out.println("Enter Course Index:");
+		courseIndex = sc.next();
+		String firstName = "", lastName = "", matricNum = "",indexNum = "";
+		for (int i = 0 ; i < studentsRecords.size() ; i++) {
+			StudentRecords studentRecord = (StudentRecords)studentsRecords.get(i);
+			if(studentRecord.getKey().equals(key)) {
+				firstName = studentRecord.getFirstName();
+				lastName = studentRecord.getLastName();
+				matricNum = studentRecord.getMatricNum();
+				break;
+				}	
 			}
-		}
+		AddCourse.addCourse(studentsRecords, key, firstName, lastName, matricNum, courseIndex, indexNum);
+		/*
+		 * String courseIndex = "0000", indexNumber; Scanner sc = new
+		 * Scanner(System.in); for (int i=0; i<courseRecordList.size(); i++) {
+		 * CourseRecord courseRecords = (CourseRecord)courseRecordList.get(i);
+		 * System.out.println(courseRecords.getCourseIndex()); }
+		 * System.out.println("Please enter Course Index: "); courseIndex =
+		 * sc.nextLine(); System.out.println("Please enter Index number for " +
+		 * courseIndex + ":"); indexNumber = sc.nextLine(); for (int i=0;
+		 * i<courseRecordList.size(); i++) { CourseRecord courseRecords =
+		 * (CourseRecord)courseRecordList.get(i);
+		 * if(((courseRecords.getCourseIndex()).equals(courseIndex)) &&
+		 * ((courseRecords.getIndexNum()).equals(indexNumber))) { Student student =
+		 * (Student)studentInfo.get(i); String firstName = student.getFirstName();
+		 * String lastName = student.getLastName();
+		 * 
+		 * for(int j=0;j<studentsRecords.size();j++) { StudentRecords studentRecords =
+		 * (StudentRecords)studentsRecords.get(j);
+		 * if(studentRecords.getFirstName().equals(firstName) &&
+		 * studentRecords.getLastName().equals(lastName)) { String key =
+		 * studentRecords.getKey(); String matricNum = studentRecords.getMatricNum();
+		 * break; } } } }
+		 */
 		//StudentRecords studentRecords = new StudentRecords(key,firstName,lastName,matricNum,courseIndex,IndexNum);
 		//studentsRecords.add(studentRecords);
 	}

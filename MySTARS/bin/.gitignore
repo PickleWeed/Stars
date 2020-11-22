@@ -1,29 +1,6 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-/AccessPeriod/
-/Admin/
-/CalendarExample.class
 /CourseRecords/
 /Interface/
 /Login/
 /Repository/
-/Scheduler/
-/SendMailTLS/
 /Student/
-/StudentInfo/
 /StudentRecords/
-/mySTARSApp.class
-=======
-/Interface/
-/Login/
-/Student/
-/StudentInfo/
-/StudentRecords/
->>>>>>> Stashed changes
-=======
-/Interface/
-/Login/
-/Student/
-/StudentInfo/
-/StudentRecords/
->>>>>>> Stashed changes
