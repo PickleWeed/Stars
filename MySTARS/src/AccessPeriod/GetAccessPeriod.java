@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import Repository.GlobalAccessPeriodTextRepository;
 
 public class GetAccessPeriod {
-	public static void viewAccessPeriod(ArrayList accessPeriod)
+	public static void printAccessPeriod(ArrayList accessPeriod)
 	{
 		for (int i = 0 ; i < accessPeriod.size() ; i++) {
 			AccessPeriod accessPeriodObj = (AccessPeriod)accessPeriod.get(i);
@@ -27,10 +27,5 @@ public class GetAccessPeriod {
 		}
 		System.out.println("Invalid Value");
 		return "nill";	
-	}
-
-	public static void main(String[] args) throws IOException {
-		
-	}
-		
+	}	
 }

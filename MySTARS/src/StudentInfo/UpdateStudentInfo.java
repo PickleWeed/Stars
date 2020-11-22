@@ -7,7 +7,7 @@ import java.util.List;
 import Login.Encrypt;
 import Login.LoginInfo;
 import Repository.LoginTextRepository;
-import Repository.StudentPersonalInfoTextRepository;
+import Repository.StudentPersonalTextRepository;
 
 public class UpdateStudentInfo {
 	
@@ -28,7 +28,7 @@ public class UpdateStudentInfo {
 		LoginInfo loginInfo = new LoginInfo(username, hashPassword, "Student", key);
 		loginArray.add(loginInfo);
 		
-		StudentPersonalInfoTextRepository studentPersonalInfoTextRepository = new StudentPersonalInfoTextRepository();
+		StudentPersonalTextRepository studentPersonalInfoTextRepository = new StudentPersonalTextRepository();
 		LoginTextRepository loginTextRepository = new LoginTextRepository();
 		studentPersonalInfoTextRepository.saveList(StudentInfoArray);
 		loginTextRepository.saveList(loginArray);
@@ -53,7 +53,7 @@ public class UpdateStudentInfo {
 				student.setAccessPeriod(accessPeriod);
 				System.out.println("Access Period Updated!\n");
 			}
-			StudentPersonalInfoTextRepository studentPersonalInfoTextRepository = new StudentPersonalInfoTextRepository();
+			StudentPersonalTextRepository studentPersonalInfoTextRepository = new StudentPersonalTextRepository();
 			studentPersonalInfoTextRepository.saveList(studentInfo);
 		}
 	}

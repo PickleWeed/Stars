@@ -8,7 +8,7 @@ import Repository.GlobalAccessPeriodTextRepository;
 
 public class GetCourseRecord {
 
-	public static void showIndexNum(ArrayList courseRecord) throws IOException
+	public static void printIndexNum(ArrayList courseRecord) throws IOException
 	{
 		System.out.println("List of Index Number:");
 		for (int i=0; i<courseRecord.size(); i++)
@@ -55,7 +55,7 @@ public class GetCourseRecord {
 		}
 	}
 	
-	public static void getAllCourseData(ArrayList courseRecord) throws IOException
+	public static void printAllCourseData(ArrayList courseRecord) throws IOException
 	{
 		for (int i = 0 ; i < courseRecord.size() ; i++) {
 			CourseRecord courseRecordList = (CourseRecord)courseRecord.get(i);
@@ -73,7 +73,7 @@ public class GetCourseRecord {
 				System.out.println("\n");
 			}
 	}
-	public static void getCourseCode(ArrayList courseRecord, String courseIndex, String indexNum)
+	public static void printCourseCode(ArrayList courseRecord, String courseIndex, String indexNum)
 	{
 		for (int i = 0 ; i < courseRecord.size() ; i++) {
 			CourseRecord courseRecordList = (CourseRecord)courseRecord.get(i);
@@ -95,7 +95,7 @@ public class GetCourseRecord {
 
 		}
 	}
-	public static void getCourseCode(ArrayList courseRecord) throws IOException
+	public static void printCourseCode(ArrayList courseRecord) throws IOException
 	{
 		for (int i = 0 ; i < courseRecord.size() ; i++) {
 			CourseRecord courseRecordList = (CourseRecord)courseRecord.get(i);

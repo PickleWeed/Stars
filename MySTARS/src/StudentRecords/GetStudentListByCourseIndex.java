@@ -22,7 +22,7 @@ public class GetStudentListByCourseIndex {
 	 * @param studentInfo Entire database of StudentInfo
 	 * @throws IOException If an input or output exception occurred
 	 */
-	public static void showStudentList(ArrayList studentRecordsList, ArrayList studentInfo, String courseIndex) throws IOException
+	public static void printStudentList(ArrayList studentRecordsList, ArrayList studentInfo, String courseIndex) throws IOException
 	{
 		boolean noResult = true;
 		System.out.println("\n***List of Students***");

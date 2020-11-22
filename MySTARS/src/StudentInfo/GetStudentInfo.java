@@ -3,8 +3,8 @@ package StudentInfo;
 import java.util.ArrayList;
 
 
-public class ViewStudentInfo {
-	public static void viewStudentInfo(ArrayList studentInfo, String key)
+public class GetStudentInfo {
+	public static void printStudentInfo(ArrayList studentInfo, String key)
 	{
 		for (int i = 0 ; i < studentInfo.size() ; i++) {
 			Student student = (Student)studentInfo.get(i);

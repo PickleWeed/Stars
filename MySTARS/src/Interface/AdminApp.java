@@ -5,12 +5,12 @@ import Repository.DatDatabase;
 import Repository.GlobalAccessPeriodTextRepository;
 import Repository.LoginTextRepository;
 import Repository.StudentRecordTextRepository;
-import Repository.StudentPersonalInfoTextRepository;
+import Repository.StudentPersonalTextRepository;
 import CourseRecords.CheckCourseRecord;
 import CourseRecords.GetCourseRecord;
 import StudentInfo.CheckStudentInfo;
 import StudentInfo.UpdateStudentInfo;
-import StudentInfo.ViewStudentInfo;
+import StudentInfo.GetStudentInfo;
 import StudentRecords.GetStudentListByCourseIndex;
 import StudentRecords.GetStudentListByIndexNumber;
 
@@ -65,7 +65,7 @@ public class AdminApp {
 	public void adminInterface() throws Exception
 	{	
 		CourseRecordsTextRepository courseRecordsTextRepository = new CourseRecordsTextRepository();
-		StudentPersonalInfoTextRepository studentPersonalInfoTextRepository = new StudentPersonalInfoTextRepository();
+		StudentPersonalTextRepository studentPersonalInfoTextRepository = new StudentPersonalTextRepository();
 		LoginTextRepository loginTextRepository = new LoginTextRepository();
 		StudentRecordTextRepository studentCoursesTextRepository = new StudentRecordTextRepository();
 		GlobalAccessPeriodTextRepository globalAccessPeriodTextRepository = new GlobalAccessPeriodTextRepository();
@@ -130,7 +130,7 @@ public class AdminApp {
 					printStudentListByCourseIndex();
 					break;
 				case "7":
-					getCourseVacancy();
+					printCourseVacancy();
 					break;
 				case "8":
 					System.out.println("Goodbye!\n");
@@ -148,12 +148,12 @@ public class AdminApp {
 		System.out.println("Edit a Student Access Period");
 		System.out.printf("Enter Student's Matric Number: ");
 		String matricNum = sc.next();
-		String key = ViewStudentInfo.getStudentKey(studentInfo, matricNum);
+		String key = GetStudentInfo.getStudentKey(studentInfo, matricNum);
 		String startAccessPeriod, endAccessPeriod, accessPeriod;
 		
 		if(key != "nill")
 		{
-			ViewStudentInfo.viewStudentInfo(studentInfo, key);
+			GetStudentInfo.printStudentInfo(studentInfo, key);
 			System.out.printf("Enter Starting Access Period to change to (DD/MM/YYYY):");
 			//enter date, day, year
 			startAccessPeriod = sc.next();
@@ -205,7 +205,7 @@ public class AdminApp {
 		}	
 		System.out.printf("Enter student password: ");
 		String password = sc.next();
-		GetAccessPeriod.viewAccessPeriod(accessPeriodList);
+		GetAccessPeriod.printAccessPeriod(accessPeriodList);
 		String accessPeriod;
 		//check dupicate
 		while(true) {
@@ -272,7 +272,7 @@ public class AdminApp {
 	private void updateCourse() throws Exception
 	{
 		//remember update a course also must update student course
-		GetCourseRecord.getCourseCode(courseRecord);
+		GetCourseRecord.printCourseCode(courseRecord);
 		String courseIndex, indexNum;
 		//check duplicate
 		while(true)
@@ -284,7 +284,7 @@ public class AdminApp {
 			if(CheckCourseRecord.checkCourse(courseRecord, courseIndex, indexNum) == true)
 				break;
 		}
-		GetCourseRecord.getCourseCode(courseRecord, courseIndex, indexNum);
+		GetCourseRecord.printCourseCode(courseRecord, courseIndex, indexNum);
 		
 		String num;
 		while(true)
@@ -321,28 +321,28 @@ public class AdminApp {
 		// TODO Auto-generated method stub
 		System.out.printf("Enter Index Number to check list of Student:");
 		String indexNum = sc.next();
-		GetStudentListByIndexNumber.showStudentList(studentRecord, studentInfo, indexNum);
+		GetStudentListByIndexNumber.printStudentList(studentRecord, studentInfo, indexNum);
 	}
 	//case 6
 	private void printStudentListByCourseIndex() throws IOException{
 		// TODO Auto-generated method stub
 		System.out.printf("Enter Course Index to check list of Student:");
 		String courseIndex = sc.next();
-		GetStudentListByCourseIndex.showStudentList(studentRecord, studentInfo, courseIndex);
+		GetStudentListByCourseIndex.printStudentList(studentRecord, studentInfo, courseIndex);
 	}
 	//case 7
-	private void getCourseVacancy() throws IOException
+	private void printCourseVacancy() throws IOException
 	{
-		GetCourseRecord.showIndexNum(courseRecord);
+		GetCourseRecord.printIndexNum(courseRecord);
 		System.out.printf("Enter Index Number to check avaliable Vacancy: ");
 		String indexNum = sc.next();
 		GetCourseRecord.printVacancy(indexNum, courseRecord);
 	}
 	//Testing purpose
-	public static void main(String[] args) throws Exception {
+	/*public static void main(String[] args) throws Exception {
 		AdminApp adminApp = new AdminApp();
 		adminApp.adminInterface();
 		
-	}
+	}*/
 
 }

@@ -1,7 +1,7 @@
 package Interface;
 import Student.*;
 import StudentInfo.Student;
-import StudentInfo.ViewStudentInfo;
+import StudentInfo.GetStudentInfo;
 import StudentRecords.GetStudentListByIndexNumber;
 import StudentRecords.StudentRecords;
 
@@ -16,7 +16,7 @@ import Repository.DatDatabase;
 import Repository.GlobalAccessPeriodTextRepository;
 import Repository.LoginTextRepository;
 import Repository.StudentRecordTextRepository;
-import Repository.StudentPersonalInfoTextRepository;
+import Repository.StudentPersonalTextRepository;
 
 /**
  * StudentInterface is a boundary class which interacts with the student to perform any operation on MySTARS
@@ -47,7 +47,7 @@ public class StudentInterface {
 	public void inStudentInterface(String key) throws IOException
 	{
 		CourseRecordsTextRepository courseRecordsTextRepository = new CourseRecordsTextRepository();
-		StudentPersonalInfoTextRepository studentPersonalInfoTextRepository = new StudentPersonalInfoTextRepository();
+		StudentPersonalTextRepository studentPersonalInfoTextRepository = new StudentPersonalTextRepository();
 		LoginTextRepository loginTextRepository = new LoginTextRepository();
 		StudentRecordTextRepository studentCoursesTextRepository = new StudentRecordTextRepository();
 		GlobalAccessPeriodTextRepository globalAccessPeriodTextRepository = new GlobalAccessPeriodTextRepository();

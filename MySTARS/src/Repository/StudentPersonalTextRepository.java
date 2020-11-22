@@ -22,7 +22,7 @@ import StudentInfo.Student;
  * @author ?
  *
  */
-public class StudentPersonalInfoTextRepository implements Repository{
+public class StudentPersonalTextRepository implements Repository{
 	private static final String SEPARATOR = "|";
 	private static final  String FILENAME = "StudentsInfo.txt" ;
 	private static final  String DATFILENAME = "StudentsInfo.dat" ;
@@ -118,7 +118,7 @@ public class StudentPersonalInfoTextRepository implements Repository{
 				System.out.println("IOException > " + e.getMessage());
 			}*/
 		
-		StudentPersonalInfoTextRepository studentRecTextRepository = new StudentPersonalInfoTextRepository();
+		StudentPersonalTextRepository studentRecTextRepository = new StudentPersonalTextRepository();
 		// read file containing Professor records.
 		//ArrayList al = studentRecTextRepository.readToList() ;
 		//DatDatabase.write("StudentsInfo.dat", al);

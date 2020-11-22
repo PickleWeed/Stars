@@ -6,7 +6,7 @@ import java.util.Scanner;
 import CourseRecords.CourseRecord;
 import Repository.CourseRecordsTextRepository;
 import Repository.DatDatabase;
-import Repository.StudentPersonalInfoTextRepository;
+import Repository.StudentPersonalTextRepository;
 import Repository.StudentRecordTextRepository;
 import StudentInfo.*;
 import StudentRecords.StudentRecords;

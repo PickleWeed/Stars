@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class GetStudentRecord {
 	
-	public static void getStudentRecord(ArrayList StudentRecord, String key)
+	public static void printStudentRecord(ArrayList StudentRecord, String key)
 	{
 		for (int i = 0 ; i < StudentRecord.size() ; i++) {
 			StudentRecords studentRecord = (StudentRecords)StudentRecord.get(i);
