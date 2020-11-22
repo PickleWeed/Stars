@@ -336,7 +336,7 @@ public class AdminApp {
 		GetCourseRecord.showIndexNum(courseRecord);
 		System.out.printf("Enter Index Number to check avaliable Vacancy: ");
 		String indexNum = sc.next();
-		GetCourseRecord.getVacancy(indexNum, courseRecord);
+		GetCourseRecord.printVacancy(indexNum, courseRecord);
 	}
 	//Testing purpose
 	public static void main(String[] args) throws Exception {

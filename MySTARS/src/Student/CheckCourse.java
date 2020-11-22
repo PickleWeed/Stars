@@ -16,7 +16,7 @@ import StudentRecords.StudentRecords;
  *
  */
 public class CheckCourse {
-
+	
 	public static void getCourseDetails(ArrayList StudentRecord, String key)
 	{
 		int count = 0;
@@ -53,6 +53,7 @@ public class CheckCourse {
 			System.out.println("Total AU Registered: " + totalAU);
 		}
 	}
+	
 //	public static void showIndexNum(ArrayList StudentRecordsList,ArrayList loginInfo) throws IOException
 //	{
 //

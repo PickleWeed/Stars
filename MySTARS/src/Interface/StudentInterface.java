@@ -76,7 +76,7 @@ public class StudentInterface {
 			System.out.println("1. Add Course");
 			System.out.println("2. Drop Course");
 			System.out.println("3. Check/Print Courses Registered");
-			System.out.println("4. Check Vancancies");
+			System.out.println("4. Check Vancancies Available");
 			System.out.println("5. Change Index Number of Course");
 			System.out.println("6. Swap Index Number with Another Student");
 			System.out.println("7. Logout");
@@ -166,10 +166,9 @@ public class StudentInterface {
 
 	private static void getCourseVacancy() throws IOException
 	{
-		GetCourseRecord.showIndexNum(courseRecordList);
-		System.out.println("Enter Index Number to check avaliable Vacancy:");
+		System.out.println("Enter Index Number:");
 		String indexNum = sc.next();
-		GetCourseRecord.getVacancy(indexNum, courseRecordList);
+		GetCourseRecord.printVacancy(indexNum, courseRecordList);
 	}
 	
 }

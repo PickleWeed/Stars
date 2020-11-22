@@ -1,1 +1,1 @@
-key|firstName|lastName|MatricNum|gender|nationality|age|AccessPeriod|NTU@ntu.edu.sgCV|Carvin|Lim|Q1234567P|Male|Singaporean|23|01/10/2020 - 20/12/2020|Carvin@ntu.edu.sgVC|Amy|Chew|P1234567V|Female|Singaporean|21|20/06/2020 - 20/08/2020|Amy@ntu.edu.sg
+key|firstName|lastName|MatricNum|gender|nationality|age|AccessPeriod|NTU@ntu.edu.sgLX|Carvin|Lim|Q1234567P|Male|Singaporean|23|01/10/2020 - 20/12/2020|Carvin@ntu.edu.sgCV|Amy|Chew|P1234567V|Female|Singaporean|21|20/06/2020 - 20/08/2020|Amy@ntu.edu.sg
