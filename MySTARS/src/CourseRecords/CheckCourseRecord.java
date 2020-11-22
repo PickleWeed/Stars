@@ -32,7 +32,7 @@ public class CheckCourseRecord {
 				System.out.println("Cannot add a course that already exist");
 				return true;
 			}
-				
+
 		}
 		return false;
 	}
