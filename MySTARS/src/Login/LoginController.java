@@ -76,7 +76,7 @@ public class LoginController {
 			    if(choice == 1)
 			    {
 			    	StudentInterface studentInterface = new StudentInterface();
-			    	studentInterface.inStudentInterface();
+			    	studentInterface.inStudentInterface(key);
 			    }
 			    	
 			    else if(choice == 2)

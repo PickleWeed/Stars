@@ -58,9 +58,14 @@ public class StudentRecordTextRepository implements Repository{
 				String  matricNum = star.nextToken().trim();
 				String  courseIndex = star.nextToken().trim();
 				String  indexNum = star.nextToken().trim();
+				String  AU = star.nextToken().trim();
+				String  courseType = star.nextToken().trim();
+				String  SU = star.nextToken().trim();
+				String  GERType = star.nextToken().trim();
+				String  status = star.nextToken().trim();
 				//int  vacancy = Integer.parseInt(star.nextToken().trim());
 				// create Professor object from file data
-				StudentRecords studentRecords = new StudentRecords(key, firstname, lastname, matricNum, courseIndex, indexNum);
+				StudentRecords studentRecords = new StudentRecords(key, firstname, lastname, matricNum, courseIndex, indexNum, AU, courseType, SU,GERType, status);
 				// add to Professors list
 				alr.add(studentRecords) ;
 			}

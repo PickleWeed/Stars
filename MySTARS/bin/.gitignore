@@ -1,6 +1,13 @@
-/Student/
+/AccessPeriod/
+/Admin/
+/CalendarExample.class
+/CourseRecords/
 /Interface/
 /Login/
 /Repository/
-/CourseRecords/
+/Scheduler/
+/SendMailTLS/
+/Student/
 /StudentInfo/
+/StudentRecords/
+/mySTARSApp.class
