@@ -72,7 +72,7 @@ public class StudentInterface {
 			System.out.println("1. Add Course");
 			System.out.println("2. Drop Course");
 			System.out.println("3. Check/Print Courses Registered");
-			System.out.println("4. Check Vancancies Available");
+			System.out.println("4. Check Vacancies Available");
 			System.out.println("5. Change Index Number of Course");
 			System.out.println("6. Swap Index Number with Another Student");
 			System.out.println("7. Logout");
@@ -130,9 +130,13 @@ public class StudentInterface {
 	
 	//case 2
 	private static void dropCourse(String key) throws IOException {
+		List aList = ChangeIndex.getIndexList(studentsRecords, key);
 		System.out.println("Enter Index Number:");
 		String indexNum = sc.next();
-		DropCourse.dropCourse(studentsRecords, key, indexNum);
+		if (aList.contains(indexNum) == true)
+			DropCourse.dropCourse(studentsRecords, key, indexNum);
+		else
+			System.out.println("You are not registered for this index.\n");
 	}
 	
 	//case 3
@@ -155,14 +159,17 @@ public class StudentInterface {
 	//case 5
 	private static void changeIndex(String key) throws IOException
 	{
-		// still need add check if valid index 
 		List aList = ChangeIndex.getIndexList(studentsRecords, key); // index of registered course for student
+		
 		System.out.println("Enter Old Index Number:");
 		String oldIndex = sc.next();
+		
 		if (aList.contains(oldIndex) == true) {
 			List bList = ChangeIndex.getIndexListByCourse(courseRecordList,oldIndex); // list of all index in specific course
+			
 			System.out.println("Enter New Index Number:");
 			String newIndex = sc.next();
+			
 			if(bList.contains(newIndex) == true){
 				ChangeIndex.changeIndex(studentsRecords,courseRecordList, oldIndex, newIndex, key);
 			} else {

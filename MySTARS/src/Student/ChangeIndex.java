@@ -30,10 +30,26 @@ public class ChangeIndex {
 		return indexList;
 	}
 	
-	public static ArrayList getIndexListByCourse(ArrayList courseRecords,String oldIndex) {
-		
-		return;
+	public static ArrayList getIndexListByCourse(ArrayList courseRecord,String oldIndex) {
+		ArrayList<String> indexList = new ArrayList<String>();
+		String courseIndex;
+		for (int i=0; i<courseRecord.size(); i++)
+		{
+			CourseRecord courseRecords = (CourseRecord)courseRecord.get(i);
+			if(courseRecords.getIndexNum().equals(oldIndex)) {
+				 courseIndex = courseRecords.getCourseIndex();
+				 for (int j=0; j<courseRecord.size(); j++){
+					CourseRecord courseRec = (CourseRecord)courseRecord.get(j);
+					if(courseRec.getCourseIndex().equals(courseIndex)) {
+							indexList.add(courseRec.getIndexNum());
+					}
+				 }
+				 break;
+			}
 	}
+		return indexList;
+	}
+	
 	public static void changeIndex(ArrayList studentsRecords, ArrayList courseRecordList, String oldIndexNum, String newIndexNum, String key) throws IOException {
 	    int count = 0;
 	    //print details of old and new index

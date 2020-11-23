@@ -29,15 +29,15 @@ public class GetCourseRecord {
 	}
 	public static void printVacancy(String indexNum, ArrayList courseRecord)
 	{
+//		for (int i=0; i<courseRecord.size(); i++)
+//		{
+//			CourseRecord courseRecords = (CourseRecord)courseRecord.get(i);
+//			if(courseRecords.getIndexNum().equals(indexNum)) {
+//				System.out.println("Index Number: "+ indexNum + "     Course: "+ courseRecords.getCourseIndex() + "\n");
+//				break;
+//			}
+//		}
 		for (int i=0; i<courseRecord.size(); i++)
-		{
-			CourseRecord courseRecords = (CourseRecord)courseRecord.get(i);
-			if(courseRecords.getIndexNum().equals(indexNum)) {
-				System.out.println("Index Number: "+ indexNum + "     Course: "+ courseRecords.getCourseIndex() + "\n");
-				break;
-			}
-		}
-		/*for (int i=0; i<courseRecord.size(); i++)
 		{
 			//get array object 
 			CourseRecord courseRecords = (CourseRecord)courseRecord.get(i);
@@ -50,7 +50,7 @@ public class GetCourseRecord {
 				System.out.println("Remarks: " + courseRecords.getRemarks());
 				System.out.println("\n");
 			}
-		}*/
+		}
 		
 		for (int i=0; i<courseRecord.size(); i++)
 		{
