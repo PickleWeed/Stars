@@ -270,9 +270,11 @@ public class AdminApp {
 			String courseType = sc.next();
 			System.out.printf("Enter SU (Yes or No): ");
 			String SU = sc.next();
+			System.out.printf("Enter GERType (BM or LA or STS): ");
+			String GERType = sc.next();
 			//add course
 			num = Integer.toString(number);
-			UpdateCourseRecord.addCourse(courseRecord, num, courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, courseName, AU, courseType, SU);
+			UpdateCourseRecord.addCourse(courseRecord, num, courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, courseName, AU, courseType, SU,GERType);
 		}
 	}
 	//case 4
@@ -317,6 +319,12 @@ public class AdminApp {
 		String remarks = sc.next();
 		System.out.printf("Enter AU: ");
 		String AU = sc.next();
+		System.out.printf("Enter Course Type: ");
+		String CourseType = sc.next();
+		System.out.printf("Enter SU Option: ");
+		String SU = sc.next();
+		System.out.printf("Enter GER Type: ");
+		String GERType = sc.next();
 		if(num.equals("1"))
 		{
 			System.out.printf("Enter Vacancy: ");
@@ -324,7 +332,7 @@ public class AdminApp {
 		}
 		//update Course Record
 		UpdateCourseRecord.editCourse(courseRecord,  num, courseIndex, indexNum, type,  group, 
-				day, time, venue, remarks, vacancy, AU);
+				day, time, venue, remarks, vacancy, AU, CourseType, SU, GERType);
 		//update Student Record
 		UpdateStudentRecord.updateStudentRecord(studentRecord, courseIndex, indexNum, AU);
 	}

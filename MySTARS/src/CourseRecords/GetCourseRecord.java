@@ -78,6 +78,9 @@ public class GetCourseRecord {
 				System.out.println("Vacancy: " + courseRecordList.getVacancy() );
 				System.out.println("Name: " + courseRecordList.getName() );
 				System.out.println("AU: " + courseRecordList.getAU());
+				System.out.println("Course Type: " + courseRecordList.getCourseType());
+				System.out.println("SU: " + courseRecordList.getSU());
+				System.out.println("GER Type: " + courseRecordList.getGERType());
 				System.out.println("");
 			}
 	}
@@ -100,6 +103,9 @@ public class GetCourseRecord {
 				System.out.println("Vacancy: " + courseRecordList.getVacancy() );
 				System.out.println("Name: " + courseRecordList.getName() );	
 				System.out.println("AU: " + courseRecordList.getAU());
+				System.out.println("Course Type: " + courseRecordList.getCourseType());
+				System.out.println("SU: " + courseRecordList.getSU());
+				System.out.println("GER Type: " + courseRecordList.getGERType());
 			}
 
 		}
