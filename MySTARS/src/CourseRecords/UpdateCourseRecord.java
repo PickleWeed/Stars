@@ -15,8 +15,6 @@ public class UpdateCourseRecord {
 		CourseRecordsTextRepository courseRecordsTextRepository = new CourseRecordsTextRepository();
 		courseRecordsTextRepository.saveList(courseRecord);
 		
-		System.out.println("Course Successfully added!\n");
-
 		System.out.println("CourseIndex: " + newCourseRecord.getCourseIndex() );
 		System.out.println("IndexNum: " + newCourseRecord.getIndexNum() );
 		System.out.println("Type: " + newCourseRecord.getType() );
@@ -27,6 +25,8 @@ public class UpdateCourseRecord {
 		System.out.println("Remarks: " + newCourseRecord.getRemarks() );
 		System.out.println("Vacancy: " + newCourseRecord.getVacancy() );
 		System.out.println("Name: " + newCourseRecord.getName() );
+		
+		System.out.println("Course Successfully added!\n");
 	}
 	public static boolean checkCourseIndex(ArrayList courseRecord, String courseIndex)
 	{
@@ -75,7 +75,8 @@ public class UpdateCourseRecord {
 				System.out.println("AU: " + courseRecords.getAU() );
 				System.out.println("\n");
 				
-				System.out.println("Successful edited!");
+				System.out.println("Successful edited!\n");
+				return;
 			}
 			
 		}

@@ -45,6 +45,7 @@ public class GetStudentListByIndexNumber {
 				}
 			}
 		}
+		System.out.println();
 		if(noResult)
 			System.out.println("No Results\n");
 	}

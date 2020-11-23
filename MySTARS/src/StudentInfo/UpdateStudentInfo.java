@@ -29,8 +29,7 @@ public class UpdateStudentInfo {
 		studentPersonalInfoTextRepository.saveList(StudentInfoArray);
 		loginTextRepository.saveList(loginArray);
 		
-		System.out.println("Student Successfully added!\n");
-		
+		System.out.println("******Student Info*******");
 		System.out.println("FirstName: " + student.getFirstName() );
 		System.out.println("LastName: " + student.getLastName() );
 		System.out.println("Matric Number: " + student.getMatricNum() );
@@ -39,6 +38,8 @@ public class UpdateStudentInfo {
 		System.out.println("Age: " + student.getAge() );
 		System.out.println("Access Period: " + student.getAccessPeriod());
 		System.out.println("\n");
+		
+		System.out.println("Student Successfully added!\n");
 	}
 	public static void updateStudentAC(ArrayList studentInfo, String accessPeriod, String key) throws IOException
 	{
@@ -46,8 +47,9 @@ public class UpdateStudentInfo {
 			Student student = (Student)studentInfo.get(i);
 			if(student.getKey().equals(key))
 			{
+				System.out.println("Old Access Period: " + student.getAccessPeriod() + ", New Access Period: " + accessPeriod);
 				student.setAccessPeriod(accessPeriod);
-				System.out.println("Access Period Updated!\n");
+				System.out.println("Access Period Updated!\n");	
 			}
 			StudentPersonalTextRepository studentPersonalInfoTextRepository = new StudentPersonalTextRepository();
 			studentPersonalInfoTextRepository.saveList(studentInfo);

@@ -13,7 +13,7 @@ public class GetCourseRecord {
 			//get array object 
 			CourseRecord courseRecords = (CourseRecord)courseRecord.get(i);
 			if(!courseRecords.getVacancy().equals("-"))
-				System.out.println("Index Number: " + courseRecords.getIndexNum());
+				System.out.println("Index Number: " + courseRecords.getIndexNum() + ", Name: " + courseRecords.getName());
 		}
 	}
 	public static void printVacancy(String indexNum, ArrayList courseRecord)
@@ -26,7 +26,7 @@ public class GetCourseRecord {
 				break;
 			}
 		}
-		for (int i=0; i<courseRecord.size(); i++)
+		/*for (int i=0; i<courseRecord.size(); i++)
 		{
 			//get array object 
 			CourseRecord courseRecords = (CourseRecord)courseRecord.get(i);
@@ -39,7 +39,7 @@ public class GetCourseRecord {
 				System.out.println("Remarks: " + courseRecords.getRemarks());
 				System.out.println("\n");
 			}
-		}
+		}*/
 		
 		for (int i=0; i<courseRecord.size(); i++)
 		{
@@ -66,8 +66,8 @@ public class GetCourseRecord {
 				System.out.println("Remarks: " + courseRecordList.getRemarks() );
 				System.out.println("Vacancy: " + courseRecordList.getVacancy() );
 				System.out.println("Name: " + courseRecordList.getName() );
-				
-				System.out.println("\n");
+				System.out.println("AU: " + courseRecordList.getAU());
+				System.out.println("");
 			}
 	}
 	public static void printCourseCode(ArrayList courseRecord, String courseIndex, String indexNum)
@@ -87,7 +87,8 @@ public class GetCourseRecord {
 				System.out.println("Venue: " + courseRecordList.getVenue() );
 				System.out.println("Remarks: " + courseRecordList.getRemarks() );
 				System.out.println("Vacancy: " + courseRecordList.getVacancy() );
-				System.out.println("Name: " + courseRecordList.getName() );				
+				System.out.println("Name: " + courseRecordList.getName() );	
+				System.out.println("AU: " + courseRecordList.getAU());
 			}
 
 		}
@@ -99,6 +100,7 @@ public class GetCourseRecord {
 			if(!courseRecordList.getVacancy().equals("-"))
 				System.out.println("Course Index: " + courseRecordList.getCourseIndex() + ", Index Number: " + courseRecordList.getIndexNum());
 		}
+		System.out.println();
 	}
 	
 }

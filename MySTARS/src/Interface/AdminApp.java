@@ -73,13 +73,14 @@ public class AdminApp {
 
 		while(!choice.equals("8"))
 		{
-			//get Data from txtfile
+			//get Data from txtfile - can be commented out in final Version
 			courseRecord = courseRecordsTextRepository.readToList();
 			studentInfo = studentPersonalInfoTextRepository.readToList();
 			loginInfo = loginTextRepository.readToList();
 			studentRecord = studentCoursesTextRepository.readToList();
 			accessPeriodList = globalAccessPeriodTextRepository.readToList();
 			
+			//write data to Dat file - can be commented out in final Version
 			DatDatabase.write("CourseRecords.dat", courseRecord);
 			DatDatabase.write("StudentInfo.dat", studentInfo);
 			DatDatabase.write("LoginsInfo.dat", loginInfo);
@@ -93,7 +94,6 @@ public class AdminApp {
 			studentRecord = (ArrayList)DatDatabase.read("StudentRecords.dat");
 			accessPeriodList = (ArrayList)DatDatabase.read("GlobalAccessPeriod.dat");
 						
- 			//GetCourseRecord.getCourseData(courseRecord);
  			
 			System.out.println("****ADMIN INTERFACE****");
 			System.out.println("1. Edit Student Access Period");
@@ -133,6 +133,8 @@ public class AdminApp {
 					break;
 				case "8":
 					System.out.println("Goodbye!\n");
+					LoginInterface loginInterface = new LoginInterface();
+					loginInterface.loginAs();
 					break;
 				default:
 					System.out.println("Please Enter a Valid Number!\n");
@@ -144,9 +146,9 @@ public class AdminApp {
 	//case 1
 	private void editStudentAccess() throws IOException
 	{	
-		System.out.println("Edit a Student Access Period");
+		System.out.println("\n******EditStudent Access Period******");
 		System.out.printf("Enter Student's Matric Number: ");
-		String matricNum = sc.next();
+		String matricNum = sc.next().toUpperCase();
 		String key = GetStudentInfo.getStudentKey(studentInfo, matricNum);
 		String startAccessPeriod, endAccessPeriod, accessPeriod;
 		
@@ -175,7 +177,7 @@ public class AdminApp {
 		String matricNum;
 		while(true) {
 			System.out.printf("Enter student Matric Number: ");
-			matricNum = sc.next();
+			matricNum = sc.next().toUpperCase();
 			if(CheckStudentInfo.checkMatricNum(matricNum, studentInfo) == false) 
 					break;
 		}	
@@ -190,7 +192,7 @@ public class AdminApp {
 		String email;
 		while(true) {
 			System.out.printf("Enter Student email:");
-			email = sc.next();
+			email = sc.next().toLowerCase();
 			if(CheckStudentInfo.checkEmail(email, studentInfo) == false)
 				break;
 		}
@@ -198,7 +200,7 @@ public class AdminApp {
 		//check duplicate
 		while(true) {
 			System.out.printf("Enter Student login Username: ");
-			username = sc.next();
+			username = sc.next().toLowerCase();
 			if(CheckStudentInfo.checkUsername(username, loginInfo) == false) 
 					break;
 		}	
@@ -208,7 +210,7 @@ public class AdminApp {
 		String accessPeriod;
 		//check dupicate
 		while(true) {
-			System.out.printf("Choose a value which Access Period you want to add: ");
+			System.out.printf("\nChoose a value which Access Period you want to add: ");
 			accessPeriod = sc.next();
 			accessPeriod = GetAccessPeriod.getAccessPeriod(accessPeriodList, accessPeriod);
 			if(!accessPeriod.equals("nill"))
@@ -225,12 +227,12 @@ public class AdminApp {
 		while(true)
 		{
 			System.out.printf("Enter the course Index you want to add: ");
-			courseIndex = sc.next();
+			courseIndex = sc.next().toUpperCase();
 			System.out.printf("Enter Index Number: ");
 			indexNum = sc.next();
 			if(CheckCourseRecord.checkDuplicate(courseRecord, courseIndex, indexNum) == false)
 				break;
-			System.out.println("Try again");
+			System.out.println("Try again!\n");
 		}
 
 		String num;
@@ -283,7 +285,7 @@ public class AdminApp {
 		while(true)
 		{
 			System.out.printf("Enter Course Number you want to Edit: ");
-			courseIndex = sc.next();
+			courseIndex = sc.next().toUpperCase();
 			System.out.printf("Enter Index Number you want to Edit: ");
 			indexNum = sc.next();
 			if(CheckCourseRecord.checkCourse(courseRecord, courseIndex, indexNum) == true)
@@ -337,19 +339,15 @@ public class AdminApp {
 	private void printStudentListByCourseIndex() throws IOException{
 		// TODO Auto-generated method stub
 		System.out.printf("Enter Course Index to check list of Student:");
-		String courseIndex = sc.next();
+		String courseIndex = sc.next().toUpperCase();
 		GetStudentListByCourseIndex.printStudentList(studentRecord, studentInfo, courseIndex);
 	}
 	//case 7
 	private void printCourseVacancy() throws IOException
 	{
 		GetCourseRecord.printIndexNum(courseRecord);
-		System.out.printf("Enter Index Number to check avaliable Vacancy: ");
+		System.out.printf("\nEnter Index Number to check avaliable Vacancy: ");
 		String indexNum = sc.next();
 		GetCourseRecord.printVacancy(indexNum, courseRecord);
-	}
-	public static void main(String[] args) throws Exception {
-		AdminApp adminApp = new AdminApp();
-    	adminApp.adminInterface();
 	}
 }
