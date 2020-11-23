@@ -1,6 +1,11 @@
 package Interface;
 
 import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+
+
 import Login.LoginController;
 import java.io.Console;
 
@@ -11,7 +16,7 @@ import java.io.Console;
  * @author ?
  *
  */
-public class LoginInterface {
+public class LoginInterface extends javax.swing.JPanel{
 	
 	private String username, password;
 	private String choice;
@@ -50,8 +55,10 @@ public class LoginInterface {
       
 		//password = consoleReadPass();
       
-		System.out.printf("Please Enter Password: ");
-		password = sc.next();	
+		//System.out.printf("Please Enter Password: ");
+		//password = sc.next();
+			
+		password = masking();
 		
 		LoginController loginController = new LoginController(); //Enter loginController
 		loginController.validateLogin(username, password, choice);
@@ -67,5 +74,19 @@ public class LoginInterface {
 	      
 	      char[] pass = console.readPassword("Please Enter password:");
 	      return String.valueOf(pass);
+	}
+	public static String masking() {
+		final String password, message = "Enter password";
+		if( System.console() == null ) 
+		{ // inside IDE like Eclipse or NetBeans
+		  final JPasswordField pf = new JPasswordField(); 
+		  return password = JOptionPane.showConfirmDialog( null, pf, message,
+		    JOptionPane.OK_CANCEL_OPTION,
+		    JOptionPane.QUESTION_MESSAGE ) == JOptionPane.OK_OPTION ? 
+		      new String( pf.getPassword() ) : "";
+		}
+		else 
+			return password = new String( System.console().readPassword( "%s> ", message ) );
+		
 	}
 }
