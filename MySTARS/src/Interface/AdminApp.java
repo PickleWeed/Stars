@@ -298,7 +298,7 @@ public class AdminApp {
 			if(CheckCourseRecord.checkNum(courseRecord, num, courseIndex, indexNum) == true)
 				break;
 		}
-		String vacancy = "nill";
+		String vacancy = "-";
 		
 		System.out.printf("Enter Type: ");
 		String type = sc.next();
