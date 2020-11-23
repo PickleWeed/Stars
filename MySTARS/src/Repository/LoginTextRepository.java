@@ -1,14 +1,9 @@
 package Repository;
 
-import java.io.FileInputStream;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 import java.util.StringTokenizer;
-
 import Login.LoginInfo;
 
 /**
@@ -58,21 +53,19 @@ public class LoginTextRepository implements Repository{
 	public ArrayList readToList() throws IOException {
 		// read String from text file
 		ArrayList stringArray = (ArrayList)TextDatabase.read(FILENAME);
-		ArrayList alr = new ArrayList() ;// to store Professors data
+		ArrayList alr = new ArrayList();
 
         for (int i = 0 ; i < stringArray.size() ; i++) {
 				String st = (String)stringArray.get(i);
-				// get individual 'fields' of the string separated by SEPARATOR
-				StringTokenizer star = new StringTokenizer(st , SEPARATOR);	// pass in the string to the string tokenizer using delimiter ","
+				StringTokenizer star = new StringTokenizer(st , SEPARATOR);	
 
 				String  username = star.nextToken().trim();
-				String  password = star.nextToken().trim();	// first token
-				String  type = star.nextToken().trim();	// second token
-				String  key = star.nextToken().trim();	// third token
-				//int  vacancy = Integer.parseInt(star.nextToken().trim());
-				// create Professor object from file data
+				String  password = star.nextToken().trim();	
+				String  type = star.nextToken().trim();	
+				String  key = star.nextToken().trim();
+
 				LoginInfo loginInfo = new LoginInfo(username, password, type, key);
-				// add to Professors list
+				
 				alr.add(loginInfo) ;
 			}
 			return alr ;

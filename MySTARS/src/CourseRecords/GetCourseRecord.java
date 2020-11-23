@@ -3,9 +3,6 @@ package CourseRecords;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import Repository.CourseRecordsTextRepository;
-import Repository.GlobalAccessPeriodTextRepository;
-
 public class GetCourseRecord {
 
 	public static void printIndexNum(ArrayList courseRecord) throws IOException

@@ -1,15 +1,10 @@
 package Interface;
-import Student.*;
-import StudentInfo.Student;
-import StudentInfo.GetStudentInfo;
-import StudentRecords.GetStudentListByIndexNumber;
-import StudentRecords.StudentRecords;
 
+import Student.*;
+import StudentRecords.StudentRecords;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
-
 import CourseRecords.*;
 import Repository.CourseRecordsTextRepository;
 import Repository.DatDatabase;
@@ -130,31 +125,8 @@ public class StudentInterface {
 				}	
 			}
 		AddCourse.addCourse(studentsRecords, key, firstName, lastName, matricNum, courseIndex, indexNum);
-		/*
-		 * String courseIndex = "0000", indexNumber; Scanner sc = new
-		 * Scanner(System.in); for (int i=0; i<courseRecordList.size(); i++) {
-		 * CourseRecord courseRecords = (CourseRecord)courseRecordList.get(i);
-		 * System.out.println(courseRecords.getCourseIndex()); }
-		 * System.out.println("Please enter Course Index: "); courseIndex =
-		 * sc.nextLine(); System.out.println("Please enter Index number for " +
-		 * courseIndex + ":"); indexNumber = sc.nextLine(); for (int i=0;
-		 * i<courseRecordList.size(); i++) { CourseRecord courseRecords =
-		 * (CourseRecord)courseRecordList.get(i);
-		 * if(((courseRecords.getCourseIndex()).equals(courseIndex)) &&
-		 * ((courseRecords.getIndexNum()).equals(indexNumber))) { Student student =
-		 * (Student)studentInfo.get(i); String firstName = student.getFirstName();
-		 * String lastName = student.getLastName();
-		 * 
-		 * for(int j=0;j<studentsRecords.size();j++) { StudentRecords studentRecords =
-		 * (StudentRecords)studentsRecords.get(j);
-		 * if(studentRecords.getFirstName().equals(firstName) &&
-		 * studentRecords.getLastName().equals(lastName)) { String key =
-		 * studentRecords.getKey(); String matricNum = studentRecords.getMatricNum();
-		 * break; } } } }
-		 */
-		//StudentRecords studentRecords = new StudentRecords(key,firstName,lastName,matricNum,courseIndex,IndexNum);
-		//studentsRecords.add(studentRecords);
 	}
+	
 	//case 2
 	private static void dropCourse(String key) throws IOException {
 		System.out.println("Enter Index Number:");

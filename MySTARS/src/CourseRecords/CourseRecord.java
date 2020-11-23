@@ -30,8 +30,6 @@ public class CourseRecord implements Serializable{
 	private String  vacancy; 
 	private String  name;
 	private String  AU;
-	private String  courseType;
-	private String  SU;
 	
 	/**
 	 * Class constructor specifying all 10 course informations.
@@ -48,7 +46,7 @@ public class CourseRecord implements Serializable{
 	 * @param name name of this course
 	 */
 	public CourseRecord(String num, String courseIndex, String indexNum, String type, String group, String day, String time, String venue, 
-			String remarks, String vacancy, String name, String AU, String courseType, String SU)
+			String remarks, String vacancy, String name, String AU)
 	{
 		this.num = num;
 		this.courseIndex = courseIndex;
@@ -62,32 +60,15 @@ public class CourseRecord implements Serializable{
 		this.vacancy = vacancy;
 		this.name = name;
 		this.AU = AU;
-		this.courseType = courseType;
-		this.SU = SU;
+
 	}
 
 	public String getAU() {
 		return AU;
 	}
 
-	public void setAU(String aU) {
-		AU = aU;
-	}
-
-	public String getCourseType() {
-		return courseType;
-	}
-
-	public void setCourseType(String courseType) {
-		this.courseType = courseType;
-	}
-
-	public String getSU() {
-		return SU;
-	}
-
-	public void setSU(String sU) {
-		SU = sU;
+	public void setAU(String AU) {
+		this.AU = AU;
 	}
 
 	public String getNum() {

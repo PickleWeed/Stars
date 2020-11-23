@@ -122,11 +122,9 @@ public class AdminApp {
 					updateCourse();
 					break;
 				case "5":
-					//Print Student List by Index Number
 					printStudentListByIndexNumber();
 					break;
 				case "6":
-					//Print Student List by Course Number
 					printStudentListByCourseIndex();
 					break;
 				case "7":
@@ -344,11 +342,5 @@ public class AdminApp {
 		String indexNum = sc.next();
 		GetCourseRecord.printVacancy(indexNum, courseRecord);
 	}
-	//Testing purpose
-	/*public static void main(String[] args) throws Exception {
-		AdminApp adminApp = new AdminApp();
-		adminApp.adminInterface();
-		
-	}*/
 
 }

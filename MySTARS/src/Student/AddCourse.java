@@ -4,11 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import CourseRecords.CourseRecord;
-import Repository.CourseRecordsTextRepository;
 import Repository.DatDatabase;
-import Repository.StudentPersonalTextRepository;
 import Repository.StudentRecordTextRepository;
-import StudentInfo.*;
 import StudentRecords.StudentRecords;
 
 
@@ -34,15 +31,7 @@ public class AddCourse{
 		StudentRecords newStudentRecord = new StudentRecords(key,firstName,lastName,matricNum,courseIndex,indexNum,"-","-","-","-","-");
 		studentsRecords.add(newStudentRecord);
 		studentCoursesTextRepository.saveList(studentsRecords);
-		/*
-		 * StudentPersonalInfoTextRepository studentPersonalInfoTextRepository = new
-		 * StudentPersonalInfoTextRepository(); ArrayList studentInfo; studentInfo =
-		 * studentPersonalInfoTextRepository.readToList();
-		 * System.out.println(studentInfo); DatDatabase.write("StudentInfo.dat",
-		 * studentInfo); studentInfo = (ArrayList)DatDatabase.read("StudentInfo.dat");
-		 * UpdateStudentInfo updateStudentInfo = new UpdateStudentInfo();
-		 * //updateStudentInfo.addStudent();
-		 */
+
 		}
 
 /**
@@ -71,12 +60,6 @@ public class AddCourse{
   courseRecords.getCourseIndex()) { System.out.println("do something"); }
   
   } }
-  
-  
-  
-  
-  
-  
   
   public static final String delimiter = "|";
  /**
@@ -120,16 +103,4 @@ public class AddCourse{
 	  return ""; 
 	  }
   }
- /**
-	 * Adds the course for the student if the courseIndex is valid.
-	 * 
-	 * @param temp temp is either a valid courseIndex(one that is present in the
-	 *             database), or "".
-	 */
-	/*
-	 * public void addCourse(String temp){ try { FileWriter writer = new
-	 * FileWriter("StudentRecords.txt", true); BufferedWriter bufferedWriter = new
-	 * BufferedWriter(writer); bufferedWriter.write(temp); bufferedWriter.newLine();
-	 * //bufferedWriter.write(delimiter); bufferedWriter.close(); } catch
-	 * (IOException e) { e.printStackTrace(); } } }
-	 */
+

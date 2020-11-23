@@ -1,14 +1,8 @@
 package Interface;
 
 import java.util.Scanner;
-
 import Login.LoginController;
-
 import java.io.Console;
-import java.util.Arrays;
-import java.io.IOException;
-import java.util.*; 
-import java.lang.*; 
 
 /**
  * LoginInterface is a boundary class which prompts the user to enter his login 
@@ -73,10 +67,5 @@ public class LoginInterface {
 	      
 	      char[] pass = console.readPassword("Please Enter password:");
 	      return String.valueOf(pass);
-	}
-	//Testing purpose
-	public static void main(String[] args) {
-		LoginInterface loginInterface = new LoginInterface();
-		loginInterface.loginAs();
 	}
 }

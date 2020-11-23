@@ -16,4 +16,3 @@ public class mySTARSApp {
 		loginInterface.loginAs();
 	}		
 }
-//test commit//
