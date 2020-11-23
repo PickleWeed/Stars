@@ -15,12 +15,12 @@ public class AddCourse{
 	public static void addCourse(ArrayList studentsRecords, ArrayList courseRecordList, String key, String firstName, String lastName, String matricNum, String courseIndex, String indexNum,String AU,String CourseType,String SU, String GERType) throws IOException{
 		
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Course Index" + "  " + "Index Number"); 
-		System.out.println("***************************"); 		
+		System.out.println("Course Index" + "  " + "Index Number" +"    "+"Day"+"          "+"Time"+"                "+ "Type"); 
+		System.out.println("************************************************************************************"); 		
 		for (int i=1; i<courseRecordList.size(); i++) { 
 			CourseRecord courseRecords = (CourseRecord)courseRecordList.get(i);	
 			if(courseRecords.getCourseIndex().equals(courseIndex)) {
-				System.out.println("   "+courseRecords.getCourseIndex() + "        " + courseRecords.getIndexNum()); 		  
+				System.out.println("   "+courseRecords.getCourseIndex() + "        " + courseRecords.getIndexNum()+ "        " + courseRecords.getDay()+ "        " + courseRecords.getTime()+"             "+ courseRecords.getType()+ "        " ); 		  
 			}
 
 		}
