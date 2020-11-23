@@ -13,6 +13,7 @@ import StudentInfo.GetStudentInfo;
 import StudentInfo.UpdateStudentInfo;
 import StudentRecords.GetStudentListByCourseIndex;
 import StudentRecords.GetStudentListByIndexNumber;
+import StudentRecords.UpdateStudentRecord;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -319,8 +320,11 @@ public class AdminApp {
 			System.out.printf("Enter Vacancy: ");
 			vacancy = sc.next();
 		}
+		//update Course Record
 		UpdateCourseRecord.editCourse(courseRecord,  num, courseIndex, indexNum, type,  group, 
 				day, time, venue, remarks, vacancy, AU);
+		//update Student Record
+		UpdateStudentRecord.updateStudentRecord(studentRecord, courseIndex, indexNum, AU);
 	}
 	//case 5
 	private void printStudentListByIndexNumber() throws IOException {
