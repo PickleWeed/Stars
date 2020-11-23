@@ -50,7 +50,8 @@ public class UpdateCourseRecord {
 		for(int i=0; i<courseRecord.size(); i++)
 		{
 			CourseRecord courseRecords = (CourseRecord)courseRecord.get(i);
-			if(courseRecords.getCourseIndex().equals(num) && courseRecords.getIndexNum().equals(indexNum) && courseRecords.getNum().equals(num))
+			//if(courseRecords.getCourseIndex().equals(num) && courseRecords.getIndexNum().equals(indexNum) && courseRecords.getNum().equals(num))
+			if(courseRecords.getCourseIndex().equals(courseIndex) && courseRecords.getIndexNum().equals(indexNum) && courseRecords.getNum().equals(num))
 			{
 				courseRecords.setTime(type);
 				courseRecords.setGroup(group);
@@ -74,8 +75,8 @@ public class UpdateCourseRecord {
 				System.out.println("Vacancy: " + courseRecords.getVacancy() );
 				System.out.println("Name: " + courseRecords.getName() );
 				System.out.println("\n");
-				
-				System.out.println("Successful added!");
+				//System.out.println("Successful added!");
+				System.out.println("Successful edited!");
 			}
 			
 		}
