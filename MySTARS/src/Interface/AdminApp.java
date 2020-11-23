@@ -96,8 +96,8 @@ public class AdminApp {
  			
 			System.out.println("****ADMIN INTERFACE****");
 			System.out.println("1. Edit Student Access Period");
-			System.out.println("2. Add Student");
-			System.out.println("3. Add Course");
+			System.out.println("2. Add a Student");
+			System.out.println("3. Add a Course");
 			System.out.println("4. Update Course");
 			System.out.println("5. Print Student List by Index Number");
 			System.out.println("6. Print Student List by Course Index");
@@ -312,13 +312,15 @@ public class AdminApp {
 		String venue = sc.next();
 		System.out.printf("Enter remarks(enter '-' if none): ");
 		String remarks = sc.next();
+		System.out.printf("Enter AU: ");
+		String AU = sc.next();
 		if(num.equals("1"))
 		{
 			System.out.printf("Enter Vacancy: ");
 			vacancy = sc.next();
 		}
 		UpdateCourseRecord.editCourse(courseRecord,  num, courseIndex, indexNum, type,  group, 
-				day, time, venue, remarks, vacancy);
+				day, time, venue, remarks, vacancy, AU);
 	}
 	//case 5
 	private void printStudentListByIndexNumber() throws IOException {
