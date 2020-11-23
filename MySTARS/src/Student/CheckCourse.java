@@ -21,6 +21,7 @@ public class CheckCourse {
 	{
 		int count = 0;
 		int totalAU = 0;
+		
 		for (int i = 0 ; i < StudentRecord.size() ; i++) {
 			StudentRecords studentRecord = (StudentRecords)StudentRecord.get(i);
 			if(studentRecord.getKey().equals(key)) {
@@ -32,7 +33,6 @@ public class CheckCourse {
 			StudentRecords studentRecord = (StudentRecords)StudentRecord.get(i);
 			if(studentRecord.getKey().equals(key))
 			{
-					//get from Course Record not Student Record
 					System.out.println("Course: " + studentRecord.getCourseIndex());
 					System.out.println("AU: " + studentRecord.getAU());
 					System.out.println("Course Type: " + studentRecord.getCourseType());

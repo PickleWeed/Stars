@@ -57,11 +57,15 @@ public class StudentRecordTextRepository implements Repository{
 				String  lastname = star.nextToken().trim();	// second token
 				String  matricNum = star.nextToken().trim();
 				String  courseIndex = star.nextToken().trim();
-				String  indexNum = star.nextToken().trim();
+				String  indexNum = star.nextToken().trim();	
+				String AU = star.nextToken().trim();
+				String courseType = star.nextToken().trim();
+				String SU = star.nextToken().trim();
+				String GERType = star.nextToken().trim();
 				String status = star.nextToken().trim();
 				//int  vacancy = Integer.parseInt(star.nextToken().trim());
 				// create Professor object from file data
-				StudentRecords studentRecords = new StudentRecords(key, firstname, lastname, matricNum, courseIndex, indexNum, status);
+				StudentRecords studentRecords = new StudentRecords(key, firstname, lastname, matricNum, courseIndex, indexNum, status, AU, courseType, GERType, status);
 				// add to Professors list
 				alr.add(studentRecords) ;
 			}
@@ -93,7 +97,18 @@ public void saveList(List al) throws IOException {
 				st.append(studentRecords.getIndexNum().trim());
 				st.append(SEPARATOR);
 				st.append(studentRecords.getStatus().trim());
+				st.append(SEPARATOR);
+				st.append(studentRecords.getAU().trim());
+				st.append(SEPARATOR);
+				st.append(studentRecords.getCourseType().trim());
+				st.append(SEPARATOR);
+				st.append(studentRecords.getSU().trim());
+				st.append(SEPARATOR);
+				st.append(studentRecords.getGERType().trim());
+				st.append(SEPARATOR);
+				st.append(studentRecords.getStatus().trim());
 				alw.add(st.toString()) ;
+				
 			}
 			TextDatabase.write(FILENAME,alw);
 			DatDatabase.write(DATFILENAME, al);
