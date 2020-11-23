@@ -12,7 +12,7 @@ public class GetCourseRecord {
 		{
 			//get array object 
 			CourseRecord courseRecords = (CourseRecord)courseRecord.get(i);
-			if(!courseRecords.getVacancy().equals("nill"))
+			if(!courseRecords.getVacancy().equals("-"))
 				System.out.println("Index Number: " + courseRecords.getIndexNum());
 		}
 	}
@@ -96,7 +96,7 @@ public class GetCourseRecord {
 	{
 		for (int i = 0 ; i < courseRecord.size() ; i++) {
 			CourseRecord courseRecordList = (CourseRecord)courseRecord.get(i);
-			if(!courseRecordList.getVacancy().equals("nill"))
+			if(!courseRecordList.getVacancy().equals("-"))
 				System.out.println("Course Index: " + courseRecordList.getCourseIndex() + ", Index Number: " + courseRecordList.getIndexNum());
 		}
 	}

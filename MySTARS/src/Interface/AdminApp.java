@@ -96,8 +96,8 @@ public class AdminApp {
  			
 			System.out.println("****ADMIN INTERFACE****");
 			System.out.println("1. Edit Student Access Period");
-			System.out.println("2. Add a Student");
-			System.out.println("3. Add a Course");
+			System.out.println("2. Add Student");
+			System.out.println("3. Add Course");
 			System.out.println("4. Update Course");
 			System.out.println("5. Print Student List by Index Number");
 			System.out.println("6. Print Student List by Course Index");
