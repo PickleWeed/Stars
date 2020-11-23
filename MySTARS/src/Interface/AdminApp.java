@@ -9,8 +9,8 @@ import Repository.StudentPersonalTextRepository;
 import CourseRecords.CheckCourseRecord;
 import CourseRecords.GetCourseRecord;
 import StudentInfo.CheckStudentInfo;
-import StudentInfo.UpdateStudentInfo;
 import StudentInfo.GetStudentInfo;
+import StudentInfo.UpdateStudentInfo;
 import StudentRecords.GetStudentListByCourseIndex;
 import StudentRecords.GetStudentListByIndexNumber;
 
