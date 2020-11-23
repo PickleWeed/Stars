@@ -35,6 +35,5 @@ public class TextDatabase {
 	    finally {
 	      out.close();
 	    }
-	  }
-
+	 }
 }

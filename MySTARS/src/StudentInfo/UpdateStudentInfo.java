@@ -2,8 +2,6 @@ package StudentInfo;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
-
 import Login.Encrypt;
 import Login.LoginInfo;
 import Repository.LoginTextRepository;
@@ -19,8 +17,6 @@ public class UpdateStudentInfo {
 		String key = Encrypt.checkKey();
 		String hashPassword = Encrypt.hashing(password);
 		
-		//ArrayList StudentInfoArray = StudentPersonalInfoTextRepository.readStudentInfo();
-		//ArrayList loginArray = LoginTextRepository.readLogin();
 		
 		Student student = new Student(key, firstName, lastName, matricNum, gender, nationality, age, accessPeriod, email);
 		StudentInfoArray.add(student) ;

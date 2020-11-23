@@ -1,13 +1,9 @@
 package Login;
+
 import java.io.IOException;
-
-import java.util.ArrayList;
-import java.util.Scanner;
-
 import Interface.AdminApp;
 import Interface.StudentInterface;
 import Repository.LoginTextRepository;
-
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 
@@ -22,10 +18,7 @@ public class LoginController {
 	/**
 	 * Class constructor. 
 	 */
-	public LoginController()
-	{
-		//retrieve login information from txt file
-	}
+	public LoginController(){}
 	
 	/**
 	 * Verifies the correctness of the user's login information and directs the user to the appropriate 
@@ -64,12 +57,11 @@ public class LoginController {
 			if(key != null)
 			{
 				System.out.println("\nLogin Successful!\n");	
+
 			    try {
 			        FileWriter writer = new FileWriter("StudentRecords.txt", true);
 			        BufferedWriter bufferedWriter = new BufferedWriter(writer);
-			        //bufferedWriter.write(key);
-			        //bufferedWriter.write("|");
-			        //bufferedWriter.close();
+
 			    } catch (IOException e) {
 			        e.printStackTrace();
 			    }

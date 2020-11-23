@@ -1,9 +1,6 @@
 package AccessPeriod;
 
-import java.io.IOException;
 import java.util.ArrayList;
-
-import Repository.GlobalAccessPeriodTextRepository;
 
 public class GetAccessPeriod {
 	public static void printAccessPeriod(ArrayList accessPeriod)

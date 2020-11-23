@@ -1,16 +1,10 @@
 package Repository;
 
-import java.io.FileInputStream;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 import java.util.StringTokenizer;
-
 import AccessPeriod.AccessPeriod;
-import CourseRecords.CourseRecord;
 
 /**
  * GlobalAccessPeriodTextRepository is a boundary class which performs read and write operations 
@@ -75,41 +69,5 @@ public class GlobalAccessPeriodTextRepository implements Repository {
 				}
 	        TextDatabase.write(FILENAME,alw);
 	        DatDatabase.write(DATFILENAME, al);
-		}
-	//test purpose
-	public static void main(String[] aArgs)  {
-	    	/*TextDB txtDB = new TextDB();
-	    	String filename = "professor.txt" ;
-			try {
-				// read file containing Professor records.
-				ArrayList al = TextDB.readProfessors(filename) ;
-				for (int i = 0 ; i < al.size() ; i++) {
-						Professor prof = (Professor)al.get(i);
-						System.out.println("Name " + prof.getName() );
-						System.out.println("Contact " + prof.getContact() );
-				}
-				Professor p1 = new Professor("Joseph","jos@ntu.edu.sg",67909999);
-				// al is an array list containing Professor objs
-				al.add(p1);
-				// write Professor record/s to file.
-				TextDB.saveProfessors(filename, al);
-			}catch (IOException e) {
-				System.out.println("IOException > " + e.getMessage());
-			}*/
-		
-		try {
-			// read file containing Professor records.
-			GlobalAccessPeriodTextRepository globalAccessPeriodTextRepository = new GlobalAccessPeriodTextRepository();
-			ArrayList al = globalAccessPeriodTextRepository.readToList();
-			for (int i = 0 ; i < al.size() ; i++) {
-				AccessPeriod accessPeriodObj = (AccessPeriod)al.get(i);
-					System.out.println("Start Access Period: "+ accessPeriodObj.getStartAccessPeriod());
-					System.out.println("End Access Period: "+ accessPeriodObj.getEndAccessPeriod());
-					System.out.println("\n");
-				}
-			//saveStudentRecords(filename, al);
-			}catch (IOException e) {
-				System.out.println("IOException > " + e.getMessage());
-			}
-	  }
+	}
 }

@@ -4,15 +4,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import Repository.CourseRecordsTextRepository;
-import Repository.DatDatabase;
-import StudentInfo.Student;
-import StudentRecords.StudentRecords;
 
 public class UpdateCourseRecord {
 	public static void addCourse(ArrayList courseRecord, String num, String courseIndex, String indexNum, String type, 
 			String group, String day, String time, String venue, String remarks, String vacancy, String name, String AU, String courseType, String SU) throws IOException
 	{
-		CourseRecord newCourseRecord = new CourseRecord(num, courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, name, AU, courseType, SU);
+		CourseRecord newCourseRecord = new CourseRecord(num, courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, name, AU);
 		courseRecord.add(newCourseRecord);
 		
 		CourseRecordsTextRepository courseRecordsTextRepository = new CourseRecordsTextRepository();
@@ -50,7 +47,7 @@ public class UpdateCourseRecord {
 		for(int i=0; i<courseRecord.size(); i++)
 		{
 			CourseRecord courseRecords = (CourseRecord)courseRecord.get(i);
-			//if(courseRecords.getCourseIndex().equals(num) && courseRecords.getIndexNum().equals(indexNum) && courseRecords.getNum().equals(num))
+			
 			if(courseRecords.getCourseIndex().equals(courseIndex) && courseRecords.getIndexNum().equals(indexNum) && courseRecords.getNum().equals(num))
 			{
 				courseRecords.setTime(type);
@@ -75,7 +72,7 @@ public class UpdateCourseRecord {
 				System.out.println("Vacancy: " + courseRecords.getVacancy() );
 				System.out.println("Name: " + courseRecords.getName() );
 				System.out.println("\n");
-				//System.out.println("Successful added!");
+				
 				System.out.println("Successful edited!");
 			}
 			

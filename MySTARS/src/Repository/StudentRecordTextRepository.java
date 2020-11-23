@@ -1,13 +1,9 @@
 package Repository;
+
 import java.io.IOException;
-import java.io.FileWriter;
-import java.io.PrintWriter;
-import java.io.FileInputStream;
-import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
-
 import StudentRecords.StudentRecords;
 
 /**
@@ -49,12 +45,11 @@ public class StudentRecordTextRepository implements Repository{
 
         for (int i = 0 ; i < stringArray.size() ; i++) {
 				String st = (String)stringArray.get(i);
-				// get individual 'fields' of the string separated by SEPARATOR
-				StringTokenizer star = new StringTokenizer(st , SEPARATOR);	// pass in the string to the string tokenizer using delimiter ","
 
+				StringTokenizer star = new StringTokenizer(st , SEPARATOR);	
 				String  key = star.nextToken().trim();
-				String  firstname = star.nextToken().trim();	// first token
-				String  lastname = star.nextToken().trim();	// second token
+				String  firstname = star.nextToken().trim();	
+				String  lastname = star.nextToken().trim();	
 				String  matricNum = star.nextToken().trim();
 				String  courseIndex = star.nextToken().trim();
 				String  indexNum = star.nextToken().trim();	
@@ -63,10 +58,9 @@ public class StudentRecordTextRepository implements Repository{
 				String SU = star.nextToken().trim();
 				String GERType = star.nextToken().trim();
 				String status = star.nextToken().trim();
-				//int  vacancy = Integer.parseInt(star.nextToken().trim());
-				// create Professor object from file data
+		
 				StudentRecords studentRecords = new StudentRecords(key, firstname, lastname, matricNum, courseIndex, indexNum, status, AU, courseType, GERType, status);
-				// add to Professors list
+				
 				alr.add(studentRecords) ;
 			}
 			return alr ;
@@ -113,43 +107,4 @@ public void saveList(List al) throws IOException {
 			TextDatabase.write(FILENAME,alw);
 			DatDatabase.write(DATFILENAME, al);
 	}
-public static void main(String[] aArgs)  {
-    	/*TextDB txtDB = new TextDB();
-    	String filename = "professor.txt" ;
-		try {
-			// read file containing Professor records.
-			ArrayList al = TextDB.readProfessors(filename) ;
-			for (int i = 0 ; i < al.size() ; i++) {
-					Professor prof = (Professor)al.get(i);
-					System.out.println("Name " + prof.getName() );
-					System.out.println("Contact " + prof.getContact() );
-			}
-			Professor p1 = new Professor("Joseph","jos@ntu.edu.sg",67909999);
-			// al is an array list containing Professor objs
-			al.add(p1);
-			// write Professor record/s to file.
-			TextDB.saveProfessors(filename, al);
-		}catch (IOException e) {
-			System.out.println("IOException > " + e.getMessage());
-		}*/
-	
-
-	try {
-		// read file containing Professor records.
-		StudentRecordTextRepository studentRecTextRepository = new StudentRecordTextRepository();
-		ArrayList al = studentRecTextRepository.readToList() ;
-		for (int i = 0 ; i < al.size() ; i++) {
-			StudentRecords studentRecord = (StudentRecords)al.get(i);
-			System.out.println("IndexNum: " + studentRecord.getIndexNum() );
-			System.out.println("CourseIndex: " + studentRecord.getCourseIndex() );
-			System.out.println("First Name: " + studentRecord.getFirstName() );
-			System.out.println("Last Name: " + studentRecord.getLastName() );
-			System.out.println("Matric Number: " + studentRecord.getMatricNum() );
-			System.out.println("\n");
-			}
-		//saveStudentRecords(filename, al);
-		}catch (IOException e) {
-			System.out.println("IOException > " + e.getMessage());
-		}
-  }
 }

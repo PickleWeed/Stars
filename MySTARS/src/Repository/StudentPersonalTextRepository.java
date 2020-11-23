@@ -1,13 +1,9 @@
 package Repository;
+
 import java.io.IOException;
-import java.io.FileWriter;
-import java.io.PrintWriter;
-import java.io.FileInputStream;
-import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
-
 import StudentInfo.Student;
 
 /**
@@ -47,18 +43,17 @@ public class StudentPersonalTextRepository implements Repository{
 				StringTokenizer star = new StringTokenizer(st , SEPARATOR);	// pass in the string to the string tokenizer using delimiter ","
 
 				String  key = star.nextToken().trim();
-				String  firstName = star.nextToken().trim();	// first token
-				String  lastName = star.nextToken().trim();	// second token
-				String  matricNum = star.nextToken().trim();	// third token
+				String  firstName = star.nextToken().trim();
+				String  lastName = star.nextToken().trim();	
+				String  matricNum = star.nextToken().trim();	
 				String  gender = star.nextToken().trim();
 				String  nationality = star.nextToken().trim();
 				String  age = star.nextToken().trim();
 				String accessPeriod = star.nextToken().trim();
 				String email = star.nextToken().trim();
-				//int  vacancy = Integer.parseInt(star.nextToken().trim());
-				// create Professor object from file data
+
 				Student student = new Student(key, firstName, lastName, matricNum, gender, nationality, age, accessPeriod, email);
-				// add to Professors list
+	
 				alr.add(student) ;
 			}
 			return alr ;
@@ -97,46 +92,6 @@ public class StudentPersonalTextRepository implements Repository{
 				}
 				TextDatabase.write(FILENAME,alw);
 				DatDatabase.write(DATFILENAME, al);
-		}
-	public static void main(String[] aArgs) throws IOException  {
-	    	/*TextDB txtDB = new TextDB();
-	    	String filename = "professor.txt" ;
-			try {
-				// read file containing Professor records.
-				ArrayList al = TextDB.readProfessors(filename) ;
-				for (int i = 0 ; i < al.size() ; i++) {
-						Professor prof = (Professor)al.get(i);
-						System.out.println("Name " + prof.getName() );
-						System.out.println("Contact " + prof.getContact() );
-				}
-				Professor p1 = new Professor("Joseph","jos@ntu.edu.sg",67909999);
-				// al is an array list containing Professor objs
-				al.add(p1);
-				// write Professor record/s to file.
-				TextDB.saveProfessors(filename, al);
-			}catch (IOException e) {
-				System.out.println("IOException > " + e.getMessage());
-			}*/
-		
-		StudentPersonalTextRepository studentRecTextRepository = new StudentPersonalTextRepository();
-		// read file containing Professor records.
-		//ArrayList al = studentRecTextRepository.readToList() ;
-		//DatDatabase.write("StudentsInfo.dat", al);
-		ArrayList al = (ArrayList)DatDatabase.read("StudentsInfo.dat");
-		for (int i = 0 ; i < al.size() ; i++) {
-			Student student = (Student)al.get(i);
-				System.out.println("Key: " + student.getKey() );
-				System.out.println("FirstName: " + student.getFirstName() );
-				System.out.println("LastName: " + student.getLastName() );
-				System.out.println("Matric Number: " + student.getMatricNum() );
-				System.out.println("Gender: " + student.getGender() );
-				System.out.println("Nationality: " + student.getNationality() );
-				System.out.println("Age: " + student.getAge() );
-				System.out.println("Access Period: " + student.getAccessPeriod());
-				System.out.println("Email: " + student.getEmail());
-				System.out.println("\n");
-			}
-		//saveStudentRecords(filename, al);
-			
-	  }
+	}
+	
 }
