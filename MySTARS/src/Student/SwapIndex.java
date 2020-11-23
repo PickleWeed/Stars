@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import CourseRecords.CourseRecord;
 import Repository.StudentRecordTextRepository;
+import StudentInfo.Student;
 import StudentRecords.StudentRecords;
 
 /**
@@ -13,6 +14,45 @@ import StudentRecords.StudentRecords;
  *
  */
 public class SwapIndex {
+	
+	public static ArrayList getIndexList(ArrayList studentRecords, String matricNum) throws IOException
+	{
+		ArrayList<String> indexList = new ArrayList<String>();
+		for (int i=0; i<studentRecords.size(); i++)
+		{
+			//get array object 
+			StudentRecords studentRecord = (StudentRecords)studentRecords.get(i);
+			if(studentRecord.getMatricNum().contentEquals(matricNum)){
+				indexList.add(studentRecord.getIndexNum());
+			}
+		}
+		return indexList;
+	}
+
+	public static ArrayList getMatricList(ArrayList studentInfo) throws IOException
+	{
+		ArrayList<String> matricList = new ArrayList<String>();
+		for (int i=0; i<studentInfo.size(); i++)
+		{
+			//get array object 
+			Student studentInfos = (Student)studentInfo.get(i);
+			matricList.add(studentInfos.getMatricNum());		
+		}
+		return matricList;
+	}
+	public static ArrayList getFriendIndex(ArrayList StudentRecord, String matricNum, String course) throws IOException
+	{
+		ArrayList<String> iList = new ArrayList<String>();
+		for (int i=0; i<StudentRecord.size(); i++)
+		{
+			//get array object 
+			StudentRecords studentRecord = (StudentRecords)StudentRecord.get(i);
+			if(studentRecord.getMatricNum().equals(matricNum) && studentRecord.getCourseIndex().equals("course"))
+				iList.add(studentRecord.getIndexNum());		
+		}
+		return iList;
+	}
+	
 	public static void swapIndex(ArrayList studentsRecords, ArrayList courseRecordList,String MatricNum, String oldIndexNum, String newIndexNum, String key) throws IOException {
     int count = 0;
     //print details of old and new index

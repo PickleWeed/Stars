@@ -184,14 +184,51 @@ public class StudentInterface {
 	//case 6
 	private void SwapIndex(String key)  throws IOException
 	{
-		// still need add check if valid index 
+		List aList = ChangeIndex.getIndexList(studentsRecords, key);
+		String matricNum;
+		System.out.println("Student #1");
+		for (int i = 0 ; i < studentsRecords.size() ; i++) {
+			StudentRecords studentRecord = (StudentRecords)studentsRecords.get(i);
+			if(studentRecord.getKey().equals(key)) {
+				matricNum = studentRecord.getMatricNum();
+				System.out.println("Your Matric Number: "+ matricNum + "\n");
+				break;
+				}	
+		}
 		System.out.println("Enter Your Index Number:");
 		String oldIndex = sc.next();
-		System.out.println("Enter Your friend's Index Number:");
-		String newIndex = sc.next();
-		System.out.println("Enter Friend Matric Number:");
-		String MatricNum = sc.next();
-		SwapIndex.swapIndex(studentsRecords,courseRecordList,MatricNum, oldIndex, newIndex, key);
+		if (aList.contains(oldIndex) == true) {
+			List mList = SwapIndex.getMatricList(studentInfo);
+	
+			System.out.println("Student #2");
+			System.out.println("Enter Friend Matric Number:");
+			String MatricNum = sc.next();
+			
+			if (mList.contains(MatricNum)) {
+				System.out.println("Enter Your friend's Index Number:");
+				String newIndex = sc.next();
+				// list of index in of a particular course
+				List bList = ChangeIndex.getIndexListByCourse(courseRecordList,oldIndex);
+				// list of index registered by friend 
+				List sList = SwapIndex.getIndexList(studentsRecords, MatricNum); 
+				
+				if(bList.contains(newIndex) == true )
+					if(sList.contains(newIndex) == true )
+						SwapIndex.swapIndex(studentsRecords,courseRecordList,MatricNum, oldIndex, newIndex, key);
+					else
+						System.out.println("Your friend is not registered for this index");
+				else 
+					System.out.println("This index is not registered in same course");
+			} else {
+				System.out.println("No such student.");
+			}
+			
+
+		}
+		else {
+			System.out.println("You are not registered for this index.\n");
+		}
+
 		
 	}
 }
