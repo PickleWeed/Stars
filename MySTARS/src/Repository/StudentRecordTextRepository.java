@@ -59,7 +59,7 @@ public class StudentRecordTextRepository implements Repository{
 				String GERType = star.nextToken().trim();
 				String status = star.nextToken().trim();
 		
-				StudentRecords studentRecords = new StudentRecords(key, firstname, lastname, matricNum, courseIndex, indexNum, status, AU, courseType, GERType, status);
+				StudentRecords studentRecords = new StudentRecords(key, firstname, lastname, matricNum, courseIndex, indexNum, AU, courseType, SU, GERType, status);
 				
 				alr.add(studentRecords) ;
 			}
@@ -89,8 +89,6 @@ public void saveList(List al) throws IOException {
 				st.append(studentRecords.getCourseIndex().trim());
 				st.append(SEPARATOR);
 				st.append(studentRecords.getIndexNum().trim());
-				st.append(SEPARATOR);
-				st.append(studentRecords.getStatus().trim());
 				st.append(SEPARATOR);
 				st.append(studentRecords.getAU().trim());
 				st.append(SEPARATOR);
