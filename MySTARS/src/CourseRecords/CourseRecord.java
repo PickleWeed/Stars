@@ -30,6 +30,9 @@ public class CourseRecord implements Serializable{
 	private String  vacancy; 
 	private String  name;
 	private String  AU;
+	private String  CourseType;
+	private String  SU;
+	private String  GERType;
 	
 	/**
 	 * Class constructor specifying all 10 course informations.
@@ -46,7 +49,7 @@ public class CourseRecord implements Serializable{
 	 * @param name name of this course
 	 */
 	public CourseRecord(String num, String courseIndex, String indexNum, String type, String group, String day, String time, String venue, 
-			String remarks, String vacancy, String name, String AU)
+			String remarks, String vacancy, String name, String AU,String CourseType,String SU, String GERType)
 	{
 		this.num = num;
 		this.courseIndex = courseIndex;
@@ -60,6 +63,9 @@ public class CourseRecord implements Serializable{
 		this.vacancy = vacancy;
 		this.name = name;
 		this.AU = AU;
+		this.CourseType = CourseType;
+		this.SU = SU;
+		this.GERType = GERType;
 
 	}
 
@@ -158,5 +164,29 @@ public class CourseRecord implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public String getCourseType() {
+		return CourseType;
+	}
+
+	public void setCourseType(String CourseType) {
+		this.CourseType = CourseType;
+	}
+	public String getSU() {
+		return SU;
+	}
+
+	public void setSU(String SU) {
+		this.SU = SU;
+	}
+	public String getGERType() {
+		return GERType;
+	}
+
+	public void setGERType(String GERType) {
+		this.GERType = GERType;
+	}
+	
+	
 
 }
