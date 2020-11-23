@@ -30,23 +30,16 @@ public class AddCourse{
 			CourseRecord courseRecords = (CourseRecord)courseRecordList.get(i);	
 			if(courseRecords.getCourseIndex().equals(courseIndex) && courseRecords.getIndexNum().equals(indexNum) && courseRecords.getType().equals("LEC/STUDIO")) {
 				String vacancy = courseRecords.getVacancy();
+				
 				int intVacancy = Integer.parseInt(vacancy);
 				intVacancy -= 1;
-<<<<<<< HEAD
-				System.out.println(intVacancy);
 				String strVacancy = String.valueOf(intVacancy);
-				System.out.println(strVacancy);
 				courseRecords.setVacancy(strVacancy);
+				
 				StudentRecordTextRepository studentCoursesTextRepository = new StudentRecordTextRepository();
 				studentCoursesTextRepository.saveList(studentsRecords);
 				CourseRecordsTextRepository courseRecordsTextRepository = new CourseRecordsTextRepository();
 				courseRecordsTextRepository.saveList(courseRecordList);
-=======
-				String strVacancy = String.valueOf(intVacancy);
-				courseRecords.setVacancy(strVacancy);
-				StudentRecordTextRepository studentCoursesTextRepository = new StudentRecordTextRepository();
-				studentCoursesTextRepository.saveList(studentsRecords);
->>>>>>> 35ada1b6ca6cd1caaed67c92901e343860f14303
 				break;
 			}
 
