@@ -31,7 +31,6 @@ public class AddCourse{
 		ArrayList studentRecords;
 		StudentRecordTextRepository studentCoursesTextRepository = new StudentRecordTextRepository();
 		studentsRecords = studentCoursesTextRepository.readToList();
-		//get the information from Course Record & insert onto student Record
 		StudentRecords newStudentRecord = new StudentRecords(key,firstName,lastName,matricNum,courseIndex,indexNum,"-","-","-","-","-");
 		studentsRecords.add(newStudentRecord);
 		studentCoursesTextRepository.saveList(studentsRecords);

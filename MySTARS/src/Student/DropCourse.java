@@ -98,7 +98,6 @@ public class DropCourse {
 		for (int i = 0 ; i < studentsRecords.size() ; i++) {
 			StudentRecords studentRecord = (StudentRecords)studentsRecords.get(i);
 			if(studentRecord.getKey().equals(key)) {
-				//get info from Course Record not student Record
 				System.out.println("Index Number: "+ indexNum + "       Course: "+ studentRecord.getCourseIndex());
 				System.out.println("Course Type: "+ studentRecord.getCourseType() + "       Status: "+ studentRecord.getStatus());
 				System.out.println("\n");
