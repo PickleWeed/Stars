@@ -4,6 +4,7 @@ import Student.*;
 import StudentRecords.StudentRecords;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import CourseRecords.*;
 import Repository.CourseRecordsTextRepository;
@@ -142,21 +143,35 @@ public class StudentInterface {
 	//case 4
 	private static void getCourseVacancy() throws IOException
 	{
-		// still need add check if valid index based on user registered course
+		List aList = GetCourseRecord.getIndexList(courseRecordList); 
 		System.out.println("Enter Index Number:");
 		String indexNum = sc.next();
-		GetCourseRecord.printVacancy(indexNum, courseRecordList);
+		if (aList.contains(indexNum) == true)
+			GetCourseRecord.printVacancy(indexNum, courseRecordList);
+		else
+			System.out.println("Error! No such Index Number.\n");
 	}
 	
 	//case 5
 	private static void changeIndex(String key) throws IOException
 	{
 		// still need add check if valid index 
+		List aList = ChangeIndex.getIndexList(studentsRecords, key); // index of registered course for student
 		System.out.println("Enter Old Index Number:");
 		String oldIndex = sc.next();
-		System.out.println("Enter New Index Number:");
-		String newIndex = sc.next();
-		ChangeIndex.changeIndex(studentsRecords,courseRecordList, oldIndex, newIndex, key);
+		if (aList.contains(oldIndex) == true) {
+			List bList = ChangeIndex.getIndexListByCourse(courseRecordList,oldIndex); // list of all index in specific course
+			System.out.println("Enter New Index Number:");
+			String newIndex = sc.next();
+			if(bList.contains(newIndex) == true){
+				ChangeIndex.changeIndex(studentsRecords,courseRecordList, oldIndex, newIndex, key);
+			} else {
+				System.out.println("Error! No such Index Number in Course.\n");
+			}		
+		} else {
+			System.out.println("You are not registered for this index.\n");
+		}
+
 	}
 	
 	//case 6

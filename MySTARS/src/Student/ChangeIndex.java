@@ -16,6 +16,24 @@ import StudentRecords.StudentRecords;
  */
 public class ChangeIndex {
 
+	public static ArrayList getIndexList(ArrayList studentRecords, String key) throws IOException
+	{
+		ArrayList<String> indexList = new ArrayList<String>();
+		for (int i=0; i<studentRecords.size(); i++)
+		{
+			//get array object 
+			StudentRecords studentRecord = (StudentRecords)studentRecords.get(i);
+			if(studentRecord.getKey().contentEquals(key)){
+				indexList.add(studentRecord.getIndexNum());
+			}
+		}
+		return indexList;
+	}
+	
+	public static ArrayList getIndexListByCourse(ArrayList courseRecords,String oldIndex) {
+		
+		return;
+	}
 	public static void changeIndex(ArrayList studentsRecords, ArrayList courseRecordList, String oldIndexNum, String newIndexNum, String key) throws IOException {
 	    int count = 0;
 	    //print details of old and new index

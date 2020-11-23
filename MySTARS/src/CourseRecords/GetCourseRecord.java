@@ -4,7 +4,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class GetCourseRecord {
-
+	public static ArrayList getIndexList(ArrayList courseRecord) throws IOException
+	{
+		ArrayList<String> indexList = new ArrayList<String>();
+		for (int i=0; i<courseRecord.size(); i++)
+		{
+			//get array object 
+			CourseRecord courseRecords = (CourseRecord)courseRecord.get(i);
+			if(!courseRecords.getVacancy().equals("-"))
+				indexList.add(courseRecords.getIndexNum());
+		}
+		return indexList;
+	}
 	public static void printIndexNum(ArrayList courseRecord) throws IOException
 	{
 		System.out.println("List of Index Number:");
