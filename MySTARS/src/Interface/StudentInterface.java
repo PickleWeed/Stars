@@ -115,17 +115,22 @@ public class StudentInterface {
 		String courseIndex;
 		System.out.println("Enter Course Index:");
 		courseIndex = sc.next();
-		String firstName = "", lastName = "", matricNum = "",indexNum = "";
+		String firstName = "", lastName = "", matricNum = "",indexNum = "", AU = "";
 		for (int i = 0 ; i < studentsRecords.size() ; i++) {
+			for (int j=0; j<courseRecordList.size(); j++) {
 			StudentRecords studentRecord = (StudentRecords)studentsRecords.get(i);
-			if(studentRecord.getKey().equals(key)) {
+			CourseRecord courseRecords = (CourseRecord)courseRecordList.get(j);
+
+			if(studentRecord.getKey().equals(key)&&courseRecords.getCourseIndex().equals(courseIndex)) {
 				firstName = studentRecord.getFirstName();
 				lastName = studentRecord.getLastName();
 				matricNum = studentRecord.getMatricNum();
+				AU = courseRecords.getAU();
 				break;
 				}	
 			}
-		AddCourse.addCourse(studentsRecords, key, firstName, lastName, matricNum, courseIndex, indexNum);
+		}
+		AddCourse.addCourse(studentsRecords, key, firstName, lastName, matricNum, courseIndex, indexNum,AU);
 	}
 	
 	//case 2

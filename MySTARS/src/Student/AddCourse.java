@@ -12,7 +12,7 @@ import StudentRecords.StudentRecords;
 
 public class AddCourse{
 	public static void addCourse(ArrayList studentsRecords, String key, String firstName, 
-			String lastName, String matricNum, String courseIndex, String indexNum) throws IOException{
+			String lastName, String matricNum, String courseIndex, String indexNum,String AU) throws IOException{
 		
 		Scanner sc = new Scanner(System.in);
 		ArrayList courseRecordList = (ArrayList)DatDatabase.read("CourseRecords.dat");
@@ -29,7 +29,7 @@ public class AddCourse{
 		ArrayList studentRecords;
 		StudentRecordTextRepository studentCoursesTextRepository = new StudentRecordTextRepository();
 		studentsRecords = studentCoursesTextRepository.readToList();
-		StudentRecords newStudentRecord = new StudentRecords(key,firstName,lastName,matricNum,courseIndex,indexNum,"-","-","-","-","-");
+		StudentRecords newStudentRecord = new StudentRecords(key,firstName,lastName,matricNum,courseIndex,indexNum,AU,"-","-","-","-");
 		studentsRecords.add(newStudentRecord);
 		studentCoursesTextRepository.saveList(studentsRecords);
 
