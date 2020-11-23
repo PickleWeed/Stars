@@ -1,9 +1,13 @@
 package Repository;
-
 import java.io.IOException;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.io.FileInputStream;
+import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
+
 import CourseRecords.CourseRecord;
 
 /**
@@ -59,10 +63,11 @@ public class CourseRecordsTextRepository implements Repository{
 				String  remarks = star.nextToken().trim();
 				String  vacancy = star.nextToken().trim();
 				String  name = star.nextToken().trim();
-				String  AU = star.nextToken().trim();
-
+				String AU = star.nextToken().trim();
+				//int  vacancy = Integer.parseInt(star.nextToken().trim());
+				// create Professor object from file data
 				CourseRecord courseRecords = new CourseRecord(num, courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, name, AU);
-				
+				// add to Professors list
 				alr.add(courseRecords);
 			}
 			return alr ;
@@ -102,8 +107,7 @@ public class CourseRecordsTextRepository implements Repository{
 					st.append(courseRecords.getName().trim());
 					st.append(SEPARATOR);
 					st.append(courseRecords.getAU().trim());
-					st.append(SEPARATOR);
-	
+					
 					alw.add(st.toString()) ;
 				}
 	        TextDatabase.write(FILENAME, alw);

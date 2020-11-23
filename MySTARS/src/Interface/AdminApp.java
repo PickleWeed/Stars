@@ -342,5 +342,8 @@ public class AdminApp {
 		String indexNum = sc.next();
 		GetCourseRecord.printVacancy(indexNum, courseRecord);
 	}
-
+	public static void main(String[] args) throws Exception {
+		AdminApp adminApp = new AdminApp();
+    	adminApp.adminInterface();
+	}
 }
