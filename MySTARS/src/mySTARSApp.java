@@ -15,7 +15,5 @@ public class mySTARSApp {
 	public static void main(String[] args) throws Exception {
 		LoginInterface loginInterface = new LoginInterface();
 		loginInterface.loginAs();
-		
-
 	}		
 }

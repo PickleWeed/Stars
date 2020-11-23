@@ -133,7 +133,7 @@ public class StudentInterface {
 				}	
 			}
 		}
-		AddCourse.addCourse(studentsRecords, key, firstName, lastName, matricNum, courseIndex, indexNum, AU, CourseType, SU,  GERType);
+		AddCourse.addCourse(studentsRecords, courseRecordList, key, firstName, lastName, matricNum, courseIndex, indexNum, AU, CourseType, SU,  GERType);
 	}
 	
 	//case 2
