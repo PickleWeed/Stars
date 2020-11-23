@@ -57,6 +57,7 @@ public class LoginController {
 			if(key != null)
 			{
 				System.out.println("\nLogin Successful!\n");	
+
 			    try {
 			        FileWriter writer = new FileWriter("StudentRecords.txt", true);
 			        BufferedWriter bufferedWriter = new BufferedWriter(writer);

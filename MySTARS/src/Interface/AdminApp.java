@@ -310,7 +310,7 @@ public class AdminApp {
 		String time = sc.next();
 		System.out.printf("Enter venue: ");
 		String venue = sc.next();
-		System.out.printf("Enter remarks(enter nill if none): ");
+		System.out.printf("Enter remarks(enter '-' if none): ");
 		String remarks = sc.next();
 		if(num.equals("1"))
 		{
