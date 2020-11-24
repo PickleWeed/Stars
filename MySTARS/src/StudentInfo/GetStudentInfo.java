@@ -54,7 +54,8 @@ public class GetStudentInfo {
 		}
 		return "nill";	
 	}
-	public static int getStudentInfo(ArrayList studentInfo, String key)
+	//for student Interface
+	public static int getStudentIndex(ArrayList studentInfo, String key)
 	{
 		for (int i = 0; i < studentInfo.size(); i++)
 		{

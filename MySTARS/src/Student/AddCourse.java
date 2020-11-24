@@ -8,6 +8,7 @@ import CourseRecords.CourseRecord;
 import Repository.CourseRecordsTextRepository;
 import Repository.DatDatabase;
 import Repository.StudentRecordTextRepository;
+import StudentInfo.GetStudentInfo;
 import StudentInfo.Student;
 import StudentRecords.StudentRecords;
 
@@ -76,15 +77,32 @@ public class AddCourse{
 				String strVacancy = String.valueOf(intVacancy);
 				courseRecords.setVacancy(strVacancy);
 			}
-			for (int i=1; i<studentInfo.size(); i++) { 
-				Student student = (Student)studentInfo.get(i);	
-				if(studentInfo)
-			}
-			
+			//update courseRecord
 			CourseRecordsTextRepository courseRecordsTextRepository = new CourseRecordsTextRepository();
 			courseRecordsTextRepository.saveList(courseRecordList);
-			StudentRecords newStudentRecord = new StudentRecords(key,firstName,lastName,matricNum,courseIndex,indexNum,AU, CourseType, SU, GERType,"-");
-			studentsRecords.add(newStudentRecord);
+			
+			
+			//get courseRecord Information
+			String AU = courseRecords.getAU(), courseType = courseRecords.getCourseType(); 
+			String SU = courseRecords.getSU(), GERType = courseRecords.getGERType();
+			
+			// get student Information index
+			int studentInfoIndex = GetStudentInfo.getStudentIndex(studentInfo, key);
+			if(studentInfoIndex != -1)
+			{
+				//get student Information
+				Student student = (Student)studentInfo.get(studentInfoIndex);
+				String firstName = student.getFirstName(), lastName = student.getLastName(), matricNum = student.getMatricNum();
+				
+				//insert onto Student Record
+				StudentRecords newStudentRecord = new StudentRecords(key,firstName,lastName,matricNum,courseIndex,indexNum,AU, courseType, SU, GERType, status);
+				studentsRecords.add(newStudentRecord);
+				StudentRecordTextRepository studentRecordTextRepository = new StudentRecordTextRepository();
+				studentRecordTextRepository.saveList(studentsRecords);
+				
+				//trigger email
+			}
+			
 		}
 		else
 		{

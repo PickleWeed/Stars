@@ -17,14 +17,13 @@ public class DropCourse {
 	 * prompts the user to enter the courseIndex to drop.
 	 * @return courseIndex to be dropped
 	 */
-  public static void dropCourse(ArrayList studentsRecords, String key, String indexNum) throws IOException {
-	    int count = 0;
+	public static void dropCourse(ArrayList studentsRecords, String key, String courseIndex) throws IOException {
 	    //print details of dropped course
 		for (int i = 0 ; i < studentsRecords.size() ; i++) {
 			StudentRecords studentRecord = (StudentRecords)studentsRecords.get(i);
-			if(studentRecord.getKey().equals(key) && studentRecord.getIndexNum().equals(indexNum)) {
-				System.out.println("Index Number: "+ indexNum + "       Course: "+ studentRecord.getCourseIndex());
-				System.out.println("Course Type: "+ studentRecord.getCourseType() + "       Status: "+ studentRecord.getStatus());
+			if(studentRecord.getKey().equals(key) && studentRecord.getCourseIndex().equals(courseIndex)) {
+				System.out.println("Index Number: "+ courseIndex + "\tCourse: "+ studentRecord.getCourseIndex());
+				System.out.println("Course Type: "+ studentRecord.getCourseType() + "\tStatus: "+ studentRecord.getStatus());
 				System.out.println("\n");
 				break;
 			}	
@@ -33,17 +32,15 @@ public class DropCourse {
 		//delete row from StudentRecords
 		for (int i = 0 ; i < studentsRecords.size() ; i++) {
 			StudentRecords studentRecord = (StudentRecords)studentsRecords.get(i);
-			if(studentRecord.getKey().equals(key) && studentRecord.getIndexNum().contentEquals(indexNum)) {
+			if(studentRecord.getKey().equals(key) && studentRecord.getCourseIndex().contentEquals(courseIndex)) {
 				studentsRecords.remove(studentsRecords.get(i));
 				StudentRecordTextRepository studentRecordsTextRepository = new StudentRecordTextRepository();
 				studentRecordsTextRepository.saveList(studentsRecords);
-				count++;
+				System.out.println("Drop Course Successful!\n");
 				break;
 			}	
 		}
 		
-		if (count > 0) {
-			System.out.println("Drop Course Successful!\n");
-		}
-  }
+		//if there anyone in that waiting list
+	}
 }

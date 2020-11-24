@@ -137,7 +137,7 @@ public class StudentInterface {
 		int index = CheckCourse.checkCourse(courseRecordList, courseIndex, indexNum);
 		
 		if(index != -1)
-			AddCourse.addCourse(studentsRecords, courseRecordList, key, courseIndex, indexNum, index);
+			AddCourse.addCourse(studentsRecords, courseRecordList, studentInfo, key, courseIndex, indexNum, index);
 	}
 	
 	//case 2
@@ -150,10 +150,10 @@ public class StudentInterface {
 	 */
 	private static void dropCourse(String key) throws IOException {
 		List aList = ChangeIndex.getIndexList(studentsRecords, key);
-		System.out.println("Enter Index Number:");
-		String indexNum = sc.next();
-		if (aList.contains(indexNum) == true)
-			DropCourse.dropCourse(studentsRecords, key, indexNum);
+		System.out.println("Enter Course Number:");
+		String courseIndex = sc.next();
+		if (aList.contains(courseIndex) == true)
+			DropCourse.dropCourse(studentsRecords, key, courseIndex);
 		else
 			System.out.println("You are not registered for this index.\n");
 	}
