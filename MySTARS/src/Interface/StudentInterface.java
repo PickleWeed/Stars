@@ -126,28 +126,19 @@ public class StudentInterface {
 	 * @throws IOException If an input or output exception occurs
 	 */
 	private static void addCourse(String key) throws IOException{
-		String courseIndex;
+		String courseIndex, indexNum;;
+		
+		System.out.println("*****Course List*****");
+		GetCourseRecord.printCourseCode(courseRecordList);
+		
 		System.out.println("Enter Course Index:");
 		courseIndex = sc.next();
-		String firstName = "", lastName = "", matricNum = "",indexNum = "", AU = "", CourseType= "", SU= "",  GERType= "";
-		for (int i = 0 ; i < studentsRecords.size() ; i++) {
-			for (int j=0; j<courseRecordList.size(); j++) {
-			StudentRecords studentRecord = (StudentRecords)studentsRecords.get(i);
-			CourseRecord courseRecords = (CourseRecord)courseRecordList.get(j);
-
-			if(studentRecord.getKey().equals(key)&&courseRecords.getCourseIndex().equals(courseIndex)) {
-				firstName = studentRecord.getFirstName();
-				lastName = studentRecord.getLastName();
-				matricNum = studentRecord.getMatricNum();
-				AU = courseRecords.getAU();
-				CourseType = courseRecords.getCourseType();
-				SU = courseRecords.getSU();
-				GERType = courseRecords.getGERType();
-				break;
-				}	
-			}
-		}
-		AddCourse.addCourse(studentsRecords, courseRecordList, key, firstName, lastName, matricNum, courseIndex, indexNum, AU, CourseType, SU,  GERType);
+		System.out.println("Enter Index Number: "); 
+		indexNum = sc.next();
+		
+		CheckCourse.checkCourse(courseRecordList, courseIndex, indexNum);
+		
+		//AddCourse.addCourse(studentsRecords, courseRecordList, key, courseIndex, indexNum);
 	}
 	
 	//case 2

@@ -240,7 +240,7 @@ public class AdminApp {
 	 */
 	private void addCourse() throws IOException
 	{
-		String courseIndex, indexNum;
+		String courseIndex, indexNum, AU, SU, GERType;
 		//cannot add if already exist
 		while(true)
 		{
@@ -282,14 +282,37 @@ public class AdminApp {
 			String vacancy = sc.next();
 			System.out.printf("Name of the Course: ");
 			String courseName = sc.next();
-			System.out.printf("Enter AU (1,2,3): ");
-			String AU = sc.next();
+			while(true)
+			{
+				System.out.printf("Enter AU (1,2,3): ");
+				AU = sc.next();
+				if(AU.equals("1") || AU.equals("2") || AU.equals("3"))
+					break;
+				else 
+					System.out.println("Invalid Input");
+			}
+			
+			
 			System.out.printf("Enter Course Type: ");
 			String courseType = sc.next();
-			System.out.printf("Enter SU (Yes or No): ");
-			String SU = sc.next();
-			System.out.printf("Enter GERType (BM or LA or STS): ");
-			String GERType = sc.next();
+			while(true)
+			{
+				System.out.printf("Enter SU (Yes or No): ");
+				SU = sc.next();
+				if(SU.equals("Yes") || SU.equals("No"))
+					break;
+				else 
+					System.out.println("Invalid Input");
+			}
+			while(true)
+			{
+				System.out.printf("Enter GERType (BM or LA or STS): ");
+				GERType = sc.next();
+				if(GERType.equals("BM") || GERType.equals("LA") || GERType.equals("STS"))
+					break;
+				else 
+					System.out.println("Invalid Input");
+			}
 			//add course
 			num = Integer.toString(number);
 			UpdateCourseRecord.addCourse(courseRecord, num, courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, courseName, AU, courseType, SU,GERType);

@@ -54,4 +54,8 @@ public class CheckCourse {
 			System.out.println("Total AU Registered: " + totalAU);
 		}
 	}
+	public static void checkCourse(ArrayList courseRecord, String courseIndex, String indexNum)
+	{
+		
+	}
 }
