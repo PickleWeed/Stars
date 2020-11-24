@@ -304,8 +304,5 @@ public class StudentInterface {
 			System.out.println("You are not registered for this index.\n");
 		}
 	}
-	public static void main(String[] args) throws IOException, ParseException {
-		StudentInterface studentInterface = new StudentInterface();
-		studentInterface.inStudentInterface("LV");
-	}
+
 }
