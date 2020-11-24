@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import StudentInfo.Student;
 
 /**
- * GetStudentListByIndexNumber is a control class which allows a user to select a IndexNum (eg. CZ1003)
+ * GetStudentListByIndexNumber allows a user to select a IndexNum (eg. CZ1003)
  * and displays all students name, gender, and nationality who have registered for this Index Number. 
  * 
  * 
@@ -20,6 +20,7 @@ public class GetStudentListByIndexNumber {
 	 * 
 	 * @param StudentRecordsList Entire database of StudentRecords
 	 * @param studentInfo Entire database of StudentInfo
+	 * @param indexNum The indexNum to display all students' information under this index
 	 * @throws IOException If an input or output exception occurred
 	 */
 	public static void printStudentList(ArrayList studentRecordsList, ArrayList studentInfo, String indexNum) throws IOException
