@@ -8,12 +8,12 @@ import StudentInfo.Student;
 
 /**
  * StudentPersonalInfoTextRepository is a boundary class which performs read and write operations 
- * on StudentsInfo.txt, a database that stores the information of all students.<p>
+ * on StudentsInfo, a database that stores the information of all students.<p>
  * The information stored for each student is listed below: <p>
  * key: Uniquely identifies a student <p>
  * firstName, lastName, matricNum, gender, nationality, age <p>
  * accessPeriod: The period of time that the student is allowed to access MySTARS <p>
- * Each information has its respective get and set method.
+ * email of student <p>
  * 
  * @author ?
  *
