@@ -5,6 +5,8 @@ import StudentInfo.GetStudentInfo;
 import StudentRecords.CheckStudentRecord;
 import StudentRecords.GetStudentRecord;
 import StudentRecords.StudentRecords;
+import WaitList.GetWaitList;
+
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -17,6 +19,7 @@ import Repository.CourseRecordsTextRepository;
 import Repository.DatDatabase;
 import Repository.GlobalAccessPeriodTextRepository;
 import Repository.StudentRecordTextRepository;
+import Repository.WaitListTextRepository;
 import Repository.StudentPersonalTextRepository;
 
 /**
@@ -39,7 +42,7 @@ public class StudentInterface {
 	
 	private static ArrayList courseRecordList;
 	private static ArrayList studentInfo;
-	private static ArrayList loginInfo;
+	private static ArrayList waitList;
 	private static ArrayList studentsRecords;
 	private static ArrayList accessPeriodList;
 	
@@ -58,22 +61,27 @@ public class StudentInterface {
 		CourseRecordsTextRepository courseRecordsTextRepository = new CourseRecordsTextRepository();
 		StudentPersonalTextRepository studentPersonalInfoTextRepository = new StudentPersonalTextRepository();
 		StudentRecordTextRepository studentCoursesTextRepository = new StudentRecordTextRepository();
+		WaitListTextRepository waitListTextRepository = new WaitListTextRepository();
 		GlobalAccessPeriodTextRepository globalAccessPeriodTextRepository = new GlobalAccessPeriodTextRepository();
 
 		while (!choice.equals("7")) {
 			courseRecordList = courseRecordsTextRepository.readToList(); 
 			studentInfo = studentPersonalInfoTextRepository.readToList();
+			waitList = waitListTextRepository.readToList();
 			studentsRecords = studentCoursesTextRepository.readToList();
 			accessPeriodList = globalAccessPeriodTextRepository.readToList();
 			
+			
 			DatDatabase.write("CourseRecords.dat", courseRecordList);
 			DatDatabase.write("StudentInfo.dat", studentInfo);
+			DatDatabase.write("WaitList.dat", waitList);
 			DatDatabase.write("StudentRecords.dat", studentsRecords);
 			DatDatabase.write("GlobalAccessPeriod.dat", accessPeriodList);
 			
 			//read again from Serial File
 			courseRecordList = (ArrayList)DatDatabase.read("CourseRecords.dat");
 			studentInfo = (ArrayList)DatDatabase.read("StudentInfo.dat");
+			waitList = (ArrayList)DatDatabase.read("waitList.dat");
 			studentsRecords = (ArrayList)DatDatabase.read("StudentRecords.dat");
 			accessPeriodList = (ArrayList)DatDatabase.read("GlobalAccessPeriod.dat");
 			
@@ -157,7 +165,7 @@ public class StudentInterface {
 		//check timing
 		//CheckStudentRecord.checkTiming(courseRecordList, studentsRecords, courseIndex, indexNum, key);
 		if(index != -1 && alreadyExistCourse == false)
-			AddCourse.addCourse(studentsRecords, courseRecordList, studentInfo, key, courseIndex, indexNum, index);
+			AddCourse.addCourse(studentsRecords, courseRecordList, studentInfo, waitList, key, courseIndex, indexNum, index);
 	}
 	
 	//case 2
@@ -170,10 +178,13 @@ public class StudentInterface {
 	 */
 	private static void dropCourse(String key) throws IOException {
 		List aList = ChangeIndex.getIndexList(studentsRecords, key);
-		System.out.println("Enter Course Number:");
+		System.out.printf("Enter Course Number:");
 		String courseIndex = sc.next();
+		System.out.printf("Enter Index Numer:");
+		String indexNum = sc.next();
+		boolean hasQueue = GetWaitList.hasQueue(waitList, courseIndex, indexNum);
 		if (aList.contains(courseIndex) == true)
-			DropCourse.dropCourse(studentsRecords, key, courseIndex);
+			DropCourse.dropCourse(studentsRecords, courseRecordList, key, courseIndex, indexNum, hasQueue);
 		else
 			System.out.println("You are not registered for this index.\n");
 	}

@@ -33,6 +33,7 @@ public class StudentRecords implements Serializable{
 	private String SU;
 	private String GERType;
 	private String status;
+	private String queue;
 	
 /**
  * Class constructor specifying all informations of a StudentRecords
@@ -50,7 +51,7 @@ public class StudentRecords implements Serializable{
  * @param status status: REGISTERED/WAITLIST
  */
 	public StudentRecords(String key, String firstName, String lastName, String matricNum, String courseIndex,String indexNum,
-			String AU, String courseType, String SU, String GERType, String status)
+			String AU, String courseType, String SU, String GERType, String status, String queue)
 	{
 		this.key = key;
 		this.firstName = firstName;
@@ -63,7 +64,15 @@ public class StudentRecords implements Serializable{
 		this.SU = SU;
 		this.GERType = GERType;
 		this.status = status;
+		this.queue = queue;
+	}
 
+	public String getQueue() {
+	return queue;
+	}
+
+	public void setQueue(String queue) {
+	this.queue = queue;
 	}
 
 	public String getAU() {

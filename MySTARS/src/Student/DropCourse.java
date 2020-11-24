@@ -2,8 +2,13 @@ package Student;
 
 import java.io.*;
 import java.util.ArrayList;
+
+import CourseRecords.CourseRecord;
+import Repository.CourseRecordsTextRepository;
 import Repository.StudentRecordTextRepository;
+import Repository.WaitListTextRepository;
 import StudentRecords.StudentRecords;
+import WaitList.WaitList;
 
 /**
  * DropCourse implements the logic of dropping a course
@@ -17,11 +22,12 @@ public class DropCourse {
 	 * prompts the user to enter the courseIndex to drop.
 	 * @return courseIndex to be dropped
 	 */
-	public static void dropCourse(ArrayList studentsRecords, String key, String courseIndex) throws IOException {
+	public static void dropCourse(ArrayList studentsRecords, ArrayList courseRecordList, ArrayList waitList, String key, String courseIndex, String indexNum, boolean hasQueue) throws IOException {
 	    //print details of dropped course
 		for (int i = 0 ; i < studentsRecords.size() ; i++) {
 			StudentRecords studentRecord = (StudentRecords)studentsRecords.get(i);
 			if(studentRecord.getKey().equals(key) && studentRecord.getCourseIndex().equals(courseIndex)) {
+				indexNum = studentRecord.getIndexNum();
 				System.out.println("Index Number: "+ courseIndex + "\tCourse: "+ studentRecord.getCourseIndex());
 				System.out.println("Course Type: "+ studentRecord.getCourseType() + "\tStatus: "+ studentRecord.getStatus());
 				System.out.println("\n");
@@ -40,7 +46,39 @@ public class DropCourse {
 				break;
 			}	
 		}
+		//check is there is queue 
+		for(int i = 0; i < courseRecordList.size(); i++)
+		{
+			CourseRecord courseRecord = (CourseRecord)courseRecordList.get(i);
+			if(courseRecord.getIndexNum().equals(indexNum) && courseRecord.getCourseIndex().equals(courseIndex))
+				if(hasQueue == false)
+				{
+					int intVacancy = Integer.parseInt(courseRecord.getVacancy());
+					intVacancy+=1;
+					String vacancy = String.valueOf(intVacancy);
+					courseRecord.setVacancy(vacancy);
+					CourseRecordsTextRepository courseRecordsTextRepository = new CourseRecordsTextRepository();
+					courseRecordsTextRepository.saveList(courseRecordList);
+				}
+				else
+				{
+					for (int j = 0 ; i < waitList.size() ; j++) {
+			    		WaitList myWaitList = (WaitList)waitList.get(j);
+			    		if(myWaitList.getIndexNum().equals(indexNum) && myWaitList.getCourseIndex().equals(courseIndex))
+			    		{
+			    			int totalQueue = Integer.parseInt(myWaitList.getTotalQueue());
+			    			totalQueue -= 1;
+			    			String strQueue = String
+			    			WaitListTextRepository waitListExtRepository = new WaitListTextRepository();
+			    			myWaitList.
+			    		}
+			    			
+					}
+					//minus wait list by one
+					//give the course to the queue number 1
+					//minus 1 all student Record based on course & index 
+				}
+		}
 		
-		//if there anyone in that waiting list
 	}
 }

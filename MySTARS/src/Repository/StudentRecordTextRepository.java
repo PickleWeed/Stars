@@ -61,8 +61,9 @@ public class StudentRecordTextRepository implements Repository{
 				String SU = star.nextToken().trim();
 				String GERType = star.nextToken().trim();
 				String status = star.nextToken().trim();
+				String queue = star.nextToken().trim();
 		
-				StudentRecords studentRecords = new StudentRecords(key, firstname, lastname, matricNum, courseIndex, indexNum, AU, courseType, SU, GERType, status);
+				StudentRecords studentRecords = new StudentRecords(key, firstname, lastname, matricNum, courseIndex, indexNum, AU, courseType, SU, GERType, status, queue);
 				
 				alr.add(studentRecords) ;
 			}
@@ -102,6 +103,8 @@ public void saveList(List al) throws IOException {
 				st.append(studentRecords.getGERType().trim());
 				st.append(SEPARATOR);
 				st.append(studentRecords.getStatus().trim());
+				st.append(SEPARATOR);
+				st.append(studentRecords.getQueue().trim());
 				alw.add(st.toString()) ;
 				
 			}

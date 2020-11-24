@@ -12,6 +12,7 @@ import SendMailTLS.SendMailTLS;
 import StudentInfo.GetStudentInfo;
 import StudentInfo.Student;
 import StudentRecords.StudentRecords;
+import WaitList.GetWaitList;
 
 /**
  * AddCourse implements the logic of adding a course
@@ -39,7 +40,7 @@ public class AddCourse{
 	 * @param GERType(eg BM)
 	 * @throws IOException If an input or output exception occurs
 	 */
-	public static void addCourse(ArrayList studentsRecords, ArrayList courseRecordList, ArrayList studentInfo, String key, String courseIndex, String indexNum, int index) throws IOException
+	public static void addCourse(ArrayList studentsRecords, ArrayList courseRecordList, ArrayList studentInfo, ArrayList waitList, String key, String courseIndex, String indexNum, int index) throws IOException
 	{
 		
 		//print non Distinct information
@@ -69,10 +70,17 @@ public class AddCourse{
 			
 			String vacancy = courseRecords.getVacancy();
 			int intVacancy = Integer.parseInt(vacancy);
+			
+			String queue = null;
+			int queueNum = 0;
 			if(intVacancy == 0)
-			{
+			{		
 				status = "WAITLIST";
-				//add onto queue
+				queue = GetWaitList.getQueue(waitList, courseIndex, indexNum, queue);
+				if(queue != null)
+					queueNum = Integer.parseInt(queue);
+				queueNum +=1;
+				queue = String.valueOf(queueNum);
 			}
 			else
 			{
@@ -100,7 +108,7 @@ public class AddCourse{
 				String email = student.getEmail();
 				
 				//insert onto Student Record
-				StudentRecords newStudentRecord = new StudentRecords(key,firstName,lastName,matricNum,courseIndex,indexNum,AU, courseType, SU, GERType, status);
+				StudentRecords newStudentRecord = new StudentRecords(key,firstName,lastName,matricNum,courseIndex,indexNum,AU, courseType, SU, GERType, status, queue);
 				studentsRecords.add(newStudentRecord);
 				StudentRecordTextRepository studentRecordTextRepository = new StudentRecordTextRepository();
 				studentRecordTextRepository.saveList(studentsRecords);
