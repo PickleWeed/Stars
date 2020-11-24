@@ -136,7 +136,7 @@ public class UpdateCourseRecord {
 				
 				System.out.println("CourseIndex: " + courseRecords.getCourseIndex() );
 				System.out.println("IndexNum: " + courseRecords.getIndexNum() );
-				System.out.println("Rype: " + courseRecords.getType() );
+				System.out.println("Type: " + courseRecords.getType() );
 				System.out.println("Froup: " + courseRecords.getGroup() );
 				System.out.println("Day: " + courseRecords.getDay() );
 				System.out.println("Time: " + courseRecords.getTime() );
