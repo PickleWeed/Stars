@@ -7,8 +7,37 @@ import Login.LoginInfo;
 import Repository.LoginTextRepository;
 import Repository.StudentPersonalTextRepository;
 
+/**
+ * UpdateStudentInfo does the manipulation the database related to 
+ * students' general informations(StudentsInfo) and login informations(LoginsInfo).<p>
+ * The class can:<p>
+ * Adds a new entry in both the StudentsInfo and LoginsInfo database<p>
+ * Update the access period of a student<p>
+ * 
+ * @author ?
+ *
+ */
 public class UpdateStudentInfo {
 	
+	/**
+	 * Adds a new entry in both the StudentsInfo and LoginsInfo database based on the information of
+	 * the student to be added. <p>
+	 * The password is encrypted and the new key is generated for the student using the Encrypt class. 
+	 * 
+	 * @param StudentInfoArray An ArrayList of all students' information in the StudentsInfo database 
+	 * @param loginArray An ArrayListStudent of all students' login information in the LoginsInfo database
+	 * @param firstName  firstName
+	 * @param lastName lastName
+	 * @param matricNum matricNum
+	 * @param gender gender
+	 * @param nationality nationality
+	 * @param age age
+	 * @param username username
+	 * @param password password
+	 * @param accessPeriod accessPeriod
+	 * @param email email
+	 * @throws IOException If an input or output exception occurred
+	 */
 	public static void addStudent(
 			ArrayList StudentInfoArray, ArrayList loginArray, String firstName, String lastName, 
 			String matricNum, String gender, String nationality, String age, 
@@ -41,6 +70,15 @@ public class UpdateStudentInfo {
 		
 		System.out.println("Student Successfully added!\n");
 	}
+	
+	/**
+	 * Updates the access period of selected students in the studentInfo database.
+	 * 
+	 * @param studentInfo An ArrayList of all students' information in the database
+	 * @param accessPeriod The accessPeriod to be updated
+	 * @param key The key of the student that the updation will be performed
+	 * @throws IOException If an input or output exception occurred
+	 */
 	public static void updateStudentAC(ArrayList studentInfo, String accessPeriod, String key) throws IOException
 	{
 		for (int i = 0 ; i < studentInfo.size() ; i++) {
