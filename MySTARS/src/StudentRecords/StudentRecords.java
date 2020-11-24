@@ -17,7 +17,8 @@ import java.io.Serializable;
  * SU: SU option <p>
  * GERType: eg CORE <p>
  * status: REGISTERED/WAITLIST <p>
- * 
+ *  queue of the course <p>
+ *
  * @author Aaron Tay Han Yen
  *
  */
@@ -49,6 +50,7 @@ public class StudentRecords implements Serializable{
  * @param SU SU option
  * @param GERType GERType: eg CORE
  * @param status status: REGISTERED/WAITLIST
+ * @param queue queue of the course
  */
 	public StudentRecords(String key, String firstName, String lastName, String matricNum, String courseIndex,String indexNum,
 			String AU, String courseType, String SU, String GERType, String status, String queue)
