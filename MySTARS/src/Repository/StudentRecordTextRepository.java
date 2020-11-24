@@ -8,17 +8,20 @@ import StudentRecords.StudentRecords;
 
 /**
  * StudentRecordTextRepository is a boundary class which performs read and write operations 
- * on StudentRecords.txt, a database that stores the information of all courses taken by every student.<p>
- * The information stored for each entry is listed below: <p>
- * key(identifies the student who takes the course) <p>
- * courseIndex(eg. CZ1003) and indexNum(eg. 10088) <p>
- * type(eg. LEC/TUT/LAB).<p>
- * group(eg. CS1, SS2).<p>
- * day, time, venue. <p>
- * remarks. <p>
- * program ????????? <p>
- * Each entry in the database is uniquely identified by the combination: <p>
- * key, CourseIndex, IndexNum <p>
+ * on StudentRecords, a database that stores the information of all courses taken by every student
+ * and the student's identity informations. <p>
+ * Each entry has 11 pieces of informations, as described below:<p>
+ * key: identifies the student who takes the course <p>
+ * firstName of student <p>
+ * lastName of student  <p>
+ * matricNum of student <p>
+ * indexNum: eg 10088 <p>
+ * courseIndex: eg CZ1003 <p>
+ * AU: number of AU of the course<p>
+ * courseType: eg. LEC/TUT/LAB <p>
+ * SU: SU option <p>
+ * GERType: eg CORE <p>
+ * status: REGISTERED/WAITLIST <p>
  * Each information has its respective get and set method.
  * 
  * @author ?
