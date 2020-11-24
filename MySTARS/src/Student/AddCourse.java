@@ -105,9 +105,7 @@ public class AddCourse{
 				
 				//trigger email
 				System.out.println("Course Added!");
-				
 			}
-			
 		}
 		else
 		{

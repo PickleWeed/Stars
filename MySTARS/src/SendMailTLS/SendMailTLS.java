@@ -12,7 +12,7 @@ import javax.mail.internet.MimeMessage;
 
 public class SendMailTLS {
 
-	public static void main(String[] args) {
+	public static void mailNotification(String courseIndex, String indexNum, String status) {
 
 		final String username = "ntuschoolstars@gmail.com"; // to be added
 		final String password = "Origami1!"; // to be added

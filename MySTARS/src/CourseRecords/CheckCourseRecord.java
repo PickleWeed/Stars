@@ -29,16 +29,7 @@ public class CheckCourseRecord {
 		System.out.println("Invalid Course Index & Index Number\n");
 		return false;
 	}
-	//for student interface
-	public static int returnCourseIndex(ArrayList courseRecord, String courseIndex, String indexNum)
-	{
-		for (int i = 0 ; i < courseRecord.size() ; i++) {
-			CourseRecord courseRecordList = (CourseRecord)courseRecord.get(i);
-			if(courseRecordList.getCourseIndex().equals(courseIndex) && courseRecordList.getIndexNum().equals(indexNum))
-				return i;
-		}
-		return -1;
-	}
+	
 	
 	/**
 	 * Checks if a course with the same courseIndex, indexNum and num is currently 
