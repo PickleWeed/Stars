@@ -5,6 +5,7 @@ import Repository.DatDatabase;
 import Repository.GlobalAccessPeriodTextRepository;
 import Repository.LoginTextRepository;
 import Repository.StudentRecordTextRepository;
+import Student.ChangeIndex;
 import Repository.StudentPersonalTextRepository;
 import CourseRecords.CheckCourseRecord;
 import CourseRecords.GetCourseRecord;
@@ -17,6 +18,7 @@ import StudentRecords.UpdateStudentRecord;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import AccessPeriod.GetAccessPeriod;
@@ -41,11 +43,11 @@ public class AdminApp {
 	private String choice = "0";
 	
 
-	private static ArrayList courseRecord;
-	private static ArrayList studentInfo;
-	private static ArrayList loginInfo;
-	private static ArrayList studentRecord;
-	private static ArrayList accessPeriodList;
+	private  ArrayList courseRecord;
+	private  ArrayList studentInfo;
+	private  ArrayList loginInfo;
+	private  ArrayList studentRecord;
+	private  ArrayList accessPeriodList;
 
 	Scanner sc = new Scanner(System.in);
 	/**
@@ -156,7 +158,6 @@ public class AdminApp {
 		String matricNum = sc.next().toUpperCase();
 		String key = GetStudentInfo.getStudentKey(studentInfo, matricNum);
 		String startAccessPeriod, endAccessPeriod, accessPeriod;
-		
 		if(key != "nill")
 		{
 			GetStudentInfo.printStudentInfo(studentInfo, key);
@@ -422,13 +423,14 @@ public class AdminApp {
 	 */
 	private void printCourseVacancy() throws IOException
 	{
-		GetCourseRecord.printIndexNum(courseRecord);
+		List aList = GetCourseRecord.getIndexList(courseRecord); 
+		GetCourseRecord.printIndexNum(courseRecord); 
 		System.out.printf("\nEnter Index Number to check avaliable Vacancy: ");
 		String indexNum = sc.next();
-		GetCourseRecord.printVacancy(indexNum, courseRecord);
-	}
-	public static void main(String[] args) throws Exception {
-		AdminApp adminApp = new AdminApp();
-    	adminApp.adminInterface();
+		if (aList.contains(indexNum) == true)
+			GetCourseRecord.printVacancy(indexNum, courseRecord);
+		else
+			System.out.println("Error! No such Index Number.\n");
+
 	}
 }

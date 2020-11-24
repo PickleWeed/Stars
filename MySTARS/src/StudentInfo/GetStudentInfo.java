@@ -24,15 +24,19 @@ public class GetStudentInfo {
 	 */
 	public static void printStudentInfo(ArrayList studentInfo, String key) throws IOException
 	{
-		key = "LV";
-		List aList = ChangeIndex.getIndexList(studentInfo, key);
-		/*int i = aList.indexOf(key);
-		Student student = (Student)studentInfo.get(i);
-		System.out.println("Name: " + student.getFirstName() + " " + student.getLastName());
-		System.out.println("Matric Number: " + student.getMatricNum() + ", Gender: " + student.getGender() );
-		System.out.println("Nationality: " + student.getNationality() + "Age: " + student.getAge() );
-		System.out.println("Access Period: " + student.getAccessPeriod());
-		System.out.println("\n");*/
+		for(int i = 0; i<studentInfo.size(); i++)
+		{
+			Student student = (Student)studentInfo.get(i);
+			if(student.getKey().equals("key"))
+			{
+				System.out.println("Name: " + student.getFirstName() + " " + student.getLastName());
+				System.out.println("Matric Number: " + student.getMatricNum() + ", Gender: " + student.getGender() );
+				System.out.println("Nationality: " + student.getNationality() + "Age: " + student.getAge() );
+				System.out.println("Access Period: " + student.getAccessPeriod());
+				System.out.println("\n");
+			}
+		}
+		
 	}
 	
 	/**
@@ -57,7 +61,12 @@ public class GetStudentInfo {
 	//for student Interface
 	public static int getStudentIndex(ArrayList studentInfo, String key)
 	{
-		int i = studentInfo.indexOf(key);
-		return i;
+		for (int i = 0; i < studentInfo.size(); i++)
+		{
+			Student student = (Student)studentInfo.get(i);
+			if(student.getKey().equals(key))
+				return i;
+		}
+		return -1;
 	}
 }
