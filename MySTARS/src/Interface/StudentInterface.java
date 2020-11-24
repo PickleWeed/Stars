@@ -1,6 +1,8 @@
 package Interface;
 
 import Student.*;
+import StudentRecords.CheckStudentRecord;
+import StudentRecords.GetStudentRecord;
 import StudentRecords.StudentRecords;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,7 +12,6 @@ import CourseRecords.*;
 import Repository.CourseRecordsTextRepository;
 import Repository.DatDatabase;
 import Repository.GlobalAccessPeriodTextRepository;
-import Repository.LoginTextRepository;
 import Repository.StudentRecordTextRepository;
 import Repository.StudentPersonalTextRepository;
 
@@ -134,9 +135,11 @@ public class StudentInterface {
 		System.out.printf("Enter Index Number: "); 
 		indexNum = sc.next();
 		
-		int index = CheckCourse.checkCourse(courseRecordList, courseIndex, indexNum);
+		int index = GetCourseRecord.returnCourseIndex(courseRecordList, courseIndex, indexNum);
+		//check exist already
+		boolean alreadyExistCourse = CheckStudentRecord.checkStudent(studentsRecords, courseIndex, key);
 		
-		if(index != -1)
+		if(index != -1 && alreadyExistCourse == false)
 			AddCourse.addCourse(studentsRecords, courseRecordList, studentInfo, key, courseIndex, indexNum, index);
 	}
 	
@@ -166,7 +169,7 @@ public class StudentInterface {
 	 * @throws IOException If an input or output exception occurs
 	 */
 	private static void printCourseDetails(String key) throws IOException {
-		CheckCourse.getCourseDetails(studentsRecords, key);	
+		GetStudentRecord.getCourseDetails(studentsRecords, key);	
 	}
 
 	//case 4

@@ -104,6 +104,8 @@ public class AddCourse{
 				studentRecordTextRepository.saveList(studentsRecords);
 				
 				//trigger email
+				System.out.println("Course Added!");
+				
 			}
 			
 		}

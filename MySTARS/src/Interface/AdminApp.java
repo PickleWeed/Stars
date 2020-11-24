@@ -43,11 +43,11 @@ public class AdminApp {
 	private String choice = "0";
 	
 
-	private  ArrayList courseRecord;
-	private  ArrayList studentInfo;
-	private  ArrayList loginInfo;
-	private  ArrayList studentRecord;
-	private  ArrayList accessPeriodList;
+	private  static ArrayList courseRecord;
+	private  static ArrayList studentInfo;
+	private  static ArrayList loginInfo;
+	private  static ArrayList studentRecord;
+	private  static ArrayList accessPeriodList;
 
 	Scanner sc = new Scanner(System.in);
 	/**
