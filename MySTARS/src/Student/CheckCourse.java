@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import StudentRecords.StudentRecords;
 
 /**
- * CheckCourse is a control class that displays the course informations for all
+ * CheckCourse displays the course informations for all
  * courses registered by the student.
  * 
  * @author ?
@@ -12,6 +12,12 @@ import StudentRecords.StudentRecords;
  */
 public class CheckCourse {
 	
+	/**
+	 * Displays the detail of all courses registered by the student, and his total AU
+	 * 
+	 * @param StudentRecord An ArrayList of StudentRecords currently in the database
+	 * @param key The key used to identify a student
+	 */
 	public static void getCourseDetails(ArrayList StudentRecord, String key)
 	{
 		int count = 0;
