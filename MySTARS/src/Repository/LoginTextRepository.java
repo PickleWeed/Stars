@@ -31,7 +31,7 @@ public class LoginTextRepository implements Repository{
 	 * @param userPassword user entered password
 	 * @param userType userType: Student/Admin
 	 * @return a key. If key is not null, login will be sucessful
-	 * @throws IOException
+	 * @throws IOException If an input or output exception occurred
 	 */
 	public String readLoginDetail(String userUsername, String userPassword, String userType) throws IOException { //enter from LoginController
 		ArrayList stringArray = (ArrayList)TextDatabase.read(FILENAME); // read String from text file
