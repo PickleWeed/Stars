@@ -7,18 +7,23 @@ import java.util.StringTokenizer;
 
 import WaitList.WaitList;
 
+/**
+ * WaitListTextRepository is a boundary class which performs read and write operations 
+ * on WaitList, a database that stores information about the number of students on
+ * waitlist for each course.<p>
+ * 
+ * @author Aaron
+ *
+ */
 public class WaitListTextRepository implements Repository{
 	private static final String SEPARATOR = "|";
 	private static final String FILENAME = "WaitList.txt" ;
 	private static final String DATFILENAME = "WaitList.dat" ;
 	
     	/**
-	 * Gets the information of all courses taken by every student from the database.<p>
-     * Each entry is stored as a StudentRecords object.<p> 
-     * An ArrayList of StudentRecords objects are returned.<p>
+	 * Reads all information from the WaitList database. 
 	 * 
 	 * @return An ArrayList of WaitList objects storing 
-	 * the information of all courses taken by every student from the database is returned.
 	 * @throws IOException If an input or output exception occurred
 	 */
 	public ArrayList readToList() throws IOException {
@@ -41,9 +46,9 @@ public class WaitListTextRepository implements Repository{
 	}
 
 	/**
-	 * Saves an ArrayList of StudentRecords objects into the database.
+	 * Saves an ArrayList of WaitList objects into the database.
 	 * 
-	 * @param al an ArrayList of StudentRecords object to be stored into the database
+	 * @param al an ArrayList of WaitList object to be stored into the database
 	 * @throws IOException If an input or output exception occurred
 	 */
 public void saveList(List al) throws IOException {
