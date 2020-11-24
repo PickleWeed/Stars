@@ -30,7 +30,7 @@ public class Sorting
 		}
 	}
 	
-	**
+	/**
 	 * Implements insertion sorting algorithms on array
 	 * 
 	 * @param list array list to be sorted

@@ -10,7 +10,7 @@ import StudentRecords.StudentRecords;
 /**
  * ChangeIndex swaps old index with a new index for the course registered by the user.
  * 
- * @author ?
+ * @author Samantha Tan Swee Yun
  *
  */
 public class ChangeIndex {

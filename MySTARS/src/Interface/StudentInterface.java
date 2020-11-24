@@ -26,8 +26,8 @@ import Repository.StudentPersonalTextRepository;
  * 6. Swap Index Number with Another Student <p>
  * 7. Log out
  * 
- * @author ?
- *
+ * @author 1 Samantha Tan Swee Yun
+ * @author 2 ?
  */
 public class StudentInterface {
 	private String choice = "0";

@@ -7,7 +7,7 @@ import StudentRecords.StudentRecords;
  * CheckCourse displays the course informations for all
  * courses registered by the student.
  * 
- * @author ?
+ * @author Samantha Tan Swee Yun
  *
  */
 public class CheckCourse {
