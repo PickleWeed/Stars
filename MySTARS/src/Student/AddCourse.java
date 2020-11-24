@@ -69,7 +69,10 @@ public class AddCourse{
 			String vacancy = courseRecords.getVacancy();
 			int intVacancy = Integer.parseInt(vacancy);
 			if(intVacancy == 0)
+			{
 				status = "WAITLIST";
+				//add onto queue
+			}
 			else
 			{
 				status = "REGISTERED";

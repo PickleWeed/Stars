@@ -1,6 +1,10 @@
 package StudentInfo;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+
+import Student.ChangeIndex;
 
 /**
  * GetStudentInfo displays student informations based on a given matriculation number.
@@ -16,23 +20,19 @@ public class GetStudentInfo {
 	 * 
 	 * @param studentInfo An Arraylist of all studentInfo in the database
 	 * @param key The key of the student
+	 * @throws IOException 
 	 */
-	public static void printStudentInfo(ArrayList studentInfo, String key)
+	public static void printStudentInfo(ArrayList studentInfo, String key) throws IOException
 	{
-		for (int i = 0 ; i < studentInfo.size() ; i++) {
-			Student student = (Student)studentInfo.get(i);
-				if(student.getKey().equals(key))
-				{
-					System.out.println("FirstName: " + student.getFirstName() );
-					System.out.println("LastName: " + student.getLastName() );
-					System.out.println("Matric Number: " + student.getMatricNum() );
-					System.out.println("Gender: " + student.getGender() );
-					System.out.println("Nationality: " + student.getNationality() );
-					System.out.println("Age: " + student.getAge() );
-					System.out.println("Access Period: " + student.getAccessPeriod());
-					System.out.println("\n");
-				}
-		}
+		key = "LV";
+		List aList = ChangeIndex.getIndexList(studentInfo, key);
+		/*int i = aList.indexOf(key);
+		Student student = (Student)studentInfo.get(i);
+		System.out.println("Name: " + student.getFirstName() + " " + student.getLastName());
+		System.out.println("Matric Number: " + student.getMatricNum() + ", Gender: " + student.getGender() );
+		System.out.println("Nationality: " + student.getNationality() + "Age: " + student.getAge() );
+		System.out.println("Access Period: " + student.getAccessPeriod());
+		System.out.println("\n");*/
 	}
 	
 	/**
@@ -57,13 +57,7 @@ public class GetStudentInfo {
 	//for student Interface
 	public static int getStudentIndex(ArrayList studentInfo, String key)
 	{
-		for (int i = 0; i < studentInfo.size(); i++)
-		{
-			Student student = (Student)studentInfo.get(i);
-			if(student.getKey().equals(key))
-				return i;	
-		}
-		return -1;
+		int i = studentInfo.indexOf(key);
+		return i;
 	}
-	
 }
