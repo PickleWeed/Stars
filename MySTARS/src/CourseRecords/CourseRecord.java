@@ -1,16 +1,25 @@
 package CourseRecords;
 
 import java.io.Serializable;
+
 /**
  * CourseRecord is an entity class which stores all information of a course. <p>
- * Each course has pieces of 10 informations in total, as described below: <p>
- * courseIndex(eg. CZ1003) and indexNum(eg. 10088), which unqiuely defines a course. <p>
+ * Each course has pieces of 15 informations in total, as described below: <p>
+ * num a number useful for identifying a courseIndex and index pair (eg. CZ1003|10088) 
+ * when multiple same courseIndex and index pairs are present. <p> For example, num = 1
+ * for CZ1003|10088|LAB and num = 2 for CZ1003|10088|TUT<p>
+ * courseIndex(eg. CZ1003) <p>
+ * indexNum(eg. 10088) <p>
  * type(eg. LEC/TUT/LAB).<p>
  * group(eg. CS1, SS2).<p>
  * day, time, venue. <p>
  * name of the course. <p>
  * vacancy. <p>
  * remarks. <p>
+ * AU. AU of the course <p>
+ * SU. SU option <p>
+ * CourseType. EG Core<p>
+ * GERType. EG BM<p>
  * Each information has its respective get and set method.
  * 
  * @author ?
@@ -35,7 +44,7 @@ public class CourseRecord implements Serializable{
 	private String  GERType;
 	
 	/**
-	 * Class constructor specifying all 10 course informations.
+	 * Class constructor specifying all 15 course informations.
 	 * 
 	 * @param courseIndex (eg. CZ1003)
 	 * @param indexNum (eg. 10088)
@@ -47,6 +56,13 @@ public class CourseRecord implements Serializable{
 	 * @param remarks any remark for this course
 	 * @param vacancy number of available slots left for this course
 	 * @param name name of this course
+	 * @param AU AU of the course 
+	 * @param SU SU option
+	 * @param CourseType CourseType(EG Core)
+	 * @param GERType GERType(EG BM)
+	 * @param num a number useful for identifying a courseIndex and index pair (eg. CZ1003|10088) 
+	 * when multiple same courseIndex and index pairs are present. For example, num = 1
+	 * for CZ1003|10088|LAB and num = 2 for CZ1003|10088|TUT
 	 */
 	public CourseRecord(String num, String courseIndex, String indexNum, String type, String group, String day, String time, String venue, 
 			String remarks, String vacancy, String name, String AU,String CourseType,String SU, String GERType)
