@@ -163,8 +163,8 @@ public class StudentInterface {
 		//check course already or not
 		boolean alreadyExistCourse = CheckStudentRecord.checkStudent(studentsRecords, courseIndex, key);
 		//check timing
-		boolean test = CheckStudentRecord.checkTiming(courseRecordList, studentsRecords, courseIndex, indexNum, key);
-		if(index != -1 && alreadyExistCourse == false && test == true)
+		//boolean test = CheckStudentRecord.checkTiming(courseRecordList, studentsRecords, courseIndex, indexNum, key);
+		if(index != -1 && alreadyExistCourse == false)
 			AddCourse.addCourse(studentsRecords, courseRecordList, studentInfo, waitList, key, courseIndex, indexNum, index);
 	}
 	
