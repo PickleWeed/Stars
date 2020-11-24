@@ -11,11 +11,12 @@ import StudentRecords.StudentRecords;
 import WaitList.WaitList;
 
 /**
- * DropCourse implements the logic of dropping a course
- * for the student if the student enters a valid indexNum.
+ * Drops all courses with a particular indexNum for a particular student.
  * 
- * @author Samantha Tan Swee Yun
- *
+ * @param studentsRecords An ArrayList of all StudentRecords from the database
+ * @param key the key(identity) of the user
+ * @param indexNum indexNum to drop 
+ * @throws IOException If an input or output exception occurred
  */
 public class DropCourse {
 	/**
