@@ -18,12 +18,13 @@ import Repository.StudentPersonalTextRepository;
  * StudentInterface is a boundary class which interacts with the student to perform any operation on MySTARS
  * in the student mode.<p>
  * There are 6 options in student mode: <p>
- * 1. Add Course <p>
- * 2. Drop Course <p>
+ * 1. Add a Course <p>
+ * 2. Drop a Course <p>
  * 3. Check/Print Courses Registered <p>
- * 4. Check Vancancies <p>
+ * 4. Check Vacancies Available <p>
  * 5. Change Index Number of Course <p>
  * 6. Swap Index Number with Another Student <p>
+ * 7. Log out
  * 
  * @author ?
  *
@@ -39,7 +40,13 @@ public class StudentInterface {
 	
 	static Scanner sc = new Scanner(System.in);
 
-	
+	/**
+	 * Reads in data from the database, prompts user to select a choice from the menu and passes 
+	 * control to the respective class/method to perform the tasks.
+	 * 
+	 * @param key The key used to identify a student 
+	 * @throws IOException If an input or output exception occurs
+	 */
 	public void inStudentInterface(String key) throws IOException
 	{
 		CourseRecordsTextRepository courseRecordsTextRepository = new CourseRecordsTextRepository();
@@ -111,6 +118,13 @@ public class StudentInterface {
 	}
 	
 	//case 1
+	/**
+	 * Prompts user to enter a courseIndex and adds the course for the student into the 
+	 * StudentRecords database.
+	 * 
+	 * @param key The key used to identify a student
+	 * @throws IOException If an input or output exception occurs
+	 */
 	private static void addCourse(String key) throws IOException{
 		String courseIndex;
 		System.out.println("Enter Course Index:");
@@ -137,6 +151,13 @@ public class StudentInterface {
 	}
 	
 	//case 2
+	/**
+	 * Prompts user to enter a indexNum to drop and drops the relevant entries from the
+	 * StudentRecords database.
+	 * 
+	 * @param key The key used to identify a student
+	 * @throws IOException If an input or output exception occurs
+	 */
 	private static void dropCourse(String key) throws IOException {
 		List aList = ChangeIndex.getIndexList(studentsRecords, key);
 		System.out.println("Enter Index Number:");
@@ -148,11 +169,23 @@ public class StudentInterface {
 	}
 	
 	//case 3
+	/**
+	 * Displays the detail of all courses registered by the student and his total AU. 
+	 * 
+	 * @param key The key used to identify a student
+	 * @throws IOException If an input or output exception occurs
+	 */
 	private static void printCourseDetails(String key) throws IOException {
 		CheckCourse.getCourseDetails(studentsRecords, key);	
 	}
 
 	//case 4
+	/**
+	 * Prompts user to enter a indexNum and
+	 * displays the vacancies and other course informations for this indexNum.
+	 * 
+	 * @throws IOException If an input or output exception occurs
+	 */
 	private static void getCourseVacancy() throws IOException
 	{
 		List aList = GetCourseRecord.getIndexList(courseRecordList); 
@@ -165,6 +198,12 @@ public class StudentInterface {
 	}
 	
 	//case 5
+	/**
+	 * Prompts user to enter the indexNums to swap for a course he registered and swap them.
+	 * 
+	 * @param key The key used to identify a student
+	 * @throws IOException If an input or output exception occurs
+	 */
 	private static void changeIndex(String key) throws IOException
 	{
 		List aList = ChangeIndex.getIndexList(studentsRecords, key); // index of registered course for student
@@ -190,6 +229,13 @@ public class StudentInterface {
 	}
 	
 	//case 6
+	/**
+	 * Prompts user to enter the indexNums to swap and his friend's matriculation number and 
+	 * swap their indexes.
+	 * 
+	 * @param key The key used to identify a student
+	 * @throws IOException If an input or output exception occurs
+	 */
 	private void SwapIndex(String key)  throws IOException
 	{
 		List aList = ChangeIndex.getIndexList(studentsRecords, key);
