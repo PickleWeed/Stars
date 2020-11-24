@@ -9,7 +9,7 @@ import java.util.List;
  * and file types in the database will be implemented
  * 
  * @author Aaron Tay Han Yen
- *
+ * @author Li Haoyang
  */
 public interface Repository {
 	
