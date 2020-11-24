@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"AccessPeriod"},{"l":"Admin"},{"l":"All Packages","url":"allpackages-index.html"},{"l":"Calendar"},{"l":"CourseRecords"},{"l":"Interface"},{"l":"Login"},{"l":"Repository"},{"l":"SendMailTLS"},{"l":"Student"},{"l":"StudentInfo"},{"l":"StudentRecords"},{"l":"WaitList"}]
