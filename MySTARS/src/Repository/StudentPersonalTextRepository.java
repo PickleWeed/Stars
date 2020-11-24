@@ -16,7 +16,7 @@ import StudentInfo.Student;
  * email of student <p>
  * 
  * @author Aaron Tay Han Yen
- *
+ * @author Li Haoyang
  */
 public class StudentPersonalTextRepository implements Repository{
 	private static final String SEPARATOR = "|";
