@@ -35,7 +35,6 @@ import Repository.StudentPersonalTextRepository;
  * 7. Log out
  * 
  * @author 1 Samantha Tan Swee Yun
- * @author 2 ?
  */
 public class StudentInterface {
 	private String choice = "0";
@@ -54,7 +53,7 @@ public class StudentInterface {
 	 * 
 	 * @param key The key used to identify a student 
 	 * @throws IOException If an input or output exception occurs
-	 * @throws ParseException 
+	 * @throws ParseException if ParseException occurs
 	 */
 	public void inStudentInterface(String key) throws IOException, ParseException
 	{
