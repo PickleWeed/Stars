@@ -7,9 +7,8 @@ import StudentInfo.Student;
 import StudentRecords.StudentRecords;
 
 /**
- * GetStudentListByCourseIndex is a control class which allows a user to select a CourseIndex (eg. CZ1003)
+ * GetStudentListByCourseIndex allows a user to select a CourseIndex (eg. CZ1003)
  * and displays all students name, gender, and nationality who have registered for this course. 
- * 
  * 
  * @author ?
  *
@@ -17,10 +16,11 @@ import StudentRecords.StudentRecords;
 public class GetStudentListByCourseIndex {
 
 	/**
-	 * Displays all possible CourseIndex
+	 * Displays information of all students for a particular courseIndex
 	 * 
 	 * @param StudentRecordsList Entire database of StudentRecords
 	 * @param studentInfo Entire database of StudentInfo
+	 * @param courseIndex The courseIndex to display all students' information under this index
 	 * @throws IOException If an input or output exception occurred
 	 */
 	public static void printStudentList(ArrayList studentRecordsList, ArrayList studentInfo, String courseIndex) throws IOException
