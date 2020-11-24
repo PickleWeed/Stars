@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * serializable files.
  * 
  * @author Aaron Tay Han Yen
- *
+ * @author Li Haoyang
  */
 
 //Note : When structure of the Object type (the class file) in the list changed
