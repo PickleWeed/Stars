@@ -78,19 +78,33 @@ public class DropCourse {
 			    		}
 			    			
 					}
-					//give the course to the queue number 1
 					for(int j = 0; j < studentsRecords.size(); j++)
 					{
+						//give the course to the queue number 1
 						StudentRecords studentRecord = (StudentRecords)studentsRecords.get(j);
 						if(studentRecord.getCourseIndex().equals(courseIndex) && studentRecord.getIndexNum().equals(indexNum) && studentRecord.getQueue().equals("1"))
 						{
 							studentRecord.setStatus("REGISTERED");
 							studentRecord.setQueue("0");
+							break;
 						}
-						else if(studentRecord.getCourseIndex().equals(courseIndex) && studentRecord.getIndexNum().equals(indexNum) && studentRecord.getQueue().equals("1"))
 					}
 					//minus 1 all student Record based on course & index 
-					
+					for(int j = 0; j < studentsRecords.size(); j++)
+					{
+						//give the course to the queue number 1
+						StudentRecords studentRecord = (StudentRecords)studentsRecords.get(j);
+						if(studentRecord.getCourseIndex().equals(courseIndex) && studentRecord.getIndexNum().equals(indexNum) && !studentRecord.getQueue().equals("1") && !studentRecord.getQueue().equals("0"))
+						{
+							int intQueue = Integer.parseInt(studentRecord.getQueue());
+							intQueue -= 1;
+							String strQueue = String.valueOf(intQueue);
+							studentRecord.setQueue(strQueue);
+						}
+					}
+					//save to txtfile & dat
+					StudentRecordTextRepository studentRecordsTextRepository = new StudentRecordTextRepository();
+					studentRecordsTextRepository.saveList(studentsRecords);
 				}
 		}
 		
