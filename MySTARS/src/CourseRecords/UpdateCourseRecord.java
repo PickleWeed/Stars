@@ -5,7 +5,43 @@ import java.util.ArrayList;
 
 import Repository.CourseRecordsTextRepository;
 
+/**
+ * UpdateCourseRecord does the manipulation on the database 
+ * storing all courses' informations(CourseRecords).<p>
+ * The class can:<p>
+ * Adds a new entry in the CourseRecords database<p>
+ * Edits an existing entry in the CourseRecords database<p>
+ * Checks if a courseIndex is present in the database.<p>
+ * 
+ * @author ?
+ *
+ */
 public class UpdateCourseRecord {
+	
+	/**
+	 * Adds a new entry in the CourseRecords database based on the information of
+	 * the course to be added. <p>
+	 * 
+	 * @param courseRecord An ArrayList of all courses' information in the CourseRecords database 
+	 * @param courseIndex courseIndex (eg. CZ1003)
+	 * @param indexNum indexNum (eg. 10088)
+	 * @param type type (eg. LECT/TUT/LAB)
+	 * @param group grou (eg. CS1)
+	 * @param day day
+	 * @param time time
+	 * @param venue venue
+	 * @param remarks remarks
+	 * @param vacancy vacancy
+	 * @param name name
+	 * @param AU AU of the course
+	 * @param SU SU option
+	 * @param courseType courseType(EG CORE)
+	 * @param GERType GERType(EG BM)
+	 * @param num a number useful for identifying a courseIndex and index pair (eg. CZ1003|10088) 
+	 * when multiple same courseIndex and index pairs are present. For example, num = 1
+	 * for CZ1003|10088|LAB and num = 2 for CZ1003|10088|TUT
+	 * @throws IOException If an input or output exception occurred
+	 */
 	public static void addCourse(ArrayList courseRecord, String num, String courseIndex, String indexNum, String type, 
 			String group, String day, String time, String venue, String remarks, String vacancy, String name, String AU, String courseType, String SU,String GERType) throws IOException
 	{
@@ -32,6 +68,14 @@ public class UpdateCourseRecord {
 		System.out.println("GERType: " + newCourseRecord.getGERType() );
 		System.out.println("Course Successfully added!\n");
 	}
+	
+	/**
+	 * Checks if a courseIndex is present in the database. 
+	 * 
+	 * @param courseRecord An ArrayList of all courses' information in the CourseRecords database 
+	 * @param courseIndex the courseIndex to be checked
+	 * @return true if the courseIndex is found, false otherwise.
+	 */
 	public static boolean checkCourseIndex(ArrayList courseRecord, String courseIndex)
 	{
 		for(int i=0; i<courseRecord.size(); i++)
@@ -45,6 +89,30 @@ public class UpdateCourseRecord {
 		System.out.println("Course Index not found.\n");
 		return false;
 	}
+	
+	/**
+	 * Edits the course in the database with the selected courseIndex, indexNum and num with 
+	 * the new informations that are supplied into the method.
+	 * 
+	 * @param courseRecord An ArrayList of all courses' information in the CourseRecords database 
+	 * @param courseIndex courseIndex (eg. CZ1003)
+	 * @param indexNum indexNum (eg. 10088)
+	 * @param type type (eg. LECT/TUT/LAB)
+	 * @param group group (eg. CS1)
+	 * @param day day
+	 * @param time time
+	 * @param venue venue
+	 * @param remarks remarks
+	 * @param vacancy vacancy
+	 * @param AU AU of the course
+	 * @param SU SU option
+	 * @param courseType courseType(EG CORE)
+	 * @param GERType GERType(EG BM)
+	 * @param num a number useful for identifying a courseIndex and index pair (eg. CZ1003|10088) 
+	 * when multiple same courseIndex and index pairs are present. For example, num = 1
+	 * for CZ1003|10088|LAB and num = 2 for CZ1003|10088|TUT
+	 * @throws IOException If an input or output exception occurred
+	 */
 	public static void editCourse(ArrayList courseRecord, String num, String courseIndex, String indexNum, String type,
 			String group, String day, String time, String venue, String remarks, String vacancy, String AU,String courseType,String  SU,String GERType) throws IOException
 	{
