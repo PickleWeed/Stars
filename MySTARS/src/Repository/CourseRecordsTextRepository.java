@@ -24,7 +24,14 @@ import CourseRecords.CourseRecord;
  * remarks: any remark for this course<p>
  * vacancy: number of available slots left for this course<p>
  * name: name of this course<p>
- * 
+ * No.: a number useful for identifying a courseIndex and index pair (eg. CZ1003|10088) 
+ * when multiple same courseIndex and index pairs are present. <p> For example, num = 1
+ * for CZ1003|10088|LAB and num = 2 for CZ1003|10088|TUT<p>
+ * AU: Number of AU<p>
+ * SU: SU option<p>
+ * CourseType: EG CORE<p>
+ * GERType: EG BM<p>
+ *
  * @author ? 
  *
  */
