@@ -33,7 +33,7 @@ import CourseRecords.CourseRecord;
  * GERType: EG BM<p>
  *
  * @author Aaron Tay Han Yen
- *
+ * @author Li Haoyang
  */
 public class CourseRecordsTextRepository implements Repository{
 	private static final String SEPARATOR = "|";
