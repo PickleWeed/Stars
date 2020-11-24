@@ -144,6 +144,11 @@ public class AdminApp {
 	}
 	
 	//case 1
+	/**
+	 * Prompts user to enter the information of a student and edits the student's access period to the database. 
+	 * 
+	 * @throws IOException If an input or output exception occurred
+	 */
 	private void editStudentAccess() throws IOException
 	{	
 		System.out.println("\n******EditStudent Access Period******");
@@ -166,7 +171,14 @@ public class AdminApp {
 		else
 			System.out.println("No matching Matric Number!");
 	}
+	
 	//case 2
+	/**
+	 * Prompts user to enter the information of the student and add him/her into the database.<p>
+	 * Password encryption is done and a new key is generated.
+	 * 
+	 * @throws IOException If an input or output exception occurred
+	 */
 	private void addStudent() throws IOException
 	{
 		System.out.printf("Enter student First Name: ");
@@ -219,7 +231,13 @@ public class AdminApp {
 		//create student login info and Student Info
 		UpdateStudentInfo.addStudent(studentInfo, loginInfo, firstName, lastName, matricNum, gender, nationality, age, username, password, accessPeriod, email);
 	}
+	
 	//case 3
+	/**
+	 * Prompts user to enter the information of a course and add it into the database.<p>
+	 * 
+	 * @throws IOException If an input or output exception occurred
+	 */
 	private void addCourse() throws IOException
 	{
 		String courseIndex, indexNum;
@@ -277,10 +295,15 @@ public class AdminApp {
 			UpdateCourseRecord.addCourse(courseRecord, num, courseIndex, indexNum, type, group, day, time, venue, remarks, vacancy, courseName, AU, courseType, SU,GERType);
 		}
 	}
+	
 	//case 4
+	/**
+	 * Prompts user to select a course to edit, key in the new course's information and update the database.
+	 * 
+	 * @throws If an input or output exception occurred
+	 */
 	private void updateCourse() throws Exception
 	{
-		//remember update a course also must update student course
 		GetCourseRecord.printCourseCode(courseRecord);
 		String courseIndex, indexNum;
 		//check duplicate
@@ -336,21 +359,44 @@ public class AdminApp {
 		//update Student Record
 		UpdateStudentRecord.updateStudentRecord(studentRecord, courseIndex, indexNum, AU);
 	}
+	
 	//case 5
+	/**
+	 * prompts user to select an indexNum (eg. 10088)
+	 * from the list of all possible indexNum and displays all students who have registered for a course 
+	 * under this index.
+	 * 
+	 * @throws IOException If an input or output exception occurred
+	 */
 	private void printStudentListByIndexNumber() throws IOException {
 		// TODO Auto-generated method stub
 		System.out.printf("Enter Index Number to check list of Student:");
 		String indexNum = sc.next();
 		GetStudentListByIndexNumber.printStudentList(studentRecord, studentInfo, indexNum);
 	}
+	
 	//case 6
+	/**
+	 * prompts user to select an CourseIndex (eg. CZ1003)
+	 * from the list of all possible CourseIndex and displays all students who have registered for a course 
+	 * under this index.
+	 * 
+	 * @throws IOException If an input or output exception occurred
+	 */
 	private void printStudentListByCourseIndex() throws IOException{
 		// TODO Auto-generated method stub
 		System.out.printf("Enter Course Index to check list of Student:");
 		String courseIndex = sc.next().toUpperCase();
 		GetStudentListByCourseIndex.printStudentList(studentRecord, studentInfo, courseIndex);
 	}
+	
 	//case 7
+	/**
+	 * Prompts user to enter a indexNum and displays the vacancies 
+	 * and other course informations for courses with this indexNum.
+	 * 
+	 * @throws IOException If an input or output exception occurred
+	 */
 	private void printCourseVacancy() throws IOException
 	{
 		GetCourseRecord.printIndexNum(courseRecord);
