@@ -2,8 +2,20 @@ package StudentRecords;
 
 import java.util.ArrayList;
 
+/**
+ * Displays the select student's course informations
+ * 
+ * @author ?
+ *
+ */
 public class GetStudentRecord {
 	
+	/**
+	 * Displays the select student's course informations
+	 * 
+	 * @param StudentRecord An Array of all studentInfo in the database
+	 * @param key the key used to identify the student
+	 */
 	public static void printStudentRecord(ArrayList StudentRecord, String key)
 	{
 		for (int i = 0 ; i < StudentRecord.size() ; i++) {
