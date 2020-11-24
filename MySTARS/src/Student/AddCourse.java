@@ -19,27 +19,22 @@ import WaitList.GetWaitList;
  * AddCourse implements the logic of adding a course
  * for the student if the student enters a valid courseIndex.
  * 
- * @author ?
+ * @author Aaron
  *
  */
 public class AddCourse{
 	/**
-	 * Displays all indexNum under the courseIndex, prompts the user to enter an indexNum and
-	 * add new entry into the StudentRecords and CourseRecords database 
+	 * add a course for the student
 	 * 
-	 * @param studentsRecords An ArrayList of StudentRecords currently in the database
-	 * @param courseRecordList An ArrayList of courseRecords currently in the database
-	 * @param key The key used to identify a student
-	 * @param firstName firstName
-	 * @param lastName lastName
-	 * @param matricNum matricNum
+	 * @param studentsRecords An ArrayList of all studentsRecords from the database
+	 * @param courseRecordList An ArrayList of all courseRecords from the database
+	 * @param studentInfo An ArrayList of all studentInfo from the database
+	 * @param waitList waitList
+	 * @param key key used to identify a student
 	 * @param courseIndex courseIndex
 	 * @param indexNum indexNum
-	 * @param AU AU of the course
-	 * @param SU SU option
-	 * @param CourseType CourseType(eg CORE)
-	 * @param GERType(eg BM)
-	 * @throws IOException If an input or output exception occurs
+	 * @param index index
+	 * @throws IOException if input or output exception occurs
 	 */
 	public static void addCourse(ArrayList studentsRecords, ArrayList courseRecordList, ArrayList studentInfo, ArrayList waitList, String key, String courseIndex, String indexNum, int index) throws IOException
 	{
