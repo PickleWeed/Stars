@@ -18,7 +18,7 @@ public class GetStudentListByIndexNumber {
 	/**
 	 * Displays all possible indexNum
 	 * 
-	 * @param StudentRecordsList Entire database of StudentRecords
+	 * @param studentRecordsList Entire database of StudentRecords
 	 * @param studentInfo Entire database of StudentInfo
 	 * @param indexNum The indexNum to display all students' information under this index
 	 * @throws IOException If an input or output exception occurred
