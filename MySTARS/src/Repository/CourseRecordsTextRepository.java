@@ -12,7 +12,7 @@ import CourseRecords.CourseRecord;
 
 /**
  * CourseRecordsTextRepository is a boundary class which performs read and write operations 
- * on CourseRecords.txt, a database that stores information about all courses in NTU's MySTARS.<p>
+ * on CourseRecords, a database that stores information about all courses in NTU's MySTARS.<p>
  * The information stored in each course is listed below: <p>
  * courseIndex (eg. CZ1003)<p>
  * indexNum (eg. 10088)<p>
