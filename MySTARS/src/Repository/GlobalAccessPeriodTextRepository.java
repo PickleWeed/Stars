@@ -8,7 +8,7 @@ import AccessPeriod.AccessPeriod;
 
 /**
  * GlobalAccessPeriodTextRepository is a boundary class which performs read and write operations 
- * on GlobalAccessPeriod.txt, a database that stores all time periods that students are allowed
+ * on GlobalAccessPeriod, a database that stores all time periods that students are allowed
  * to access the STAR System.<p>
  * Each AccessPeriod has a startAccessPeriod(dd/mm/yyyy) and a endAccessPeriod(dd/mm/yyyy): <p>
  * 
