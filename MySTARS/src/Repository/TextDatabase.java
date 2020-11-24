@@ -12,7 +12,7 @@ import java.util.Scanner;
  * TextDatabase is a boundary class which performs read and write operations on 
  * text files.
  * 
- * @author ?
+ * @author Aaron Tay Han Yen
  *
  */
 public class TextDatabase {

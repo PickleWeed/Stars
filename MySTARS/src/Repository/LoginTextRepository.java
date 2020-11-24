@@ -16,7 +16,7 @@ import Login.LoginInfo;
  * key: Uniquely identifies a user in the database (In case 2 users have the same 
  * username, password and type) <p>
  * 
- * @author ?
+ * @author Aaron Tay Han Yen
  *
  */
 public class LoginTextRepository implements Repository{

@@ -10,7 +10,7 @@ import Repository.LoginTextRepository;
 /**
  * Encrypt is used for the encryption of password (using MD5) and generation of new keys.
  * 
- * @author ?
+ * @author Aaron Tay Han Yen
  *
  */
 public class Encrypt {

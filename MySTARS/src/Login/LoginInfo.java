@@ -12,7 +12,7 @@ import java.io.Serializable;
  * username, password and type) <p>
  * Each information has its respective get and set method.
  * 
- * @author ?
+ * @author Aaron Tay Han Yen
  *
  */
 

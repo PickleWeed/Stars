@@ -13,7 +13,7 @@ import java.io.Console;
  * LoginInterface is a boundary class which prompts the user to enter his login 
  * informations and passes control to the control class LoginController. <p>
  * 
- * @author ?
+ * @author Aaron Tay Han Yen
  *
  */
 public class LoginInterface extends javax.swing.JPanel{
@@ -85,8 +85,10 @@ public class LoginInterface extends javax.swing.JPanel{
 	}
 	
 	/**
-	* Masks the password during login
-	*/
+	 * Masks password during login
+	 * 
+	 * @return a key. If key = null, the login check fails, otherwise the login check passes.
+	 */
 	public static String masking() {
 		final String password, message = "Enter password";
 		if( System.console() == null ) 

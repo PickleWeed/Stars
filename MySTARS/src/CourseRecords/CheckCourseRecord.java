@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * CheckCourseRecord searches the existence of an entry in the CourseRecords
  * database based on an query(partial informations of a course).
  * 
- * @author ?
+ * @author Aaron Tay Han Yen
  *
  */
 public class CheckCourseRecord {

@@ -15,7 +15,7 @@ import StudentInfo.Student;
  * accessPeriod: The period of time that the student is allowed to access MySTARS <p>
  * email of student <p>
  * 
- * @author ?
+ * @author Aaron Tay Han Yen
  *
  */
 public class StudentPersonalTextRepository implements Repository{

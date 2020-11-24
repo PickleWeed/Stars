@@ -10,7 +10,7 @@ import StudentInfo.Student;
  * and displays all students name, gender, and nationality who have registered for this Index Number. 
  * 
  * 
- * @author ?
+ * @author Aaron Tay Han Yen
  *
  */
 public class GetStudentListByIndexNumber {

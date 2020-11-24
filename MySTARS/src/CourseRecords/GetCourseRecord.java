@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * GetCourseRecord contains multiple options to display
  * information of courses in the CourseRecords database.
  * 
- * @author ?
+ * @author Aaron Tay Han Yen
  *
  */
 public class GetCourseRecord {

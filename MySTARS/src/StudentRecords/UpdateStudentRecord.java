@@ -8,7 +8,7 @@ import Repository.StudentRecordTextRepository;
 /**
  * Updates the AU of a selected course in the StudentRecords database
  * 
- * @author ?
+ * @author Aaron Tay Han Yen
  *
  */
 public class UpdateStudentRecord {

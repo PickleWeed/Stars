@@ -32,7 +32,7 @@ import CourseRecords.CourseRecord;
  * CourseType: EG CORE<p>
  * GERType: EG BM<p>
  *
- * @author ? 
+ * @author Aaron Tay Han Yen
  *
  */
 public class CourseRecordsTextRepository implements Repository{

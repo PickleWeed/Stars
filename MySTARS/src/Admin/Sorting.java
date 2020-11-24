@@ -3,7 +3,7 @@ package Admin;
 /**
  * Implements sorting algorithms on array
  * 
- * @author ?
+ * @author Aaron Tay Han Yen
  *
  */
 public class Sorting

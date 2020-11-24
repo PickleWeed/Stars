@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Displays the select student's course informations
  * 
- * @author ?
+ * @author Aaron Tay Han Yen
  *
  */
 public class GetStudentRecord {
