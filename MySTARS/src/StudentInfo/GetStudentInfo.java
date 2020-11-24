@@ -54,5 +54,15 @@ public class GetStudentInfo {
 		}
 		return "nill";	
 	}
+	public static int getStudentInfo(ArrayList studentInfo, String key)
+	{
+		for (int i = 0; i < studentInfo.size(); i++)
+		{
+			Student student = (Student)studentInfo.get(i);
+			if(student.getKey().equals(key))
+				return i;	
+		}
+		return -1;
+	}
 	
 }

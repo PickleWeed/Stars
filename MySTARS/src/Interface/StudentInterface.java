@@ -51,27 +51,23 @@ public class StudentInterface {
 	{
 		CourseRecordsTextRepository courseRecordsTextRepository = new CourseRecordsTextRepository();
 		StudentPersonalTextRepository studentPersonalInfoTextRepository = new StudentPersonalTextRepository();
-		LoginTextRepository loginTextRepository = new LoginTextRepository();
 		StudentRecordTextRepository studentCoursesTextRepository = new StudentRecordTextRepository();
 		GlobalAccessPeriodTextRepository globalAccessPeriodTextRepository = new GlobalAccessPeriodTextRepository();
 
 		while (!choice.equals("7")) {
 			courseRecordList = courseRecordsTextRepository.readToList(); 
 			studentInfo = studentPersonalInfoTextRepository.readToList();
-			loginInfo = loginTextRepository.readToList();
 			studentsRecords = studentCoursesTextRepository.readToList();
 			accessPeriodList = globalAccessPeriodTextRepository.readToList();
 			
 			DatDatabase.write("CourseRecords.dat", courseRecordList);
 			DatDatabase.write("StudentInfo.dat", studentInfo);
-			DatDatabase.write("LoginsInfo.dat", loginInfo);
 			DatDatabase.write("StudentRecords.dat", studentsRecords);
 			DatDatabase.write("GlobalAccessPeriod.dat", accessPeriodList);
 			
 			//read again from Serial File
 			courseRecordList = (ArrayList)DatDatabase.read("CourseRecords.dat");
 			studentInfo = (ArrayList)DatDatabase.read("StudentInfo.dat");
-			loginInfo = (ArrayList)DatDatabase.read("LoginsInfo.dat");
 			studentsRecords = (ArrayList)DatDatabase.read("StudentRecords.dat");
 			accessPeriodList = (ArrayList)DatDatabase.read("GlobalAccessPeriod.dat");
 			
@@ -83,7 +79,7 @@ public class StudentInterface {
 			System.out.println("5. Change Index Number of Course");
 			System.out.println("6. Swap Index Number with Another Student");
 			System.out.println("7. Logout");
-			System.out.println("Please choose a number: ");
+			System.out.printf("Please choose a number: ");
 			
 			choice = sc.next();
 
@@ -109,10 +105,12 @@ public class StudentInterface {
 					break;
 				case "7":
 					System.out.println("Goodbye!\n");
+					LoginInterface loginInterface = new LoginInterface();
+					loginInterface.loginAs();
 					break;
 				default:
-					System.out.println("Try another choice");
-					return;	
+					System.out.println("Invalid Number!\n");
+					break;
 			}	
 		}
 	}
@@ -128,17 +126,18 @@ public class StudentInterface {
 	private static void addCourse(String key) throws IOException{
 		String courseIndex, indexNum;;
 		
-		System.out.println("*****Course List*****");
+		System.out.println("*****************Course List*****************");
 		GetCourseRecord.printCourseCode(courseRecordList);
 		
-		System.out.println("Enter Course Index:");
-		courseIndex = sc.next();
-		System.out.println("Enter Index Number: "); 
+		System.out.printf("Enter Course Index:");
+		courseIndex = sc.next().toUpperCase();
+		System.out.printf("Enter Index Number: "); 
 		indexNum = sc.next();
 		
-		CheckCourse.checkCourse(courseRecordList, courseIndex, indexNum);
+		int index = CheckCourse.checkCourse(courseRecordList, courseIndex, indexNum);
 		
-		//AddCourse.addCourse(studentsRecords, courseRecordList, key, courseIndex, indexNum);
+		if(index != -1)
+			AddCourse.addCourse(studentsRecords, courseRecordList, key, courseIndex, indexNum, index);
 	}
 	
 	//case 2
@@ -273,7 +272,9 @@ public class StudentInterface {
 		else {
 			System.out.println("You are not registered for this index.\n");
 		}
-
-		
+	}
+	public static void main(String[] args) throws IOException {
+		StudentInterface studentInterface = new StudentInterface();
+		studentInterface.inStudentInterface("LV");
 	}
 }

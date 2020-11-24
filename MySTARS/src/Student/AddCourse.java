@@ -8,6 +8,7 @@ import CourseRecords.CourseRecord;
 import Repository.CourseRecordsTextRepository;
 import Repository.DatDatabase;
 import Repository.StudentRecordTextRepository;
+import StudentInfo.Student;
 import StudentRecords.StudentRecords;
 
 /**
@@ -36,50 +37,64 @@ public class AddCourse{
 	 * @param GERType(eg BM)
 	 * @throws IOException If an input or output exception occurs
 	 */
-	public static void addCourse(ArrayList studentsRecords, ArrayList courseRecordList, String key, String firstName, String lastName, String matricNum, String courseIndex, String indexNum,String AU,String CourseType,String SU, String GERType) throws IOException{
+	public static void addCourse(ArrayList studentsRecords, ArrayList courseRecordList, ArrayList studentInfo, String key, String courseIndex, String indexNum, int index) throws IOException
+	{
+		
+		//print non Distinct information
+		for (int i=1; i<courseRecordList.size(); i++) { 
+			CourseRecord courseRecords = (CourseRecord)courseRecordList.get(i);	
+			if(courseRecords.getCourseIndex().equals(courseIndex) && courseRecords.getIndexNum().equals(indexNum)) 
+			{
+				System.out.println("Course Index: "+courseRecords.getCourseIndex() + ", Index Number: " + courseRecords.getIndexNum()+ ", Day:" +
+			courseRecords.getDay()+ ", Time:" + courseRecords.getTime()+", Type: "+ courseRecords.getType() + ", Group: " + courseRecords.getGroup() + ", venue: " + courseRecords.getVenue()
+			+ ", Remarks: " + courseRecords.getRemarks()); 		  
+			}
+		}
+		//print Distinct information
+		System.out.println();
+		CourseRecord courseRecords = (CourseRecord)courseRecordList.get(index);
+		System.out.println("Name: " + courseRecords.getName() +  ", AU:" + courseRecords.getAU() + ", CourseType: " + courseRecords.getCourseType() + ", SU: " + 
+		courseRecords.getSU() + ", GERType: " + courseRecords.getGERType()+ ", Vacancy Left: " + courseRecords.getVacancy());
+		
 		
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Course Index" + "  " + "Index Number" +"    "+"Day"+"          "+"Time"+"                "+ "Type"); 
-		System.out.println("************************************************************************************"); 		
-		for (int i=1; i<courseRecordList.size(); i++) { 
-			CourseRecord courseRecords = (CourseRecord)courseRecordList.get(i);	
-			if(courseRecords.getCourseIndex().equals(courseIndex) && courseRecords.getIndexNum().equals(indexNum)) {
-				System.out.println("   "+courseRecords.getCourseIndex() + "        " + courseRecords.getIndexNum()+ "        " +
-			courseRecords.getDay()+ "        " + courseRecords.getTime()+"             "+ courseRecords.getType()+ "        " ); 		  
-			}
-
-		}
-		
-		
-		
-		String status;
-		for (int i=1; i<courseRecordList.size(); i++) { 
-			CourseRecord courseRecords = (CourseRecord)courseRecordList.get(i);	
-			if(courseRecords.getCourseIndex().equals(courseIndex) && courseRecords.getIndexNum().equals(indexNum) && 
-					courseRecords.getType().equals("LEC/STUDIO")) {
-				
-				String vacancy = courseRecords.getVacancy();
-				
-				int intVacancy = Integer.parseInt(vacancy);
-				if(intVacancy-1 <= -1)
-					
+		System.out.println("Do you Want to add this Course(Yes or No): ");
+		String add = sc.next();
+		if(add.equals("Yes"))
+		{
+			String status;
+			CourseRecord courseRecord = (CourseRecord)courseRecordList.get(index);
+			
+			String vacancy = courseRecords.getVacancy();
+			int intVacancy = Integer.parseInt(vacancy);
+			if(intVacancy == 0)
+				status = "WAITLIST";
+			else
+			{
+				status = "REGISTERED";
 				intVacancy -= 1;
 				String strVacancy = String.valueOf(intVacancy);
-				
 				courseRecords.setVacancy(strVacancy);
-				
-				CourseRecordsTextRepository courseRecordsTextRepository = new CourseRecordsTextRepository();
-				courseRecordsTextRepository.saveList(courseRecordList);
-				break;
 			}
+			for (int i=1; i<studentInfo.size(); i++) { 
+				Student student = (Student)studentInfo.get(i);	
+				if(studentInfo)
+			}
+			
+			CourseRecordsTextRepository courseRecordsTextRepository = new CourseRecordsTextRepository();
+			courseRecordsTextRepository.saveList(courseRecordList);
+			StudentRecords newStudentRecord = new StudentRecords(key,firstName,lastName,matricNum,courseIndex,indexNum,AU, CourseType, SU, GERType,"-");
+			studentsRecords.add(newStudentRecord);
+		}
+		else
+		{
+			System.out.println("Exited\n");
+			return;
+		}
+
+		
+		
+		
 
 		}
-		StudentRecords newStudentRecord = new StudentRecords(key,firstName,lastName,matricNum,courseIndex,indexNum,AU, CourseType, SU, GERType,"-");
-		studentsRecords.add(newStudentRecord);
-		
-		
-		
-
-		}
-  }
-
+	}

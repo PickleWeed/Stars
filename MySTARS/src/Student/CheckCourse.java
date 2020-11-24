@@ -1,6 +1,8 @@
 package Student;
 
 import java.util.ArrayList;
+
+import CourseRecords.CourseRecord;
 import StudentRecords.StudentRecords;
 
 /**
@@ -54,8 +56,13 @@ public class CheckCourse {
 			System.out.println("Total AU Registered: " + totalAU);
 		}
 	}
-	public static void checkCourse(ArrayList courseRecord, String courseIndex, String indexNum)
+	public static int checkCourse(ArrayList courseRecord, String courseIndex, String indexNum)
 	{
-		
+		for (int i = 0 ; i < courseRecord.size() ; i++) {
+			CourseRecord courseRecordList = (CourseRecord)courseRecord.get(i);
+			if(courseRecordList.getCourseIndex().equals(courseIndex) && courseRecordList.getIndexNum().equals(indexNum))
+				return i;
+		}
+		return -1;
 	}
 }
