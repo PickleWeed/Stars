@@ -1,11 +1,18 @@
 package Admin;
 
+/**
+ * Implements sorting algorithms on array
+ * 
+ * @author ?
+ *
+ */
 public class Sorting
 {
-	//-----------------------------------------------------------------
-	// Sorts the specified array of objects using the selection
-	// sort algorithm.
-	//-----------------------------------------------------------------
+	/**
+	 * Implements selection sorting algorithms on array
+	 * 
+	 * @param list array list to be sorted
+	 */
 	public static void selectionSort (Comparable[] list)
 	{
 		int min;
@@ -22,10 +29,12 @@ public class Sorting
 			list[index] = temp;
 		}
 	}
-	//-----------------------------------------------------------------
-	// Sorts the specified array of objects using the insertion
-	// sort algorithm.
-	//-----------------------------------------------------------------
+	
+	**
+	 * Implements insertion sorting algorithms on array
+	 * 
+	 * @param list array list to be sorted
+	 */
 	public static void insertionSort (Comparable[] list)
 	{
 		for (int index = 1; index < list.length; index++)
