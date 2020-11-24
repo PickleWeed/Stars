@@ -46,6 +46,13 @@ public class LoginInterface extends javax.swing.JPanel{
 			}
 		}
 	}
+	
+	/**
+	 * Prompts user to enter his username and password, passes control to LoginController for
+	 * password validation.
+	 * 
+	 * @param choice login choice of user (Student/Admin)
+	 */
 	private void adminOrStudent(int choice)
 	{	
 		System.out.println("*****LOGIN*****");
@@ -63,6 +70,7 @@ public class LoginInterface extends javax.swing.JPanel{
 		LoginController loginController = new LoginController(); //Enter loginController
 		loginController.validateLogin(username, password, choice);
 	}
+	
 	private String consoleReadPass()
 	{
 		 Console console = System.console();
@@ -75,6 +83,8 @@ public class LoginInterface extends javax.swing.JPanel{
 	      char[] pass = console.readPassword("Please Enter password:");
 	      return String.valueOf(pass);
 	}
+	
+	
 	public static String masking() {
 		final String password, message = "Enter password";
 		if( System.console() == null ) 
