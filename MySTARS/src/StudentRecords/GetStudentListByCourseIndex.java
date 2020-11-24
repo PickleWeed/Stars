@@ -18,7 +18,7 @@ public class GetStudentListByCourseIndex {
 	/**
 	 * Displays information of all students for a particular courseIndex
 	 * 
-	 * @param StudentRecordsList Entire database of StudentRecords
+	 * @param studentRecordsList Entire database of StudentRecords
 	 * @param studentInfo Entire database of StudentInfo
 	 * @param courseIndex The courseIndex to display all students' information under this index
 	 * @throws IOException If an input or output exception occurred
