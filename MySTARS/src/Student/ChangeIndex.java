@@ -8,14 +8,21 @@ import Repository.StudentRecordTextRepository;
 import StudentRecords.StudentRecords;
 
 /**
- * ChangeIndex is a control class that allows the user to changes the index of a course
- * to another index of the same course.
+ * ChangeIndex swaps old index with a new index for the course registered by the user.
  * 
  * @author ?
  *
  */
 public class ChangeIndex {
-
+	
+	/**
+	 * gets all indexNum (courses taken) by a particular student
+	 * 
+	 * @param studentRecords An ArrayList of StudentRecords currently in the database
+	 * @param key The key used to identify a student
+	 * @return all indexNum (courses taken) by a particular student
+	 * @throws IOException If an input or output exception occurs
+	 */
 	public static ArrayList getIndexList(ArrayList studentRecords, String key) throws IOException
 	{
 		ArrayList<String> indexList = new ArrayList<String>();
@@ -29,6 +36,7 @@ public class ChangeIndex {
 		}
 		return indexList;
 	}
+	
 	
 	public static ArrayList getIndexListByCourse(ArrayList courseRecord,String oldIndex) {
 		ArrayList<String> indexList = new ArrayList<String>();
@@ -50,6 +58,16 @@ public class ChangeIndex {
 		return indexList;
 	}
 	
+	/**
+	 * Changes old index to a new index for a course registered by the user.
+	 * 
+	 * @param studentsRecords An ArrayList of StudentRecords currently in the database
+	 * @param courseRecordList An ArrayList of courseRecord currently in the database
+	 * @param oldIndexNum oldIndexNum
+	 * @param newIndexNum newIndexNum
+	 * @param key The key used to identify a student
+	 * @throws IOException If an input or output exception occurs
+	 */
 	public static void changeIndex(ArrayList studentsRecords, ArrayList courseRecordList, String oldIndexNum, String newIndexNum, String key) throws IOException {
 	    int count = 0;
 	    //print details of old and new index
