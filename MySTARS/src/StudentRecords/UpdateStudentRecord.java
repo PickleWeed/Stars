@@ -5,8 +5,22 @@ import java.util.ArrayList;
 
 import Repository.StudentRecordTextRepository;
 
+/**
+ * Updates the AU of a selected course in the StudentRecords database
+ * 
+ * @author ?
+ *
+ */
 public class UpdateStudentRecord {
 
+	/**
+	 * Updates the AU of a selected course in the StudentRecords database
+	 * 
+	 * @param StudentRecord An ArrayList of all entries in the StudentRecords database 
+	 * @param courseIndex The courseIndex to change the AU 
+	 * @param indexNum The indexNum to change the AU 
+	 * @param AU new AU to be changed to
+	 */
 	public static void updateStudentRecord(ArrayList StudentRecord, String courseIndex, String indexNum, String AU) throws IOException
 	{
 		boolean updateRecord = false;

@@ -24,6 +24,15 @@ public class LoginTextRepository implements Repository{
 	private static final String FILENAME = "LoginsInfo.txt" ;
 	private static final String DATFILENAME = "LoginsInfo.dat" ;
 	
+	/**
+	 * Reads in and checks username's login detail and return the result of the check. 
+	 * 
+	 * @param userUsername user entered username
+	 * @param userPassword user entered password
+	 * @param userType userType: Student/Admin
+	 * @return a key. If key is not null, login will be sucessful
+	 * @throws IOException If an input or output exception occurred
+	 */
 	public String readLoginDetail(String userUsername, String userPassword, String userType) throws IOException { //enter from LoginController
 		ArrayList stringArray = (ArrayList)TextDatabase.read(FILENAME); // read String from text file
 		ArrayList alr = new ArrayList() ;// to store Professors data

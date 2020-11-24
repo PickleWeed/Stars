@@ -84,7 +84,9 @@ public class LoginInterface extends javax.swing.JPanel{
 	      return String.valueOf(pass);
 	}
 	
-	
+	/**
+	* Masks the password during login
+	*/
 	public static String masking() {
 		final String password, message = "Enter password";
 		if( System.console() == null ) 
