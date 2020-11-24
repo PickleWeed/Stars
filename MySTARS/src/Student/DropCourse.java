@@ -6,8 +6,8 @@ import Repository.StudentRecordTextRepository;
 import StudentRecords.StudentRecords;
 
 /**
- * DropCourse is a control class which implements the logic of dropping a course for 
- * the student if the student enters a valid courseIndex.
+ * DropCourse implements the logic of dropping a course
+ * for the student if the student enters a valid indexNum.
  * 
  * @author ?
  *
@@ -17,7 +17,6 @@ public class DropCourse {
 	 * prompts the user to enter the courseIndex to drop.
 	 * @return courseIndex to be dropped
 	 */
-
   public static void dropCourse(ArrayList studentsRecords, String key, String indexNum) throws IOException {
 	    int count = 0;
 	    //print details of dropped course
