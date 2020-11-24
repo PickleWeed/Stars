@@ -8,8 +8,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * TextDatabase is a boundary class which performs read and write operations on 
+ * text files.
+ * 
+ * @author ?
+ *
+ */
 public class TextDatabase {
-	/** Read the contents of the given file. */
+	
+	/**
+	 * Reads all data from a txt file
+	 * 
+	 * @param fileName name of the file to read from
+	 * @return all data in the file as an ArrayList 
+	 * @throws IOException If an input or output exception occurred
+	 */
 	public static List read(String fileName) throws IOException { //enter from readStudentLogin
 		List data = new ArrayList(); 
 	   Scanner scanner = new Scanner(new FileInputStream(fileName));
@@ -23,7 +37,14 @@ public class TextDatabase {
 	    }
 	    return data;
 	  }	  
-	/** Read the contents of the given file. */
+	
+	/**
+	 * writes data to a txt file
+	 * 
+	 * @param fileName name of the file to write to
+	 * @param data list data to be written to the file
+	 * @throws IOException If an input or output exception occurred
+	 */
 	public static void write(String fileName, List data) throws IOException  {
 	    PrintWriter out = new PrintWriter(new FileWriter(fileName));
 
