@@ -394,9 +394,13 @@ public class AdminApp {
 	 */
 	private void printStudentListByIndexNumber() throws IOException {
 		// TODO Auto-generated method stub
+		List aList = GetCourseRecord.getIndexList(courseRecord); 
 		System.out.printf("Enter Index Number to check list of Student:");
 		String indexNum = sc.next();
-		GetStudentListByIndexNumber.printStudentList(studentRecord, studentInfo, indexNum);
+		if (aList.contains(indexNum) == true)
+			GetStudentListByIndexNumber.printStudentList(studentRecord, studentInfo, indexNum);
+		else
+			System.out.println("Error! No such Index Number.\n");
 	}
 	
 	//case 6
@@ -409,9 +413,13 @@ public class AdminApp {
 	 */
 	private void printStudentListByCourseIndex() throws IOException{
 		// TODO Auto-generated method stub
+		List cList = GetCourseRecord.getCourseList(courseRecord);
 		System.out.printf("Enter Course Index to check list of Student:");
 		String courseIndex = sc.next().toUpperCase();
-		GetStudentListByCourseIndex.printStudentList(studentRecord, studentInfo, courseIndex);
+		if(cList.contains(courseIndex) == true)
+			GetStudentListByCourseIndex.printStudentList(studentRecord, studentInfo, courseIndex);
+		else
+			System.out.println("Error! No such Course");
 	}
 	
 	//case 7

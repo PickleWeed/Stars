@@ -7,8 +7,8 @@ import java.util.ArrayList;
  * GetCourseRecord contains multiple options to display
  * information of courses in the CourseRecords database.
  * 
- * @author Aaron Tay Han Yen
- *
+ * @author 1 Aaron Tay Han Yen
+ * @author 2 Samantha Tan Swee Yun
  */
 public class GetCourseRecord {
 	
@@ -170,5 +170,24 @@ public class GetCourseRecord {
 		}
 		System.out.println();
 	}
+	
+	/**
+	 * Gets the list of all distinct courseIndex in the database.
+	 * 
+	 * @param courseRecord An ArrayList of all course informations in the CourseRecords database
+	 * @throws IOException If an input or output exception occurred
+	 * @return list of all distinct courseIndex in the database
+	 */
+	public static ArrayList getCourseList(ArrayList courseRecord) throws IOException
+	{
+		ArrayList<String> courseList = new ArrayList<String>();
+		for (int i = 0 ; i < courseRecord.size() ; i++) {
+			CourseRecord courseRecordList = (CourseRecord)courseRecord.get(i);
+			if(!courseRecordList.getVacancy().equals("-"))
+				courseList.add(courseRecordList.getCourseIndex());
+		}
+		return courseList;
+	}
+	
 	
 }
