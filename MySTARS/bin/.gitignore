@@ -1,19 +1,2 @@
-/AccessPeriod/
-/Admin/
 /CourseRecords/
 /Interface/
-/Login/
-/Repository/
-/Student/
-<<<<<<< HEAD
-=======
-/Admin/
-/AccessPeriod/
-/CourseRecords/
-/Interface/
-/Login/
-/Repository/
->>>>>>> ae8991280b64159da33726effa13d20819468184
-/StudentInfo/
-/StudentRecords/
-/SendMailTLS/

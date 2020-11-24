@@ -51,20 +51,18 @@ public class UpdateCourseRecord {
 		CourseRecordsTextRepository courseRecordsTextRepository = new CourseRecordsTextRepository();
 		courseRecordsTextRepository.saveList(courseRecord);
 		
-		System.out.println("CourseIndex: " + newCourseRecord.getCourseIndex() );
-		System.out.println("IndexNum: " + newCourseRecord.getIndexNum() );
-		System.out.println("Type: " + newCourseRecord.getType() );
+		System.out.println("Course Index: " + newCourseRecord.getCourseIndex() );
+		System.out.println("Index Number: " + newCourseRecord.getIndexNum() );
+		System.out.println("Class Type: " + newCourseRecord.getType() );
 		System.out.println("Group: " + newCourseRecord.getGroup() );
 		System.out.println("Day: " + newCourseRecord.getDay() );
 		System.out.println("Time: " + newCourseRecord.getTime() );
 		System.out.println("Venue: " + newCourseRecord.getVenue() );
 		System.out.println("Remarks: " + newCourseRecord.getRemarks() );
 		System.out.println("Vacancy: " + newCourseRecord.getVacancy() );
-		System.out.println("Name: " + newCourseRecord.getName() );
-		System.out.println("Name: " + newCourseRecord.getAU() );
-		System.out.println("Name: " + newCourseRecord.getName() );
-		System.out.println("Name: " + newCourseRecord.getSU() );
-		System.out.println("Name: " + newCourseRecord.getCourseType());
+		System.out.println("Course Name: " + newCourseRecord.getName() );
+		System.out.println("AU: " + newCourseRecord.getAU() );
+		System.out.println("CourseType: " + newCourseRecord.getCourseType());
 		System.out.println("GERType: " + newCourseRecord.getGERType() );
 		System.out.println("Course Successfully added!\n");
 	}
