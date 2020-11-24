@@ -6,7 +6,22 @@ import java.util.StringTokenizer;
 
 import CourseRecords.CourseRecord;
 
+/**
+ * CheckStudentRecord ensures a course is not added if there is a clash or duplicate
+ * with an existing course the student already have in the database.
+ * 
+ * @author Aaron
+ *
+ */
 public class CheckStudentRecord {
+		/**
+	 * Checks if the particular student is already taking the course.
+	 * 
+	 * @param studentRecordsList An ArrayList of all student records in the database
+	 * @param courseIndex courseIndex to be checked
+	 * @param key key used to identify student
+	 * @return true if student is already taking the course, false otherwise
+	 */
 	public static boolean checkStudent(ArrayList studentRecordsList, String courseIndex, String key)
 	{
 		for(int i=0; i< studentRecordsList.size(); i++)
@@ -21,6 +36,17 @@ public class CheckStudentRecord {
 		}
 		return false;
 	}
+	/**
+	 * 	Check if there is a clash in timing for the new course registered by the student  
+	 *  against the courses he is already taking
+	 * 
+	 * @param courseRecordList An ArrayList of all course records in the database
+	 * @param studentsRecords An ArrayList of all student records in the database
+	 * @param courseIndex courseIndex to be checked
+	 * @param indexNum courseIndex to be checked
+	 * @param key used to identify the student
+	 * @return false if there is a clash, true otherwise
+	 */
 	public static boolean checkTiming(ArrayList courseRecordList, ArrayList studentsRecords, String courseIndex, String indexNum, String key)
 	{
 		String SEPARATOR = "|";

@@ -6,6 +6,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 
+/**
+ * Sends an email to student after a course is added.
+ * 
+ * @author Aaron
+ *
+ */
 public class MyCalendar {
 
 	public static boolean checkAccessPeriod(String accessPeriod) throws ParseException

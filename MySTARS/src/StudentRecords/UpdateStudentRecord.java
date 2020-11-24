@@ -20,6 +20,7 @@ public class UpdateStudentRecord {
 	 * @param courseIndex The courseIndex to change the AU 
 	 * @param indexNum The indexNum to change the AU 
 	 * @param AU new AU to be changed to
+	 * @throws IOException If an input or output exception occurred
 	 */
 	public static void updateStudentRecord(ArrayList StudentRecord, String courseIndex, String indexNum, String AU) throws IOException
 	{

@@ -9,8 +9,25 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-
+/**
+ * Simulates sending of mails
+ * 
+ * @author Aaron
+ *
+ */
 public class SendMailTLS {
+	/**
+	 * Simulates sending of mail notification
+	 * 
+	 * @param courseIndex courseIndex
+	 * @param indexNum indexNum 
+	 * @param status status
+	 * @param firstName firstName
+	 * @param lastName lastName
+	 * @param matricNum matricNum
+	 * @param AU AU
+	 * @param email email
+	 */
 
 	public static void mailNotification(String courseIndex, String indexNum, String status, String firstName, String lastName, String matricNum, 
 			String AU, String email) {
