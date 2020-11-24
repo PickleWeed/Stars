@@ -13,7 +13,7 @@ import java.io.Console;
  * LoginInterface is a boundary class which prompts the user to enter his login 
  * informations and passes control to the control class LoginController. <p>
  * 
- * @author ?
+ * @author Aaron Tay Han Yen
  *
  */
 public class LoginInterface extends javax.swing.JPanel{

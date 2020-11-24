@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * GetStudentInfo displays student informations based on a given matriculation number.
  * 
- * @author ?
+ * @author Aaron Tay Han Yen
  *
  */
 public class GetStudentInfo {

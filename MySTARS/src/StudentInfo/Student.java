@@ -9,7 +9,7 @@ import java.io.Serializable;
  * firstName, lastName, matricNum, gender, nationality, age, email <p>
  * accessPeriod: The period of time that the student is allowed to access MySTARS <p>
  * 
- * @author ?
+ * @author Aaron Tay Han Yen
  *
  */
 public class Student implements Serializable{

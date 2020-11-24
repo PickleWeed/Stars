@@ -9,7 +9,7 @@ import Login.LoginInfo;
  * Its methods will return true if this happens, and print a message to inform the user.
  * Otherwise, it will return false.
  * 
- * @author ?
+ * @author Aaron Tay Han Yen
  *
  */
 public class CheckStudentInfo {

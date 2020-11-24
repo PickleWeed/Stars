@@ -12,7 +12,7 @@ import AccessPeriod.AccessPeriod;
  * to access the STAR System.<p>
  * Each AccessPeriod has a startAccessPeriod(dd/mm/yyyy) and a endAccessPeriod(dd/mm/yyyy): <p>
  * 
- * @author ?
+ * @author Aaron Tay Han Yen
  *
  */
 public class GlobalAccessPeriodTextRepository implements Repository {

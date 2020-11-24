@@ -18,7 +18,7 @@ import java.io.Serializable;
  * GERType: eg CORE <p>
  * status: REGISTERED/WAITLIST <p>
  * 
- * @author ?
+ * @author Aaron Tay Han Yen
  *
  */
 public class StudentRecords implements Serializable{

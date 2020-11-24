@@ -14,7 +14,7 @@ import Repository.StudentPersonalTextRepository;
  * Adds a new entry in both the StudentsInfo and LoginsInfo database<p>
  * Update the access period of a student<p>
  * 
- * @author ?
+ * @author Aaron Tay Han Yen
  *
  */
 public class UpdateStudentInfo {

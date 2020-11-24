@@ -10,7 +10,7 @@ import StudentRecords.StudentRecords;
  * GetStudentListByCourseIndex allows a user to select a CourseIndex (eg. CZ1003)
  * and displays all students name, gender, and nationality who have registered for this course. 
  * 
- * @author ?
+ * @author Aaron Tay Han Yen
  *
  */
 public class GetStudentListByCourseIndex {

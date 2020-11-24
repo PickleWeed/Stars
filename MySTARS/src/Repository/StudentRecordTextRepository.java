@@ -24,7 +24,7 @@ import StudentRecords.StudentRecords;
  * status: REGISTERED/WAITLIST <p>
  * Each information has its respective get and set method.
  * 
- * @author ?
+ * @author Aaron Tay Han Yen
  *
  */
 public class StudentRecordTextRepository implements Repository{

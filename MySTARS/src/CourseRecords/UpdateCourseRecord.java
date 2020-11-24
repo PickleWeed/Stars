@@ -13,7 +13,7 @@ import Repository.CourseRecordsTextRepository;
  * Edits an existing entry in the CourseRecords database<p>
  * Checks if a courseIndex is present in the database.<p>
  * 
- * @author ?
+ * @author Aaron Tay Han Yen
  *
  */
 public class UpdateCourseRecord {

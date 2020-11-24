@@ -8,7 +8,7 @@ import Interface.AdminApp;
 /**
  * mySTARSApp is a boundary class which starts the program by creating 
  * and running a {@link Interface.LoginInterface}
- * @author ?
+ * @author Aaron Tay Han Yen
  *
  */
 public class mySTARSApp {

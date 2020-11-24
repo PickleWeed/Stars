@@ -34,7 +34,7 @@ import AccessPeriod.GetAccessPeriod;
 	 * 7. Check Avaliable Vacancy for an index number <p>
 	 * 8. logout <p>
  * 
- * @author ?
+ * @author Aaron Tay Han Yen
  *
  */
 public class AdminApp {
