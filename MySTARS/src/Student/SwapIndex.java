@@ -9,12 +9,20 @@ import StudentInfo.Student;
 import StudentRecords.StudentRecords;
 
 /**
- * SwapIndex is a control class that swaps the indexes of a course between 2 students.
+ * SwapIndex swaps the indexes of a course between 2 students.
  * @author ?
  *
  */
 public class SwapIndex {
 	
+	/**
+	 * Gets all indexNum of particular student (via matriculation number)
+	 * 
+	 * @param studentRecords An ArrayList of StudentRecords currently in the database
+	 * @param matricNum matricNum used to select student
+	 * @return all indexNum of particular student (via matriculation number)
+	 * @throws IOException If an input or output exception occurs
+	 */
 	public static ArrayList getIndexList(ArrayList studentRecords, String matricNum) throws IOException
 	{
 		ArrayList<String> indexList = new ArrayList<String>();
@@ -29,6 +37,13 @@ public class SwapIndex {
 		return indexList;
 	}
 
+	/**
+	 * Gets all matriculation numbers.
+	 * 
+	 * @param studentInfo An ArrayList of all studentInfo currently in the database
+	 * @return all matriculation numbers
+	 * @throws IOException If an input or output exception occurs
+	 */ 
 	public static ArrayList getMatricList(ArrayList studentInfo) throws IOException
 	{
 		ArrayList<String> matricList = new ArrayList<String>();
@@ -40,6 +55,16 @@ public class SwapIndex {
 		}
 		return matricList;
 	}
+	
+	/**
+	 * Gets the friend's index number for the course to be swapped.
+	 * 
+	 * @param StudentRecord An ArrayList of all StudentRecord currently in the database
+	 * @param matricNum matricNum of friend
+	 * @param course course intending to be swapped
+	 * @return friend's indexNum for the course to be swapped
+	 * @throws IOException If an input or output exception occurs
+	 */
 	public static ArrayList getFriendIndex(ArrayList StudentRecord, String matricNum, String course) throws IOException
 	{
 		ArrayList<String> iList = new ArrayList<String>();
@@ -53,6 +78,17 @@ public class SwapIndex {
 		return iList;
 	}
 	
+	/**
+	 * swaps the indexes of a course between 2 students.
+	 * 
+	 * @param studentsRecords An ArrayList of StudentRecords currently in the database
+	 * @param courseRecordList An ArrayList of courseRecord currently in the database
+	 * @param MatricNum friend's MatricNum
+	 * @param oldIndexNum user's IndexNum
+	 * @param newIndexNum friend's IndexNum
+	 * @param key The key used to identify the user
+	 * @throws IOException IOException If an input or output exception occurs
+	 */
 	public static void swapIndex(ArrayList studentsRecords, ArrayList courseRecordList,String MatricNum, String oldIndexNum, String newIndexNum, String key) throws IOException {
     int count = 0;
     //print details of old and new index
