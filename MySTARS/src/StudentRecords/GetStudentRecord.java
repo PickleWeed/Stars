@@ -2,6 +2,8 @@ package StudentRecords;
 
 import java.util.ArrayList;
 
+import AccessPeriod.AccessPeriod;
+
 /**
  * Displays the select student's course informations
  * 

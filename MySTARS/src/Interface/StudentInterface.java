@@ -1,13 +1,17 @@
 package Interface;
 
 import Student.*;
+import StudentInfo.GetStudentInfo;
 import StudentRecords.CheckStudentRecord;
 import StudentRecords.GetStudentRecord;
 import StudentRecords.StudentRecords;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import Calendar.MyCalendar;
 import CourseRecords.*;
 import Repository.CourseRecordsTextRepository;
 import Repository.DatDatabase;
@@ -47,8 +51,9 @@ public class StudentInterface {
 	 * 
 	 * @param key The key used to identify a student 
 	 * @throws IOException If an input or output exception occurs
+	 * @throws ParseException 
 	 */
-	public void inStudentInterface(String key) throws IOException
+	public void inStudentInterface(String key) throws IOException, ParseException
 	{
 		CourseRecordsTextRepository courseRecordsTextRepository = new CourseRecordsTextRepository();
 		StudentPersonalTextRepository studentPersonalInfoTextRepository = new StudentPersonalTextRepository();
@@ -71,6 +76,15 @@ public class StudentInterface {
 			studentInfo = (ArrayList)DatDatabase.read("StudentInfo.dat");
 			studentsRecords = (ArrayList)DatDatabase.read("StudentRecords.dat");
 			accessPeriodList = (ArrayList)DatDatabase.read("GlobalAccessPeriod.dat");
+			
+			String accessPeriod = GetStudentInfo.getStudentAccessPeriod(studentInfo, key);
+			boolean canAccess = MyCalendar.checkAccessPeriod(accessPeriod);
+			if (canAccess == false)
+			{
+				System.out.println("Cannot Access STARS");
+				return;
+			}
+			
 			
 			System.out.println("****STUDENT INTERFACE****");
 			System.out.println("1. Add Course");
@@ -278,7 +292,7 @@ public class StudentInterface {
 			System.out.println("You are not registered for this index.\n");
 		}
 	}
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, ParseException {
 		StudentInterface studentInterface = new StudentInterface();
 		studentInterface.inStudentInterface("LV");
 	}

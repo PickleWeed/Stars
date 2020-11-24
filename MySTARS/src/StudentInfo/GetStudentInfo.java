@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Student.ChangeIndex;
+import StudentRecords.StudentRecords;
 
 /**
  * GetStudentInfo displays student informations based on a given matriculation number.
@@ -68,5 +69,16 @@ public class GetStudentInfo {
 				return i;
 		}
 		return -1;
+	}
+	//for student interface
+	public static String getStudentAccessPeriod(ArrayList studentInfo, String key)
+	{
+		for (int i = 0; i < studentInfo.size(); i++)
+		{
+			Student student = (Student)studentInfo.get(i);
+			if(student.getKey().equals(key))
+				return student.getAccessPeriod();
+		}
+		return "-";
 	}
 }
