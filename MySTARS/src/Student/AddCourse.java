@@ -11,6 +11,7 @@ import Repository.StudentRecordTextRepository;
 import SendMailTLS.SendMailTLS;
 import StudentInfo.GetStudentInfo;
 import StudentInfo.Student;
+import StudentRecords.CheckStudentRecord;
 import StudentRecords.StudentRecords;
 import WaitList.GetWaitList;
 
@@ -42,7 +43,7 @@ public class AddCourse{
 	 */
 	public static void addCourse(ArrayList studentsRecords, ArrayList courseRecordList, ArrayList studentInfo, ArrayList waitList, String key, String courseIndex, String indexNum, int index) throws IOException
 	{
-		
+
 		//print non Distinct information
 		for (int i=1; i<courseRecordList.size(); i++) { 
 			CourseRecord courseRecords = (CourseRecord)courseRecordList.get(i);	
