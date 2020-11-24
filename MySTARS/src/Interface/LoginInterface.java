@@ -23,6 +23,9 @@ public class LoginInterface extends javax.swing.JPanel{
 	
 	Scanner sc = new Scanner(System.in);
 	
+	/**
+	 * Displays the login menu and prompts user to choose if he wants to login as student or admin.
+	 */
 	public void loginAs() //Enter from mySTARSApp
 	{
 
