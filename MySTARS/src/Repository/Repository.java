@@ -4,6 +4,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Repository is an interface which various read and write operations on different files
+ * and file types in the database will be implemented
+ * 
+ * @author ?
+ *
+ */
 public interface Repository {
 	
 	//1. For TxtFile, 2. For DatFile
