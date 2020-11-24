@@ -11,17 +11,24 @@ import StudentRecords.StudentRecords;
 import WaitList.WaitList;
 
 /**
- * Drops all courses with a particular indexNum for a particular student.
+ * DropCourse implements the logic of dropping a course
+ * for the student
  * 
- * @param studentsRecords An ArrayList of all StudentRecords from the database
- * @param key the key(identity) of the user
- * @param indexNum indexNum to drop 
- * @throws IOException If an input or output exception occurred
+ * @author Samantha Tan Swee Yun
+ *
  */
 public class DropCourse {
 	/**
-	 * prompts the user to enter the courseIndex to drop.
-	 * @return courseIndex to be dropped
+	 * check whether the course and indexNum has a queue
+	 * 
+	 * @param studentsRecords An ArrayList of all studentsRecords in the database
+	 * @param courseRecordList courseRecordList An ArrayList of all courseRecords in the database
+	 * @param waitList waitList
+	 * @param key key to identify student
+	 * @param courseIndex courseIndex
+	 * @param indexNum indexNum
+	 * @param hasQueue hasQueue
+	 * @throws IOException if input or output exception occurs
 	 */
 	public static void dropCourse(ArrayList studentsRecords, ArrayList courseRecordList, ArrayList waitList, String key, String courseIndex, String indexNum, boolean hasQueue) throws IOException {
 	    //print details of dropped course
