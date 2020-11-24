@@ -184,7 +184,7 @@ public class StudentInterface {
 		String indexNum = sc.next();
 		boolean hasQueue = GetWaitList.hasQueue(waitList, courseIndex, indexNum);
 		if (aList.contains(courseIndex) == true)
-			DropCourse.dropCourse(studentsRecords, courseRecordList, key, courseIndex, indexNum, hasQueue);
+			DropCourse.dropCourse(studentsRecords, courseRecordList, waitList, key, courseIndex, indexNum, hasQueue);
 		else
 			System.out.println("You are not registered for this index.\n");
 	}

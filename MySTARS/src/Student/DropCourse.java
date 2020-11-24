@@ -59,24 +59,38 @@ public class DropCourse {
 					courseRecord.setVacancy(vacancy);
 					CourseRecordsTextRepository courseRecordsTextRepository = new CourseRecordsTextRepository();
 					courseRecordsTextRepository.saveList(courseRecordList);
+					break;
 				}
 				else
 				{
+					//minus wait list by one
 					for (int j = 0 ; i < waitList.size() ; j++) {
 			    		WaitList myWaitList = (WaitList)waitList.get(j);
 			    		if(myWaitList.getIndexNum().equals(indexNum) && myWaitList.getCourseIndex().equals(courseIndex))
 			    		{
 			    			int totalQueue = Integer.parseInt(myWaitList.getTotalQueue());
 			    			totalQueue -= 1;
-			    			String strQueue = String
+			    			String strQueue = String.valueOf(totalQueue);
+			    			myWaitList.setTotalQueue(strQueue);
 			    			WaitListTextRepository waitListExtRepository = new WaitListTextRepository();
-			    			myWaitList.
+			    			waitListExtRepository.saveList(waitList);
+			    			break;
 			    		}
 			    			
 					}
-					//minus wait list by one
 					//give the course to the queue number 1
+					for(int j = 0; j < studentsRecords.size(); j++)
+					{
+						StudentRecords studentRecord = (StudentRecords)studentsRecords.get(j);
+						if(studentRecord.getCourseIndex().equals(courseIndex) && studentRecord.getIndexNum().equals(indexNum) && studentRecord.getQueue().equals("1"))
+						{
+							studentRecord.setStatus("REGISTERED");
+							studentRecord.setQueue("0");
+						}
+						else if(studentRecord.getCourseIndex().equals(courseIndex) && studentRecord.getIndexNum().equals(indexNum) && studentRecord.getQueue().equals("1"))
+					}
 					//minus 1 all student Record based on course & index 
+					
 				}
 		}
 		
