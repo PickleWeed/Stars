@@ -25,7 +25,7 @@ import StudentRecords.StudentRecords;
  * Each information has its respective get and set method.
  * 
  * @author Aaron Tay Han Yen
- *
+ * @author Li Haoyang
  */
 public class StudentRecordTextRepository implements Repository{
 	private static final String SEPARATOR = "|";
