@@ -3,18 +3,20 @@ package StudentRecords;
 import java.io.Serializable;
 
 /**
- * StudentRecords is an entity class which stores the information of a course taken by a student. <p>
- * Each course has pieces of 10 informations in total, as described below: <p>
- * key(identifies the student who takes the course) <p>
- * courseIndex(eg. CZ1003) and indexNum(eg. 10088) <p>
- * type(eg. LEC/TUT/LAB).<p>
- * group(eg. CS1, SS2).<p>
- * day, time, venue. <p>
- * remarks. <p>
- * program ????????? <p>
- * Each entry in the database is uniquely identified by the combination: <p>
- * key, CourseIndex, IndexNum, Type <p>
- * Each information has its respective get and set method.
+ * StudentRecords is an entity class which stores the information of a course taken by a student,
+ * and the student's identity informations. <p>
+ * Each entry has 11 pieces of informations, as described below:<p>
+ * key: identifies the student who takes the course <p>
+ * firstName of student <p>
+ * lastName of student  <p>
+ * matricNum of student <p>
+ * indexNum: eg 10088 <p>
+ * courseIndex: eg CZ1003 <p>
+ * AU: number of AU of the course<p>
+ * courseType: eg. LEC/TUT/LAB <p>
+ * SU: SU option <p>
+ * GERType: eg CORE <p>
+ * status: REGISTERED/WAITLIST <p>
  * 
  * @author ?
  *
@@ -32,18 +34,21 @@ public class StudentRecords implements Serializable{
 	private String GERType;
 	private String status;
 	
-	/**
-	 * Class constructor specifying all 9 pieces of informations of a course taken by a student
-	 * @param key Uniquely identifies the student
-	 * @param indexNum indexNum(eg. 10088)
-	 * @param courseIndex courseIndex(eg. CZ1003)
-	 * @param type type(eg. LEC/TUT/LAB)
-	 * @param group group(eg. CS1, SS2)
-	 * @param day day
-	 * @param time time
-	 * @param venue venue
-	 * @param remark remark 
-	 */
+/**
+ * Class constructor specifying all informations of a StudentRecords
+ * 
+ * @param key identifies the student who takes the course
+ * @param firstName firstName of student
+ * @param lastName lastName of student
+ * @param matricNum matricNum of student
+ * @param courseIndex courseIndex: eg CZ1003
+ * @param indexNum indexNum: eg 10088
+ * @param AU number of AU of the course
+ * @param courseType courseType: eg. LEC/TUT/LAB
+ * @param SU SU option
+ * @param GERType GERType: eg CORE
+ * @param status status: REGISTERED/WAITLIST
+ */
 	public StudentRecords(String key, String firstName, String lastName, String matricNum, String courseIndex,String indexNum,
 			String AU, String courseType, String SU, String GERType, String status)
 	{
