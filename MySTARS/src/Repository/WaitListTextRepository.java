@@ -13,7 +13,7 @@ import WaitList.WaitList;
  * waitlist for each course.<p>
  * 
  * @author Aaron
- *
+ * @author Li Haoyang
  */
 public class WaitListTextRepository implements Repository{
 	private static final String SEPARATOR = "|";
