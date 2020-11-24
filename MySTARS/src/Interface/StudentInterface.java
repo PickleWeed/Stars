@@ -78,7 +78,8 @@ public class StudentInterface {
 			accessPeriodList = (ArrayList)DatDatabase.read("GlobalAccessPeriod.dat");
 			
 			String accessPeriod = GetStudentInfo.getStudentAccessPeriod(studentInfo, key);
-			boolean canAccess = MyCalendar.checkAccessPeriod(accessPeriod);
+			boolean canAccess = true;
+			//canAccess = MyCalendar.checkAccessPeriod(accessPeriod);
 			if (canAccess == false)
 			{
 				System.out.println("Cannot Access STARS");
@@ -154,7 +155,7 @@ public class StudentInterface {
 		//check course already or not
 		boolean alreadyExistCourse = CheckStudentRecord.checkStudent(studentsRecords, courseIndex, key);
 		//check timing
-		CheckStudentRecord.checkTiming(courseRecordList, studentsRecords, courseIndex, indexNum, key);
+		//CheckStudentRecord.checkTiming(courseRecordList, studentsRecords, courseIndex, indexNum, key);
 		if(index != -1 && alreadyExistCourse == false)
 			AddCourse.addCourse(studentsRecords, courseRecordList, studentInfo, key, courseIndex, indexNum, index);
 	}

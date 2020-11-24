@@ -8,6 +8,7 @@ import CourseRecords.CourseRecord;
 import Repository.CourseRecordsTextRepository;
 import Repository.DatDatabase;
 import Repository.StudentRecordTextRepository;
+import SendMailTLS.SendMailTLS;
 import StudentInfo.GetStudentInfo;
 import StudentInfo.Student;
 import StudentRecords.StudentRecords;
@@ -96,6 +97,7 @@ public class AddCourse{
 				//get student Information
 				Student student = (Student)studentInfo.get(studentInfoIndex);
 				String firstName = student.getFirstName(), lastName = student.getLastName(), matricNum = student.getMatricNum();
+				String email = student.getEmail();
 				
 				//insert onto Student Record
 				StudentRecords newStudentRecord = new StudentRecords(key,firstName,lastName,matricNum,courseIndex,indexNum,AU, courseType, SU, GERType, status);
@@ -103,8 +105,9 @@ public class AddCourse{
 				StudentRecordTextRepository studentRecordTextRepository = new StudentRecordTextRepository();
 				studentRecordTextRepository.saveList(studentsRecords);
 				
-				//trigger email
 				System.out.println("Course Added!");
+				//trigger email
+				SendMailTLS.mailNotification(courseIndex, indexNum, status, firstName, lastName, matricNum, AU, email);
 			}
 		}
 		else

@@ -12,7 +12,8 @@ import javax.mail.internet.MimeMessage;
 
 public class SendMailTLS {
 
-	public static void mailNotification(String courseIndex, String indexNum, String status) {
+	public static void mailNotification(String courseIndex, String indexNum, String status, String firstName, String lastName, String matricNum, 
+			String AU, String email) {
 
 		final String username = "ntuschoolstars@gmail.com"; // to be added
 		final String password = "Origami1!"; // to be added
@@ -35,13 +36,14 @@ public class SendMailTLS {
 			message.setFrom(new InternetAddress("from-email@gmail.com"));
 			message.setRecipients(Message.RecipientType.TO,
 				InternetAddress.parse("ntuschoolstars@gmail.com")); // to be added an email addr
-			message.setSubject("Testing Subject");
-			message.setText("Dear Mail Crawler,"
-				+ "\n\n hi!!");
+			// InternetAddress.parse(email));
+			message.setSubject("NTU STARS" + " Course " + courseIndex);
+			message.setText("Dear " + firstName + " " + lastName + ","
+				+ "\n\nYou have Added The Course" + "\n" + "Course Index: " + courseIndex + ", Index Number: " + indexNum + ", Status: " + status + "\nName: " + firstName + " " 
+				+ lastName + "\nMatric Number:" + matricNum + "\nAU:" + AU
+				+ "\n\nYour Regard,\nNTU");
 
 			Transport.send(message);
-
-			System.out.println("Done");
 
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);
