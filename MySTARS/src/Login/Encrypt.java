@@ -7,7 +7,20 @@ import java.util.Random;
 
 import Repository.LoginTextRepository;
 
+/**
+ * Encrypt is used for the encryption of password (using MD5) and generation of new keys.
+ * 
+ * @author ?
+ *
+ */
 public class Encrypt {
+	
+	/**
+	 * Hashing of password using MD5
+	 * 
+	 * @param password the password to be encrypted
+	 * @return encrypted password
+	 */
 	public static String hashing(String password)
 	    {
 		 	String passwordToHash = password;
@@ -36,6 +49,12 @@ public class Encrypt {
 	       // System.out.println(generatedPassword);
 	        return generatedPassword;
 	    }
+	
+	/**
+	 * Generates a random key of length 2 using characters between 'a' and 'z'. 
+	 * 
+	 * @return a random key of length 2 using characters between 'a' and 'z'. 
+	 */
 	public static String generateKey()
 	{
 		int leftLimit = 97; // letter 'a'
@@ -49,6 +68,14 @@ public class Encrypt {
 	      .toString();
 	    return generatedString.toUpperCase();
 	}
+	
+	/**
+	 * Generates a new key that is different from existing keys.<p>
+	 * Key generations are done by calling the generateKey method.
+	 * 
+	 * @return a new(and valid) key 
+	 * @throws IOException If an input or output exception occurred
+	 */
 	public static String checkKey() throws IOException
 	{
 		LoginTextRepository loginTextRepository = new LoginTextRepository();
