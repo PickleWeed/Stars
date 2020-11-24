@@ -8,7 +8,7 @@ import Login.LoginInfo;
 
 /**
  * LoginTextRepository is a boundary class which performs read and write operations 
- * on LoginsInfo.txt, a database that stores login information of all users in NTU's MySTARS.<p>
+ * on LoginsInfo, a database that stores login information of all users in NTU's MySTARS.<p>
  * The information stored for each user is listed below: <p>
  * username <p>
  * password<p>
