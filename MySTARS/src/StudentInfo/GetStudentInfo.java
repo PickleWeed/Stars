@@ -21,7 +21,7 @@ public class GetStudentInfo {
 	 * 
 	 * @param studentInfo An Arraylist of all studentInfo in the database
 	 * @param key The key of the student
-	 * @throws IOException 
+	 * @throws IOException if input or output exception occurs
 	 */
 	public static void printStudentInfo(ArrayList studentInfo, String key) throws IOException
 	{
