@@ -13,7 +13,7 @@ import java.util.Scanner;
  * text files.
  * 
  * @author Aaron Tay Han Yen
- *
+ * @author Li Haoyang
  */
 public class TextDatabase {
 	
