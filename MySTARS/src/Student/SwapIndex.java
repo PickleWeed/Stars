@@ -10,7 +10,8 @@ import StudentRecords.StudentRecords;
 
 /**
  * SwapIndex swaps the indexes of a course between 2 students.
- * @author ?
+ * @author 1 Esmond Heng Fuwei
+ * @author 2 Samantha Tan Swee Yun
  *
  */
 public class SwapIndex {

@@ -9,7 +9,7 @@ import StudentRecords.StudentRecords;
  * DropCourse implements the logic of dropping a course
  * for the student if the student enters a valid indexNum.
  * 
- * @author ?
+ * @author Samantha Tan Swee Yun
  *
  */
 public class DropCourse {
