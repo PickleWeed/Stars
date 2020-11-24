@@ -13,7 +13,7 @@ import AccessPeriod.AccessPeriod;
  * Each AccessPeriod has a startAccessPeriod(dd/mm/yyyy) and a endAccessPeriod(dd/mm/yyyy): <p>
  * 
  * @author Aaron Tay Han Yen
- *
+ * @author Li Haoyang
  */
 public class GlobalAccessPeriodTextRepository implements Repository {
 	private static final String SEPARATOR = "|";
