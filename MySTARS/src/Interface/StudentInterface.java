@@ -135,10 +135,12 @@ public class StudentInterface {
 		System.out.printf("Enter Index Number: "); 
 		indexNum = sc.next();
 		
+		//get index of courseRecord
 		int index = GetCourseRecord.returnCourseIndex(courseRecordList, courseIndex, indexNum);
-		//check exist already
+		//check course already or not
 		boolean alreadyExistCourse = CheckStudentRecord.checkStudent(studentsRecords, courseIndex, key);
-		
+		//check timing
+		CheckStudentRecord.checkTiming(courseRecordList, studentsRecords, courseIndex, indexNum, key);
 		if(index != -1 && alreadyExistCourse == false)
 			AddCourse.addCourse(studentsRecords, courseRecordList, studentInfo, key, courseIndex, indexNum, index);
 	}
