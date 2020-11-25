@@ -1,6 +1,7 @@
 package Repository;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,18 +16,23 @@ import java.util.Scanner;
  * @author Aaron Tay Han Yen
  * @author Li Haoyang
  */
-public class TextDatabase {
+public class TextDatabase implements Database{
 	
 	/**
 	 * Reads all data from a txt file
 	 * 
 	 * @param fileName name of the file to read from
 	 * @return all data in the file as an ArrayList 
-	 * @throws IOException If an input or output exception occurred
 	 */
-	public static List read(String fileName) throws IOException { //enter from readStudentLogin
+	public List read(String fileName) { //enter from readStudentLogin
 		List data = new ArrayList(); 
-	   Scanner scanner = new Scanner(new FileInputStream(fileName));
+	   Scanner scanner = null;
+	try {
+		scanner = new Scanner(new FileInputStream(fileName));
+	} catch (FileNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 	   try {
 	      while (scanner.hasNextLine()){
 	        data.add(scanner.nextLine());
@@ -43,10 +49,15 @@ public class TextDatabase {
 	 * 
 	 * @param fileName name of the file to write to
 	 * @param data list data to be written to the file
-	 * @throws IOException If an input or output exception occurred
 	 */
-	public static void write(String fileName, List data) throws IOException  {
-	    PrintWriter out = new PrintWriter(new FileWriter(fileName));
+	public void write(String fileName, List data)  {
+	    PrintWriter out = null;
+		try {
+			out = new PrintWriter(new FileWriter(fileName));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	    try {
 			for (int i =0; i < data.size() ; i++) {

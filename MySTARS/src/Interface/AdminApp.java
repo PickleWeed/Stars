@@ -70,6 +70,7 @@ public class AdminApp {
 		LoginTextRepository loginTextRepository = new LoginTextRepository();
 		StudentRecordTextRepository studentCoursesTextRepository = new StudentRecordTextRepository();
 		GlobalAccessPeriodTextRepository globalAccessPeriodTextRepository = new GlobalAccessPeriodTextRepository();
+		DatDatabase datDatabase = new DatDatabase();
 
 		while(!choice.equals("8"))
 		{
@@ -80,19 +81,20 @@ public class AdminApp {
 			studentRecord = studentCoursesTextRepository.readToList();
 			accessPeriodList = globalAccessPeriodTextRepository.readToList();
 			
+			
 			//write data to Dat file - can be commented out in final Version
-			DatDatabase.write("CourseRecords.dat", courseRecord);
-			DatDatabase.write("StudentInfo.dat", studentInfo);
-			DatDatabase.write("LoginsInfo.dat", loginInfo);
-			DatDatabase.write("StudentRecords.dat", studentRecord);
-			DatDatabase.write("GlobalAccessPeriod.dat", accessPeriodList);
+			datDatabase.write("CourseRecords.dat", courseRecord);
+			datDatabase.write("StudentInfo.dat", studentInfo);
+			datDatabase.write("LoginsInfo.dat", loginInfo);
+			datDatabase.write("StudentRecords.dat", studentRecord);
+			datDatabase.write("GlobalAccessPeriod.dat", accessPeriodList);
 			
 			//read again from Serial File
- 			courseRecord = (ArrayList)DatDatabase.read("CourseRecords.dat");
-			studentInfo = (ArrayList)DatDatabase.read("StudentInfo.dat");
-			loginInfo = (ArrayList)DatDatabase.read("LoginsInfo.dat");
-			studentRecord = (ArrayList)DatDatabase.read("StudentRecords.dat");
-			accessPeriodList = (ArrayList)DatDatabase.read("GlobalAccessPeriod.dat");
+ 			courseRecord = (ArrayList)datDatabase.read("CourseRecords.dat");
+			studentInfo = (ArrayList)datDatabase.read("StudentInfo.dat");
+			loginInfo = (ArrayList)datDatabase.read("LoginsInfo.dat");
+			studentRecord = (ArrayList)datDatabase.read("StudentRecords.dat");
+			accessPeriodList = (ArrayList)datDatabase.read("GlobalAccessPeriod.dat");
 						
  			
 			System.out.println("****ADMIN INTERFACE****");

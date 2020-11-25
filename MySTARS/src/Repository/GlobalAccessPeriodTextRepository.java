@@ -19,6 +19,9 @@ public class GlobalAccessPeriodTextRepository implements Repository {
 	private static final String SEPARATOR = "|";
 	private static final String FILENAME = "GlobalAccessPeriod.txt" ;
 	private static final String DATFILENAME = "GlobalAccessPeriod.dat" ;
+	
+	TextDatabase textDatabase = new TextDatabase();
+	DatDatabase datDatabase = new DatDatabase();
     	/**
 	 * Gets all time periods that students are allowed to access the STAR System.<p>
      	 * Each time period is stored as a AccessPeriod object.<p> 
@@ -31,7 +34,7 @@ public class GlobalAccessPeriodTextRepository implements Repository {
 	public ArrayList readToList() throws IOException {
 		
 		// read String from text file
-		ArrayList stringArray = (ArrayList)TextDatabase.read(FILENAME);
+		ArrayList stringArray = (ArrayList)textDatabase.read(FILENAME);
 		ArrayList alr = new ArrayList() ;// to store Professors data
 
         for (int i = 0 ; i < stringArray.size() ; i++) {
@@ -67,7 +70,7 @@ public class GlobalAccessPeriodTextRepository implements Repository {
 					st.append(accessPeriodObj.getEndAccessPeriod().trim());
 					alw.add(st.toString()) ;
 				}
-	        TextDatabase.write(FILENAME,alw);
-	        DatDatabase.write(DATFILENAME, al);
+	        textDatabase.write(FILENAME,alw);
+	        datDatabase.write(DATFILENAME, al);
 	}
 }

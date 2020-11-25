@@ -24,6 +24,9 @@ public class LoginTextRepository implements Repository{
 	private static final String FILENAME = "LoginsInfo.txt" ;
 	private static final String DATFILENAME = "LoginsInfo.dat" ;
 	
+	TextDatabase textDatabase = new TextDatabase();
+	DatDatabase datDatabase = new DatDatabase();
+	
 	/**
 	 * Reads in and checks username's login detail and return the result of the check. 
 	 * 
@@ -34,7 +37,7 @@ public class LoginTextRepository implements Repository{
 	 * @throws IOException If an input or output exception occurred
 	 */
 	public String readLoginDetail(String userUsername, String userPassword, String userType) throws IOException { //enter from LoginController
-		ArrayList stringArray = (ArrayList)TextDatabase.read(FILENAME); // read String from text file
+		ArrayList stringArray = (ArrayList)textDatabase.read(FILENAME); // read String from text file
 		ArrayList alr = new ArrayList() ;// to store Professors data
         for (int i = 0 ; i < stringArray.size() ; i++) {
 				String st = (String)stringArray.get(i);
@@ -61,7 +64,7 @@ public class LoginTextRepository implements Repository{
 	 */
 	public ArrayList readToList() throws IOException {
 		// read String from text file
-		ArrayList stringArray = (ArrayList)TextDatabase.read(FILENAME);
+		ArrayList stringArray = (ArrayList)textDatabase.read(FILENAME);
 		ArrayList alr = new ArrayList();
 
         for (int i = 0 ; i < stringArray.size() ; i++) {
@@ -101,7 +104,7 @@ public class LoginTextRepository implements Repository{
 					st.append(loginInfo.getKey().trim());
 					alw.add(st.toString()) ;
 				}
-				TextDatabase.write(FILENAME,alw);
-				DatDatabase.write(DATFILENAME, al);
+				textDatabase.write(FILENAME,alw);
+				datDatabase.write(DATFILENAME, al);
 		}
 }

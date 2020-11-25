@@ -32,6 +32,9 @@ public class StudentRecordTextRepository implements Repository{
 	private static final String FILENAME = "StudentRecords.txt" ;
 	private static final String DATFILENAME = "StudentRecords.dat" ;
 	
+	TextDatabase textDatabase = new TextDatabase();
+	DatDatabase datDatabase = new DatDatabase();
+	
     	/**
 	 * Gets the information of all courses taken by every student from the database.<p>
      * Each entry is stored as a StudentRecords object.<p> 
@@ -43,7 +46,7 @@ public class StudentRecordTextRepository implements Repository{
 	 */
 	public ArrayList readToList() throws IOException {
 		// read String from text file
-		ArrayList stringArray = (ArrayList)TextDatabase.read(FILENAME);
+		ArrayList stringArray = (ArrayList)textDatabase.read(FILENAME);
 		ArrayList alr = new ArrayList() ;// to store Professors data
 
         for (int i = 0 ; i < stringArray.size() ; i++) {
@@ -108,7 +111,7 @@ public void saveList(List al) throws IOException {
 				alw.add(st.toString()) ;
 				
 			}
-			TextDatabase.write(FILENAME,alw);
-			DatDatabase.write(DATFILENAME, al);
+			textDatabase.write(FILENAME,alw);
+			datDatabase.write(DATFILENAME, al);
 	}
 }

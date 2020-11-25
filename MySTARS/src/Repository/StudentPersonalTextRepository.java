@@ -22,6 +22,9 @@ public class StudentPersonalTextRepository implements Repository{
 	private static final String SEPARATOR = "|";
 	private static final  String FILENAME = "StudentsInfo.txt" ;
 	private static final  String DATFILENAME = "StudentsInfo.dat" ;
+	
+	TextDatabase textDatabase = new TextDatabase();
+	DatDatabase datDatabase = new DatDatabase();
 
     	/**
 	 * Gets the information of all students from the database.<p>
@@ -34,7 +37,7 @@ public class StudentPersonalTextRepository implements Repository{
 	 */
 	public ArrayList readToList() throws IOException {
 		// read String from text file
-		ArrayList stringArray = (ArrayList)TextDatabase.read(FILENAME);
+		ArrayList stringArray = (ArrayList)textDatabase.read(FILENAME);
 		ArrayList alr = new ArrayList() ;// to store Professors data
 
         for (int i = 0 ; i < stringArray.size() ; i++) {
@@ -90,8 +93,8 @@ public class StudentPersonalTextRepository implements Repository{
 					st.append(student.getEmail().trim());
 					alw.add(st.toString()) ;
 				}
-				TextDatabase.write(FILENAME,alw);
-				DatDatabase.write(DATFILENAME, al);
+				textDatabase.write(FILENAME,alw);
+				datDatabase.write(DATFILENAME, al);
 	}
 	
 }

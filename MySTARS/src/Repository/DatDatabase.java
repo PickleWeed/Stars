@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 //Note : When structure of the Object type (the class file) in the list changed
 //the Serialized file may fail.
-public class DatDatabase
+public class DatDatabase implements Database
 {
 	/**
 	 * reads all data from a serializable file
@@ -27,7 +27,7 @@ public class DatDatabase
 	 * @param filename name of the file to read from
 	 * @return all data in the file as an ArrayList 
 	 */
-	public static List read(String filename) {
+	public List read(String filename) {
 		List pDetails = null;
 		FileInputStream fis = null;
 		ObjectInputStream in = null;
@@ -53,7 +53,7 @@ public class DatDatabase
 	 * @param filename name of the file to write to
 	 * @param list data to be written to the file
 	 */
-	public static void write(String filename, List list) {
+	public void write(String filename, List list) {
 		FileOutputStream fos = null;
 		ObjectOutputStream out = null;
 		try {

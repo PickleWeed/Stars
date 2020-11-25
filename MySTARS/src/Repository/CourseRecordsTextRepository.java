@@ -39,6 +39,9 @@ public class CourseRecordsTextRepository implements Repository{
 	private static final String SEPARATOR = "|";
 	private static final String FILENAME = "CourseRecords.txt" ;
 	private static final String DATFILENAME = "CourseRecords.dat" ;
+	
+	TextDatabase textdatabase = new TextDatabase();
+	DatDatabase datDatabase = new DatDatabase();
     /**
      * gets data of all courses from the database. <p>
      * Information of each course is stored as a CourseRecord object. <p>
@@ -51,7 +54,7 @@ public class CourseRecordsTextRepository implements Repository{
 	public ArrayList readToList() throws IOException {
 		
 		// read String from text file
-		ArrayList stringArray = (ArrayList)TextDatabase.read(FILENAME);
+		ArrayList stringArray = (ArrayList)textdatabase.read(FILENAME);
 		ArrayList alr = new ArrayList() ;// to store Professors data
 
         for (int i = 0 ; i < stringArray.size() ; i++) {
@@ -126,8 +129,8 @@ public class CourseRecordsTextRepository implements Repository{
 					
 					alw.add(st.toString()) ;
 				}
-	        TextDatabase.write(FILENAME, alw);
-	        DatDatabase.write(DATFILENAME, al);
+	        textdatabase.write(FILENAME, alw);
+	        datDatabase.write(DATFILENAME, al);
 			
 		}
 }

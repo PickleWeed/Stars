@@ -62,6 +62,7 @@ public class StudentInterface {
 		StudentRecordTextRepository studentCoursesTextRepository = new StudentRecordTextRepository();
 		WaitListTextRepository waitListTextRepository = new WaitListTextRepository();
 		GlobalAccessPeriodTextRepository globalAccessPeriodTextRepository = new GlobalAccessPeriodTextRepository();
+		DatDatabase datDatabase = new DatDatabase();
 
 		while (!choice.equals("7")) {
 			courseRecordList = courseRecordsTextRepository.readToList(); 
@@ -71,18 +72,18 @@ public class StudentInterface {
 			accessPeriodList = globalAccessPeriodTextRepository.readToList();
 			
 			
-			DatDatabase.write("CourseRecords.dat", courseRecordList);
-			DatDatabase.write("StudentInfo.dat", studentInfo);
-			DatDatabase.write("WaitList.dat", waitList);
-			DatDatabase.write("StudentRecords.dat", studentsRecords);
-			DatDatabase.write("GlobalAccessPeriod.dat", accessPeriodList);
+			datDatabase.write("CourseRecords.dat", courseRecordList);
+			datDatabase.write("StudentInfo.dat", studentInfo);
+			datDatabase.write("WaitList.dat", waitList);
+			datDatabase.write("StudentRecords.dat", studentsRecords);
+			datDatabase.write("GlobalAccessPeriod.dat", accessPeriodList);
 			
 			//read again from Serial File
-			courseRecordList = (ArrayList)DatDatabase.read("CourseRecords.dat");
-			studentInfo = (ArrayList)DatDatabase.read("StudentInfo.dat");
-			waitList = (ArrayList)DatDatabase.read("waitList.dat");
-			studentsRecords = (ArrayList)DatDatabase.read("StudentRecords.dat");
-			accessPeriodList = (ArrayList)DatDatabase.read("GlobalAccessPeriod.dat");
+			courseRecordList = (ArrayList)datDatabase.read("CourseRecords.dat");
+			studentInfo = (ArrayList)datDatabase.read("StudentInfo.dat");
+			waitList = (ArrayList)datDatabase.read("waitList.dat");
+			studentsRecords = (ArrayList)datDatabase.read("StudentRecords.dat");
+			accessPeriodList = (ArrayList)datDatabase.read("GlobalAccessPeriod.dat");
 			
 			String accessPeriod = GetUserInfo.getStudentAccessPeriod(studentInfo, key);
 			boolean canAccess = true;
