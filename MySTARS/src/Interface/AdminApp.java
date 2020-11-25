@@ -12,10 +12,8 @@ import CourseRecords.GetCourseRecord;
 import StudentInfo.CheckStudentInfo;
 import StudentInfo.GetStudentInfo;
 import StudentInfo.UpdateStudentInfo;
-import StudentRecords.GetStudentListByCourseIndex;
-import StudentRecords.GetStudentListByIndexNumber;
+import StudentRecords.GetStudentRecord;
 import StudentRecords.UpdateStudentRecord;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -398,7 +396,7 @@ public class AdminApp {
 		System.out.printf("Enter Index Number to check list of Student:");
 		String indexNum = sc.next();
 		if (aList.contains(indexNum) == true)
-			GetStudentListByIndexNumber.printStudentList(studentRecord, studentInfo, indexNum);
+			GetStudentRecord.printStudentListByCourse(studentRecord, studentInfo, indexNum);
 		else
 			System.out.println("Error! No such Index Number.\n");
 	}
@@ -417,7 +415,7 @@ public class AdminApp {
 		System.out.printf("Enter Course Index to check list of Student:");
 		String courseIndex = sc.next().toUpperCase();
 		if(cList.contains(courseIndex) == true)
-			GetStudentListByCourseIndex.printStudentList(studentRecord, studentInfo, courseIndex);
+			GetStudentRecord.printStudentListByCourse(studentRecord, studentInfo, courseIndex);
 		else
 			System.out.println("Error! No such Course");
 	}

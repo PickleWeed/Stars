@@ -70,19 +70,19 @@ public class StudentRecords implements Serializable{
 	}
 
 	public String getQueue() {
-	return queue;
+		return queue;
 	}
 
 	public void setQueue(String queue) {
-	this.queue = queue;
+		this.queue = queue;
 	}
 
 	public String getAU() {
 		return AU;
 	}
 
-	public void setAU(String aU) {
-		AU = aU;
+	public void setAU(String AU) {
+		this.AU = AU;
 	}
 
 	public String getCourseType() {
@@ -97,16 +97,16 @@ public class StudentRecords implements Serializable{
 		return SU;
 	}
 
-	public void setSU(String sU) {
-		SU = sU;
+	public void setSU(String SU) {
+		this.SU = SU;
 	}
 
 	public String getGERType() {
 		return GERType;
 	}
 
-	public void setGERType(String gERType) {
-		GERType = gERType;
+	public void setGERType(String GERType) {
+		this.GERType = GERType;
 	}
 
 	public void setStatus(String status) {
