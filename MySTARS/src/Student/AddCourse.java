@@ -95,7 +95,7 @@ public class AddCourse{
 			String SU = courseRecords.getSU(), GERType = courseRecords.getGERType();
 			
 			// get student Information index
-			int studentInfoIndex = GetStudentInfo.getStudentIndex(studentInfo, key);
+			int studentInfoIndex = GetUserInfo.getStudentIndex(studentInfo, key);
 			if(studentInfoIndex != -1)
 			{
 				//get student Information

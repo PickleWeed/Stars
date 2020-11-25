@@ -84,7 +84,7 @@ public class StudentInterface {
 			studentsRecords = (ArrayList)DatDatabase.read("StudentRecords.dat");
 			accessPeriodList = (ArrayList)DatDatabase.read("GlobalAccessPeriod.dat");
 			
-			String accessPeriod = GetStudentInfo.getStudentAccessPeriod(studentInfo, key);
+			String accessPeriod = GetUserInfo.getStudentAccessPeriod(studentInfo, key);
 			boolean canAccess = true;
 			//canAccess = MyCalendar.checkAccessPeriod(accessPeriod);
 			if (canAccess == false)
